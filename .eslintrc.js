@@ -4,8 +4,10 @@ module.exports = {
     commonjs: true,
     es2021: true,
   },
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 'latest',
+    sourceType: 'module'
   },
   rules: {
     indent: [
