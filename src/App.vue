@@ -1,21 +1,18 @@
 <template>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-    crossorigin="anonymous"
-  >
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+        crossorigin="anonymous"
+    />
 
-  <nav>
-    <router-link to="/">
-      Home
-    </router-link> |
-    <router-link to="/about">
-      About
-    </router-link>
-  </nav>
+    <nav>
+        <router-link to="/"> Home </router-link> |
+        <router-link to="/about"> About </router-link>
+        <router-link to="/landing"> Landing </router-link>
+    </nav>
 
-  <router-view />
+    <router-view />
 </template>
 
 <style>
