@@ -198,4 +198,6 @@
 
 <script></script>
 
-<style></style>
+<style>
+@import '../assets/style/style.css';
+</style>
