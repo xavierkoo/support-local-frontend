@@ -1,6 +1,9 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LandingView from "../views/LandingView.vue";
+import ShoppingCart from "../views/ShoppingCart.vue";
+import Login from "../views/Login.vue";
+import Checkout from "../views/Checkout.vue";
 
 const routes = [
   {
@@ -21,6 +24,21 @@ const routes = [
     path: "/landing",
     name: "landing",
     component: LandingView,
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    component: ShoppingCart,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
+  },
+  {
+    path: "/checkout",
+    name: "checkout",
+    component: Checkout,
   },
 ];
 

@@ -18,6 +18,15 @@
         <router-link to="/landing">
             Landing
         </router-link>
+        <router-link to="/cart">
+            | ShoppingCart
+        </router-link>
+        <router-link to="/login">
+            | Login
+        </router-link>
+        <router-link to="/checkout">
+            | Checkout
+        </router-link>
     </nav>
 
     <router-view />
