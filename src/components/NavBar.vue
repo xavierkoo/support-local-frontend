@@ -10,6 +10,7 @@
                         <img
                             src="../assets/appLogo.svg"
                             alt=""
+                            class="brand-logo"
                         >
                     </div>
                     <div
@@ -67,4 +68,10 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style scoped>
+.brand-logo {
+  max-width: 160px;
+  height: auto;
+  float: left;
+}
+</style>
