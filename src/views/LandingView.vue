@@ -244,5 +244,5 @@
 <script></script>
 
 <style>
-@import '../assets/style/style.css';
+@import "../assets/style/style.css";
 </style>
