@@ -1,16 +1,22 @@
 {
-    "merchant" : {
-        "name": "Rays Gays",
-        "img": "./assets/hero.png",
-        "location": "81 Victoria Street",
-        "phoneNumber": 98764321,
-        "email": "raysgays@gmail.com",
-        "products": {
-            "shaver": 2,
-            "paper":5,
-            "iphone": 10,
-            "banana": 20
-        }
-
+  "merchant": {
+    "name": "Rays Gays",
+    "img": "./assets/hero.png",
+    "location": "81 Victoria Street",
+    "phoneNumber": 98764321,
+    "email": "raysgays@gmail.com",
+    "products": {
+      "shaver": 2,
+      "paper": 5,
+      "iphone": 10,
+      "banana": 20
     }
+  },
+
+  "reviews": {
+    "userImage": "./assets/hero.png",
+    "userName": "Rays Gays",
+    "rating": 5,
+    "orderDetails": "Order received on 16th Sept. Box big and would be better if smaller.. overall satisfied with purchase"
+  }
 }
