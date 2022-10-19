@@ -1,0 +1,16 @@
+{
+    "merchant" : {
+        "name": "Rays Gays",
+        "img": "./assets/hero.png",
+        "location": "81 Victoria Street",
+        "phoneNumber": 98764321,
+        "email": "raysgays@gmail.com",
+        "products": {
+            "shaver": 2,
+            "paper":5,
+            "iphone": 10,
+            "banana": 20
+        }
+
+    }
+}
