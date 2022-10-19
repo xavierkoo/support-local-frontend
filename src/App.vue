@@ -27,6 +27,9 @@
         <router-link to="/checkout">
             | Checkout
         </router-link>
+        <router-link to="/individual">
+            | Individual
+        </router-link>
     </nav>
 
     <router-view />
