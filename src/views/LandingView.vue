@@ -1,247 +1,144 @@
 <template>
-    <div class="Landing">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-            crossorigin="anonymous"
-        >
-        <div class="container-fluid">
-            <div class="d-none d-sm-block">
-                <div class="row my-5">
-                    <!--swap position at small-->
-                    <div class="col-2 px-5">
-                        Support Local
-                    </div>
-                    <div class="col-7">
-                        <input
-                            id="searchText"
-                            type="text"
+    <div
+        class="container-fluid"
+        style="background-color: grey"
+    >
+        <br>
+        <div class="row justify-content-center g-2">
+            <div class="col-xl-3 col-md-2 d-none d-md-block bg-primary">
+                <!-- Left Column -->
+                <!-- Display logo only from MD to Lg -->
+                <!-- Logo will align left, Caption will be visible at XL -->
+                <ul
+                    class="d-md-flex bg-light nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto align-items-md-center align-items-xl-start px-xl-4"
+                >
+                    <li class="nav-item">
+                        <a
+                            href="#"
+                            class="nav-link py-3 px-2"
+                            title=""
                         >
-                    </div>
-                    <div class="col-1">
-                        <button id="searchBtn">
-                            Search
-                        </button>
-                    </div>
-                    <div class="col-1">
-                        Profile
-                    </div>
-                    <div class="col-1">
-                        Shopping cart
-                    </div>
-                </div>
-            </div>
-
-            <div class="d-block d-sm-none">
-                <div class="row my-5 h-100">
-                    <!--appear only at small-->
-                    <div class="col-5" />
-                    <div class="col-2 my-auto">
-                        Support Local
-                    </div>
-                    <div class="col-2" />
-                    <div class="col-2">
-                        <div class="pos-f-t">
-                            <div
-                                id="navbarToggleExternalContent"
-                                class="collapse"
+                            <img
+                                src="../assets/navSidePlaceholder.png"
+                                alt=""
+                                style="width: 40px"
                             >
-                                <div class="bg-dark">
-                                    <h5 class="text-dark">
-                                        Collapsed content
-                                    </h5>
-                                    <span class="text-muted">Toggleable via the navbar brand.</span>
-                                </div>
-                            </div>
-                            <nav class="navbar navbar-dark bg-dark">
-                                <button
-                                    class="navbar-toggler"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#navbarToggleExternalContent"
-                                    aria-controls="navbarToggleExternalContent"
-                                    aria-expanded="false"
-                                    aria-label="Toggle navigation"
+                            <span class="d-none d-xl-inline">Placeholder Category</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="nav-link py-3 px-2"
+                            title=""
+                        >
+                            <img
+                                src="../assets/navSidePlaceholder.png"
+                                alt=""
+                                style="width: 40px"
+                            >
+                            <span class="d-none d-xl-inline">Placeholder Category</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-6 col-md-10 bg-dark">
+                <!-- Center Column -->
+                <img
+                    src="../assets/hero.png"
+                    class=""
+                    style="width: 100%"
+                >
+                <div class="mt-2">
+                    <span class="fw-bold mx-3 text-light">Trending now</span><span class="fw-bold mx-3 float-end text-light">See more></span>
+                </div>
+                <div class="row justify-content-center m-2">
+                    <!-- Split 2 Col to display 2 cards  -->
+                    <div class="col-md-6 bg-danger">
+                        <!-- Card Component -->
+                        <div
+                            class="card"
+                            style="background-color: #ebeceb"
+                        >
+                            <img
+                                class="card-img-top"
+                                src="../assets/hero.png"
+                            >
+
+                            <div class="card-body">
+                                <div
+                                    class="row mb-1"
+                                    style="border: none"
                                 >
-                                    <span class="navbar-toggler-icon" />
-                                </button>
-                            </nav>
-                        </div>
-                        <div class="col-1" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-3 col-lg-2 px-5 d-none d-sm-block">
-                    <div class="my-2">
-                        What would you like?
-                    </div>
-                    <div class="row">
-                        <div class="my-2 col-6 col-lg-12">
-                            <button
-                                id="food"
-                                class="w-100"
-                            >
-                                Food & Beverages
-                            </button>
-                        </div>
-                        <div class="my-2 col-6 col-lg-12">
-                            <button
-                                id="menApparel"
-                                class="w-100"
-                            >
-                                Men's Apparel
-                            </button>
-                        </div>
-                        <div class="my-2 col-6 col-lg-12">
-                            <button
-                                id="womenApparel"
-                                class="w-100"
-                            >
-                                Women's Apparel
-                            </button>
-                        </div>
-                        <div class="my-2 col-6 col-lg-12">
-                            <button
-                                id="electronics"
-                                class="w-100"
-                            >
-                                Electronics
-                            </button>
-                        </div>
-                        <div class="my-2 col-6 col-lg-12">
-                            <button
-                                id="hb"
-                                class="w-100"
-                            >
-                                Hobbies & Books
-                            </button>
-                        </div>
-                        <div class="my-2 col-6 col-lg-12">
-                            <button
-                                class="w-100"
-                                if="bp"
-                            >
-                                Beauty & Personal
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-8 col-lg-7 my-2">
-                    <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active"  data-bs-interval="2000">
-                                <img class="d-block w-100" src="..." alt="First slide">
-                                <div class="carousel-caption d-none d-md-block"> //caption if needed
-                                    <h5>...</h5>
-                                    <p>...</p>
+                                    <div class="col-3">
+                                        <img src="../assets/profilepng.png">
+                                    </div>
+                                    <div class="col-9">
+                                        <h6 class="mb-0">
+                                            Hello World
+                                        </h6>
+                                        <p class="">
+                                            1 hour ago
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="row"
+                                    style="border: none"
+                                >
+                                    <div class="col-8">
+                                        <div class="text-truncate">
+                                            Foldable bicycle wa blue whell
+                                        </div>
+                                        <div class="fst-italic">
+                                            Special offer: $21.99
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="fw-bold text-end mb-0">
+                                            S$180
+                                        </p>
+                                        <p class="text-end">
+                                            23 Sold
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img class="d-block w-100" src="..." alt="Second slide">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img class="d-block w-100" src="..." alt="Third slide">
-                            </div>
                         </div>
                     </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#countries" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#countries" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>  -->
-                    <div class="row my-2">
-                        <div class="col-2">
-                            <button id="trending">
-                                Trending now
-                            </button>
-                        </div>
-                        <div class="col-8" />
-                        <div
-                            class="col-2"
-                            style="padding-left: 5%"
-                        >
-                            <button id="seeMore">
-                                See more>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                        <div
-                            class="col-sm-6 d-flex align-content-center justify-content-center my-2"
-                        >
-                            shop1
-                        </div>
-                        <div
-                            class="col-sm-6 d-flex align-content-center justify-content-center my-2"
-                        >
-                            shop2
-                        </div>
-                        <div
-                            class="col-sm-6 d-flex align-content-center justify-content-center my-2"
-                        >
-                            shop3
-                        </div>
-                        <div
-                            class="col-sm-6 d-flex align-content-center justify-content-center my-2"
-                        >
-                            shop4
-                        </div>
-                        <div
-                            class="col-sm-6 d-flex align-content-center justify-content-center my-2"
-                        >
-                            shop5
-                        </div>
-                        <div
-                            class="col-sm-6 d-flex align-content-center justify-content-center my-2"
-                        >
-                            shop6
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col-5" />
-                        <button
-                            id="showMore"
-                            class="col-2"
-                        >
-                            Show More
-                        </button>
-                        <div class="col-5" />
-                    </div>
+                    <div class="col-md-6 bg-warning" />
                 </div>
-                <div class="col-3 d-none d-lg-block">
-                    <div
-                        class="col-lg-12 d-flex align-content-center justify-content-center my-2"
-                    >
-                        item 1
-                    </div>
-                    <div
-                        class="col-lg-12 d-flex align-content-center justify-content-center my-2"
-                    >
-                        item 2
-                    </div>
-                    <div
-                        class="col-lg-12 d-flex align-content-center justify-content-center my-2"
-                    >
-                        item 3
-                    </div>
-                    <div
-                        class="col-lg-12 d-flex align-content-center justify-content-center my-2"
-                    >
-                        item 4
-                    </div>
-                </div>
+            </div>
+            <div class="col-xl-3 d-none d-xl-block bg-primary">
+                <!-- Right Column -->
+                <!-- Displays Ads on XL and Abovee-->
+                <img
+                    class="rounded-5 mb-2"
+                    src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                    style="width: 100%"
+                >
+                <img
+                    class="rounded-5 mb-2"
+                    src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                    style="width: 100%"
+                >
+                <img
+                    class="rounded-5 mb-2"
+                    src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                    style="width: 100%"
+                >
             </div>
         </div>
     </div>
 </template>
 
-<script></script>
+<script>
+import ProductCard from "../components/ProductCard.vue";
+export default {
+  name: "ProductCard",
+  components: {},
+};
+</script>
 
 <style>
 @import "../assets/style/global.css";
