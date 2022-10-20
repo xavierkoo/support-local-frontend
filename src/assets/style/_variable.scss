@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
 $mainBtn: #d36959; //main button color
+$mainBtnDark: #6ae092;
 $btnWidth: 180px; //button width
 $btnHeight: 40px; //button height
 $btnBorderRadius: 16px; //main button radius
@@ -9,3 +10,5 @@ $bodySmall: 13px; //font-size for body
 $headingFontFamily: "Merriweather Sans"; //heading font
 $bodyFontFamily: "Nunito Sans"; //body font
 $boxRadius: 8px; //box/container and some button border radius
+$backgroundDark: #3d3d3d; //background for cards in darkmode
+$borderDark: 3px solid white;
