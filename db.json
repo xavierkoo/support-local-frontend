@@ -1,6 +1,7 @@
 {
   "merchant": {
     "name": "Rays Gays",
+    "merchantID": 1,
     "img": "../assets/hero.png",
     "location": "81 Victoria Street",
     "phoneNumber": 98764321,
@@ -70,6 +71,7 @@
   "reviews": [
     {
       "userID": 1,
+      "merchantID": 1,
       "userImage": "@/assets/appLogo.svg",
       "userName": "Rays Gays",
       "rating": 5,
@@ -77,6 +79,7 @@
     },
     {
       "userID": 2,
+      "merchantID": 1,
       "userImage": "@/assets/appLogo.svg",
       "userName": "Gays",
       "rating": 4,
@@ -84,6 +87,7 @@
     },
     {
       "userID": 3,
+      "merchantID": 1,
       "userImage": "@/assets/appLogo.svg",
       "userName": "Rays G",
       "rating": 2,
@@ -91,6 +95,7 @@
     },
     {
       "userID": 4,
+      "merchantID": 1,
       "userImage": "@/assets/appLogo.svg",
       "userName": "Ray",
       "rating": 5,
