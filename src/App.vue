@@ -37,6 +37,7 @@
 
 <script>
 import NavBar from "./components/NavBar.vue";
+import ProductCard from "./components/ProductCard.vue";
 export default {
   name: "App",
   components: {
