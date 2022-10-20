@@ -1,3 +1,87 @@
-button {
-  background: lightblue;
-}/*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
+@import url("https://fonts.googleapis.com/css?family=Nunito Sans");
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather Sans";
+}
+
+p,
+li,
+div {
+  font-family: "Nunito Sans";
+}
+
+.mainBtnDesign {
+  background: #d36959;
+  font-family: "Merriweather Sans";
+  color: white;
+  width: 180px;
+  height: 40px;
+  border: none;
+  border-radius: 16px;
+}
+
+.cancelBtnDesign {
+  background: white;
+  font-family: "Merriweather Sans";
+  border: solid 1px black;
+  color: black;
+  width: 180px;
+  height: 40px;
+  border-radius: 16px;
+}
+
+.anyQuestionBtnDesign {
+  border: none;
+  font-family: "Merriweather Sans";
+  background: white;
+  color: #d36959;
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.individualViewImg {
+  width: 588px;
+  height: 486px;
+}
+
+.individualViewProductCard {
+  width: 588px;
+  height: 486px;
+  border: 1px solid #c8c8c8;
+  border-radius: 8px;
+}
+.individualViewProductCard input {
+  background: #d9d9d9;
+  border: none;
+}
+
+.individualViewProdDesc {
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.individualViewQuesion {
+  background: #d36959;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.individualViewProductRating {
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.reviewsRating {
+  border-bottom: 3px solid grey;
+}/*# sourceMappingURL=global.css.map */
