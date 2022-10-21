@@ -15,29 +15,48 @@
                 <div class="container">
                     <div class="row">
                         <h3 class="display-6">
-                            <b>Login</b>
+                            <b>Sign Up</b>
                         </h3>
                     </div>
                     <div class="row">
                         <form>
                             <div class="form-group">
-                                <label for="userName">Username <span>*</span></label>
+                                <label for="Email">Email <span>*</span></label>
                                 <input
-                                    id="userName"
-                                    v-model="state.username"
-                                    type="text"
+                                    id="emailAdd"
+                                    v-model="state.email"
+                                    type="email"
                                     class="form-control"
                                 >
+                                <span v-if="v$.email.$error">
+                                    {{ v$.email.$errors[0].$message }}
+                                </span>
                             </div>
                             <br>
                             <div class="form-group">
                                 <label for="password">Password <span>*</span></label>
                                 <input
                                     id="password"
-                                    v-model="state.password"
+                                    v-model="state.password.password"
                                     type="password"
                                     class="form-control"
                                 >
+                                <span v-if="v$.password.$error">
+                                    {{ v$.password.$errors[0].$message }}
+                                </span>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="cfmpassword">Confirm Password <span>*</span></label>
+                                <input
+                                    id="cfmpassword"
+                                    v-model="state.password.confirm"
+                                    type="password"
+                                    class="form-control"
+                                >
+                                <span v-if="v$.password.$error">
+                                    {{ v$.password.$errors[0].$message }}
+                                </span>
                             </div>
                             <br>
                             <div class="container buttoncont">
@@ -46,7 +65,7 @@
                                     class="btn btn-danger"
                                     @click="submitForm()"
                                 >
-                                    Log In
+                                    Sign Up
                                 </button>
                             </div>
                         </form>
@@ -59,18 +78,40 @@
 </template>
 <script>
 import useValidate from "@vuelidate/core";
-import { required } from "@vuelidate/validators";
+import {
+  required,
+  email,
+  minLength,
+  sameAs,
+  helpers,
+} from "@vuelidate/validators";
 import { reactive, computed } from "vue";
 export default {
   setup() {
     const state = reactive({
-      username: "",
-      password: "",
+      email: "",
+      password: {
+        password: "",
+        confirm: "",
+      },
     });
+    // Setting custom error messages
+    // const emailErrMsg = (value) => value.includes("@");
+
     const rules = computed(() => {
       return {
-        username: { required },
-        password: { required },
+        email: {
+          required,
+          email,
+          //   emailErrMsg: helpers.withMessage(
+          //     "Invalid email address!",
+          //     emailErrMsg
+          //   ),
+        },
+        password: {
+          password: { required, minLength: minLength(6) },
+          confirm: { required, sameAs: sameAs(state.password.password) },
+        },
       };
     });
     const v$ = useValidate(rules, state);
