@@ -5,6 +5,7 @@ import ShoppingCart from "../views/ShoppingCart.vue";
 import Login from "../views/Login.vue";
 import Checkout from "../views/Checkout.vue";
 import IndividualView from "../views/IndividualView.vue";
+import SignUp from "../views/Signup.vue";
 
 const routes = [
   {
@@ -45,6 +46,11 @@ const routes = [
     path: "/individual",
     name: "individual",
     component: IndividualView,
+  },
+  {
+    path: "/signup",
+    name: "sign",
+    component: SignUp,
   },
 ];
 
