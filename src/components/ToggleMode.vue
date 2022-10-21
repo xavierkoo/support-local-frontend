@@ -18,7 +18,12 @@
 <script>
 export default {
   name: "MyToggle",
-  props: ["mode"],
+  props: {
+    mode: {
+      type: String,
+      default: "light",
+    },
+  },
   data() {
     return {
       modes: "light",
