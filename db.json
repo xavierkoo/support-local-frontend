@@ -68,6 +68,29 @@
     ]
   },
 
+  "userBase": [
+    {
+      "userID": 1,
+      "email": "ray@gmail.com",
+      "password": "777777"
+    },
+    {
+      "userID": 2,
+      "email": "ray2@gmail.com",
+      "password": "123456"
+    },
+    {
+      "userID": 3,
+      "email": "ray3@gmail.com",
+      "password": "666666"
+    },
+    {
+      "userID": 4,
+      "email": "ray4@gmail.com",
+      "password": "888888"
+    }
+  ],
+
   "reviews": [
     {
       "userID": 1,

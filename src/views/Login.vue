@@ -109,7 +109,8 @@ export default {
       //   alert("Form successfully submitted");
     },
     verify() {
-      let url = axios
+      let url = "";
+      axios
         .get()
         .then()
         .catch((err) => {
