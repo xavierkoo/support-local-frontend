@@ -54,7 +54,6 @@
         "name": "banana",
         "price": 5,
         "specialPrice": 3,
-        "lastonlinehour": 1,
         "img": "../assets/hero.png",
         "numberSold": 231,
         "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
