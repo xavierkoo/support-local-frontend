@@ -104,11 +104,6 @@
   }
 
   //LightProductCard CSS
-  .productCard {
-    background-color: #ebeceb;
-    border: none;
-    border-radius: $btnBorderRadius;
-  }
   //LightLandingView CSS
   .brand-logo {
     width: 160px;
@@ -134,9 +129,6 @@
   }
   .centerbox {
     border-radius: $btnBorderRadius;
-    img {
-      border-radius: $btnBorderRadius;
-    }
   }
   .rightbar {
     img {
@@ -319,7 +311,6 @@
   //DarkProductCard CSS
   .productCard {
     background: $backgroundDark;
-    border-radius: $btnBorderRadius;
     border: none;
   }
   //DarkLandingView CSS

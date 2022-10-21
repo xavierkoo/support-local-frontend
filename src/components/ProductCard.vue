@@ -1,9 +1,9 @@
 <template>
     <div>
         <!-- Card Component -->
-        <div class="card productCard">
+        <div class="card">
             <img
-                class="card-img-top"
+                class="rounded-0 card-img-top"
                 src="../assets/hero.png"
             >
 

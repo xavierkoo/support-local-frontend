@@ -39,12 +39,12 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-xl-6 col-md-10 bg-dark">
+                    <div class="col-xl-6 col-md-10 bg-dark centerbox">
                         <!-- Center Column -->
                         <img
                             src="../assets/hero.png"
                             class=""
-                            style="height: 30%"
+                            style="height: auto; width: 100%"
                         >
                         <div class="mt-2">
                             <span class="fw-bold mx-3 text-light">Trending now</span><span class="fw-bold mx-3 float-end text-light">See more></span>
@@ -66,17 +66,17 @@
                         <img
                             class="mb-2"
                             src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
-                            style="height: 40%"
+                            style="width: 100%; height: auto"
                         >
                         <img
                             class="mb-2"
                             src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
-                            style="height: 40%"
+                            style="width: 100%; height: auto"
                         >
                         <img
                             class="mb-2"
                             src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
-                            style="height: 40%"
+                            style="width: 100%; height: auto"
                         >
                     </div>
                 </div>

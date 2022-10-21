@@ -81,11 +81,6 @@
   height: 36px;
   color: white;
 }
-#light .productCard {
-  background-color: #ebeceb;
-  border: none;
-  border-radius: 16px;
-}
 #light .brand-logo {
   width: 160px;
   height: auto;
@@ -111,9 +106,6 @@
   margin: 0px 5px;
 }
 #light .centerbox {
-  border-radius: 16px;
-}
-#light .centerbox img {
   border-radius: 16px;
 }
 #light .rightbar img {
@@ -267,7 +259,6 @@
 }
 #dark .productCard {
   background: #3d3d3d;
-  border-radius: 16px;
   border: none;
 }
 #dark .sideBar {
