@@ -7,7 +7,9 @@
     >
     <div class="app">
         <NavBar />
+        <ToggleMode />
     </div>
+
     <nav>
         <router-link to="/">
             Home
@@ -38,10 +40,12 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import ProductCard from "./components/ProductCard.vue";
+import ToggleMode from "./components/ToggleMode.vue";
 export default {
   name: "App",
   components: {
     NavBar,
+    ToggleMode,
   },
 };
 </script>
