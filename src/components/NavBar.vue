@@ -16,8 +16,9 @@
                                 <input
                                     type="text"
                                     placeholder="Search for your product"
-                                    style="width: 70%"
-                                ><button class="mx-3">
+                                    style="width: 60%"
+                                >
+                                <button class="mx-3 bg-danger">
                                     Search
                                 </button>
                             </div>
@@ -28,8 +29,8 @@
                                 style="float: right; height: 45px"
                             >
                                 <svg
-                                    class="me-2"
-                                    style="width: 40px; height: 40px"
+                                    class="me-3"
+                                    style="width: 30%; height: 100%"
                                     viewBox="0 0 24 24"
                                 >
                                     <path
@@ -40,7 +41,7 @@
 
                                 <svg
                                     class="me-3"
-                                    style="width: 40px; height: 40px"
+                                    style="width: 30%; height: 100%"
                                     viewBox="0 0 24 24"
                                 >
                                     <path

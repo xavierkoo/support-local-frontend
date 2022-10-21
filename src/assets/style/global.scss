@@ -89,7 +89,6 @@
     max-width: 160px;
     height: auto;
     float: left;
-    background: none;
   }
   .searchBox {
     input {
@@ -99,7 +98,7 @@
     button {
       background: $brandMain;
       @include button;
-      height: 40px;
+      height: 36px;
       color: white;
     }
   }
@@ -112,7 +111,7 @@
   }
   //LightLandingView CSS
   .brand-logo {
-    max-width: 160px;
+    width: 160px;
     height: auto;
     float: left;
   }

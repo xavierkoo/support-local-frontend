@@ -68,7 +68,6 @@
   max-width: 160px;
   height: auto;
   float: left;
-  background: none;
 }
 #light .searchBox input {
   border-radius: 16px;
@@ -79,7 +78,7 @@
   border-radius: 16px;
   font-size: 16px;
   height: 40px;
-  height: 40px;
+  height: 36px;
   color: white;
 }
 #light .productCard {
@@ -88,7 +87,7 @@
   border-radius: 16px;
 }
 #light .brand-logo {
-  max-width: 160px;
+  width: 160px;
   height: auto;
   float: left;
 }
