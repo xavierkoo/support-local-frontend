@@ -66,6 +66,7 @@
 <script>
 import useValidate from "@vuelidate/core";
 import { required, email, minLength, helpers } from "@vuelidate/validators";
+import axios from "axios";
 import { reactive, computed } from "vue";
 export default {
   setup() {
@@ -106,6 +107,14 @@ export default {
         alert("form failed");
       }
       //   alert("Form successfully submitted");
+    },
+    verify() {
+      let url = axios
+        .get()
+        .then()
+        .catch((err) => {
+          console.log(err.message);
+        });
     },
   },
 };
