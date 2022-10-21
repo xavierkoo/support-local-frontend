@@ -5,36 +5,40 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
         crossorigin="anonymous"
     >
-    <div class="app">
-        <NavBar />
-        <ToggleMode />
+    <div :id="mode">
+        <div class="box">
+            <div class="app">
+                <NavBar />
+                <ToggleMode />
+            </div>
+
+            <nav>
+                <router-link to="/">
+                    Home
+                </router-link> |
+                <router-link to="/about">
+                    About
+                </router-link> |
+                <router-link to="/landing">
+                    Landing
+                </router-link>
+                <router-link to="/cart">
+                    | ShoppingCart
+                </router-link>
+                <router-link to="/login">
+                    | Login
+                </router-link>
+                <router-link to="/checkout">
+                    | Checkout
+                </router-link>
+                <router-link to="/individual">
+                    | Individual
+                </router-link>
+            </nav>
+
+            <router-view />
+        </div>
     </div>
-
-    <nav>
-        <router-link to="/">
-            Home
-        </router-link> |
-        <router-link to="/about">
-            About
-        </router-link> |
-        <router-link to="/landing">
-            Landing
-        </router-link>
-        <router-link to="/cart">
-            | ShoppingCart
-        </router-link>
-        <router-link to="/login">
-            | Login
-        </router-link>
-        <router-link to="/checkout">
-            | Checkout
-        </router-link>
-        <router-link to="/individual">
-            | Individual
-        </router-link>
-    </nav>
-
-    <router-view />
 </template>
 
 <script>
@@ -46,6 +50,16 @@ export default {
   components: {
     NavBar,
     ToggleMode,
+  },
+  data() {
+    return {
+      mode: localStorage.modes,
+    };
+  },
+  mounted() {
+    window.addEventListener("modes-localstorage-changed", (event) => {
+      this.mode = event.detail.storage;
+    });
   },
 };
 </script>

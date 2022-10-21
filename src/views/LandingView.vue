@@ -1,7 +1,7 @@
 <template>
     <div class="App">
         <div :id="mode">
-            <div class="container-fluid box">
+            <div class="container-fluid box bg-secondary">
                 <br>
                 <div class="row justify-content-center g-2">
                     <div class="col-xl-3 col-md-2 d-none d-md-block bg-primary">
@@ -9,9 +9,9 @@
                         <!-- Display logo only from MD to Lg -->
                         <!-- Logo will align left, Caption will be visible at XL -->
                         <ul
-                            class="d-md-flex bg-light nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto align-items-md-center align-items-xl-start px-xl-4"
+                            class="sideBar d-md-flex bg-light nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto align-items-md-center align-items-xl-start px-xl-4"
                         >
-                            <li class="nav-item">
+                            <li class="nav-item box">
                                 <a
                                     href="#"
                                     class="nav-link py-3 px-2"
@@ -20,12 +20,11 @@
                                     <img
                                         src="../assets/navSidePlaceholder.png"
                                         alt=""
-                                        style="width: 40px"
                                     >
                                     <span class="d-none d-xl-inline">Placeholder Category</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="box">
                                 <a
                                     href="#"
                                     class="nav-link py-3 px-2"
@@ -34,14 +33,13 @@
                                     <img
                                         src="../assets/navSidePlaceholder.png"
                                         alt=""
-                                        style="width: 40px"
                                     >
                                     <span class="d-none d-xl-inline">Placeholder Category</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-xl-6 col-md-10 bg-dark">
+                    <div class="col-xl-6 col-md-10 bg-dark centerbox">
                         <!-- Center Column -->
                         <img
                             src="../assets/hero.png"
@@ -62,21 +60,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 d-none d-xl-block bg-primary">
+                    <div class="col-xl-3 d-none d-xl-block rightbar">
                         <!-- Right Column -->
                         <!-- Displays Ads on XL and Abovee-->
                         <img
-                            class="rounded-5 mb-2"
+                            class="mb-2"
                             src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
                             style="width: 100%"
                         >
                         <img
-                            class="rounded-5 mb-2"
+                            class="mb-2"
                             src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
                             style="width: 100%"
                         >
                         <img
-                            class="rounded-5 mb-2"
+                            class="mb-2"
                             src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
                             style="width: 100%"
                         >

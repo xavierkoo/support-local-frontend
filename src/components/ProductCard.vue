@@ -1,20 +1,14 @@
 <template>
     <div>
         <!-- Card Component -->
-        <div
-            class="card"
-            style="background-color: #ebeceb"
-        >
+        <div class="card productCard">
             <img
                 class="card-img-top"
                 src="../assets/hero.png"
             >
 
             <div class="card-body">
-                <div
-                    class="row mb-1"
-                    style="border: none"
-                >
+                <div class="row mb-1">
                     <div class="col-3">
                         <img src="../assets/profilepng.png">
                     </div>
@@ -27,10 +21,7 @@
                         </p>
                     </div>
                 </div>
-                <div
-                    class="row"
-                    style="border: none"
-                >
+                <div class="row">
                     <div class="col-8">
                         <div class="text-truncate">
                             {{ desc }}
