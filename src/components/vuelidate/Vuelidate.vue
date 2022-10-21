@@ -21,16 +21,13 @@
                     <div class="row">
                         <form>
                             <div class="form-group">
-                                <label for="Email">Email <span>*</span></label>
+                                <label for="userName">Username <span>*</span></label>
                                 <input
-                                    id="emailAdd"
-                                    v-model="state.email"
-                                    type="email"
+                                    id="userName"
+                                    v-model="state.username"
+                                    type="text"
                                     class="form-control"
                                 >
-                                <span v-if="v$.email.$error">
-                                    {{ v$.email.$errors[0].$message }}
-                                </span>
                             </div>
                             <br>
                             <div class="form-group">
@@ -41,9 +38,6 @@
                                     type="password"
                                     class="form-control"
                                 >
-                                <span v-if="v$.password.$error">
-                                    {{ v$.password.$errors[0].$message }}
-                                </span>
                             </div>
                             <br>
                             <div class="container buttoncont">
@@ -65,28 +59,18 @@
 </template>
 <script>
 import useValidate from "@vuelidate/core";
-import { required, email, minLength, helpers } from "@vuelidate/validators";
+import { required } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
 export default {
   setup() {
     const state = reactive({
-      email: "",
+      username: "",
       password: "",
     });
-    // Setting custom error messages
-    // const emailErrMsg = (value) => value.includes("@");
-
     const rules = computed(() => {
       return {
-        email: {
-          required,
-          email,
-          //   emailErrMsg: helpers.withMessage(
-          //     "Invalid email address!",
-          //     emailErrMsg
-          //   ),
-        },
-        password: { required, minLength: minLength(6) },
+        username: { required },
+        password: { required },
       };
     });
     const v$ = useValidate(rules, state);
