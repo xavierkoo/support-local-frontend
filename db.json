@@ -6,64 +6,64 @@
     "location": "81 Victoria Street",
     "phoneNumber": 98764321,
     "email": "raysgays@gmail.com",
+    "lastonlinehour": 1,
     "products": [
       {
-        "shaver": {
-          "price": 25,
-          "lastonlinehour": 1,
-          "specialPrice": 20,
-          "img": "../assets/hero.png",
-          "numberSold": 25,
-          "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
-          "ProductSpec": [
-            "6.1-inch Super Retina XDR display2",
-            "Advanced camera system for better photos in any light",
-            "All-day battery life and up to 20 hours of video playback3",
-            "A15 Bionic chip with 5-core GPU for lightning-fast performance."
-          ]
-        },
-        "paper": {
-          "price": 2,
-          "img": "../assets/hero.png",
-          "lastonlinehour": 1,
-          "specialPrice": 1,
-          "numberSold": 100,
-          "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
-          "ProductSpec": [
-            "6.1-inch Super Retina XDR display2",
-            "Advanced camera system for better photos in any light",
-            "All-day battery life and up to 20 hours of video playback3",
-            "A15 Bionic chip with 5-core GPU for lightning-fast performance."
-          ]
-        },
-        "iphone": {
-          "price": 1400,
-          "img": "../assets/hero.png",
-          "lastonlinehour": 2,
-          "specialPrice": 1000,
-          "numberSold": 1001,
-          "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
-          "ProductSpec": [
-            "6.1-inch Super Retina XDR display2",
-            "Advanced camera system for better photos in any light",
-            "All-day battery life and up to 20 hours of video playback3",
-            "A15 Bionic chip with 5-core GPU for lightning-fast performance."
-          ]
-        },
-        "banana": {
-          "price": 5,
-          "specialPrice": 3,
-          "lastonlinehour": 1,
-          "img": "../assets/hero.png",
-          "numberSold": 231,
-          "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
-          "ProductSpec": [
-            "6.1-inch Super Retina XDR display2",
-            "Advanced camera system for better photos in any light",
-            "All-day battery life and up to 20 hours of video playback3",
-            "A15 Bionic chip with 5-core GPU for lightning-fast performance."
-          ]
-        }
+        "name": "shaver", 
+        "price": 25,
+        "specialPrice": 20,
+        "img": "../assets/hero.png",
+        "numberSold": 25,
+        "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
+        "ProductSpec": [
+          "6.1-inch Super Retina XDR display2",
+          "Advanced camera system for better photos in any light",
+          "All-day battery life and up to 20 hours of video playback3",
+          "A15 Bionic chip with 5-core GPU for lightning-fast performance."
+        ]
+      },
+      {
+        "name": "paper",
+        "price": 2,
+        "img": "../assets/hero.png",
+        "specialPrice": 1,
+        "numberSold": 100,
+        "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
+        "ProductSpec": [
+          "6.1-inch Super Retina XDR display2",
+          "Advanced camera system for better photos in any light",
+          "All-day battery life and up to 20 hours of video playback3",
+          "A15 Bionic chip with 5-core GPU for lightning-fast performance."
+        ]
+      },
+      {
+        "name": "iphone",
+        "price": 1400,
+        "img": "../assets/hero.png",
+        "specialPrice": 1000,
+        "numberSold": 1001,
+        "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
+        "ProductSpec": [
+          "6.1-inch Super Retina XDR display2",
+          "Advanced camera system for better photos in any light",
+          "All-day battery life and up to 20 hours of video playback3",
+          "A15 Bionic chip with 5-core GPU for lightning-fast performance."
+        ]
+      },
+      {
+        "name": "banana",
+        "price": 5,
+        "specialPrice": 3,
+        "lastonlinehour": 1,
+        "img": "../assets/hero.png",
+        "numberSold": 231,
+        "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
+        "ProductSpec": [
+          "6.1-inch Super Retina XDR display2",
+          "Advanced camera system for better photos in any light",
+          "All-day battery life and up to 20 hours of video playback3",
+          "A15 Bionic chip with 5-core GPU for lightning-fast performance."
+        ]
       }
     ]
   },
