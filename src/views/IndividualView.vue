@@ -1,11 +1,6 @@
 <template>
-    <ToggleMode
-        :class="mode"
-        :mode="mode"
-        @toggle="toggle"
-    />
     <div class="Individual" />
-    <div :id="mode == 'light' ? 'light' : 'dark'">
+    <div :id="mode">
         <div class="container-fluid box">
             <div class="row mx-3">
                 <div class="row mx-auto">
@@ -178,20 +173,23 @@
 
 <script>
 import axios from "axios"; //npm install axios
-import ToggleMode from "../components/ToggleMode.vue"; //import light and dark mode switch
 import ProductCard from "../components/ProductCard.vue"; //import product card
 export default {
   components: {
-    ToggleMode,
     ProductCard,
   },
   data() {
     return {
-      mode: "light",
+      mode: localStorage.modes,
       relatedProd: "", //v-for for related product card
       merchant: "", //merchant name
       review: "", //v-for for rating card
     };
+  },
+  mounted() {
+    window.addEventListener("modes-localstorage-changed", (event) => {
+      this.mode = event.detail.storage;
+    });
   },
   async beforeMount() {
     //onload event for vue to populate related product card and rating card
@@ -200,16 +198,6 @@ export default {
     this.relatedProd = prod.data.products[0];
     const rev = await axios.get("http://localhost:8081/reviews");
     this.review = rev.data;
-  },
-  methods: {
-    toggle() {
-      // toggle light and dark switch
-      if (this.mode === "light") {
-        this.mode = "dark";
-      } else {
-        this.mode = "light";
-      }
-    },
   },
 };
 </script>
