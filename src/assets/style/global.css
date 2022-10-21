@@ -10,24 +10,124 @@
 }
 #light p,
 #light li,
-#light div {
+#light div,
+#light button {
   font-family: "Nunito Sans";
+}
+#light .box {
+  background-color: #ffffff;
+}
+#light .toggle {
+  position: relative;
+  display: flex;
+  width: 60px;
+  height: 34px;
+  margin: 0px auto;
+}
+#light .toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#light .toggler {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d36959;
+  transition: 0.4s;
+}
+#light .toggler:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  bottom: 4px;
+  left: 4px;
+  background: #fff;
+  transition: 0.4s;
+}
+#light input:checked + .toggler {
+  background: #6ae092;
+}
+#light input:focus + toggler {
+  box-shadow: 0 0 2px #2196f3;
+}
+#light input:checked + .toggler:before {
+  transform: translateX(26px);
+}
+#light .toggler.round {
+  border-radius: 34px;
+}
+#light .toggler.round:before {
+  border-radius: 50%;
+}
+#light .brand-logo {
+  max-width: 160px;
+  height: auto;
+  float: left;
+}
+#light .searchBox input {
+  border-radius: 16px;
+  height: 48px;
+}
+#light .searchBox button {
+  background: #942c1f;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  height: 36px;
+  color: white;
+}
+#light .brand-logo {
+  width: 160px;
+  height: auto;
+  float: left;
+}
+#light .sideBar {
+  border-radius: 16px;
+}
+#light .sideBar .box {
+  height: 48px;
+  background: #ebeceb;
+  margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+#light .sideBar img {
+  width: 40px;
+  margin: 0px 5px;
+}
+#light .sideBar span {
+  margin: 0px 5px;
+}
+#light .centerbox {
+  border-radius: 16px;
+}
+#light .rightbar img {
+  border-radius: 16px;
 }
 #light .mainBtnDesign {
   background: #d36959;
   font-family: "Merriweather Sans";
   color: white;
-  height: 40px;
   border: none;
   border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
 }
 #light .cancelBtnDesign {
   background: white;
   font-family: "Merriweather Sans";
   border: solid 1px black;
   color: black;
-  height: 40px;
   border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
 }
 #light .anyQuestionBtnDesign {
   border: none;
@@ -36,6 +136,7 @@
   color: #d36959;
   width: 180px;
   height: 40px;
+  font-size: 16px;
   border-radius: 8px;
 }
 #light .individualViewImg {
@@ -83,29 +184,133 @@
 }
 #dark p,
 #dark li,
-#dark div {
+#dark div,
+#dark button {
   font-family: "Nunito Sans";
   color: white;
 }
 #dark .box {
   background-color: #121212;
 }
+#dark .toggle {
+  position: relative;
+  display: flex;
+  width: 60px;
+  height: 34px;
+  margin: 0px auto;
+}
+#dark .toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#dark .toggler {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d36959;
+  transition: 0.4s;
+}
+#dark .toggler:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  bottom: 4px;
+  left: 4px;
+  background: #fff;
+  transition: 0.4s;
+}
+#dark input:checked + .toggler {
+  background: #6ae092;
+}
+#dark input:focus + toggler {
+  box-shadow: 0 0 2px #2196f3;
+}
+#dark input:checked + .toggler:before {
+  transform: translateX(26px);
+}
+#dark .toggler.round {
+  border-radius: 34px;
+}
+#dark .toggler.round:before {
+  border-radius: 50%;
+}
+#dark .brand-logo {
+  max-width: 160px;
+  height: auto;
+  float: left;
+}
+#dark .searchBox input {
+  border-radius: 16px;
+  border: 1px solid white;
+  height: 48px;
+}
+#dark .searchBox button {
+  background: #942c1f;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  height: 36px;
+  color: white;
+}
+#dark .productCard {
+  background: #3d3d3d;
+  border: none;
+}
+#dark .sideBar {
+  background: #212121;
+  border-radius: 16px;
+  border: 1px solid white;
+}
+#dark .sideBar .box {
+  height: 48px;
+  background: #3d3d3d;
+  margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid white;
+  color: white;
+}
+#dark .sideBar img {
+  width: 40px;
+  margin: 0px 5px;
+}
+#dark .sideBar span {
+  margin: 0px 5px;
+}
+#dark .centerbox {
+  border-radius: 16px;
+}
+#dark .centerbox img {
+  border-radius: 16px;
+}
+#dark .rightbar img {
+  border-radius: 16px;
+}
 #dark .mainBtnDesign {
   background: #d36959;
   font-family: "Merriweather Sans";
   color: white;
-  height: 40px;
-  border: 3px solid white;
+  border: 1px solid white;
   border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
 }
 #dark .cancelBtnDesign {
   background: white;
   font-family: "Merriweather Sans";
   border: solid 1px black;
   color: black;
-  height: 40px;
   border: 3px solid #121212;
   border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
 }
 #dark .anyQuestionBtnDesign {
   border: none;
@@ -113,18 +318,19 @@
   background: white;
   color: #d36959;
   width: 180px;
-  height: 40px;
-  border-radius: 8px;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 60px;
 }
 #dark .individualViewImg {
   height: 486px;
-  border: 3px solid white;
+  border: 1px solid white;
   background: #3d3d3d;
 }
 #dark .individualViewProductCard {
   color: white;
   height: 486px;
-  border: 3px solid white;
+  border: 1px solid white;
   border-radius: 8px;
   background: #3d3d3d;
 }
@@ -135,7 +341,7 @@
 #dark .individualViewProdDesc {
   color: white;
   background: #3d3d3d;
-  border: 3px solid white;
+  border: 1px solid white;
   font-size: 16px;
   border-radius: 8px;
   text-align: left;
@@ -145,15 +351,15 @@
   background: #3d3d3d;
   border-radius: 8px;
   font-size: 16px;
-  border: 3px solid white;
+  border: 1px solid white;
 }
 #dark .individualViewProductRating {
   color: white;
   background: #3d3d3d;
-  border: 3px solid white;
+  border: 1px solid white;
   font-size: 16px;
   border-radius: 8px;
 }
 #dark .reviewsRating {
   border-bottom: 3px solid white;
-} /*# sourceMappingURL=global.css.map */
+}/*# sourceMappingURL=global.css.map */

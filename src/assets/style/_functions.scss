@@ -3,3 +3,9 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin button() {
+  border-radius: $btnBorderRadius;
+  font-size: 16px;
+  height: $btnHeight;
+}

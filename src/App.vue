@@ -5,43 +5,64 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
         crossorigin="anonymous"
     >
-    <div class="app">
-        <NavBar />
-    </div>
-    <nav>
-        <router-link to="/">
-            Home
-        </router-link> |
-        <router-link to="/about">
-            About
-        </router-link> |
-        <router-link to="/landing">
-            Landing
-        </router-link>
-        <router-link to="/cart">
-            | ShoppingCart
-        </router-link>
-        <router-link to="/login">
-            | Login
-        </router-link>
-        <router-link to="/checkout">
-            | Checkout
-        </router-link>
-        <router-link to="/individual">
-            | Individual
-        </router-link>
-    </nav>
+    <div :id="mode">
+        <div class="box">
+            <div class="app">
+                <NavBar />
+                <ToggleMode />
+            </div>
 
-    <router-view />
+            <nav>
+                <router-link to="/">
+                    Home
+                </router-link> |
+                <router-link to="/about">
+                    About
+                </router-link> |
+                <router-link to="/landing">
+                    Landing
+                </router-link>
+                <router-link to="/cart">
+                    | ShoppingCart
+                </router-link>
+                <router-link to="/login">
+                    | Login
+                </router-link>
+                <router-link to="/checkout">
+                    | Checkout
+                </router-link>
+                <router-link to="/individual">
+                    | Individual
+                </router-link>
+                <router-link to="/signup">
+                    | Sign Up
+                </router-link>
+            </nav>
+
+            <router-view />
+        </div>
+    </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
 import ProductCard from "./components/ProductCard.vue";
+import ToggleMode from "./components/ToggleMode.vue";
 export default {
   name: "App",
   components: {
     NavBar,
+    ToggleMode,
+  },
+  data() {
+    return {
+      mode: localStorage.modes,
+    };
+  },
+  mounted() {
+    window.addEventListener("modes-localstorage-changed", (event) => {
+      this.mode = event.detail.storage;
+    });
   },
 };
 </script>
