@@ -10,7 +10,10 @@
             <div class="card-body productCard">
                 <div class="row mb-1">
                     <div class="col-3">
-                        <img src="../assets/profilepng.png">
+                        <img
+                            src="../assets/profilepng.png"
+                            style="height: auto; width: 100%"
+                        >
                     </div>
                     <div class="col-9">
                         <h6 class="mb-0">
