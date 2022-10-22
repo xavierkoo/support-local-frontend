@@ -9,9 +9,12 @@
                         <!-- Display logo only from MD to Lg -->
                         <!-- Logo will align left, Caption will be visible at XL -->
                         <div class="row justify-content-center align-items-center">
-                            <SideNavPill categoryname="Food & Beverage" />
-                            <SideNavPill />
-                            <SideNavPill />
+                            <SideNavPill
+                                v-for="(cat, idx) in productCatArr"
+                                :key="idx"
+                                :category-name="cat"
+                                @clicked-item="changeCat"
+                            />
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-10 bg-success centerbox">
@@ -73,12 +76,31 @@ export default {
     return {
       mode: localStorage.modes,
       category: "all",
+      productList: "",
+      productCatArr: [
+        "Food & Beverages",
+        "Men's Apparel",
+        "Women's Apparel",
+        "Electronics",
+        "Hobbies & Books",
+        "Beauty & Personal",
+      ],
     };
+  },
+  computed: {
+    getAllProduct() {
+      return null;
+    },
   },
   mounted() {
     window.addEventListener("modes-localstorage-changed", (event) => {
       this.mode = event.detail.storage;
     });
+  },
+  methods: {
+    changeCat(value) {
+      this.category = value;
+    },
   },
 };
 </script>
