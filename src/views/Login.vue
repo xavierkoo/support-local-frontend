@@ -28,6 +28,7 @@
                                     type="email"
                                     class="form-control"
                                 >
+                                <span id="errmsgEmail" />
                                 <span v-if="v$.email.$error">
                                     {{ v$.email.$errors[0].$message }}
                                 </span>
@@ -40,7 +41,7 @@
                                     v-model="state.password"
                                     type="password"
                                     class="form-control"
-                                >
+                                ><span id="errmsgPassword" />
                                 <span v-if="v$.password.$error">
                                     {{ v$.password.$errors[0].$message }}
                                 </span>
@@ -98,24 +99,70 @@ export default {
     };
   },
   methods: {
-    submitForm() {
+    submitForm(v$) {
       // make api call to db to get
+      let url = "http://localhost:8081/userBase";
       this.v$.$validate();
-      if (!this.v$.$error) {
-        alert("form successful");
-      } else {
-        alert("form failed");
-      }
-      //   alert("Form successfully submitted");
-    },
-    verify() {
-      let url = "";
       axios
-        .get()
-        .then()
+        .get(url)
+        .then((resp) => {
+          if (!this.v$.$error) {
+            // alert("form successful");
+            console.log(resp.data);
+            // do form validation here
+            var inputPassword = document.getElementById("password").value;
+            var inputEmail = document.getElementById("emailAdd").value;
+            var data = resp.data;
+            var dbEmail = data[0].email;
+            console.log(dbEmail);
+            // check if email exist in db
+            var checkEmail = (data) => data.email === inputEmail;
+            var isValidEmail = data.some(checkEmail);
+            // check if password exist in db
+            var checkPassword = (data) => data.password === inputPassword;
+            var isValidPassword = data.some(checkPassword);
+
+            // check both conditions met
+            if (isValidEmail && isValidPassword) {
+              this.$router.push("landing");
+            } else {
+              // clear input value w/o refreshing page
+              document.querySelector("#emailAdd").value = "";
+              document.querySelector("#password").value = "";
+
+              // display err msg
+              document.getElementById(
+                "errmsgEmail"
+              ).innerHTML = `<span class='color:red'>Incorrect Email</span>`;
+              document.getElementById(
+                "errmsgPassword"
+              ).innerHTML = `<span class='color:red'>Incorrect Password</span>`;
+            }
+          } else {
+            // alert("form failed");
+            console.log("form failed");
+          }
+        })
         .catch((err) => {
           console.log(err.message);
         });
+
+      // this.v$.$validate();
+      // function verifyInputs(data, v$) {
+      //   console.log(data);
+      //   if (!this.v$.$error) {
+      //     alert("form successful");
+      //   } else {
+      //     alert("form failed");
+      //   }
+      // }
+      //   this.v$.$validate();
+      //   if (!this.v$.$error) {
+      //     // alert("form successful");
+      //   } else {
+      //     // alert("form failed");
+      //   }
+      //   //   alert("Form successfully submitted");
     },
   },
 };
