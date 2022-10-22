@@ -31,12 +31,41 @@
                             <!-- Split 2 Col to display 2 cards  -->
                             <div class="col-md-6 bg-danger">
                                 <!-- Card Component -->
-                                <ProductCard />
+                                <template
+                                    v-for="(obj, idx) in productList"
+                                    :key="idx"
+                                >
+                                    <ProductCard
+                                        v-if="idx % 2 == 1"
+                                        :merchant-name="obj.merchant"
+                                        :desc="obj.name"
+                                        :offer-price="obj.specialPrice"
+                                        :price="obj.price"
+                                        :num-sold="obj.numberSold"
+                                        class="mb-3"
+                                    />
+                                </template>
                             </div>
                             <div class="col-md-6 bg-warning">
-                                <ProductCard />
+                                <template
+                                    v-for="(obj, idx) in productList"
+                                    :key="idx"
+                                >
+                                    <ProductCard
+                                        v-if="idx % 2 == 0"
+                                        :merchant-name="obj.merchant"
+                                        :desc="obj.name"
+                                        :offer-price="obj.specialPrice"
+                                        :price="obj.price"
+                                        :num-sold="obj.numberSold"
+                                        class="mb-3"
+                                    />
+                                </template>
                             </div>
                         </div>
+                        <button @click="getAllProduct">
+                            Click me
+                        </button>
                     </div>
                     <div class="col-xl-3 d-none d-xl-block rightbar bg-warning">
                         <!-- Right Column -->
@@ -66,6 +95,8 @@
 <script>
 import ProductCard from "../components/ProductCard.vue";
 import SideNavPill from "../components/SideNavPill.vue";
+import axios from "axios";
+
 export default {
   name: "App",
   components: {
@@ -87,19 +118,26 @@ export default {
       ],
     };
   },
-  computed: {
-    getAllProduct() {
-      return null;
-    },
-  },
+  computed: {},
   mounted() {
     window.addEventListener("modes-localstorage-changed", (event) => {
       this.mode = event.detail.storage;
     });
   },
+  async beforeMount() {
+    const res = await axios.get("http://localhost:8081/products");
+    this.productList = res.data;
+  },
   methods: {
     changeCat(value) {
       this.category = value;
+    },
+    getAllProduct() {
+      let url = "http://localhost:8081/products";
+      axios.get(url).then((res) => {
+        console.log(res.data);
+        this.productList = res.data;
+      });
     },
   },
 };

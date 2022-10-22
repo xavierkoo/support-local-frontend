@@ -46,8 +46,9 @@
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import ProductCard from "./components/ProductCard.vue";
 import ToggleMode from "./components/ToggleMode.vue";
+import axios from "axios";
+
 export default {
   name: "App",
   components: {
