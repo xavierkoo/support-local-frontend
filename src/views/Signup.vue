@@ -78,6 +78,7 @@
 </template>
 <script>
 import useValidate from "@vuelidate/core";
+import axios from "axios";
 import {
   required,
   email,
@@ -123,13 +124,38 @@ export default {
   },
   methods: {
     submitForm() {
-      // make api call to db to get
+      // trying to add data into userBase db
+      let url = "http://localhost:8081/userBase";
       this.v$.$validate();
-      if (!this.v$.$error) {
-        alert("form successful");
-      } else {
-        alert("form failed");
-      }
+      axios
+        .get(url)
+        .then((resp) => {
+          if (!this.v$.$error) {
+            // alert("form successful");
+            console.log(resp.data);
+            // do form validation here
+            var inputPassword = document.getElementById("password").value;
+            var inputEmail = document.getElementById("emailAdd").value;
+
+            // somehow need to append data into userBase db here ------
+
+            // route to landing page
+            this.$router.push("landing");
+          } else {
+            // did not meet input requirement
+            // alert("form failed");
+            console.log("form failed");
+          }
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+      // this.v$.$validate();
+      // if (!this.v$.$error) {
+      //   alert("form successful");
+      // } else {
+      //   alert("form failed");
+      // }
       //   alert("Form successfully submitted");
     },
   },

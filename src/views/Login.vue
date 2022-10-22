@@ -139,6 +139,7 @@ export default {
               ).innerHTML = `<span class='color:red'>Incorrect Password</span>`;
             }
           } else {
+            // did not meet input requirement
             // alert("form failed");
             console.log("form failed");
           }
