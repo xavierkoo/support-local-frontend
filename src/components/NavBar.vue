@@ -1,5 +1,5 @@
 <template>
-    <header :class="{ 'scrolled-nav': scrollPosition }">
+    <header>
         <nav>
             <div :id="mode">
                 <div class="container-fluid">
