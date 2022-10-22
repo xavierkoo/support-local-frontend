@@ -11,7 +11,7 @@
                 style="width: 40px"
                 class="me-md-2"
             >
-            <span class="d-none d-xl-inline">{{ categoryName }}</span></a>
+            <span class="d-none d-xl-inline pill">{{ categoryName }}</span></a>
     </div>
 </template>
 
@@ -32,4 +32,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "../assets/style/global.css";
+</style>

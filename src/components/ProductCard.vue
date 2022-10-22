@@ -7,7 +7,7 @@
                 src="../assets/hero.png"
             >
 
-            <div class="card-body">
+            <div class="card-body productCard">
                 <div class="row mb-1">
                     <div class="col-3">
                         <img src="../assets/profilepng.png">
