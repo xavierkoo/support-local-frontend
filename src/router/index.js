@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Checkout from "../views/Checkout.vue";
 import IndividualView from "../views/IndividualView.vue";
 import SignUp from "../views/Signup.vue";
+import orderLog from "../views/OrderLogs.vue";
 
 const routes = [
   {
@@ -51,6 +52,11 @@ const routes = [
     path: "/signup",
     name: "sign",
     component: SignUp,
+  },
+  {
+    path: "/orderLog",
+    name: "orderLog",
+    component: orderLog,
   },
 ];
 

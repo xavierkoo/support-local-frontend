@@ -5,6 +5,7 @@
         <div class="row mx-4">
             <div class="col-md-1 cb1">
                 <input
+                    v-if="showCheckBox"
                     id="cb"
                     type="checkbox"
                 >
@@ -15,7 +16,10 @@
         </div>
         <div class="row bg-light py-5 mx-4">
             <div class="col-md-1 cb1">
-                <input type="checkbox">
+                <input
+                    v-if="showCheckBox"
+                    type="checkbox"
+                >
             </div>
             <div class="col-md-1">
                 <img
@@ -31,9 +35,13 @@
             </div>
             <div class="col-md-2">
                 <input
+                    v-if="showQtyInput"
                     type="number"
                     value="1"
                 >
+                <span>
+                    {{ quantity }}
+                </span>
             </div>
             <div class="col-md-2">
                 {{ price }}
@@ -80,6 +88,22 @@ export default {
     bike: {
       type: String,
       default: "../assets/bike.png",
+    },
+    showCheckBox: {
+      type: Boolean,
+      default: true,
+    },
+    showQtyInput: {
+      type: Boolean,
+      default: true,
+    },
+    datePurchased: {
+      type: String,
+      default: "20/1/2022",
+    },
+    showDate: {
+      type: Boolean,
+      default: true,
     },
   },
 };

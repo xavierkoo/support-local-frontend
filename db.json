@@ -77,9 +77,33 @@
       "email": "ray@gmail.com",
       "password": "777777",
       "shoppingCart": [
-        ["123456", "bicycle", "2", "180", "nextShop", "../assets/bike.png"],
-        ["122222", "coffee", "1", "18", "sgLocal", "../assets/bike.png"],
-        ["166666", "bicycle", "2", "10", "shoppe", "../assets/bike.png"]
+        [
+          "123456",
+          "bicycle",
+          "2",
+          "180",
+          "nextShop",
+          "../assets/bike.png",
+          "20/1/2022"
+        ],
+        [
+          "122222",
+          "coffee",
+          "1",
+          "18",
+          "sgLocal",
+          "../assets/bike.png",
+          "20/1/2022"
+        ],
+        [
+          "166666",
+          "bicycle",
+          "2",
+          "10",
+          "shoppe",
+          "../assets/bike.png",
+          "20/1/2022"
+        ]
       ]
     },
     {
@@ -87,9 +111,33 @@
       "email": "ray2@gmail.com",
       "password": "123456",
       "shoppingCart": [
-        ["123456", "bicycle", "2", "180", "nextShop", "../assets/bike.png"],
-        ["122222", "coffee", "1", "18", "sgLocal", "../assets/bike.png"],
-        ["166666", "bicycle", "2", "10", "shoppe", "../assets/bike.png"]
+        [
+          "123456",
+          "bicycle",
+          "2",
+          "180",
+          "nextShop",
+          "../assets/bike.png",
+          "20/1/2022"
+        ],
+        [
+          "122222",
+          "coffee",
+          "1",
+          "18",
+          "sgLocal",
+          "../assets/bike.png",
+          "20/1/2022"
+        ],
+        [
+          "166666",
+          "bicycle",
+          "2",
+          "10",
+          "shoppe",
+          "../assets/bike.png",
+          "20/1/2022"
+        ]
       ]
     },
     {
@@ -97,9 +145,33 @@
       "email": "ray3@gmail.com",
       "password": "666666",
       "shoppingCart": [
-        ["123456", "bicycle", "2", "180", "nextShop", "../assets/bike.png"],
-        ["122222", "coffee", "1", "18", "sgLocal", "../assets/bike.png"],
-        ["166666", "bicycle", "2", "10", "shoppe", "../assets/bike.png"]
+        [
+          "123456",
+          "bicycle",
+          "2",
+          "180",
+          "nextShop",
+          "../assets/bike.png",
+          "20/1/2022"
+        ],
+        [
+          "122222",
+          "coffee",
+          "1",
+          "18",
+          "sgLocal",
+          "../assets/bike.png",
+          "20/1/2022"
+        ],
+        [
+          "166666",
+          "bicycle",
+          "2",
+          "10",
+          "shoppe",
+          "../assets/bike.png",
+          "20/1/2022"
+        ]
       ]
     },
     {
@@ -107,9 +179,33 @@
       "email": "ray4@gmail.com",
       "password": "888888",
       "shoppingCart": [
-        ["123456", "bicycle", "2", "180", "nextShop", "../assets/bike.png"],
-        ["122222", "coffee", "1", "18", "sgLocal", "../assets/bike.png"],
-        ["166666", "bicycle", "2", "10", "shoppe", "../assets/bike.png"]
+        [
+          "123456",
+          "bicycle",
+          "2",
+          "180",
+          "nextShop",
+          "../assets/bike.png",
+          "20/1/2022"
+        ],
+        [
+          "122222",
+          "coffee",
+          "1",
+          "18",
+          "sgLocal",
+          "../assets/bike.png",
+          "20/1/2022"
+        ],
+        [
+          "166666",
+          "bicycle",
+          "2",
+          "10",
+          "shoppe",
+          "../assets/bike.png",
+          "20/1/2022"
+        ]
       ]
     }
   ],

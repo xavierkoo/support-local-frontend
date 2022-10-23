@@ -3,7 +3,10 @@
         <div class="container p-0">
             <div class="row bg-danger row1 mx-4">
                 <div class="col-md-1 cb1">
-                    <input type="checkbox">
+                    <input
+                        v-if="showCheckBox"
+                        type="checkbox"
+                    >
                 </div>
                 <div class="col-md-3">
                     <b>Product</b>
@@ -29,25 +32,13 @@
                     :price="obj[3]"
                     :name="obj[1]"
                     :bike="obj[5]"
+                    :show-check-box="showCheckBox"
+                    :prod-id="obj[0]"
+                    :date-purchased="datePurchased"
+                    :show-qty-input="showQtyInput"
+                    :show-date="showDate"
+                    :quantity="obj[2]"
                 />
-            </div>
-            <div class="row totalrow mx-4">
-                <div class="col-md-6" />
-                <div class="col-md-2 red">
-                    <b>Total Price</b>
-                </div>
-                <div class="col-md-2 red">
-                    <b>${{ total }}</b>
-                </div>
-                <div class="col-md-2">
-                    <button
-                        type="button"
-                        class="btn btn-danger p-1"
-                        @click="toCheckOut()"
-                    >
-                        {{ order }}
-                    </button>
-                </div>
             </div>
         </div>
     </div>
@@ -63,16 +54,20 @@ export default {
   data() {
     return {
       mode: localStorage.modes,
+      showCheckBox: false,
+      showQtyInput: false,
+      showDate: true,
       name: "",
       price: "",
-      quantity: "",
-      action: "Delete",
-      order: "Order Now",
+      quantity: "1",
+      action: "Review",
       total: 0,
       merchant: "",
       objects: "",
       bike: "",
       shoppingCart: "",
+      prodId: "",
+      datePurchased: "",
     };
   },
   mounted() {
@@ -89,7 +84,6 @@ export default {
     for (var li of this.shoppingCart) {
       this.total += Number(li[3]);
     }
-    console.log("hi");
   },
   methods: {
     toCheckOut() {

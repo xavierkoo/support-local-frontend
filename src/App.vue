@@ -37,6 +37,9 @@
                 <router-link to="/signup">
                     | Sign Up
                 </router-link>
+                <router-link to="/orderLog">
+                    | Order Log
+                </router-link>
             </nav>
 
             <router-view />
