@@ -16,19 +16,24 @@
                             <div class="row">
                                 <div class="col-1" />
                                 <h4 class="col text-start mt-2 mb-4">
-                                    Name of Item
+                                    {{ product.name }}
                                 </h4>
                             </div>
                             <div class="row">
                                 <div class="col-1" />
                                 <h6 class="col text-start mb-4">
-                                    Rating
+                                    {{ product.rating }}
+                                    <span
+                                        v-for="i of rating"
+                                        :key="i"
+                                    >{{ starsEmoji }}</span> / 5
+                                    Ratings
                                 </h6>
                             </div>
                             <div class="row">
                                 <div class="col-1" />
                                 <h2 class="col text-start mb-4">
-                                    S$180
+                                    S${{ product.price }}
                                 </h2>
                             </div>
                             <div class="row">
@@ -39,6 +44,7 @@
                                 <div class="col-1" />
                                 <input
                                     id="qty"
+                                    v-model="quantity"
                                     class="col-4"
                                     type="text"
                                 >
@@ -59,13 +65,22 @@
                             </div>
                             <div class="row row-cols-3 row-cols-md-6">
                                 <div class="col" />
-                                <button class="col cancelBtnDesign">
-                                    Cancel
+                                <button
+                                    type="button"
+                                    class="col cancelBtnDesign btn btn-light button"
+                                    @click="viewCart()"
+                                >
+                                    View Cart
                                 </button>
                                 <div class="col" />
                                 <div class="col" />
-                                <button class="col mainBtnDesign">
-                                    Purchase
+                                <button
+                                    id="addToCart"
+                                    type="button"
+                                    class="col mainBtnDesign btn btn-danger button"
+                                    @click="addToCart(product)"
+                                >
+                                    Add to Cart
                                 </button>
                                 <div class="col" />
                             </div>
@@ -184,6 +199,12 @@ export default {
       relatedProd: "", //v-for for related product card
       merchant: "", //merchant name
       review: "", //v-for for rating card
+      quantity: 1,
+      //////////// edited:Cydnie
+      product: "",
+      cart: [],
+      starsEmoji: "⭐️",
+      rating: 0,
     };
   },
   mounted() {
@@ -198,10 +219,24 @@ export default {
     this.relatedProd = prod.data.products[0];
     const rev = await axios.get("http://localhost:8081/reviews");
     this.review = rev.data;
+    //////////// edited: Cydnie
+    this.product = prod.data.products[0];
+    this.rating = this.product.rating;
+  },
+  methods: {
+    addToCart(product) {
+      this.cart.push(product);
+    },
+    viewCart() {
+      this.$router.push("cart");
+    },
   },
 };
 </script>
 
 <style>
 @import "../assets/style/global.css";
+.button {
+  width: 200px;
+}
 </style>

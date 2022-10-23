@@ -1,89 +1,102 @@
 <template>
-    <div class="container">
-        <div class="row bg-danger row1">
-            <div class="col-md-1 cb1">
-                <input
-                    type="checkbox"
-                    aria-label="Checkbox for following text input"
-                >
+    <div :id="mode">
+        <div class="container p-0">
+            <div class="row bg-danger row1 mx-4">
+                <div class="col-md-1 cb1">
+                    <input type="checkbox">
+                </div>
+                <div class="col-md-3">
+                    <b>Product</b>
+                </div>
+                <div class="col-md-2">
+                    <b>Unit Price</b>
+                </div>
+                <div class="col-md-2">
+                    <b>Quantity</b>
+                </div>
+                <div class="col-md-2">
+                    <b>Total Price</b>
+                </div>
+                <div class="col-md-2">
+                    <b>Action</b>
+                </div>
             </div>
-            <div class="col-md-3">
-                <b>Product</b>
+            <div>
+                <CartProducts
+                    v-for="(obj, ind) in shoppingCart"
+                    :key="ind"
+                    :merchant="obj[4]"
+                    :price="obj[3]"
+                    :name="obj[1]"
+                    :bike="obj[5]"
+                />
             </div>
-            <div class="col-md-2">
-                <b>Unit Price</b>
-            </div>
-            <div class="col-md-2">
-                <b>Quantity</b>
-            </div>
-            <div class="col-md-2">
-                <b>Total Price</b>
-            </div>
-            <div class="col-md-2">
-                <b>Action</b>
-            </div>
-        </div>
-        <div class="row py-4">
-            <div class="col-md-1 cb1">
-                <input
-                    type="checkbox"
-                    aria-label="Checkbox for following text input"
-                >
-            </div>
-            <div class="col-md-11">
-                <b>nextdealshop</b>
-            </div>
-        </div>
-        <div class="row bg-light py-5">
-            <div class="col-md-1 cb1">
-                <input
-                    type="checkbox"
-                    aria-label="Checkbox for following text input"
-                >
-            </div>
-            <div class="col-md-3">
-                <img src="#">
-                <b>Foldable Bicycle</b>
-            </div>
-            <div class="col-md-2">
-                $4
-            </div>
-            <div class="col-md-2">
-                <input
-                    id="qty"
-                    type="number"
-                    min="0"
-                    max="10"
-                    value="1"
-                >
-            </div>
-            <div class="col-md-2">
-                $180
-            </div>
-            <div class="col-md-2">
-                Delete
-            </div>
-        </div>
-        <div class="row totalrow">
-            <div class="col-md-6" />
-            <div class="col-md-2 red">
-                <b>Total Price:</b>
-            </div>
-            <div class="col-md-2 red">
-                <b>$180</b>
-            </div>
-            <div class="col-md-2">
-                <button
-                    type="button"
-                    class="btn btn-danger"
-                >
-                    <b>Check Out</b>
-                </button>
+            <div class="row totalrow mx-4">
+                <div class="col-md-6" />
+                <div class="col-md-2 red">
+                    <b>Total Price</b>
+                </div>
+                <div class="col-md-2 red">
+                    <b>${{ total }}</b>
+                </div>
+                <div class="col-md-2">
+                    <button
+                        type="button"
+                        class="btn btn-danger p-1"
+                        @click="toCheckOut()"
+                    >
+                        {{ order }}
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
+<script>
+import axios from "axios"; //npm install axios
+import CartProducts from "../components/cart.vue";
+export default {
+  components: {
+    CartProducts,
+  },
+  data() {
+    return {
+      mode: localStorage.modes,
+      name: "",
+      price: "",
+      quantity: "",
+      action: "Delete",
+      order: "Order Now",
+      total: 0,
+      merchant: "",
+      objects: "",
+      bike: "",
+      shoppingCart: "",
+    };
+  },
+  mounted() {
+    window.addEventListener("modes-localstorage-changed", (event) => {
+      this.mode = event.detail.storage;
+    });
+  },
+  async beforeMount() {
+    //onload event for vue to populate products in cart
+    const user = await axios.get("http://localhost:8081/user");
+    this.objects = user.data;
+    this.shoppingCart = this.objects[0]["shoppingCart"];
+    // calc total
+    for (var li of this.shoppingCart) {
+      this.total += Number(li[3]);
+    }
+  },
+  methods: {
+    toCheckOut() {
+      this.$router.push("checkout");
+    },
+  },
+};
+</script>
 <style>
 .container {
   text-align: left;
@@ -102,5 +115,8 @@
 }
 .red {
   color: rgb(160, 39, 39);
+}
+input[type="number"] {
+  width: 50px;
 }
 </style>

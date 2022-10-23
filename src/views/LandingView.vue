@@ -4,42 +4,17 @@
             <div class="container-fluid box bg-secondary">
                 <br>
                 <div class="row justify-content-center g-2">
-                    <div class="col-xl-3 col-md-2 d-none d-md-block bg-primary">
+                    <div class="col-xl-3 col-md-2 d-none d-md-block bg-info">
                         <!-- Left Column-->
                         <!-- Display logo only from MD to Lg -->
                         <!-- Logo will align left, Caption will be visible at XL -->
-                        <ul
-                            class="sideBar d-md-flex bg-light nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto align-items-md-center align-items-xl-start px-xl-4"
-                        >
-                            <li class="nav-item box">
-                                <a
-                                    href="#"
-                                    class="nav-link py-3 px-2"
-                                    title=""
-                                >
-                                    <img
-                                        src="../assets/navSidePlaceholder.png"
-                                        alt=""
-                                    >
-                                    <span class="d-none d-xl-inline">Placeholder Category</span>
-                                </a>
-                            </li>
-                            <li class="box">
-                                <a
-                                    href="#"
-                                    class="nav-link py-3 px-2"
-                                    title=""
-                                >
-                                    <img
-                                        src="../assets/navSidePlaceholder.png"
-                                        alt=""
-                                    >
-                                    <span class="d-none d-xl-inline">Placeholder Category</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="row justify-content-center align-items-center">
+                            <SideNavPill categoryname="Food & Beverage" />
+                            <SideNavPill />
+                            <SideNavPill />
+                        </div>
                     </div>
-                    <div class="col-xl-6 col-md-10 bg-dark centerbox">
+                    <div class="col-xl-6 col-md-10 bg-success centerbox">
                         <!-- Center Column -->
                         <img
                             src="../assets/hero.png"
@@ -60,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 d-none d-xl-block rightbar">
+                    <div class="col-xl-3 d-none d-xl-block rightbar bg-warning">
                         <!-- Right Column -->
                         <!-- Displays Ads on XL and Abovee-->
                         <img
@@ -87,14 +62,17 @@
 
 <script>
 import ProductCard from "../components/ProductCard.vue";
+import SideNavPill from "../components/SideNavPill.vue";
 export default {
   name: "App",
   components: {
     ProductCard,
+    SideNavPill,
   },
   data() {
     return {
       mode: localStorage.modes,
+      category: "all",
     };
   },
   mounted() {

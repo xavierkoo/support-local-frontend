@@ -9,7 +9,8 @@
     "lastonlinehour": 1,
     "products": [
       {
-        "name": "shaver", 
+        "name": "shaver",
+        "rating": 4,
         "price": 25,
         "specialPrice": 20,
         "img": "../assets/hero.png",
@@ -24,6 +25,7 @@
       },
       {
         "name": "paper",
+        "rating": 4,
         "price": 2,
         "img": "../assets/hero.png",
         "specialPrice": 1,
@@ -38,6 +40,7 @@
       },
       {
         "name": "iphone",
+        "rating": 4,
         "price": 1400,
         "img": "../assets/hero.png",
         "specialPrice": 1000,
@@ -52,6 +55,7 @@
       },
       {
         "name": "banana",
+        "rating": 4,
         "price": 5,
         "specialPrice": 3,
         "img": "../assets/hero.png",
@@ -67,26 +71,46 @@
     ]
   },
 
-  "userBase": [
+  "user": [
     {
       "userID": 1,
       "email": "ray@gmail.com",
-      "password": "777777"
+      "password": "777777",
+      "shoppingCart": [
+        ["123456", "bicycle", "2", "180", "nextShop", "../assets/bike.png"],
+        ["122222", "coffee", "1", "18", "sgLocal", "../assets/bike.png"],
+        ["166666", "bicycle", "2", "10", "shoppe", "../assets/bike.png"]
+      ]
     },
     {
       "userID": 2,
       "email": "ray2@gmail.com",
-      "password": "123456"
+      "password": "123456",
+      "shoppingCart": [
+        ["123456", "bicycle", "2", "180", "nextShop", "../assets/bike.png"],
+        ["122222", "coffee", "1", "18", "sgLocal", "../assets/bike.png"],
+        ["166666", "bicycle", "2", "10", "shoppe", "../assets/bike.png"]
+      ]
     },
     {
       "userID": 3,
       "email": "ray3@gmail.com",
-      "password": "666666"
+      "password": "666666",
+      "shoppingCart": [
+        ["123456", "bicycle", "2", "180", "nextShop", "../assets/bike.png"],
+        ["122222", "coffee", "1", "18", "sgLocal", "../assets/bike.png"],
+        ["166666", "bicycle", "2", "10", "shoppe", "../assets/bike.png"]
+      ]
     },
     {
       "userID": 4,
       "email": "ray4@gmail.com",
-      "password": "888888"
+      "password": "888888",
+      "shoppingCart": [
+        ["123456", "bicycle", "2", "180", "nextShop", "../assets/bike.png"],
+        ["122222", "coffee", "1", "18", "sgLocal", "../assets/bike.png"],
+        ["166666", "bicycle", "2", "10", "shoppe", "../assets/bike.png"]
+      ]
     }
   ],
 
