@@ -124,19 +124,5 @@ export default {
 </script>
 
 <style scoped>
-.cardInner {
-  background-color: hsl(0, 0%, 100%, 90%);
-  color: #fff;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 1;
-  opacity: 0;
-}
-
-.card:hover .cardInner {
-  opacity: 1;
-}
+@import "../assets/style/global.css";
 </style>

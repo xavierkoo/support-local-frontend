@@ -39,7 +39,14 @@
                 </router-link>
             </nav>
 
-            <router-view />
+            <router-view v-slot="{ Component }">
+                <transition
+                    name="route"
+                    mode="out-in"
+                >
+                    <component :is="Component" />
+                </transition>
+            </router-view>
         </div>
     </div>
 </template>
@@ -47,7 +54,6 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import ToggleMode from "./components/ToggleMode.vue";
-import axios from "axios";
 
 export default {
   name: "App",
@@ -87,5 +93,20 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.route-enter-active {
+  transition: all 0.3s ease-out;
+}
+.route-leave-to {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.route-leave-active {
+  transition: all 0.3s ease-in;
 }
 </style>
