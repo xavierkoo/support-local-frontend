@@ -96,6 +96,20 @@
   background: #d36959;
   color: white;
 }
+#light .cardInner {
+  background-color: hsla(0deg, 0%, 100%, 0.9);
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  opacity: 0;
+}
+#light .card:hover .cardInner {
+  opacity: 1;
+}
 #light .brand-logo {
   width: 160px;
   height: auto;
@@ -314,6 +328,20 @@
   height: 40px;
   background: #d36959;
   color: white;
+}
+#dark .cardInner {
+  background-color: hsla(0deg, 0%, 100%, 0.9);
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  opacity: 0;
+}
+#dark .card:hover .cardInner {
+  opacity: 1;
 }
 #dark .sideBar {
   background: #212121;
