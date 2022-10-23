@@ -27,7 +27,6 @@
                                         v-for="i of rating"
                                         :key="i"
                                     >{{ starsEmoji }}</span> / 5
-                                    Ratings
                                 </h6>
                             </div>
                             <div class="row">
@@ -39,12 +38,11 @@
                             <div class="row">
                                 <div class="col-1" />
                                 <h6 class="col-2">
-                                    Quantity
+                                    v-model="quantity"
                                 </h6>
                                 <div class="col-1" />
                                 <input
                                     id="qty"
-                                    v-model="quantity"
                                     class="col-4"
                                     type="text"
                                 >

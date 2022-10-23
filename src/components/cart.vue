@@ -39,7 +39,7 @@
                     type="number"
                     value="1"
                 >
-                <span>
+                <span v-if="!showQtyInput">
                     {{ quantity }}
                 </span>
             </div>
@@ -110,6 +110,9 @@ export default {
 </script>
 
 <style scoped>
+.black {
+  color: black;
+}
 img {
   border-radius: 0;
 }
