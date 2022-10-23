@@ -104,7 +104,7 @@
                                 </h3>
                                 <p class="text-center text-sm-start">
                                     The store's collection is a celebration of everything
-                                    maximalist – there are face masks with elf ears, iridescent
+                                    maximalist there are face masks with elf ears, iridescent
                                     platform shoes.
                                 </p>
                             </div>

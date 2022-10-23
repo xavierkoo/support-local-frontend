@@ -36,7 +36,7 @@
                                     :key="idx"
                                 >
                                     <ProductCard
-                                        v-if="idx % 2 == 1"
+                                        v-if="(idx % 2 == 0) | (idx == 0)"
                                         :merchant-name="obj.merchant"
                                         :desc="obj.name"
                                         :offer-price="obj.specialPrice"
@@ -52,7 +52,7 @@
                                     :key="idx"
                                 >
                                     <ProductCard
-                                        v-if="idx % 2 == 0"
+                                        v-if="(idx % 2 == 1) & (idx > 0)"
                                         :merchant-name="obj.merchant"
                                         :desc="obj.name"
                                         :offer-price="obj.specialPrice"
@@ -63,7 +63,7 @@
                                 </template>
                             </div>
                         </div>
-                        <button @click="getAllProduct">
+                        <button @click="getAllProduct(category)">
                             Click me
                         </button>
                     </div>
@@ -118,25 +118,48 @@ export default {
       ],
     };
   },
-  computed: {},
+  watch: {
+    // A watch function that will trigger when the category is changed.
+    category(selectedCat) {
+      this.getSelectedProduct(selectedCat);
+    },
+  },
   mounted() {
     window.addEventListener("modes-localstorage-changed", (event) => {
       this.mode = event.detail.storage;
     });
   },
+  // A function that will be called before the component is mounted.
   async beforeMount() {
     const res = await axios.get("http://localhost:8081/products");
     this.productList = res.data;
   },
   methods: {
+    // This function is used to change the category of the product.
     changeCat(value) {
       this.category = value;
     },
-    getAllProduct() {
+    // This function is used to get the selected product from the API.
+    getSelectedProduct(selectedCat) {
       let url = "http://localhost:8081/products";
       axios.get(url).then((res) => {
         console.log(res.data);
-        this.productList = res.data;
+        let productArr = [];
+        if (selectedCat == "all") {
+          this.productList = res.data;
+        } else {
+        }
+        for (const key in res.data) {
+          if (Object.hasOwnProperty.call(res.data, key)) {
+            const element = res.data[key];
+            let category = element.category;
+            console.log(element.category);
+            if (category == selectedCat) {
+              productArr.push(element);
+            }
+          }
+        }
+        this.productList = productArr;
       });
     },
   },

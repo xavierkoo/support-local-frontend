@@ -64,16 +64,16 @@ export default {
       default: "Foldable bicycle wa blue whell",
     },
     price: {
-      type: String,
-      default: "180",
+      type: Number,
+      default: 180,
     },
     numSold: {
-      type: String,
-      default: "23",
+      type: Number,
+      default: 23,
     },
     offerPrice: {
-      type: String,
-      default: "21.99",
+      type: Number,
+      default: 21.99,
     },
   },
 };
