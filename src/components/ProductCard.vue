@@ -1,53 +1,71 @@
 <template>
     <div>
         <!-- Card Component -->
-        <div class="card">
-            <img
-                class="rounded-0 card-img-top"
-                src="../assets/hero.png"
-            >
+        <transition
+            appear
+            name="fade"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"
+        >
+            <div class="card">
+                <img
+                    class="rounded-0 card-img-top"
+                    src="../assets/hero.png"
+                >
 
-            <div class="card-body productCard">
-                <div class="row mb-1">
-                    <div class="col-3">
-                        <img
-                            src="../assets/profilepng.png"
-                            style="height: auto; width: 100%"
+                <div class="card-body productCard">
+                    <div class="row mb-1">
+                        <div class="col-3">
+                            <img
+                                src="../assets/profilepng.png"
+                                style="height: auto; width: 100%"
+                            >
+                        </div>
+                        <div class="col-9">
+                            <h6 class="mb-0">
+                                {{ merchantName }}
+                            </h6>
+                            <p class="">
+                                {{ lastOnlineHour }} hour ago
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="text-truncate">
+                                {{ desc }}
+                            </div>
+                            <div class="fst-italic">
+                                Special offer: ${{ offerPrice }}
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <p class="fw-bold text-end mb-0">
+                                S${{ price }}
+                            </p>
+                            <p class="text-end">
+                                {{ numSold }} Sold
+                            </p>
+                        </div>
+                        <div
+                            class="cardInner d-flex justify-content-center align-content-center"
                         >
-                    </div>
-                    <div class="col-9">
-                        <h6 class="mb-0">
-                            {{ merchantName }}
-                        </h6>
-                        <p class="">
-                            {{ lastOnlineHour }} hour ago
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <div class="text-truncate">
-                            {{ desc }}
+                            <button class="col-4 my-auto">
+                                More Info
+                            </button>
                         </div>
-                        <div class="fst-italic">
-                            Special offer: ${{ offerPrice }}
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <p class="fw-bold text-end mb-0">
-                            S${{ price }}
-                        </p>
-                        <p class="text-end">
-                            {{ numSold }} Sold
-                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 
 <script>
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 export default {
   name: "ProductCard",
   props: {
@@ -76,7 +94,49 @@ export default {
       default: 21.99,
     },
   },
+  setup() {
+    //animation
+    const beforeEnter = (el) => {
+      //initial state
+      el.style.transform = "translateY(-60px)";
+      el.style.opacity = 0;
+    };
+    const enter = (el, done) => {
+      //animation
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          toggleActions: "restart none none none",
+        },
+        y: 0, //transform
+        opacity: 1,
+        duration: 2,
+        ease: "Back.easeOut",
+        onComplete: done, //to shwo that animation is completed
+      });
+    };
+    const afterEnter = (el) => {
+      //execute after animation settle in. However, vue does not know whena animation ended.
+    };
+    return { beforeEnter, enter, afterEnter };
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.cardInner {
+  background-color: hsl(0, 0%, 100%, 90%);
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  opacity: 0;
+}
+
+.card:hover .cardInner {
+  opacity: 1;
+}
+</style>

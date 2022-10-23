@@ -121,31 +121,79 @@
                 <!--Product Rating Card-->
                 <div class="row mx-auto my-3">
                     <div class="container individualViewProductRating">
-                        <h5 class="d-flex justify-content-start mx-4 my-3">
-                            Product Rating
-                        </h5>
+                        <div class="row">
+                            <h5 class="d-flex justify-content-start mx-4 my-3">
+                                Product Rating
+                            </h5>
+                        </div>
                         <div
-                            v-for="rev in review"
-                            :key="rev.userID"
-                            class="row mx-3 reviewsRating my-4"
+                            class="row mx-auto"
+                            style="position: relative; height: 500px"
                         >
-                            <div class="col-3 d-flex justify-content-center">
-                                <img
-                                    class="w-50 rounded-circle"
-                                    src="../assets/appLogo.svg"
-                                    alt=""
-                                >
+                            <div class="container vertical-scrollable mx-auto">
+                                <div v-if="isShow">
+                                    <div
+                                        v-for="rev in review.slice(0, 3)"
+                                        :key="rev.userID"
+                                        class="row mx-3 reviewsRating my-4"
+                                    >
+                                        <div class="col-3 d-flex justify-content-center">
+                                            <img
+                                                class="w-50 rounded-circle"
+                                                src="../assets/appLogo.svg"
+                                                alt=""
+                                            >
+                                        </div>
+                                        <div class="col-6">
+                                            <h3>{{ rev["userName"] }}</h3>
+                                            <h4 class="d-inline">
+                                                {{ rev["rating"] }}
+                                            </h4>
+                                            <span class="d-inline">5Star(image)</span>
+                                            <p>
+                                                {{ rev["orderDetails"] }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-else>
+                                    <div class="container">
+                                        <div
+                                            v-for="rev in review"
+                                            :key="rev.userID"
+                                            class="row mx-3 reviewsRating my-4"
+                                        >
+                                            <div class="col-3 d-flex justify-content-center">
+                                                <img
+                                                    class="w-50 rounded-circle"
+                                                    src="../assets/appLogo.svg"
+                                                    alt=""
+                                                >
+                                            </div>
+                                            <div class="col-6">
+                                                <h3>{{ rev["userName"] }}</h3>
+                                                <h4 class="d-inline">
+                                                    {{ rev["rating"] }}
+                                                </h4>
+                                                <span class="d-inline">5Star(image)</span>
+                                                <p>
+                                                    {{ rev["orderDetails"] }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <h3>{{ rev["userName"] }}</h3>
-                                <h4 class="d-inline">
-                                    {{ rev["rating"] }}
-                                </h4>
-                                <span class="d-inline">5Star(image)</span>
-                                <p>
-                                    {{ rev["orderDetails"] }}
-                                </p>
-                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 col-sm-5" />
+                            <button
+                                class="col-6 col-sm-2"
+                                @click="isShow ? (isShow = false) : (isShow = true)"
+                            >
+                                {{ isShow ? "Show More" : "Show Less" }}
+                            </button>
+                            <div class="col-3 col-sm-5" />
                         </div>
                     </div>
                 </div>
@@ -184,6 +232,7 @@ export default {
       relatedProd: "", //v-for for related product card
       merchant: "", //merchant name
       review: "", //v-for for rating card
+      isShow: true,
     };
   },
   mounted() {
