@@ -4,13 +4,14 @@
             class="btn btn-primary text-center"
             role="button"
             style="width: 100%"
+            @click="$emit('clickedItem', categoryName)"
         >
             <img
                 src="../assets/navSidePlaceholder.png"
                 style="width: 40px"
                 class="me-md-2"
             >
-            <span class="d-none d-xl-inline">{{ categoryname }}</span></a>
+            <span class="d-none d-xl-inline pill">{{ categoryName }}</span></a>
     </div>
 </template>
 
@@ -18,17 +19,19 @@
 export default {
   name: "SideNavPill",
   props: {
-    categoryname: {
+    categoryName: {
       type: String,
       default: "Default Cat Name",
     },
-    categoryimg: {
+    categoryImg: {
       type: String,
       default: "../assets/navSidePlaceholder.png'",
     },
   },
-  methods: {},
+  emits: ["clickedItem"],
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "../assets/style/global.css";
+</style>

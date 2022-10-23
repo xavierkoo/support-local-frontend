@@ -9,9 +9,12 @@
                         <!-- Display logo only from MD to Lg -->
                         <!-- Logo will align left, Caption will be visible at XL -->
                         <div class="row justify-content-center align-items-center">
-                            <SideNavPill categoryname="Food & Beverage" />
-                            <SideNavPill />
-                            <SideNavPill />
+                            <SideNavPill
+                                v-for="(cat, idx) in productCatArr"
+                                :key="idx"
+                                :category-name="cat"
+                                @clicked-item="changeCat"
+                            />
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-10 bg-success centerbox">
@@ -28,12 +31,41 @@
                             <!-- Split 2 Col to display 2 cards  -->
                             <div class="col-md-6 bg-danger">
                                 <!-- Card Component -->
-                                <ProductCard />
+                                <template
+                                    v-for="(obj, idx) in productList"
+                                    :key="idx"
+                                >
+                                    <ProductCard
+                                        v-if="(idx % 2 == 0) | (idx == 0)"
+                                        :merchant-name="obj.merchant"
+                                        :desc="obj.name"
+                                        :offer-price="obj.specialPrice"
+                                        :price="obj.price"
+                                        :num-sold="obj.numberSold"
+                                        class="mb-3"
+                                    />
+                                </template>
                             </div>
                             <div class="col-md-6 bg-warning">
-                                <ProductCard />
+                                <template
+                                    v-for="(obj, idx) in productList"
+                                    :key="idx"
+                                >
+                                    <ProductCard
+                                        v-if="(idx % 2 == 1) & (idx > 0)"
+                                        :merchant-name="obj.merchant"
+                                        :desc="obj.name"
+                                        :offer-price="obj.specialPrice"
+                                        :price="obj.price"
+                                        :num-sold="obj.numberSold"
+                                        class="mb-3"
+                                    />
+                                </template>
                             </div>
                         </div>
+                        <button @click="getAllProduct(category)">
+                            Click me
+                        </button>
                     </div>
                     <div class="col-xl-3 d-none d-xl-block rightbar bg-warning">
                         <!-- Right Column -->
@@ -63,6 +95,8 @@
 <script>
 import ProductCard from "../components/ProductCard.vue";
 import SideNavPill from "../components/SideNavPill.vue";
+import axios from "axios";
+
 export default {
   name: "App",
   components: {
@@ -73,12 +107,61 @@ export default {
     return {
       mode: localStorage.modes,
       category: "all",
+      productList: "",
+      productCatArr: [
+        "Food & Beverages",
+        "Men's Apparel",
+        "Women's Apparel",
+        "Electronics",
+        "Hobbies & Books",
+        "Beauty & Personal",
+      ],
     };
+  },
+  watch: {
+    // A watch function that will trigger when the category is changed.
+    category(selectedCat) {
+      this.getSelectedProduct(selectedCat);
+    },
   },
   mounted() {
     window.addEventListener("modes-localstorage-changed", (event) => {
       this.mode = event.detail.storage;
     });
+  },
+  // A function that will be called before the component is mounted.
+  async beforeMount() {
+    const res = await axios.get("http://localhost:8081/products");
+    this.productList = res.data;
+  },
+  methods: {
+    // This function is used to change the category of the product.
+    changeCat(value) {
+      this.category = value;
+    },
+    // This function is used to get the selected product from the API.
+    getSelectedProduct(selectedCat) {
+      let url = "http://localhost:8081/products";
+      axios.get(url).then((res) => {
+        console.log(res.data);
+        let productArr = [];
+        if (selectedCat == "all") {
+          this.productList = res.data;
+        } else {
+        }
+        for (const key in res.data) {
+          if (Object.hasOwnProperty.call(res.data, key)) {
+            const element = res.data[key];
+            let category = element.category;
+            console.log(element.category);
+            if (category == selectedCat) {
+              productArr.push(element);
+            }
+          }
+        }
+        this.productList = productArr;
+      });
+    },
   },
 };
 </script>

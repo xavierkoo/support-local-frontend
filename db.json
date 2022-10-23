@@ -10,7 +10,7 @@
     "products": [
       {
         "name": "shaver",
-        "rating": 4,
+        "category": "Beauty & Personal",
         "price": 25,
         "specialPrice": 20,
         "img": "../assets/hero.png",
@@ -25,7 +25,7 @@
       },
       {
         "name": "paper",
-        "rating": 4,
+        "category": "Hobbies & Books",
         "price": 2,
         "img": "../assets/hero.png",
         "specialPrice": 1,
@@ -40,7 +40,7 @@
       },
       {
         "name": "iphone",
-        "rating": 4,
+        "category": "Electronics",
         "price": 1400,
         "img": "../assets/hero.png",
         "specialPrice": 1000,
@@ -55,7 +55,7 @@
       },
       {
         "name": "banana",
-        "rating": 4,
+        "category": "Food & Beverages",
         "price": 5,
         "specialPrice": 3,
         "img": "../assets/hero.png",
@@ -154,6 +154,72 @@
       "userName": "Ray",
       "rating": 5,
       "orderDetails": "Order received on 26th Nov. Box big and would be better if smaller.. overall satisfied with purchase"
+    }
+  ],
+  "products": [
+    {
+      "name": "shaver",
+      "merchant": "Rays Gays Shop",
+      "category": "Beauty & Personal",
+      "price": 25,
+      "specialPrice": 20,
+      "img": "../assets/hero.png",
+      "numberSold": 25,
+      "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
+      "ProductSpec": [
+        "6.1-inch Super Retina XDR display2",
+        "Advanced camera system for better photos in any light",
+        "All-day battery life and up to 20 hours of video playback3",
+        "A15 Bionic chip with 5-core GPU for lightning-fast performance."
+      ]
+    },
+    {
+      "name": "paper",
+      "merchant": "Hanah Gays Shop",
+      "category": "Hobbies & Books",
+      "price": 2,
+      "img": "../assets/hero.png",
+      "specialPrice": 1,
+      "numberSold": 100,
+      "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
+      "ProductSpec": [
+        "6.1-inch Super Retina XDR display2",
+        "Advanced camera system for better photos in any light",
+        "All-day battery life and up to 20 hours of video playback3",
+        "A15 Bionic chip with 5-core GPU for lightning-fast performance."
+      ]
+    },
+    {
+      "name": "iphone",
+      "merchant": "Rei Gays Shop",
+      "category": "Electronics",
+      "price": 1400,
+      "img": "../assets/hero.png",
+      "specialPrice": 1000,
+      "numberSold": 1001,
+      "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
+      "ProductSpec": [
+        "6.1-inch Super Retina XDR display2",
+        "Advanced camera system for better photos in any light",
+        "All-day battery life and up to 20 hours of video playback3",
+        "A15 Bionic chip with 5-core GPU for lightning-fast performance."
+      ]
+    },
+    {
+      "name": "banana",
+      "merchant": "Xav Gays Shop",
+      "category": "Food & Beverages",
+      "price": 5,
+      "specialPrice": 3,
+      "img": "../assets/hero.png",
+      "numberSold": 231,
+      "ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
+      "ProductSpec": [
+        "6.1-inch Super Retina XDR display2",
+        "Advanced camera system for better photos in any light",
+        "All-day battery life and up to 20 hours of video playback3",
+        "A15 Bionic chip with 5-core GPU for lightning-fast performance."
+      ]
     }
   ]
 }

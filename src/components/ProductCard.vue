@@ -7,10 +7,13 @@
                 src="../assets/hero.png"
             >
 
-            <div class="card-body">
+            <div class="card-body productCard">
                 <div class="row mb-1">
                     <div class="col-3">
-                        <img src="../assets/profilepng.png">
+                        <img
+                            src="../assets/profilepng.png"
+                            style="height: auto; width: 100%"
+                        >
                     </div>
                     <div class="col-9">
                         <h6 class="mb-0">
@@ -61,16 +64,16 @@ export default {
       default: "Foldable bicycle wa blue whell",
     },
     price: {
-      type: String,
-      default: "180",
+      type: Number,
+      default: 180,
     },
     numSold: {
-      type: String,
-      default: "23",
+      type: Number,
+      default: 23,
     },
     offerPrice: {
-      type: String,
-      default: "21.99",
+      type: Number,
+      default: 21.99,
     },
   },
 };
