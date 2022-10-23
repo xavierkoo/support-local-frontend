@@ -108,6 +108,13 @@
   }
 
   //LightProductCard CSS
+  .productCard {
+    button {
+      @include button;
+      background: $mainBtn;
+      color: white;
+    }
+  }
 
   //LightLandingView CSS
   .brand-logo {
@@ -202,6 +209,37 @@
     border: 1px solid #c8c8c8;
     font-size: $bodyLarge;
     border-radius: $boxRadius;
+    button {
+      @include button;
+      background: $mainBtn;
+      color: white;
+    }
+  }
+  .vertical-scrollable {
+    overflow-y: scroll;
+    height: 80%;
+    width: 100%;
+    position: absolute;
+  }
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #c8c8c8;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $mainBtn;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $brandMain;
   }
 
   .reviewsRating {
@@ -317,6 +355,11 @@
   .productCard {
     background: $backgroundDark;
     border: none;
+    button {
+      @include button;
+      background: $mainBtn;
+      color: white;
+    }
   }
 
   //DarkLandingView CSS
@@ -423,6 +466,40 @@
     border: $borderDark;
     font-size: $bodyLarge;
     border-radius: $boxRadius;
+    button {
+      @include button;
+      background: $mainBtn;
+      color: white;
+      border: $borderDark;
+    }
+  }
+
+  .vertical-scrollable {
+    overflow-y: scroll;
+    height: 80%;
+    width: 100%;
+    position: absolute;
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #c8c8c8;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $mainBtn;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $brandMain;
   }
 
   .reviewsRating {

@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
+#light {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
 #light h1,
 #light h2,
 #light h3,
@@ -82,6 +87,13 @@
   color: white;
 }
 #light .pill {
+  color: white;
+}
+#light .productCard button {
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  background: #d36959;
   color: white;
 }
 #light .brand-logo {
@@ -172,10 +184,42 @@
   font-size: 16px;
   border-radius: 8px;
 }
+#light .individualViewProductRating button {
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  background: #d36959;
+  color: white;
+}
+#light .vertical-scrollable {
+  overflow-y: scroll;
+  height: 80%;
+  width: 100%;
+  position: absolute;
+}
+#light ::-webkit-scrollbar {
+  width: 20px;
+}
+#light ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #c8c8c8;
+  border-radius: 10px;
+}
+#light ::-webkit-scrollbar-thumb {
+  background: #d36959;
+  border-radius: 10px;
+}
+#light ::-webkit-scrollbar-thumb:hover {
+  background: #942c1f;
+}
 #light .reviewsRating {
   border-bottom: 3px solid grey;
 }
 
+#dark {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
 #dark h1,
 #dark h2,
 #dark h3,
@@ -263,6 +307,13 @@
 #dark .productCard {
   background: #3d3d3d;
   border: none;
+}
+#dark .productCard button {
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  background: #d36959;
+  color: white;
 }
 #dark .sideBar {
   background: #212121;
@@ -362,6 +413,34 @@
   border: 1px solid white;
   font-size: 16px;
   border-radius: 8px;
+}
+#dark .individualViewProductRating button {
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  background: #d36959;
+  color: white;
+  border: 1px solid white;
+}
+#dark .vertical-scrollable {
+  overflow-y: scroll;
+  height: 80%;
+  width: 100%;
+  position: absolute;
+}
+#dark ::-webkit-scrollbar {
+  width: 20px;
+}
+#dark ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #c8c8c8;
+  border-radius: 10px;
+}
+#dark ::-webkit-scrollbar-thumb {
+  background: #d36959;
+  border-radius: 10px;
+}
+#dark ::-webkit-scrollbar-thumb:hover {
+  background: #942c1f;
 }
 #dark .reviewsRating {
   border-bottom: 3px solid white;
