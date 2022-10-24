@@ -51,7 +51,7 @@
                         <div
                             class="cardInner d-flex justify-content-center align-content-center"
                         >
-                            <button class="col-4 my-auto">
+                            <button class="col-4 my-auto mainBtnDesign">
                                 More Info
                             </button>
                         </div>
