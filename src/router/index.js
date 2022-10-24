@@ -7,6 +7,7 @@ import Checkout from "../views/Checkout.vue";
 import IndividualView from "../views/IndividualView.vue";
 import SignUp from "../views/Signup.vue";
 import orderLog from "../views/OrderLogs.vue";
+import viewOrder from "../views/ViewOrder.vue";
 
 const routes = [
   {
@@ -57,6 +58,11 @@ const routes = [
     path: "/orderLog",
     name: "orderLog",
     component: orderLog,
+  },
+  {
+    path: "/viewOrder",
+    name: "viewOrder",
+    component: viewOrder,
   },
 ];
 

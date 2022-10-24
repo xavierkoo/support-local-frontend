@@ -11,7 +11,10 @@
                 >
             </div>
             <div class="col-md-11">
-                <b>{{ merchant }}</b>
+                <div>
+                    <b>{{ merchant }} </b> &nbsp;
+                    <b v-if="showDate">{{ datePurchased }}</b>
+                </div>
             </div>
         </div>
         <div class="row bg-light py-5 mx-4">

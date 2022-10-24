@@ -37,6 +37,7 @@
                     :show-qty-input="showQtyInput"
                     :show-date="showDate"
                     :quantity="obj[2]"
+                    :date-purchased="obj[6]"
                 />
             </div>
             <div class="row totalrow">
@@ -72,7 +73,7 @@ export default {
       mode: localStorage.modes,
       showCheckBox: true,
       showQtyInput: true,
-      showDate: true,
+      showDate: false,
       name: "",
       price: "",
       quantity: "1",

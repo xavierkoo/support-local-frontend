@@ -40,6 +40,9 @@
                 <router-link to="/orderLog">
                     | Order Log
                 </router-link>
+                <router-link to="/viewOrder">
+                    | View Order
+                </router-link>
             </nav>
 
             <router-view v-slot="{ Component }">
