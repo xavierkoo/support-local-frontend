@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
-
+#light {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
 #light h1,
 #light h2,
 #light h3,
@@ -139,11 +143,21 @@
 #light .mainBtnDesign {
   background: #d36959;
   font-family: "Merriweather Sans";
-  color: white;
-  border: none;
+  color: black;
+  border: 1px solid black;
   border-radius: 16px;
   font-size: 16px;
   height: 40px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 black;
+}
+#light .mainBtnDesign:hover {
+  box-shadow: inset 400px 0 0 0 black;
+  cursor: pointer;
+  color: #d36959;
 }
 #light .cancelBtnDesign {
   background: white;
@@ -153,6 +167,16 @@
   border-radius: 16px;
   font-size: 16px;
   height: 40px;
+  overflow: hidden;
+  position: relative;
+  transition: 1.8s;
+  cursor: pointer;
+  box-shadow: inset 0 black;
+}
+#light .cancelBtnDesign:hover {
+  box-shadow: inset 500px 0 0 0 black;
+  cursor: pointer;
+  color: white;
 }
 #light .anyQuestionBtnDesign {
   border: none;
@@ -163,6 +187,16 @@
   height: 40px;
   font-size: 16px;
   border-radius: 8px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 black;
+}
+#light .anyQuestionBtnDesign:hover {
+  box-shadow: inset 500px 0 0 0 black;
+  cursor: pointer;
+  color: white;
 }
 #light .individualViewImg {
   height: 486px;
@@ -225,6 +259,11 @@
   border-bottom: 3px solid grey;
 }
 
+#dark {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
 #dark h1,
 #dark h2,
 #dark h3,
@@ -463,5 +502,4 @@
 }
 #dark .reviewsRating {
   border-bottom: 3px solid white;
-}
-/*# sourceMappingURL=global.css.map */
+}/*# sourceMappingURL=global.css.map */

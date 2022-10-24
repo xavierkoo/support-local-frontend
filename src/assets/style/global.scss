@@ -165,11 +165,22 @@
 
   //LightIndividualView CSS
   .mainBtnDesign {
+    //btn
     background: $mainBtn;
     font-family: $headingFontFamily;
-    color: white;
-    border: none;
+    color: black;
+    border: $borderLight;
     @include button;
+    overflow: hidden;
+    transition: 1.8s;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0000 black;
+    &:hover {
+      box-shadow: inset 400px 0 0 0 black;
+      cursor: pointer;
+      color: $mainBtn;
+    }
   }
 
   .cancelBtnDesign {
@@ -178,6 +189,16 @@
     border: solid 1px black;
     color: black;
     @include button;
+    overflow: hidden;
+    position: relative;
+    transition: 1.8s;
+    cursor: pointer;
+    box-shadow: inset 0000 black;
+    &:hover {
+      box-shadow: inset 500px 0 0 0 black;
+      cursor: pointer;
+      color: white;
+    }
   }
 
   .anyQuestionBtnDesign {
@@ -189,6 +210,16 @@
     height: $btnHeight;
     font-size: 16px;
     border-radius: $boxRadius;
+    overflow: hidden;
+    transition: 1.8s;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0000 black;
+    &:hover {
+      box-shadow: inset 500px 0 0 0 black;
+      cursor: pointer;
+      color: white;
+    }
   }
 
   .individualViewImg {
