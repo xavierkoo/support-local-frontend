@@ -10,6 +10,7 @@
     "products": [
       {
         "name": "shaver",
+        "rating": 4,
         "category": "Beauty & Personal",
         "price": 25,
         "specialPrice": 20,
@@ -25,6 +26,7 @@
       },
       {
         "name": "paper",
+        "rating": 3,
         "category": "Hobbies & Books",
         "price": 2,
         "img": "../assets/hero.png",
@@ -40,6 +42,7 @@
       },
       {
         "name": "iphone",
+        "rating": 4,
         "category": "Electronics",
         "price": 1400,
         "img": "../assets/hero.png",
@@ -55,6 +58,7 @@
       },
       {
         "name": "banana",
+        "rating": 4,
         "category": "Food & Beverages",
         "price": 5,
         "specialPrice": 3,

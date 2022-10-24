@@ -38,11 +38,12 @@
                             <div class="row">
                                 <div class="col-1" />
                                 <h6 class="col-2">
-                                    v-model="quantity"
+                                    Quantity
                                 </h6>
                                 <div class="col-1" />
                                 <input
                                     id="qty"
+                                    v-model="quantity"
                                     class="col-4"
                                     type="text"
                                 >
@@ -220,10 +221,13 @@ export default {
     //////////// edited: Cydnie
     this.product = prod.data.products[0];
     this.rating = this.product.rating;
+    console.log(this.product);
+    console.log(this.rating);
   },
   methods: {
     addToCart(product) {
       this.cart.push(product);
+      console.log(this.cart);
     },
     viewCart() {
       this.$router.push("cart");
