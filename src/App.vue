@@ -13,35 +13,29 @@
             </div>
 
             <nav>
-                <router-link to="/">
-                    Home
-                </router-link> |
-                <router-link to="/about">
-                    About
-                </router-link> |
                 <router-link to="/landing">
                     Landing
-                </router-link>
+                </router-link> |
                 <router-link to="/cart">
-                    | ShoppingCart
-                </router-link>
+                    ShoppingCart
+                </router-link> |
                 <router-link to="/login">
-                    | Login
-                </router-link>
+                    Login
+                </router-link> |
                 <router-link to="/checkout">
-                    | Checkout
-                </router-link>
+                    Checkout
+                </router-link> |
                 <router-link to="/individual">
-                    | Individual
-                </router-link>
+                    Individual
+                </router-link> |
                 <router-link to="/signup">
-                    | Sign Up
-                </router-link>
+                    Sign Up
+                </router-link> |
                 <router-link to="/orderLog">
-                    | Order Log
-                </router-link>
+                    Order Log
+                </router-link> |
                 <router-link to="/viewOrder">
-                    | View Order
+                    View Order
                 </router-link>
             </nav>
 
