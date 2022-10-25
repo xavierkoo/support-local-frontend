@@ -296,7 +296,7 @@
 			"price": 1400,
 			"img": "../assets/hero.png",
 			"specialPrice": 1000,
-			"numberSold": 1001,
+			"numberSold": 100,
 			"ProductDesc": "With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Crash Detection,1 a new safety feature, calls for help when you can’t.",
 			"ProductSpec": [
 				"6.1-inch Super Retina XDR display2",
