@@ -5,8 +5,8 @@
                 <div class="col-10 bg-warning">
                     <h3>Contact Details</h3>
                     <div class="row">
-                        <div class="col-1" />
-                        <div class="col-1">
+                        <div class="col-md-1" />
+                        <div class="col-md-1">
                             <label for="salutation">Title</label>
                             <input
                                 id="salutation"
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <label for="firstName">First Name</label>
                             <input
                                 id="firstName"
@@ -36,7 +36,7 @@
                                 class="form-control"
                             >
                         </div>
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <label for="lastName">Last Name</label>
                             <input
                                 id="lastName"
@@ -61,12 +61,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="row justify-content-center">
                 <div class="col-10 bg-primary">
                     <h3>Billing Details</h3>
                     <div class="row justify-content-center">
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <label for="firstName">First Name</label>
                             <input
                                 id="firstName"
@@ -86,7 +85,7 @@
                                 class="form-control"
                             >
                         </div>
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <label for="lastName">Last Name</label>
                             <input
                                 id="lastName"
@@ -125,16 +124,6 @@ export default {
   name: "App",
 };
 </script>
-
-<style>
-.first {
-  width: 60%;
-  box-sizing: border-box;
-}
-.container {
-  margin: 100px;
-}
-</style>
 
 <style>
 .container {

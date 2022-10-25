@@ -124,7 +124,7 @@ export default {
             var checkPassword = (data) => data.password === inputPassword;
             var isValidPassword = data.some(checkPassword);
 
-            // check both conditions met
+            // check both conditions met, route to the landing page
             if (isValidEmail && isValidPassword) {
               this.$router.push("landing");
             } else {
