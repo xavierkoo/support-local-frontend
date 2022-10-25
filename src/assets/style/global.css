@@ -11,13 +11,13 @@
 #light h4,
 #light h5,
 #light h6 {
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", sans-serif;
 }
 #light p,
 #light li,
 #light div,
 #light button {
-  font-family: "Nunito Sans";
+  font-family: "Nunito Sans", sans-serif;
 }
 #light body.stop-transition #some-grid-container {
   transition: none !important;
@@ -223,7 +223,7 @@
 }
 #light .mainBtnDesign {
   background: #d36959;
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", sans-serif;
   color: white;
   border: 1px solid black;
   border-radius: 16px;
@@ -242,7 +242,7 @@
 }
 #light .cancelBtnDesign {
   background: white;
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", sans-serif;
   border: solid 1px black;
   color: black;
   border-radius: 16px;
@@ -261,7 +261,7 @@
 }
 #light .anyQuestionBtnDesign {
   border: none;
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", sans-serif;
   background: white;
   color: #d36959;
   width: 180px;
@@ -351,14 +351,14 @@
 #dark h4,
 #dark h5,
 #dark h6 {
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", sans-serif;
   color: white;
 }
 #dark p,
 #dark li,
 #dark div,
 #dark button {
-  font-family: "Nunito Sans";
+  font-family: "Nunito Sans", sans-serif;
   color: white;
 }
 #dark .box {
@@ -480,7 +480,7 @@
 }
 #dark .mainBtnDesign {
   background: #d36959;
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", sans-serif;
   color: white;
   border: 1px solid white;
   border-radius: 16px;
@@ -499,7 +499,7 @@
 }
 #dark .cancelBtnDesign {
   background: white;
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", sans-serif;
   border: 1px solid white;
   color: black;
   border-radius: 16px;
@@ -518,7 +518,7 @@
 }
 #dark .anyQuestionBtnDesign {
   border: none;
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", sans-serif;
   background: white;
   color: #d36959;
   width: 180px;
@@ -604,4 +604,4 @@
 }
 #dark .reviewsRating {
   border-bottom: 3px solid white;
-} /*# sourceMappingURL=global.css.map */
+}/*# sourceMappingURL=global.css.map */
