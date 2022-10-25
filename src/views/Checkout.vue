@@ -2,7 +2,7 @@
     <div class="App">
         <form>
             <div class="row justify-content-center">
-                <div class="col-10 bg-warning">
+                <div class="col-10 cont">
                     <h3>Contact Details</h3>
                     <div class="row">
                         <div class="col-md-1" />
@@ -56,13 +56,13 @@
                                 class="mt-4"
                             >
                             <label for="billDetails">
-                                Biling detail is the same as contact details</label>
+                                &nbsp; Biling detail is the same as contact details</label>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10 bg-primary">
+                <div class="col-10 cont">
                     <h3>Billing Details</h3>
                     <div class="row justify-content-center">
                         <div class="col-md-5">
@@ -126,6 +126,11 @@ export default {
 </script>
 
 <style>
+.cont {
+  border: rgb(236, 229, 229) solid 1px;
+  border-radius: 10px;
+  padding: 30px;
+}
 .container {
   padding: 0px;
   margin: 100px;
