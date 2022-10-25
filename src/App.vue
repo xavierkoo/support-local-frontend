@@ -40,8 +40,8 @@
                 <router-link to="/viewOrder">
                     View Order
                 </router-link> |
-                <router-link to="/payment">
-                    Payment
+                <router-link to="/viewPayment">
+                    View Payment
                 </router-link>
             </nav>
 

@@ -8,7 +8,7 @@ import IndividualView from "../views/IndividualView.vue";
 import SignUp from "../views/Signup.vue";
 import orderLog from "../views/OrderLogs.vue";
 import viewOrder from "../views/ViewOrder.vue";
-import Payment from "../views/Payment.vue"
+import viewPayment from "../views/viewPayment.vue";
 
 const routes = [
   {
@@ -62,9 +62,9 @@ const routes = [
     component: IndividualBrand,
   },
   {
-    path: "/payment",
-    name: "payment",
-    component: Payment,
+    path: "/viewPayment",
+    name: "viewPayment",
+    component: viewPayment,
   },
 ];
 

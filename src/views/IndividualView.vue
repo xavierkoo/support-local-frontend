@@ -329,7 +329,6 @@ export default {
       cart: [],
       starsEmoji: "⭐️",
       rating: 0,
-      isShow: true,
     };
   },
   mounted() {
