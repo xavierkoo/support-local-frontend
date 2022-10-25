@@ -8,7 +8,9 @@
                         <!-- Left Column-->
                         <!-- Display logo only from MD to Lg -->
                         <!-- Logo will align left, Caption will be visible at XL -->
-                        <div class="row justify-content-center align-items-center">
+                        <div
+                            class="row justify-content-center align-items-center sticky-top"
+                        >
                             <SideNavPill
                                 v-for="(cat, idx) in productCatArr"
                                 :key="idx"
@@ -63,8 +65,12 @@
                                 </template>
                             </div>
                         </div>
-                        <button @click="getAllProduct(category)">
-                            Click me
+                        <button
+                            v-if="viewMore == false"
+                            class="btn btn-primary"
+                            @click="viewMore = true"
+                        >
+                            View More
                         </button>
                     </div>
                     <div class="col-xl-3 d-none d-xl-block rightbar bg-warning">
@@ -107,6 +113,7 @@ export default {
     return {
       mode: localStorage.modes,
       category: "all",
+      viewMore: false,
       productList: "",
       productCatArr: [
         "Food & Beverages",
@@ -121,7 +128,13 @@ export default {
   watch: {
     // A watch function that will trigger when the category is changed.
     category(selectedCat) {
-      this.getSelectedProduct(selectedCat);
+      this.viewMore = false;
+      var viewMore = this.viewMore;
+      this.getSelectedProduct(selectedCat, viewMore);
+    },
+    viewMore(viewBool) {
+      var selectedCat = this.category;
+      this.getSelectedProduct(selectedCat, viewBool);
     },
   },
   mounted() {
@@ -132,7 +145,18 @@ export default {
   // A function that will be called before the component is mounted.
   async beforeMount() {
     const res = await axios.get("http://localhost:8081/products");
-    this.productList = res.data;
+    let startUpArr = [];
+    for (const key in res.data) {
+      if (Object.hasOwnProperty.call(res.data, key)) {
+        const element = res.data[key];
+        let category = element.category;
+        if (startUpArr.length < 6) {
+          startUpArr.push(element);
+        }
+      }
+    }
+
+    this.productList = startUpArr;
   },
   methods: {
     // This function is used to change the category of the product.
@@ -140,26 +164,31 @@ export default {
       this.category = value;
     },
     // This function is used to get the selected product from the API.
-    getSelectedProduct(selectedCat) {
+    getSelectedProduct(selectedCat, viewMore) {
       let url = "http://localhost:8081/products";
+
       axios.get(url).then((res) => {
+        if (viewMore === false) {
+          var maxArrLen = 6;
+        } else {
+          var maxArrLen = 99;
+        }
         console.log(res.data);
         let productArr = [];
         if (selectedCat == "all") {
           this.productList = res.data;
         } else {
-        }
-        for (const key in res.data) {
-          if (Object.hasOwnProperty.call(res.data, key)) {
-            const element = res.data[key];
-            let category = element.category;
-            console.log(element.category);
-            if (category == selectedCat) {
-              productArr.push(element);
+          for (const key in res.data) {
+            if (Object.hasOwnProperty.call(res.data, key)) {
+              const element = res.data[key];
+              let category = element.category;
+              if ((category == selectedCat) & (productArr.length < maxArrLen)) {
+                productArr.push(element);
+              }
+              this.productList = productArr;
             }
           }
         }
-        this.productList = productArr;
       });
     },
   },
