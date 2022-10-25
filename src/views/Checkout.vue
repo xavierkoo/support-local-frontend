@@ -2,11 +2,11 @@
     <div class="App">
         <form>
             <div class="row justify-content-center">
-                <div class="col-10 bg-warning">
+                <div class="col-10 cont">
                     <h3>Contact Details</h3>
                     <div class="row">
-                        <div class="col-1" />
-                        <div class="col-1">
+                        <div class="col-md-1" />
+                        <div class="col-md-1">
                             <label for="salutation">Title</label>
                             <input
                                 id="salutation"
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <label for="firstName">First Name</label>
                             <input
                                 id="firstName"
@@ -36,7 +36,7 @@
                                 class="form-control"
                             >
                         </div>
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <label for="lastName">Last Name</label>
                             <input
                                 id="lastName"
@@ -56,17 +56,16 @@
                                 class="mt-4"
                             >
                             <label for="billDetails">
-                                Biling detail is the same as contact details</label>
+                                &nbsp; Biling detail is the same as contact details</label>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="row justify-content-center">
-                <div class="col-10 bg-primary">
+                <div class="col-10 cont">
                     <h3>Billing Details</h3>
                     <div class="row justify-content-center">
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <label for="firstName">First Name</label>
                             <input
                                 id="firstName"
@@ -86,7 +85,7 @@
                                 class="form-control"
                             >
                         </div>
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <label for="lastName">Last Name</label>
                             <input
                                 id="lastName"
@@ -127,16 +126,11 @@ export default {
 </script>
 
 <style>
-.first {
-  width: 60%;
-  box-sizing: border-box;
+.cont {
+  border: rgb(236, 229, 229) solid 1px;
+  border-radius: 10px;
+  padding: 30px;
 }
-.container {
-  margin: 100px;
-}
-</style>
-
-<style>
 .container {
   padding: 0px;
   margin: 100px;
