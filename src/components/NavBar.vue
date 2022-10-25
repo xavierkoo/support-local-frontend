@@ -18,7 +18,7 @@
                                     placeholder="Search for your product"
                                     style="width: 60%"
                                 >
-                                <button class="mx-3 bg-danger">
+                                <button class="mx-3 mainBtnDesign">
                                     Search
                                 </button>
                             </div>

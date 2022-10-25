@@ -96,11 +96,91 @@
       height: 48px;
     }
     button {
-      background: $brandMain;
+      background: $mainBtn;
       @include button;
       height: 36px;
       color: white;
     }
+  }
+
+  //LightFooter CSS
+  .footer {
+    background: $brandMain;
+    input {
+      border-radius: $btnBorderRadius;
+      height: 48px;
+      margin-right: 10px;
+    }
+    img {
+      width: 15%;
+      height: 15%;
+    }
+    h5 {
+      color: white;
+    }
+    p {
+      color: white;
+    }
+    .email {
+      display: flex;
+      justify-content: end;
+      align-items: end;
+      color: white;
+    }
+    span {
+      color: black;
+    }
+  }
+  .footerWrapper .footerButton {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 0 5px;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+  }
+  .footerWrapper .footerButton .icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+  }
+  .footerWrapper .footerButton:nth-child(1):hover .icon {
+    background: #4267b2;
+  }
+  .footerWrapper .footerButton:nth-child(2):hover .icon {
+    background: #1da1f2;
+  }
+  .footerWrapper .footerButton:nth-child(3):hover .icon {
+    background: #e1306c;
+  }
+  .footerWrapper .footerButton:nth-child(4):hover .icon {
+    background: #ff0000;
+  }
+  .footerWrapper .footerButton .icon i {
+    font-size: 25px;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+  }
+  .footerWrapper .footerButton:hover .icon i {
+    color: #fff;
+  }
+  .footerWrapper .footerButton:hover {
+    width: 200px;
+  }
+  .footerWrapper .footerButton span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
   }
   //sideNavPill CSS
   .pill {
@@ -168,7 +248,7 @@
     //btn
     background: $mainBtn;
     font-family: $headingFontFamily;
-    color: black;
+    color: white;
     border: $borderLight;
     @include button;
     overflow: hidden;
@@ -389,12 +469,6 @@
       border: $borderDark;
       height: 48px;
     }
-    button {
-      background: $brandMain;
-      @include button;
-      height: 36px;
-      color: white;
-    }
   }
 
   //DarkProductCard CSS
@@ -464,15 +538,34 @@
     color: white;
     border: $borderDark;
     @include button;
+    overflow: hidden;
+    transition: 1.8s;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0000 black;
+    &:hover {
+      box-shadow: inset 400px 0 0 0 white;
+      cursor: pointer;
+      color: $mainBtn;
+    }
   }
 
   .cancelBtnDesign {
     background: white;
     font-family: $headingFontFamily;
-    border: solid 1px black;
+    border: $borderDark;
     color: black;
-    border: 3px solid #121212;
     @include button;
+    overflow: hidden;
+    transition: 1.8s;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0000 white;
+    &:hover {
+      box-shadow: inset 400px 0 0 0 $brandMain;
+      cursor: pointer;
+      color: white;
+    }
   }
 
   .anyQuestionBtnDesign {
@@ -484,6 +577,16 @@
     border-radius: $btnBorderRadius;
     font-size: 16px;
     height: 60px;
+    overflow: hidden;
+    transition: 1.8s;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0000 white;
+    &:hover {
+      box-shadow: inset 400px 0 0 0 $brandMain;
+      cursor: pointer;
+      color: white;
+    }
   }
 
   .individualViewImg {
