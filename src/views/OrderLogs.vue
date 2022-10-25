@@ -86,11 +86,6 @@ export default {
       this.total += Number(li[3]);
     }
   },
-  methods: {
-    toCheckOut() {
-      this.$router.push("checkout");
-    },
-  },
 };
 </script>
 <style>

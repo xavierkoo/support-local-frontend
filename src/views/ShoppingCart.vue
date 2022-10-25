@@ -104,6 +104,7 @@ export default {
   },
   methods: {
     toCheckOut() {
+      // method routes to checkout page when clicked on 'order now'
       this.$router.push("checkout");
     },
   },
