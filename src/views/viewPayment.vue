@@ -130,6 +130,7 @@ export default {
   directives: {
     "number-only": {
       bind(el) {
+        //
         function checkValue(event) {
           event.target.value = event.target.value.replace(/[^0-9]/g, "");
           if (event.charCode >= 48 && event.charCode <= 57) {
@@ -187,10 +188,12 @@ export default {
   },
   methods: {
     changeName(e) {
+      // this function changes the name of the card dynamically
       this.valueFields.cardName = e.target.value;
       this.$emit("input-card-name", this.valueFields.cardName);
     },
     changeNumber(e) {
+      // this method changes the number of different card input number, for eg american express has 15 digit input number
       this.valueFields.cardNumber = e.target.value;
       const value = this.valueFields.cardNumber.replace(/\D/g, "");
       // american express, 15 digits
@@ -237,19 +240,24 @@ export default {
       this.$emit("input-card-number", this.valueFields.cardNumber);
     },
     changeMonth() {
+      // change the month input
       this.$emit("input-card-month", this.valueFields.cardMonth);
     },
     changeYear() {
+      // change the year input
       this.$emit("input-card-year", this.valueFields.cardYear);
     },
     changeCvv(e) {
+      // change the Cvv number
       this.valueFields.cardCvv = e.target.value;
       this.$emit("input-card-cvv", this.valueFields.cardCvv);
     },
     generateMonthValue(n) {
+      // method generates the month values
       return n < 10 ? `0${n}` : n;
     },
     toggleMask() {
+      // this method toggles between mask and unmask numbers
       this.isCardNumberMasked = !this.isCardNumberMasked;
       if (this.isCardNumberMasked) {
         this.maskCardNumber();
@@ -258,6 +266,7 @@ export default {
       }
     },
     maskCardNumber() {
+      // this method do not mask the first 4 and last 4 numbers on the card
       this.valueFields.cardNumberNotMask = this.valueFields.cardNumber;
       this.mainCardNumber = this.valueFields.cardNumber;
       const arr = this.valueFields.cardNumber.split("");
@@ -269,6 +278,7 @@ export default {
       this.valueFields.cardNumber = arr.join("");
     },
     unMaskCardNumber() {
+      // method unmask all the card numbers
       this.valueFields.cardNumber = this.mainCardNumber;
     },
   },
