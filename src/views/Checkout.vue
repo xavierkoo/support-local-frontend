@@ -127,9 +127,20 @@ export default {
 </script>
 
 <style>
-/* .container {
+.first {
+  width: 60%;
+  box-sizing: border-box;
+}
+.container {
+  margin: 100px;
+}
+</style>
+
+<style>
+.container {
   padding: 0px;
-} */
+  margin: 100px;
+}
 .inline-block {
   display: inline-block;
 }
