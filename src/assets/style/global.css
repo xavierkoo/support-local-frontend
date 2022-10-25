@@ -19,6 +19,9 @@
 #light button {
   font-family: "Nunito Sans";
 }
+#light body.stop-transition #some-grid-container {
+  transition: none !important;
+}
 #light .box {
   background-color: #ffffff;
 }
@@ -98,7 +101,7 @@
   width: 15%;
   height: 15%;
 }
-#light .footer h5 {
+#light .footer h2 {
   color: white;
 }
 #light .footer p {
