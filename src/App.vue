@@ -39,6 +39,9 @@
                 </router-link> |
                 <router-link to="/viewOrder">
                     View Order
+                </router-link> |
+                <router-link to="/payment">
+                    Payment
                 </router-link>
             </nav>
 
