@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import IndividualBrand from "../views/IndividualBrand.vue";
 import LandingView from "../views/LandingView.vue";
 import ShoppingCart from "../views/ShoppingCart.vue";
 import Login from "../views/Login.vue";
@@ -54,6 +54,11 @@ const routes = [
     path: "/viewOrder",
     name: "viewOrder",
     component: viewOrder,
+  },
+  {
+    path: "/brand",
+    name: "brand",
+    component: IndividualBrand,
   },
 ];
 
