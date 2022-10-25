@@ -38,6 +38,7 @@
                     :show-qty-input="showQtyInput"
                     :show-date="showDate"
                     :quantity="obj[2]"
+                    :action="action"
                 />
             </div>
         </div>
