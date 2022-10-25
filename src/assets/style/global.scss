@@ -18,6 +18,9 @@
   button {
     font-family: $bodyFontFamily;
   }
+  body.stop-transition #some-grid-container {
+    transition: none !important;
+  }
 
   .box {
     background-color: #ffffff;
@@ -115,7 +118,7 @@
       width: 15%;
       height: 15%;
     }
-    h5 {
+    h2 {
       color: white;
     }
     p {

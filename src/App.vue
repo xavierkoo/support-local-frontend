@@ -55,17 +55,19 @@
             </router-view>
         </div>
     </div>
+    <PageFooter />
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
 import ToggleMode from "./components/ToggleMode.vue";
-
+import PageFooter from "./components/PageFooter.vue";
 export default {
   name: "App",
   components: {
     NavBar,
     ToggleMode,
+    PageFooter,
   },
   data() {
     return {
