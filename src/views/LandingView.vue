@@ -1,10 +1,10 @@
 <template>
     <div class="App">
         <div :id="mode">
-            <div class="container-fluid box bg-secondary">
+            <div class="container-fluid">
                 <br>
                 <div class="row justify-content-center g-2">
-                    <div class="col-xl-3 col-md-2 d-none d-md-block bg-info">
+                    <div class="col-xl-3 col-md-2 d-none d-md-block">
                         <!-- Left Column-->
                         <!-- Display logo only from MD to Lg -->
                         <!-- Logo will align left, Caption will be visible at XL -->
@@ -19,7 +19,7 @@
                             />
                         </div>
                     </div>
-                    <div class="col-xl-6 col-md-10 bg-success centerbox">
+                    <div class="col-xl-6 col-md-10 centerbox">
                         <!-- Center Column -->
                         <img
                             src="../assets/hero.png"
@@ -27,11 +27,13 @@
                             style="height: auto; width: 100%"
                         >
                         <div class="mt-2">
-                            <span class="fw-bold mx-3 text-light">Trending now</span><span class="fw-bold mx-3 float-end text-light">See more></span>
+                            <h5 class="fw-bold mx-3">
+                                Trending Now
+                            </h5>
                         </div>
                         <div class="row justify-content-center m-2">
                             <!-- Split 2 Col to display 2 cards  -->
-                            <div class="col-md-6 bg-danger">
+                            <div class="col-md-6">
                                 <!-- Card Component -->
                                 <template
                                     v-for="(obj, idx) in productList"
@@ -48,7 +50,7 @@
                                     />
                                 </template>
                             </div>
-                            <div class="col-md-6 bg-warning">
+                            <div class="col-md-6">
                                 <template
                                     v-for="(obj, idx) in productList"
                                     :key="idx"
@@ -65,15 +67,19 @@
                                 </template>
                             </div>
                         </div>
-                        <button
-                            v-if="viewMore == false"
-                            class="btn btn-primary"
-                            @click="viewMore = true"
-                        >
-                            View More
-                        </button>
+                        <div class="row">
+                            <div class="col-4 col-md-5" />
+                            <button
+                                v-if="viewMore == false"
+                                class="btn mainBtnDesign col-4 col-md-2"
+                                @click="viewMore = true"
+                            >
+                                View More
+                            </button>
+                            <div class="col-4 col-md-5" />
+                        </div>
                     </div>
-                    <div class="col-xl-3 d-none d-xl-block rightbar bg-warning">
+                    <div class="col-xl-3 d-none d-xl-block rightbar">
                         <!-- Right Column -->
                         <!-- Displays Ads on XL and Abovee-->
                         <img

@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-2 col-sm-4" />
                     <h2
-                        class="col-8 col-sm-4 mt-3 d-flex justify-content-center align-content-center"
+                        class="col-8 col-sm-4 mt-3 d-flex justify-content-center align-content-center text-center"
                     >
                         Stay Connected!
                     </h2>
@@ -25,11 +25,11 @@
                     <div class="col-1 col-sm-3" />
                     <span class="col-2 col-sm-1 my-auto email">Email: </span>
                     <input
-                        class="col-5 col-sm-4"
+                        class="col-4 col-sm-4"
                         type="text"
                     >
                     <button
-                        class="col-3 col-sm-2 col-lg-1 cancelBtnDesign my-auto align-items-end"
+                        class="col-4 col-sm-2 col-lg-1 cancelBtnDesign my-auto align-items-end"
                     >
                         SignUp
                     </button>
@@ -43,25 +43,25 @@
                             <div class="icon">
                                 <i class="fab fa-facebook-f" />
                             </div>
-                            <span>Facebook</span>
+                            <span> Facebook</span>
                         </div>
                         <div class="footerButton">
                             <div class="icon">
                                 <i class="fab fa-twitter" />
                             </div>
-                            <span>Twitter</span>
+                            <span> Twitter</span>
                         </div>
                         <div class="footerButton">
                             <div class="icon">
                                 <i class="fab fa-instagram" />
                             </div>
-                            <span>Instagram</span>
+                            <span> Instagram</span>
                         </div>
                         <div class="footerButton">
                             <div class="icon">
                                 <i class="fab fa-youtube" />
                             </div>
-                            <span>Youtube</span>
+                            <span> Youtube</span>
                         </div>
                     </div>
                 </div>

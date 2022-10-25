@@ -1,17 +1,22 @@
 <template>
-    <div class="my-1">
-        <a
-            class="btn btn-primary text-center"
-            role="button"
-            style="width: 100%"
-            @click="$emit('clickedItem', categoryName)"
-        >
-            <img
-                src="../assets/navSidePlaceholder.png"
-                style="width: 40px"
-                class="me-md-2"
+    <div class="mb-1 sideBar">
+        <div class="row">
+            <a
+                class="box text-center w-75 mx-4"
+                role="button"
+                @click="$emit('clickedItem', categoryName)"
             >
-            <span class="d-none d-xl-inline pill">{{ categoryName }}</span></a>
+                <div class="col-1" />
+                <img
+                    src="../assets/navSidePlaceholder.png"
+                    class="col-2"
+                >
+                <span class="col-8 d-none d-xl-inline pill text-start">
+                    {{ categoryName }}
+                </span>
+                <div class="col-1" />
+            </a>
+        </div>
     </div>
 </template>
 

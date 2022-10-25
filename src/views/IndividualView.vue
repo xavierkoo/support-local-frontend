@@ -68,7 +68,7 @@
                                     <div class="col-1" />
                                     <button
                                         type="button"
-                                        class="col-4 cancelBtnDesign btn btn-light button"
+                                        class="col-4 cancelBtnDesign"
                                         @click="viewCart()"
                                     >
                                         View Cart
@@ -77,7 +77,7 @@
                                     <button
                                         id="addToCart"
                                         type="button"
-                                        class="col-4 mainBtnDesign btn btn-danger button"
+                                        class="col-4 mainBtnDesign"
                                         @click="addToCart(product)"
                                     >
                                         Add To Cart
