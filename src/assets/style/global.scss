@@ -1,5 +1,7 @@
 @import "./variable";
 @import "./functions";
+@import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
+@import url("https://fonts.googleapis.com/css?family=Nunito Sans");
 
 #light {
   //general
@@ -17,9 +19,6 @@
   div,
   button {
     font-family: $bodyFontFamily;
-  }
-  body.stop-transition #some-grid-container {
-    transition: none !important;
   }
 
   .box {
@@ -133,6 +132,9 @@
     span {
       color: black;
     }
+    i {
+      color: black;
+    }
   }
   .footerWrapper .footerButton {
     display: inline-block;
@@ -186,8 +188,36 @@
     margin-left: 10px;
   }
   //sideNavPill CSS
-  .pill {
-    color: white;
+  .sideBar {
+    border-radius: $btnBorderRadius;
+    .box {
+      height: 48px;
+      background: $mainBtn;
+      @include center;
+      border-radius: $btnBorderRadius;
+      overflow: hidden;
+      transition: 1.8s;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0000 black;
+      &:hover {
+        box-shadow: inset 400px 0 0 0 black;
+        cursor: pointer;
+        color: $mainBtn;
+      }
+    }
+    img {
+      width: 40px;
+      margin: 0px 5px;
+      background: white;
+    }
+    span {
+      color: white;
+      margin: 0px 5px;
+    }
+    a {
+      text-decoration: none;
+    }
   }
 
   //LightProductCard CSS
@@ -220,23 +250,7 @@
     height: auto;
     float: left;
   }
-  .sideBar {
-    border-radius: $btnBorderRadius;
-    .box {
-      height: 48px;
-      background: #ebeceb;
-      margin: 10px 0px;
-      @include center;
-      border-radius: $btnBorderRadius;
-    }
-    img {
-      width: 40px;
-      margin: 0px 5px;
-    }
-    span {
-      margin: 0px 5px;
-    }
-  }
+
   .centerbox {
     border-radius: $btnBorderRadius;
   }
@@ -460,6 +474,43 @@
     border-radius: 50%;
   }
 
+  //SideNavPill
+  .sideBar {
+    border-radius: $btnBorderRadius;
+    .box {
+      height: 48px;
+      background: white;
+      @include center;
+      border-radius: $btnBorderRadius;
+      overflow: hidden;
+      transition: 1.8s;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0000 #5dca82;
+      &:hover {
+        box-shadow: inset 400px 0 0 0 #5dca82;
+        cursor: pointer;
+        color: white;
+        span {
+          color: white;
+          margin: 0px 5px;
+        }
+      }
+    }
+    img {
+      width: 40px;
+      margin: 0px 5px;
+      background: white;
+    }
+    span {
+      color: black;
+      margin: 0px 5px;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+
   //DarkNavBar CSS
   .brand-logo {
     max-width: 160px;
@@ -499,29 +550,90 @@
   .card:hover .cardInner {
     opacity: 1;
   }
-
-  //DarkLandingView CSS
-  .sideBar {
-    background: #212121;
-    border-radius: $btnBorderRadius;
-    border: $borderDark;
-    .box {
-      height: 48px;
-      background: $backgroundDark;
-      margin: 10px 0px;
-      @include center;
+  //DarkFooter CSS
+  .footer {
+    background: $brandMain;
+    input {
       border-radius: $btnBorderRadius;
-      border: $borderDark;
-      color: white;
+      height: 48px;
+      margin-right: 10px;
     }
     img {
-      width: 40px;
-      margin: 0px 5px;
+      width: 15%;
+      height: 15%;
+    }
+    h2 {
+      color: white;
+    }
+    p {
+      color: white;
+    }
+    .email {
+      display: flex;
+      justify-content: end;
+      align-items: end;
+      color: white;
     }
     span {
-      margin: 0px 5px;
+      color: black;
+    }
+    i {
+      color: black;
     }
   }
+  .footerWrapper .footerButton {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 0 5px;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+  }
+  .footerWrapper .footerButton .icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+  }
+  .footerWrapper .footerButton:nth-child(1):hover .icon {
+    background: #4267b2;
+  }
+  .footerWrapper .footerButton:nth-child(2):hover .icon {
+    background: #1da1f2;
+  }
+  .footerWrapper .footerButton:nth-child(3):hover .icon {
+    background: #e1306c;
+  }
+  .footerWrapper .footerButton:nth-child(4):hover .icon {
+    background: #ff0000;
+  }
+  .footerWrapper .footerButton .icon i {
+    font-size: 25px;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+  }
+  .footerWrapper .footerButton:hover .icon i {
+    color: #fff;
+  }
+  .footerWrapper .footerButton:hover {
+    width: 200px;
+  }
+  .footerWrapper .footerButton span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+  }
+
+  //DarkLandingView CSS
   .centerbox {
     border-radius: $btnBorderRadius;
     img {
@@ -538,18 +650,18 @@
   .mainBtnDesign {
     background: $mainBtn;
     font-family: $headingFontFamily;
-    color: white;
+    color: black;
     border: $borderDark;
     @include button;
     overflow: hidden;
     transition: 1.8s;
     position: relative;
     cursor: pointer;
-    box-shadow: inset 0000 black;
+    box-shadow: inset 0000 white;
     &:hover {
-      box-shadow: inset 400px 0 0 0 white;
+      box-shadow: inset 400px 0 0 0 #5dca82;
       cursor: pointer;
-      color: $mainBtn;
+      color: white;
     }
   }
 
@@ -671,5 +783,13 @@
 
   .reviewsRating {
     border-bottom: 3px solid white;
+  }
+
+  //Login
+  .login {
+    .back {
+      background: $backgroundDark;
+      border: $borderDark;
+    }
   }
 }
