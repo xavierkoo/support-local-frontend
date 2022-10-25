@@ -246,6 +246,7 @@ export default {
   data() {
     return {
       mode: localStorage.modes,
+      isShow: true,
       relatedProd: "", //v-for for related product card
       merchant: "", //merchant name
       review: "", //v-for for rating card
