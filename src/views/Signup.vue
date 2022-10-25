@@ -112,11 +112,13 @@ export default {
           //   ),
         },
         password: {
+          // uses vuelidate the validate the password and confirm password
           password: { required, minLength: minLength(6) },
           confirm: { required, sameAs: sameAs(state.password.password) },
         },
       };
     });
+    // vuelidate's constant notation for error validation
     const v$ = useValidate(rules, state);
 
     return {
@@ -126,6 +128,7 @@ export default {
   },
   methods: {
     submitForm() {
+      // method gets user's input values and add it into the db
       // trying to add data into userBase db
       let url = "http://localhost:8081/userBase";
       this.v$.$validate();
@@ -145,7 +148,6 @@ export default {
             this.$router.push("landing");
           } else {
             // did not meet input requirement
-            // alert("form failed");
             console.log("form failed");
           }
         })
