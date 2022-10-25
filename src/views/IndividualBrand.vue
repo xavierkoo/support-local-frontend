@@ -3,49 +3,17 @@
         <div class="row justify-content-center g-2">
             <div class="col-xl-4 bg-primary">
                 <!-- Left Col -->
+                <BrandProfile />
+                <MerchantRating />
+
                 <div
-                    class="card text-center pt-2"
+                    class="card text-center mt-2"
                     style="height: 444px"
                 >
-                    <!-- Insert Img here -->
-                    <img
-                        src="../assets/brandprofilepng.png"
-                        alt=""
-                        class="d-block mx-auto"
-                        style="width: 50%; height: auto"
-                    >
-                    <div class="card-body">
-                        <h3 class="card-title fw-bold">
-                            nextdealshop
-                        </h3>
-                        <p class="card-text">
-                            The store's collection is a celebration of everything maximalist -
-                            there are face masks with elf ears, iridescent platform shoes.
-                        </p>
-                        <button class="btn btn-primary">
-                            Contact me
-                        </button>
-                    </div>
-                </div>
-
-                <div
-                    class="card text-center pt-2 mt-2"
-                    style="height: 267px"
-                >
-                    <div class="card-body">
-                        <h3 class="card-title fw-bold">
-                            Merchant Rating
-                        </h3>
-                        <h1>80</h1>
-                        <h5>Amazing Seller</h5>
-                    </div>
-                </div>
-
-                <div
-                    class="card text-center pt-2 mt-2"
-                    style="height: 267px"
-                >
-                    API GOOGLE MAP HERE
+                    <Map
+                        lat="1.296568"
+                        lng="103.852119"
+                    />
                 </div>
             </div>
             <div class="col-xl-8 bg-warning">
@@ -75,12 +43,17 @@
 
 <script>
 import ProductCard from "../components/ProductCard.vue";
-import axios from "axios";
+import Map from "../components/Map.vue";
+import BrandProfile from "../components/BrandProfile.vue";
+import MerchantRating from "../components/MerchantRating.vue";
 
 export default {
   name: "App",
   components: {
     ProductCard,
+    Map,
+    BrandProfile,
+    MerchantRating,
   },
   data() {
     return {};
