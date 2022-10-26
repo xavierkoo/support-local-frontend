@@ -8,34 +8,34 @@
                         <!--Product Image-->
                         <img
                             class="col-lg-5 individualViewImg my-3"
-                            src="../assets/logo.png"
+                            :src="require(`@/${url}`)"
                         >
                         <div class="col-1" />
                         <div class="col-lg-6 my-3 individualViewProductCard">
                             <!--Product Card-->
-                            <div class="container">
+                            <div class="container my-5">
                                 <div class="row">
                                     <div class="col-1" />
-                                    <h4 class="col text-start mt-2 mb-4">
+                                    <h2 class="col text-start mb-3">
                                         {{ product.name }}
-                                    </h4>
+                                    </h2>
                                 </div>
                                 <div class="row">
                                     <div class="col-1" />
-                                    <h6 class="col text-start mb-4">
+                                    <h3 class="col text-start mb-3">
                                         {{ product.rating }}
                                         <span
                                             v-for="i of rating"
                                             :key="i"
                                         >{{ starsEmoji }}</span> /
                                         5
-                                    </h6>
+                                    </h3>
                                 </div>
                                 <div class="row">
                                     <div class="col-1" />
-                                    <h2 class="col text-start mb-4">
+                                    <h3 class="col text-start mb-3">
                                         S${{ product.price }}
-                                    </h2>
+                                    </h3>
                                 </div>
                                 <div class="row">
                                     <div class="col-1" />
@@ -97,7 +97,7 @@
                                 {{ product.name }}
                             </h5>
                             <ul
-                                v-for="(specs, idx) in product.ProductSpec"
+                                v-for="(specs, idx) in product.productSpec"
                                 :key="idx"
                                 class="mx-4"
                             >
@@ -119,7 +119,7 @@
                                     >
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-6 col-xl-8 my-3">
-                                    <h3 class="text-center text-sm-start">
+                                    <h3 class="text-center text-md-start">
                                         nextdealshop
                                     </h3>
                                     <p class="col-12 text-center text-sm-start">
@@ -166,13 +166,19 @@
                                                 >
                                             </div>
                                             <div class="col-6">
-                                                <h3>{{ rev["userName"] }}</h3>
+                                                <h3>{{ rev.user.username }}</h3>
                                                 <h4 class="d-inline">
-                                                    {{ rev["rating"] }}
+                                                    {{ rev.rating }}
+                                                    <span
+                                                        v-for="i of rev.rating"
+                                                        :key="i"
+                                                    >{{
+                                                        starsEmoji
+                                                    }}</span>
                                                 </h4>
-                                                <span class="d-inline">5Star(image)</span>
+
                                                 <p>
-                                                    {{ rev["orderDetails"] }}
+                                                    {{ rev.orderDetails }}
                                                 </p>
                                             </div>
                                         </div>
@@ -192,13 +198,13 @@
                                                     >
                                                 </div>
                                                 <div class="col-6">
-                                                    <h3>{{ rev["userName"] }}</h3>
+                                                    <h3>{{ rev.username }}</h3>
                                                     <h4 class="d-inline">
-                                                        {{ rev["rating"] }}
+                                                        {{ rev.rating }}
                                                     </h4>
                                                     <span class="d-inline">5Star(image)</span>
                                                     <p>
-                                                        {{ rev["orderDetails"] }}
+                                                        {{ rev.orderDetails }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -228,10 +234,11 @@
                             :key="value"
                             :merchant-name="merchant"
                             :last-online-hour="prod.lastonlinehour"
-                            :desc="value"
-                            :price="prod.price"
-                            :num-sold="prod.numberSold"
-                            :offer-price="prod.specialPrice"
+                            :desc="prod.products[0].name"
+                            :price="prod.products[0].price"
+                            :num-sold="prod.products[0].numberSold"
+                            :offer-price="prod.products[0].specialPrice"
+                            :url="prod.products[0].imgUrl"
                         />
                     </div>
                 </div>
@@ -260,6 +267,7 @@ export default {
       cart: [],
       starsEmoji: "⭐️",
       rating: 0,
+      url: "",
     };
   },
 
@@ -270,21 +278,24 @@ export default {
   },
   async beforeMount() {
     //onload event for vue to populate related product card and rating card
-    const prod = await axios.get("http://localhost:8081/merchant");
-    this.merchant = prod.data.name;
-    this.relatedProd = prod.data.products[0];
-    const rev = await axios.get("http://localhost:8081/reviews");
+    const prod = await axios.get(
+      "https://support-local.herokuapp.com/api/merchants"
+    );
+    this.merchant = prod.data[0].name;
+    this.relatedProd = prod.data;
+    const rev = await axios.get(
+      "https://support-local.herokuapp.com/api/reviews"
+    );
     this.review = rev.data;
     //////////// edited: Cydnie
-    this.product = prod.data.products[0];
+    this.product = prod.data[0].products[0];
     this.rating = this.product.rating;
-    console.log(this.product);
-    console.log(this.rating);
+    this.url = this.product.imgUrl;
+    console.log(this.url);
   },
   methods: {
     addToCart(product) {
       this.cart.push(product);
-      console.log(this.cart);
     },
     viewCart() {
       this.$router.push("cart");
