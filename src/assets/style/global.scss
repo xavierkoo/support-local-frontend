@@ -209,6 +209,7 @@
       height: auto;
       margin: 0px 5px;
       background: white;
+      border-radius: $boxRadius;
     }
     span {
       color: white;
@@ -432,6 +433,30 @@
       @include center;
     }
   }
+
+  //LightCheckOut
+  .checkOut {
+    .checkOutBack {
+      background: white;
+      border: $borderLight;
+      border-radius: $boxRadius;
+      color: black;
+    }
+    input {
+      background: $mainBtn;
+    }
+  }
+  //LightCheckOut
+  .viewOrder {
+    .viewOrderBar {
+      background: $brandMain;
+      color: white;
+    }
+    .orderDetails {
+      border: $borderLight;
+      border-radius: $boxRadius;
+    }
+  }
 }
 
 #dark {
@@ -518,7 +543,7 @@
     border-radius: 50%;
   }
 
-  //SideNavPill
+  //DarkSideNavPill
   .sideBar {
     border-radius: $btnBorderRadius;
     .box {
@@ -545,6 +570,7 @@
       width: 40px;
       margin: 0px 5px;
       background: white;
+      border-radius: $boxRadius;
     }
     span {
       color: black;
@@ -703,7 +729,7 @@
     cursor: pointer;
     box-shadow: inset 0000 white;
     &:hover {
-      box-shadow: inset 400px 0 0 0 #5dca82;
+      box-shadow: inset 400px 0 0 0 black;
       cursor: pointer;
       color: white;
     }
@@ -862,13 +888,14 @@
   }
 
   //DarkOrderLogs
+  .orderLog {
+    background: $backgroundDark;
+  }
   .orderBar {
     background: $brandMain;
     color: white;
   }
-  .orderBack {
-    background: $backgroundDark;
-  }
+
   //DarkShoppingCarts
   .shoppingBar {
     background: $brandMain;
@@ -876,5 +903,18 @@
   }
   .shoppingBack {
     background: $backgroundDark;
+  }
+
+  //DarkCheckOut
+  .checkOut {
+    .checkOutBack {
+      background: $backgroundDark;
+      border: $borderLight;
+      border-radius: $boxRadius;
+      color: white;
+    }
+    input {
+      background: #d9d9d9;
+    }
   }
 }

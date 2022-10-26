@@ -193,6 +193,7 @@
   height: auto;
   margin: 0px 5px;
   background: white;
+  border-radius: 8px;
 }
 #light .sideBar span {
   color: white;
@@ -386,6 +387,23 @@
   justify-content: center;
   align-items: center;
 }
+#light .checkOut .checkOutBack {
+  background: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: black;
+}
+#light .checkOut input {
+  background: #d36959;
+}
+#light .viewOrder .viewOrderBar {
+  background: #942c1f;
+  color: white;
+}
+#light .viewOrder .orderDetails {
+  border: 1px solid black;
+  border-radius: 8px;
+}
 
 #dark {
   /* Track */
@@ -487,6 +505,7 @@
   width: 40px;
   margin: 0px 5px;
   background: white;
+  border-radius: 8px;
 }
 #dark .sideBar span {
   color: black;
@@ -635,7 +654,7 @@
   box-shadow: inset 0 white;
 }
 #dark .mainBtnDesign:hover {
-  box-shadow: inset 400px 0 0 0 #5dca82;
+  box-shadow: inset 400px 0 0 0 black;
   cursor: pointer;
   color: white;
 }
@@ -771,12 +790,12 @@
   height: auto;
   border-radius: 8px;
 }
+#dark .orderLog {
+  background: #3d3d3d;
+}
 #dark .orderBar {
   background: #942c1f;
   color: white;
-}
-#dark .orderBack {
-  background: #3d3d3d;
 }
 #dark .shoppingBar {
   background: #942c1f;
@@ -784,4 +803,13 @@
 }
 #dark .shoppingBack {
   background: #3d3d3d;
+}
+#dark .checkOut .checkOutBack {
+  background: #3d3d3d;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: white;
+}
+#dark .checkOut input {
+  background: #d9d9d9;
 }
