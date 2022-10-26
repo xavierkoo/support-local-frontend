@@ -11,14 +11,14 @@
             <div class="card">
                 <img
                     class="rounded-0 card-img-top"
-                    src="../assets/hero.png"
+                    :src="require(`@/${url}`)"
                 >
 
                 <div class="card-body productCard">
                     <div class="row mb-1">
                         <div class="col-3">
                             <img
-                                src="../assets/profilepng.png"
+                                :src="require(`@/${url}`)"
                                 style="height: auto; width: 100%"
                             >
                         </div>
@@ -92,6 +92,10 @@ export default {
     offerPrice: {
       type: Number,
       default: 21.99,
+    },
+    url: {
+      type: String,
+      default: "test",
     },
   },
   setup() {

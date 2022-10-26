@@ -41,11 +41,12 @@
                                 >
                                     <ProductCard
                                         v-if="(idx % 2 == 0) | (idx == 0)"
-                                        :merchant-name="obj.merchant"
+                                        :merchant-name="obj.merchant.name"
                                         :desc="obj.name"
                                         :offer-price="obj.specialPrice"
                                         :price="obj.price"
                                         :num-sold="obj.numberSold"
+                                        :url="obj.imgUrl"
                                         class="mb-3"
                                     />
                                 </template>
@@ -57,11 +58,12 @@
                                 >
                                     <ProductCard
                                         v-if="(idx % 2 == 1) & (idx > 0)"
-                                        :merchant-name="obj.merchant"
+                                        :merchant-name="obj.merchant.name"
                                         :desc="obj.name"
                                         :offer-price="obj.specialPrice"
                                         :price="obj.price"
                                         :num-sold="obj.numberSold"
+                                        :url="obj.imgUrl"
                                         class="mb-3"
                                     />
                                 </template>
@@ -150,12 +152,13 @@ export default {
   },
   // A function that will be called before the component is mounted.
   async beforeMount() {
-    const res = await axios.get("http://localhost:8081/products");
+    const res = await axios.get(
+      "https://support-local.herokuapp.com/api/products"
+    );
     let startUpArr = [];
     for (const key in res.data) {
       if (Object.hasOwnProperty.call(res.data, key)) {
         const element = res.data[key];
-        let category = element.category;
         if (startUpArr.length < 6) {
           startUpArr.push(element);
         }
@@ -171,7 +174,7 @@ export default {
     },
     // This function is used to get the selected product from the API.
     getSelectedProduct(selectedCat, viewMore) {
-      let url = "http://localhost:8081/products";
+      let url = "https://support-local.herokuapp.com/api/products";
 
       axios.get(url).then((res) => {
         if (viewMore === false) {
