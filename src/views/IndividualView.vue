@@ -301,7 +301,8 @@ export default {
       var year = dateObj.getFullYear();
       console.log(date);
       var datePurchased = date + `/` + month + `/` + year;
-      console.log(datePurchased);
+      //   console.log(datePurchased);
+      console.log(this.product);
 
       // push array into the shopping cart array: nested list to db user
       this.shoppingCart.push([
@@ -313,7 +314,7 @@ export default {
         this.merchant,
         datePurchased,
       ]);
-      //   console.log(this.shoppingCart);
+      console.log(this.shoppingCart);
       //   console.log(product);
       //   console.log(this.merchant);
       //   this.cart.push(product);
