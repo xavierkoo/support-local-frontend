@@ -1,7 +1,5 @@
 @import "./variable";
 @import "./functions";
-@import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
-@import url("https://fonts.googleapis.com/css?family=Nunito Sans");
 
 #light {
   //general
@@ -230,7 +228,7 @@
     }
   }
   .cardInner {
-    background-color: hsla(0, 0%, 100%, 0.9);
+    background-color: white;
     color: #fff;
     position: absolute;
     top: 0px;
@@ -396,7 +394,7 @@
     border-bottom: 3px solid grey;
   }
 
-  //Login
+  //LightLogin
   .login {
     .back {
       border-radius: $boxRadius;
@@ -408,13 +406,30 @@
     }
   }
 
-  //DarkSignUP
+  //LightSignUP
   .signUp {
     .back {
       border-radius: $boxRadius;
+      height: 456px;
     }
     img {
       border-radius: $boxRadius;
+      height: 456px;
+    }
+  }
+
+  //LightOrderLogs
+  .orderBar {
+    background: $brandMain;
+    color: white;
+  }
+
+  //LightShoppingCarts
+  .shoppingBar {
+    background: $brandMain;
+    color: white;
+    button {
+      @include center;
     }
   }
 }
@@ -565,7 +580,7 @@
     }
   }
   .cardInner {
-    background-color: hsla(0, 0%, 100%, 90%);
+    background-color: white;
     color: #fff;
     position: absolute;
     top: 0px;
@@ -844,5 +859,22 @@
       height: auto;
       border-radius: $boxRadius;
     }
+  }
+
+  //DarkOrderLogs
+  .orderBar {
+    background: $brandMain;
+    color: white;
+  }
+  .orderBack {
+    background: $backgroundDark;
+  }
+  //DarkShoppingCarts
+  .shoppingBar {
+    background: $brandMain;
+    color: white;
+  }
+  .shoppingBack {
+    background: $backgroundDark;
   }
 }
