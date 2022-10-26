@@ -53,9 +53,9 @@
                     <component :is="Component" />
                 </transition>
             </router-view>
+            <PageFooter />
         </div>
     </div>
-    <PageFooter />
 </template>
 
 <script>
