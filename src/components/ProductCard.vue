@@ -11,14 +11,14 @@
             <div class="card">
                 <img
                     class="rounded-0 card-img-top"
-                    :src="require(`@/${url}`)"
+                    :src="require(`@/${productPicUrl}`)"
                 >
 
                 <div class="card-body productCard">
                     <div class="row mb-1">
                         <div class="col-3">
                             <img
-                                :src="require(`@/${url}`)"
+                                :src="require(`@/${profilePicUrl}`)"
                                 style="height: auto; width: 100%"
                             >
                         </div>
@@ -93,9 +93,13 @@ export default {
       type: Number,
       default: 21.99,
     },
-    url: {
+    profilePicUrl: {
       type: String,
-      default: "test",
+      default: "assets/profilepng.png",
+    },
+    productPicUrl: {
+      type: String,
+      default: "assets/hero.png",
     },
   },
   setup() {
@@ -116,7 +120,7 @@ export default {
         opacity: 1,
         duration: 2,
         ease: "Back.easeOut",
-        onComplete: done, //to shwo that animation is completed
+        onComplete: done, //to show that animation is completed
       });
     };
     const afterEnter = (el) => {
