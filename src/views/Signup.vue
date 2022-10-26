@@ -3,25 +3,25 @@
 <template>
     <div class="signUp">
         <div :id="mode">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-1" />
-                    <div class="col-md-5">
-                        <img
-                            src="https://i.pinimg.com/originals/7f/98/dc/7f98dcad5579ed7fc4d4b88b79ecfea4.jpg"
-                            alt=""
-                            class="shadow"
-                        >
-                    </div>
-                    <div class="col-md-5 p-5 shadow back">
-                        <div class="container">
-                            <div class="row">
-                                <h3 class="display-6">
-                                    <b>Sign Up</b>
-                                </h3>
-                            </div>
-                            <div class="row">
-                                <form>
+
+                    <img
+                        src="https://i.pinimg.com/originals/7f/98/dc/7f98dcad5579ed7fc4d4b88b79ecfea4.jpg"
+                        alt=""
+                        class="shadow col-md-5 my-5"
+                    >
+
+                    <div class="col-md-5 container shadow back px-5 my-5">
+                        <div class="row display-6 mt-4">
+                            <h3>
+                                <bold>Sign Up</bold>
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <form>
+                                <div class="row">
                                     <div class="form-group">
                                         <label for="Email">Email <span>*</span></label>
                                         <input
@@ -34,7 +34,8 @@
                                             {{ v$.email.$errors[0].$message }}
                                         </span>
                                     </div>
-                                    <br>
+                                </div>
+                                <div class="row">
                                     <div class="form-group">
                                         <label for="password">Password <span>*</span></label>
                                         <input
@@ -47,7 +48,8 @@
                                             {{ v$.password.$errors[0].$message }}
                                         </span>
                                     </div>
-                                    <br>
+                                </div>
+                                <div class="row">
                                     <div class="form-group">
                                         <label for="cfmpassword">Confirm Password <span>*</span></label>
                                         <input
@@ -60,17 +62,18 @@
                                             {{ v$.password.$errors[0].$message }}
                                         </span>
                                     </div>
-                                    <br>
-                                    <div class="container buttoncont">
-                                        <button
-                                            type="submit"
-                                            class="mainBtnDesign"
-                                            @click="submitForm()"
-                                        >
-                                            Sign Up
-                                        </button>
-                                    </div>
-                                </form>
+                                </div>
+                            </form>
+                            <div class="row">
+                                <div class="col-3" />
+                                <button
+                                    type="submit"
+                                    class="mainBtnDesign col-6"
+                                    @click="submitForm()"
+                                >
+                                    Sign Up
+                                </button>
+                                <div class="col-3" />
                             </div>
                         </div>
                     </div>

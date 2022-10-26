@@ -1,30 +1,32 @@
 <template>
     <div :id="mode">
-        <div class="container p-0">
-            <div class="row bg-danger row1 mx-4">
-                <div class="col-md-1 cb1">
-                    <input
-                        v-if="showCheckBox"
-                        type="checkbox"
-                    >
-                </div>
-                <div class="col-md-3">
-                    <b>Product</b>
-                </div>
-                <div class="col-md-2">
-                    <b>Unit Price</b>
-                </div>
-                <div class="col-md-2">
-                    <b>Quantity</b>
-                </div>
-                <div class="col-md-2">
-                    <b>Total Price</b>
-                </div>
-                <div class="col-md-2">
-                    <b>Action</b>
+        <div class="container">
+            <div class="row d-none d-sm-block text-center">
+                <div class="row orderBar mx-2">
+                    <div class="col-sm-1 cb1">
+                        <input
+                            v-if="showCheckBox"
+                            type="checkbox"
+                        >
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Product</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Unit Price</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Quantity</b>
+                    </div>
+                    <div class="col-sm-3">
+                        <b>Total Price</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Action</b>
+                    </div>
                 </div>
             </div>
-            <div>
+            <div class="row orderBack">
                 <CartProducts
                     v-for="(obj, ind) in shoppingCart"
                     :key="ind"
@@ -89,25 +91,5 @@ export default {
 };
 </script>
 <style>
-.container {
-  text-align: left;
-}
-.row1 {
-  color: white;
-}
-.row {
-  padding: 10px 0;
-}
-.cb1 {
-  text-align: right;
-}
-.totalrow {
-  padding: 50px 0 0 10px;
-}
-.red {
-  color: rgb(160, 39, 39);
-}
-input[type="number"] {
-  width: 50px;
-}
+@import "../assets/style/global.css";
 </style>
