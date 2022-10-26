@@ -80,12 +80,19 @@ export default {
   },
   async beforeMount() {
     //onload event for vue to populate products in cart
-    const user = await axios.get("http://localhost:8081/user");
-    this.objects = user.data;
-    this.shoppingCart = this.objects[0]["shoppingCart"];
+    const user = await axios.get(
+      "https://support-local.herokuapp.com/api/users?userId=" + this.userId
+    );
+
+    // get the Shopping Cart nested array
+    this.shoppingCart = user.data[0].shoppingCart;
+
+    // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
+
     // calc total
-    for (var li of this.shoppingCart) {
+    for (li of this.shoppingCart) {
       this.total += Number(li[3]);
+      // console.log(li);
     }
   },
 };
