@@ -264,10 +264,10 @@ export default {
       quantity: 1,
       //////////// edited:Cydnie
       product: "",
-      cart: [],
       starsEmoji: "⭐️",
       rating: 0,
       url: "",
+      shoppingCart: [],
     };
   },
 
@@ -295,7 +295,30 @@ export default {
   },
   methods: {
     addToCart(product) {
-      this.cart.push(product);
+      // push shopping cart's product details into the array to be sent to db, subsequently used in the ShoppingCart/ViewOrder pages
+      // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
+      var dateObj = new Date();
+      var date = dateObj.getDate();
+      var month = dateObj.getMonth();
+      var year = dateObj.getFullYear();
+      console.log(date);
+      var datePurchased = date + `/` + month + `/` + year;
+      console.log(datePurchased);
+
+      // push array into the shopping cart array: nested list to db user
+      this.shoppingCart.push([
+        product.name,
+        product.id,
+        this.quantity,
+        product.price,
+        product.imgUrl,
+        this.merchant,
+        datePurchased,
+      ]);
+      //   console.log(this.shoppingCart);
+      //   console.log(product);
+      //   console.log(this.merchant);
+      //   this.cart.push(product);
     },
     viewCart() {
       this.$router.push("cart");
