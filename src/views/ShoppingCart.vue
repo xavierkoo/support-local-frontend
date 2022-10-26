@@ -41,6 +41,7 @@
                         :show-date="showDate"
                         :quantity="li[2]"
                         :date-purchased="li[6]"
+                        :action="action"
                     />
                 </div>
                 <div class="row p-0 mx-auto">
