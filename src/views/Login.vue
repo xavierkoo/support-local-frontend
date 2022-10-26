@@ -3,75 +3,71 @@
 <template>
     <div class="login">
         <div :id="mode">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-1" />
-                    <div class="col-md-5">
-                        <img
-                            src="https://i.pinimg.com/originals/7f/98/dc/7f98dcad5579ed7fc4d4b88b79ecfea4.jpg"
-                            alt=""
-                            class="shadow"
-                        >
-                    </div>
-                    <div class="col-md-5 p-5 shadow back">
-                        <div class="container">
-                            <div class="row display-6">
-                                <h3>
-                                    <bold>Login</bold>
-                                </h3>
-                            </div>
-                            <div class="row">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="Email">Email <span>*</span></label>
-                                        <input
-                                            id="emailAdd"
-                                            v-model="state.email"
-                                            type="email"
-                                            class="form-control"
-                                            onfocus="this.value=''"
-                                        >
-                                        <!-- <span
-                                            v-if="isInvalid"
-                                            class="color:red"
-                                        >Incorrect Email</span> -->
-                                        <span v-if="v$.email.$error">
-                                            {{ v$.email.$errors[0].$message }}
-                                        </span>
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <label for="password">Password <span>*</span></label>
-                                        <input
-                                            v-model="state.password"
-                                            type="password"
-                                            class="form-control"
-                                            onfocus="this.value=''"
-                                        >
-                                        <!-- <span
-                                            v-if="isInvalid"
-                                            class="color:red"
-                                        >Incorrect Password</span> -->
-                                        <span v-if="v$.password.$error">
-                                            {{ v$.password.$errors[0].$message }}
-                                        </span>
-                                    </div>
-                                    <br>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-4" />
-                                            <button
-                                                type="submit"
-                                                class="col-4 mainBtnDesign"
-                                                @click="submitForm()"
-                                            >
-                                                Log In
-                                            </button>
-                                            <div class="col-4" />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                    <img
+                        src="https://i.pinimg.com/originals/7f/98/dc/7f98dcad5579ed7fc4d4b88b79ecfea4.jpg"
+                        alt=""
+                        class="shadow col-md-5 my-5"
+                    >
+                    <div class="col-md-5 container shadow back px-5 my-5">
+                        <div class="row display-6 mt-4">
+                            <h3>
+                                <bold>Login</bold>
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <form>
+                                <div class="form-group">
+                                    <label for="Email">Email <span>*</span></label>
+                                    <input
+                                        id="emailAdd"
+                                        v-model="state.email"
+                                        type="email"
+                                        class="form-control"
+                                    >
+                                    <span id="errmsgEmail" />
+                                    <span v-if="v$.email.$error">
+                                        {{ v$.email.$errors[0].$message }}
+                                    </span>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="password">Password <span>*</span></label>
+                                    <input
+                                        id="password"
+                                        v-model="state.password"
+                                        type="password"
+                                        class="form-control"
+                                    ><span id="errmsgPassword" />
+                                    <span v-if="v$.password.$error">
+                                        {{ v$.password.$errors[0].$message }}
+                                    </span>
+                                </div>
+                                <br>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <div class="col-3" />
+                            <button
+                                type="submit"
+                                class="col-6 mainBtnDesign"
+                                @click="submitForm()"
+                            >
+                                Log In
+                            </button>
+                            <div class="col-3" />
+                        </div>
+                        <div class="row">
+                            <div class="col-3" />
+                            <button
+                                type="submit"
+                                class="col-6 cancelBtnDesign"
+                            >
+                                Sign Up
+                            </button>
+                            <div class="col-3" />
                         </div>
                     </div>
                     <div class="col-md-1" />
@@ -175,30 +171,5 @@ export default {
 </script>
 
 <style>
-.container {
-  display: inline;
-  margin: auto;
-}
-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
-}
-.form1 {
-  padding: 20px;
-  /* border: 1px #c8c8c8 solid; */
-  border-radius: 20px;
-}
-.buttoncont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-}
-button {
-  width: 100px;
-}
-span {
-  color: red;
-}
+@import "../assets/style/global.css";
 </style>

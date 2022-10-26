@@ -208,6 +208,7 @@
     }
     img {
       width: 40px;
+      height: auto;
       margin: 0px 5px;
       background: white;
     }
@@ -331,6 +332,12 @@
       background: #d9d9d9;
       border: none;
     }
+    #qty {
+      border-radius: $boxRadius;
+    }
+    #size {
+      border-radius: $boxRadius;
+    }
   }
 
   .individualViewProdDesc {
@@ -387,6 +394,28 @@
 
   .reviewsRating {
     border-bottom: 3px solid grey;
+  }
+
+  //Login
+  .login {
+    .back {
+      border-radius: $boxRadius;
+      height: 456px;
+    }
+    img {
+      border-radius: $boxRadius;
+      height: 456px;
+    }
+  }
+
+  //DarkSignUP
+  .signUp {
+    .back {
+      border-radius: $boxRadius;
+    }
+    img {
+      border-radius: $boxRadius;
+    }
   }
 }
 
@@ -720,6 +749,12 @@
       background: #d9d9d9;
       border: none;
     }
+    #qty {
+      border-radius: $boxRadius;
+    }
+    #size {
+      border-radius: $boxRadius;
+    }
   }
 
   .individualViewProdDesc {
@@ -785,11 +820,29 @@
     border-bottom: 3px solid white;
   }
 
-  //Login
+  //DarkLogin
   .login {
     .back {
       background: $backgroundDark;
       border: $borderDark;
+      border-radius: $boxRadius;
+    }
+    img {
+      border-radius: $boxRadius;
+    }
+  }
+
+  //DarkSignUP
+  .signUp {
+    .back {
+      background: $backgroundDark;
+      border: $borderDark;
+      border-radius: $boxRadius;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $boxRadius;
     }
   }
 }
