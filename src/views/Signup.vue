@@ -21,7 +21,7 @@
                         </div>
                         <div class="row">
                             <form>
-                                <div class="row">
+                                <div class="row my-2">
                                     <div class="form-group">
                                         <label for="Email">Email <span>*</span></label>
                                         <input
@@ -35,7 +35,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row my-2">
                                     <div class="form-group">
                                         <label for="password">Password <span>*</span></label>
                                         <input
@@ -49,7 +49,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row my-2">
                                     <div class="form-group">
                                         <label for="cfmpassword">Confirm Password <span>*</span></label>
                                         <input
@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="row">
+                            <div class="row mt-4">
                                 <div class="col-3" />
                                 <button
                                     type="submit"

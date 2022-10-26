@@ -17,7 +17,7 @@
                                 <bold>Login</bold>
                             </h3>
                         </div>
-                        <div class="row">
+                        <div class="row my-2">
                             <form>
                                 <div class="form-group">
                                     <label for="Email">Email <span>*</span></label>
@@ -48,7 +48,7 @@
                                 <br>
                             </form>
                         </div>
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-3" />
                             <button
                                 type="submit"
@@ -59,7 +59,7 @@
                             </button>
                             <div class="col-3" />
                         </div>
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-3" />
                             <button
                                 type="submit"

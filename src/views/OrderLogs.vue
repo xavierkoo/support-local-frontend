@@ -1,47 +1,49 @@
 <template>
     <div :id="mode">
         <div class="container">
-            <div class="row d-none d-sm-block text-center">
-                <div class="row orderBar mx-2">
-                    <div class="col-sm-1 cb1">
-                        <input
-                            v-if="showCheckBox"
-                            type="checkbox"
-                        >
-                    </div>
-                    <div class="col-sm-2">
-                        <b>Product</b>
-                    </div>
-                    <div class="col-sm-2">
-                        <b>Unit Price</b>
-                    </div>
-                    <div class="col-sm-2">
-                        <b>Quantity</b>
-                    </div>
-                    <div class="col-sm-3">
-                        <b>Total Price</b>
-                    </div>
-                    <div class="col-sm-2">
-                        <b>Action</b>
+            <div class="row orderLog p-0">
+                <div class="d-none d-sm-block">
+                    <div class="row orderBar text-center py-2 mb-2">
+                        <div class="col-sm-1 cb1">
+                            <input
+                                v-if="showCheckBox"
+                                type="checkbox"
+                            >
+                        </div>
+                        <div class="col-sm-2">
+                            <b>Product</b>
+                        </div>
+                        <div class="col-sm-2">
+                            <b>Unit Price</b>
+                        </div>
+                        <div class="col-sm-2">
+                            <b>Quantity</b>
+                        </div>
+                        <div class="col-sm-3">
+                            <b>Total Price</b>
+                        </div>
+                        <div class="col-sm-2">
+                            <b>Action</b>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row orderBack">
-                <CartProducts
-                    v-for="li of shoppingCart"
-                    :key="li[1]"
-                    :merchant="li[5]"
-                    :price="li[3]"
-                    :name="li[0]"
-                    :bike-img="li[4]"
-                    :show-check-box="showCheckBox"
-                    :prod-id="li[1]"
-                    :show-qty-input="showQtyInput"
-                    :show-date="showDate"
-                    :quantity="li[2]"
-                    :date-purchased="li[6]"
-                    :action="action"
-                />
+                <div class="row orderBack mx-auto">
+                    <CartProducts
+                        v-for="(obj, ind) in shoppingCart"
+                        :key="ind"
+                        :merchant="obj[4]"
+                        :price="obj[3]"
+                        :name="obj[1]"
+                        :bike="obj[5]"
+                        :show-check-box="showCheckBox"
+                        :prod-id="obj[0]"
+                        :date-purchased="obj[6]"
+                        :show-qty-input="showQtyInput"
+                        :show-date="showDate"
+                        :quantity="obj[2]"
+                        :action="action"
+                    />
+                </div>
             </div>
         </div>
     </div>

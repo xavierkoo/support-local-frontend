@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row shoppingBack p-0">
                 <div class="d-none d-sm-block">
-                    <div class="row shoppingBar text-center">
+                    <div class="row shoppingBar text-center py-2 mb-2">
                         <input
                             v-if="showCheckBox"
                             type="checkbox"

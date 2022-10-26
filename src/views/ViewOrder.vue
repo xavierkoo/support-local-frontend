@@ -1,127 +1,115 @@
 <template>
     <div :id="mode">
-        <div class="container p-0">
-            <div class="row bg-danger row1 mx-4">
-                <div class="col-md-1 cb1">
-                    <input
-                        v-if="showCheckBox"
-                        type="checkbox"
-                    >
+        <div class="container">
+            <div class="row viewOrder p-0">
+                <div class="d-none d-sm-block">
+                    <div class="row viewOrderBar text-center py-2 mb-2">
+                        <input
+                            v-if="showCheckBox"
+                            type="checkbox"
+                            class="col-sm-1 cb1 my-auto"
+                        >
+                        <h6 class="col-md-2 my-auto">
+                            Product
+                        </h6>
+                        <h6 class="col-md-2 my-auto">
+                            Unit Price
+                        </h6>
+                        <h6 class="col-md-2 my-auto">
+                            Quantity
+                        </h6>
+                        <h6 class="col-md-3 my-auto">
+                            Total Price
+                        </h6>
+                        <h6 class="col-md-2 my-auto">
+                            Action
+                        </h6>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <b>Product</b>
+                <div class="row products mx-auto">
+                    <CartProducts
+                        v-for="(obj, ind) in shoppingCart"
+                        :key="ind"
+                        :merchant="obj[4]"
+                        :price="obj[3]"
+                        :name="obj[1]"
+                        :bike="obj[5]"
+                        :show-check-box="showCheckBox"
+                        :prod-id="obj[0]"
+                        :date-purchased="obj[6]"
+                        :show-qty-input="showQtyInput"
+                        :show-date="showDate"
+                        :quantity="obj[2]"
+                    />
                 </div>
-                <div class="col-md-2">
-                    <b>Unit Price</b>
+                <div class="container orderDetails">
+                    <div class="row p-0 mx-auto">
+                        <div class="col-1" />
+                        <div class="my-4 col-4">
+                            <h3>Order Details:</h3>
+                        </div>
+                        <div class="col-7" />
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="row p-0 mx-auto">
+                                <div class="col-2" />
+                                <h6 class="col-5">
+                                    Merchant:
+                                </h6>
+                                <h6 class="col-5">
+                                    nextdealshop
+                                </h6>
+                            </div>
+                            <div class="row p-0 mx-auto">
+                                <div class="col-2" />
+                                <h6 class="col-5">
+                                    Location:
+                                </h6>
+                                <h6 class="col-5">
+                                    81 Victoria St
+                                </h6>
+                            </div>
+                            <div class="row p-0 mx-auto">
+                                <div class="col-2" />
+                                <h6 class="col-5">
+                                    Expected Delivery Date:
+                                </h6>
+                                <h6 class="col-5 my-auto">
+                                    15-10-2022
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 mb-3">
+                            <div class="row p-0 mx-auto">
+                                <div class="col-2" />
+                                <h6 class="col-5">
+                                    Order Status:
+                                </h6>
+                                <h6 class="col-5 my-auto my-auto">
+                                    Waiting for seller to ship
+                                </h6>
+                            </div>
+                            <div class="row p-0 mx-auto my-2">
+                                <div class="col-1 col-xl-2" />
+                                <button
+                                    class="cancelBtnDesign col-4"
+                                    type="button"
+                                >
+                                    Contact Seller
+                                </button>
+                                <div class="col-2 col-xl-1" />
+                                <button
+                                    class="mainBtnDesign col-4"
+                                    type="button"
+                                >
+                                    Mark as Received
+                                </button>
+                                <div class="col-1" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <b>Quantity</b>
-                </div>
-                <div class="col-md-2">
-                    <b>Total Price</b>
-                </div>
-                <div class="col-md-2">
-                    <b>Action</b>
-                </div>
-            </div>
-            <div>
-                <CartProducts
-                    v-for="li of shoppingCart"
-                    :key="li[1]"
-                    :merchant="li[5]"
-                    :price="li[3]"
-                    :name="li[0]"
-                    :bike-img="li[4]"
-                    :show-check-box="showCheckBox"
-                    :prod-id="li[1]"
-                    :show-qty-input="showQtyInput"
-                    :show-date="showDate"
-                    :quantity="li[2]"
-                    :date-purchased="li[6]"
-                    :action="action"
-                />
-            </div>
-        </div>
-        <div class="container p-0">
-            <div class="row bg-light mx-4 mt-5">
-                <div class="container px-5 py-4">
-                    <h5 style="color: black">
-                        <b>Order Details:</b>
-                    </h5>
-                </div>
-            </div>
-            <div class="row bg-light mx-4 px-5">
-                <div
-                    class="col-md-2"
-                    style="color: black"
-                >
-                    <b>Merchant:</b>
-                </div>
-                <div
-                    class="col-md-4"
-                    style="color: black"
-                >
-                    nextdealshop
-                </div>
-                <div
-                    class="col-md-2"
-                    style="color: black"
-                >
-                    <b>Order Status</b>
-                </div>
-                <div
-                    class="col-md-4"
-                    style="color: black"
-                >
-                    Waiting for Seller to ship
-                </div>
-            </div>
-            <div class="row bg-light mx-4 px-5">
-                <div
-                    class="col-md-2"
-                    style="color: black"
-                >
-                    <b>Location:</b>
-                </div>
-                <div
-                    class="col-md-4"
-                    style="color: black"
-                >
-                    81 Victoria St
-                </div>
-                <div class="col-md-6" />
-            </div>
-            <div class="row bg-light mx-4 px-5">
-                <div
-                    class="col-md-2"
-                    style="color: black"
-                >
-                    <b>Expected Delivery Date:</b>
-                </div>
-                <div
-                    class="col-md-4"
-                    style="color: black"
-                >
-                    15-10-2022
-                </div>
-                <div class="col-md-2">
-                    <button
-                        class="btn btn-secondary button"
-                        type="button"
-                        style="color: black"
-                    >
-                        Contact Seller
-                    </button>
-                </div>
-                <div class="col-md-2">
-                    <button
-                        class="btn btn-danger button"
-                        type="button"
-                    >
-                        Mark as Received
-                    </button>
-                </div>
-                <div class="col-md-2" />
             </div>
         </div>
     </div>
@@ -181,29 +169,4 @@ export default {
   },
 };
 </script>
-<style>
-.container {
-  text-align: left;
-}
-.row1 {
-  color: white;
-}
-.row {
-  padding: 10px 0;
-}
-.cb1 {
-  text-align: right;
-}
-.totalrow {
-  padding: 50px 0 0 10px;
-}
-.red {
-  color: rgb(160, 39, 39);
-}
-input[type="number"] {
-  width: 50px;
-}
-.button {
-  width: 80%;
-}
-</style>
+<style></style>
