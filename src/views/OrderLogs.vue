@@ -28,18 +28,18 @@
             </div>
             <div class="row orderBack">
                 <CartProducts
-                    v-for="(obj, ind) in shoppingCart"
-                    :key="ind"
-                    :merchant="obj[4]"
-                    :price="obj[3]"
-                    :name="obj[1]"
-                    :bike="obj[5]"
+                    v-for="li of shoppingCart"
+                    :key="li[1]"
+                    :merchant="li[5]"
+                    :price="li[3]"
+                    :name="li[0]"
+                    :bike-img="li[4]"
                     :show-check-box="showCheckBox"
-                    :prod-id="obj[0]"
-                    :date-purchased="obj[6]"
+                    :prod-id="li[1]"
                     :show-qty-input="showQtyInput"
                     :show-date="showDate"
-                    :quantity="obj[2]"
+                    :quantity="li[2]"
+                    :date-purchased="li[6]"
                     :action="action"
                 />
             </div>
@@ -80,12 +80,19 @@ export default {
   },
   async beforeMount() {
     //onload event for vue to populate products in cart
-    const user = await axios.get("http://localhost:8081/user");
-    this.objects = user.data;
-    this.shoppingCart = this.objects[0]["shoppingCart"];
+    const user = await axios.get(
+      "https://support-local.herokuapp.com/api/users?userId=" + this.userId
+    );
+
+    // get the Shopping Cart nested array
+    this.shoppingCart = user.data[0].shoppingCart;
+
+    // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
+
     // calc total
-    for (var li of this.shoppingCart) {
+    for (li of this.shoppingCart) {
       this.total += Number(li[3]);
+      // console.log(li);
     }
   },
 };

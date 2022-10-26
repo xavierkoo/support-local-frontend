@@ -286,6 +286,12 @@ export default {
     const rev = await axios.get(
       "https://support-local.herokuapp.com/api/reviews"
     );
+
+    // const users = await axios.post(
+    //   "https://support-local.herokuapp.com/api/users",
+    //   { shoppingcart: this.shoppingCart }
+    // );
+
     this.review = rev.data;
     this.productList = products.data;
     this.product = products.data[0];
@@ -314,6 +320,7 @@ export default {
         this.merchant,
         datePurchased,
       ]);
+
       console.log(this.shoppingCart);
       //   console.log(product);
       //   console.log(this.merchant);
