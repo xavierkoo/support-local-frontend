@@ -46,7 +46,7 @@
                                         :offer-price="obj.specialPrice"
                                         :price="obj.price"
                                         :num-sold="obj.numberSold"
-                                        :url="obj.imgUrl"
+                                        :product-pic-url="obj.imgUrl"
                                         class="mb-3"
                                     />
                                 </template>
@@ -63,7 +63,7 @@
                                         :offer-price="obj.specialPrice"
                                         :price="obj.price"
                                         :num-sold="obj.numberSold"
-                                        :url="obj.imgUrl"
+                                        :product-pic-url="obj.imgUrl"
                                         class="mb-3"
                                     />
                                 </template>
@@ -168,11 +168,26 @@ export default {
     this.productList = startUpArr;
   },
   methods: {
-    // This function is used to change the category of the product.
+    /* This function is used to change the category of the product.
+      @param{
+        Takes in value from emitted from the component (i.e. Category Name)
+      }
+      Objective:
+      1 - Updates the category value on the instance level
+      2 - Change the reactivity of the product category shown
+    */
     changeCat(value) {
       this.category = value;
     },
-    // This function is used to get the selected product from the API.
+
+    /* This function is get products from API Endpoint and display
+      @param{
+        selectedCat - User's selected category
+        viewMore - Boolean whether to show more >6 products
+      }
+      Objective:
+      1 - Show the products based on the category and number
+    */
     getSelectedProduct(selectedCat, viewMore) {
       let url = "https://support-local.herokuapp.com/api/products";
 
