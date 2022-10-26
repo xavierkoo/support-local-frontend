@@ -8,7 +8,7 @@
                         <!--Product Image-->
                         <img
                             class="col-lg-5 individualViewImg my-3"
-                            :src="require(`@/${url}`)"
+                            :src="require(`@/${product.imgUrl}`)"
                         >
                         <div class="col-1" />
                         <div class="col-lg-6 my-3 individualViewProductCard">
@@ -25,10 +25,12 @@
                                     <h3 class="col text-start mb-3">
                                         {{ product.rating }}
                                         <span
-                                            v-for="i of rating"
+                                            v-for="i of product.rating"
                                             :key="i"
-                                        >{{ starsEmoji }}</span> /
-                                        5
+                                        >
+                                            {{ starsEmoji }}
+                                        </span>
+                                        / 5
                                     </h3>
                                 </div>
                                 <div class="row">
@@ -154,14 +156,14 @@
                                 <div class="container vertical-scrollable mx-auto">
                                     <div v-if="isShow">
                                         <div
-                                            v-for="rev in review.slice(0, 3)"
-                                            :key="rev.userID"
+                                            v-for="(rev, idx) in review.slice(0, 3)"
+                                            :key="idx"
                                             class="row mx-3 reviewsRating my-4"
                                         >
                                             <div class="col-3 d-flex justify-content-center">
                                                 <img
                                                     class="w-50 rounded-circle"
-                                                    src="../assets/appLogo.svg"
+                                                    :src="require(`@/${rev.profImageUrl}`)"
                                                     alt=""
                                                 >
                                             </div>
@@ -172,9 +174,9 @@
                                                     <span
                                                         v-for="i of rev.rating"
                                                         :key="i"
-                                                    >{{
-                                                        starsEmoji
-                                                    }}</span>
+                                                    >
+                                                        {{ starsEmoji }}
+                                                    </span>
                                                 </h4>
 
                                                 <p>
@@ -230,15 +232,16 @@
                     </div>
                     <div class="row row-cols-sm-2 row-cols-lg-3 mx-auto">
                         <ProductCard
-                            v-for="(prod, value) in relatedProd"
-                            :key="value"
-                            :merchant-name="merchant"
-                            :last-online-hour="prod.lastonlinehour"
-                            :desc="prod.products[0].name"
-                            :price="prod.products[0].price"
-                            :num-sold="prod.products[0].numberSold"
-                            :offer-price="prod.products[0].specialPrice"
-                            :url="prod.products[0].imgUrl"
+                            v-for="(obj, idx) in productList"
+                            :key="idx"
+                            :merchant-name="obj.merchant.name"
+                            :last-online-hour="obj.merchant.lastOnline"
+                            :desc="obj.name"
+                            :price="obj.price"
+                            :num-sold="obj.numberSold"
+                            :offer-price="obj.specialPrice"
+                            :product-pic-url="obj.imgUrl"
+                            :profile-pic-url="obj.merchant.imgUrl"
                         />
                     </div>
                 </div>
@@ -258,16 +261,15 @@ export default {
     return {
       mode: localStorage.modes,
       isShow: true,
-      relatedProd: "", //v-for for related product card
-      merchant: "", //merchant name
-      review: "", //v-for for rating card
+      merchantProducts: "", //merchant Related Products obj
+      productList: "", //product obj
+      review: "", //review obj
+      merchant: "", //dummy selected merchant In Good Company
+      product: "", //dummy selected product Martine Necklace
       quantity: 1,
-      //////////// edited:Cydnie
-      product: "",
-      starsEmoji: "⭐️",
-      rating: 0,
-      url: "",
+      cart: [],
       shoppingCart: [],
+      starsEmoji: "⭐️",
     };
   },
 
@@ -278,20 +280,16 @@ export default {
   },
   async beforeMount() {
     //onload event for vue to populate related product card and rating card
-    const prod = await axios.get(
-      "https://support-local.herokuapp.com/api/merchants"
+    const products = await axios.get(
+      "https://support-local.herokuapp.com/api/products"
     );
-    this.merchant = prod.data[0].name;
-    this.relatedProd = prod.data;
     const rev = await axios.get(
       "https://support-local.herokuapp.com/api/reviews"
     );
     this.review = rev.data;
-    //////////// edited: Cydnie
-    this.product = prod.data[0].products[0];
-    this.rating = this.product.rating;
-    this.url = this.product.imgUrl;
-    console.log(this.url);
+    this.productList = products.data;
+    this.product = products.data[0];
+    this.merchant = products.data[0].merchant.name;
   },
   methods: {
     addToCart(product) {
