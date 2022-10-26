@@ -132,9 +132,6 @@ export default {
           if (!this.v$.$error) {
             // alert("form successful");
             console.log(resp.data);
-            // do form validation here
-            // var inputPassword = document.getElementById("password").value;
-            // var inputEmail = document.getElementById("emailAdd").value;
             var data = resp.data;
             var dbEmail = data[0].email;
             // console.log(dbEmail);
