@@ -61,16 +61,6 @@
                                             </button>
                                             <div class="col-4" />
                                         </div>
-                                        <div class="row">
-                                            <div class="col-4" />
-                                            <button
-                                                type="submit"
-                                                class="col-4 cancelBtnDesign"
-                                            >
-                                                Sign Up
-                                            </button>
-                                            <div class="col-4" />
-                                        </div>
                                     </div>
                                 </form>
                             </div>
