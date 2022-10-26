@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
-@import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
-@import url("https://fonts.googleapis.com/css?family=Nunito Sans");
 #light {
   /* Track */
   /* Handle */
@@ -211,7 +209,7 @@
   color: white;
 }
 #light .cardInner {
-  background-color: hsla(0deg, 0%, 100%, 0.9);
+  background-color: white;
   color: #fff;
   position: absolute;
   top: 0px;
@@ -369,9 +367,24 @@
 }
 #light .signUp .back {
   border-radius: 8px;
+  height: 456px;
 }
 #light .signUp img {
   border-radius: 8px;
+  height: 456px;
+}
+#light .orderBar {
+  background: #942c1f;
+  color: white;
+}
+#light .shoppingBar {
+  background: #942c1f;
+  color: white;
+}
+#light .shoppingBar button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #dark {
@@ -504,7 +517,7 @@
   color: white;
 }
 #dark .cardInner {
-  background-color: hsla(0deg, 0%, 100%, 0.9);
+  background-color: white;
   color: #fff;
   position: absolute;
   top: 0px;
@@ -757,4 +770,18 @@
   width: 100%;
   height: auto;
   border-radius: 8px;
-}/*# sourceMappingURL=global.css.map */
+}
+#dark .orderBar {
+  background: #942c1f;
+  color: white;
+}
+#dark .orderBack {
+  background: #3d3d3d;
+}
+#dark .shoppingBar {
+  background: #942c1f;
+  color: white;
+}
+#dark .shoppingBack {
+  background: #3d3d3d;
+}
