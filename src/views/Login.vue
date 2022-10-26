@@ -29,8 +29,12 @@
                                             v-model="state.email"
                                             type="email"
                                             class="form-control"
+                                            onfocus="this.value=''"
                                         >
-                                        <span id="errmsgEmail" />
+                                        <!-- <span
+                                            v-if="isInvalid"
+                                            class="color:red"
+                                        >Incorrect Email</span> -->
                                         <span v-if="v$.email.$error">
                                             {{ v$.email.$errors[0].$message }}
                                         </span>
@@ -39,11 +43,15 @@
                                     <div class="form-group">
                                         <label for="password">Password <span>*</span></label>
                                         <input
-                                            id="password"
                                             v-model="state.password"
                                             type="password"
                                             class="form-control"
-                                        ><span id="errmsgPassword" />
+                                            onfocus="this.value=''"
+                                        >
+                                        <!-- <span
+                                            v-if="isInvalid"
+                                            class="color:red"
+                                        >Incorrect Password</span> -->
                                         <span v-if="v$.password.$error">
                                             {{ v$.password.$errors[0].$message }}
                                         </span>
@@ -106,10 +114,17 @@ export default {
       v$,
     };
   },
+  data() {
+    return {
+      errMsgEmail: "",
+      errMsgPassword: "",
+      isInvalid: false,
+    };
+  },
   methods: {
     submitForm(v$) {
       // make api call to db to get
-      let url = "http://localhost:8081/userBase";
+      let url = "http://localhost:8081/user";
       this.v$.$validate();
       axios
         .get(url)
@@ -118,16 +133,16 @@ export default {
             // alert("form successful");
             console.log(resp.data);
             // do form validation here
-            var inputPassword = document.getElementById("password").value;
-            var inputEmail = document.getElementById("emailAdd").value;
+            // var inputPassword = document.getElementById("password").value;
+            // var inputEmail = document.getElementById("emailAdd").value;
             var data = resp.data;
             var dbEmail = data[0].email;
-            console.log(dbEmail);
+            // console.log(dbEmail);
             // check if email exist in db
-            var checkEmail = (data) => data.email === inputEmail;
+            var checkEmail = (data) => data.email === this.state.email;
             var isValidEmail = data.some(checkEmail);
             // check if password exist in db
-            var checkPassword = (data) => data.password === inputPassword;
+            var checkPassword = (data) => data.password === this.state.password;
             var isValidPassword = data.some(checkPassword);
 
             // check both conditions met, route to the landing page
@@ -138,13 +153,15 @@ export default {
               document.querySelector("#emailAdd").value = "";
               document.querySelector("#password").value = "";
 
+              // set isInvalid to show the red error msg in the form
+              this.isInvalid = true;
               // display err msg
-              document.getElementById(
-                "errmsgEmail"
-              ).innerHTML = `<span class='color:red'>Incorrect Email</span>`;
-              document.getElementById(
-                "errmsgPassword"
-              ).innerHTML = `<span class='color:red'>Incorrect Password</span>`;
+              // document.getElementById(
+              //   "errmsgEmail"
+              // ).innerHTML = `<span class='color:red'>Incorrect Email</span>`;
+              // document.getElementById(
+              //   "errmsgPassword"
+              // ).innerHTML = `<span class='color:red'>Incorrect Password</span>`;
             }
           } else {
             // did not meet input requirement
@@ -155,23 +172,6 @@ export default {
         .catch((err) => {
           console.log(err.message);
         });
-
-      // this.v$.$validate();
-      // function verifyInputs(data, v$) {
-      //   console.log(data);
-      //   if (!this.v$.$error) {
-      //     alert("form successful");
-      //   } else {
-      //     alert("form failed");
-      //   }
-      // }
-      //   this.v$.$validate();
-      //   if (!this.v$.$error) {
-      //     // alert("form successful");
-      //   } else {
-      //     // alert("form failed");
-      //   }
-      //   //   alert("Form successfully submitted");
     },
   },
 };
