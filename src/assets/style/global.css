@@ -192,6 +192,7 @@
 }
 #light .sideBar img {
   width: 40px;
+  height: auto;
   margin: 0px 5px;
   background: white;
 }
@@ -304,6 +305,12 @@
   background: #d9d9d9;
   border: none;
 }
+#light .individualViewProductCard #qty {
+  border-radius: 8px;
+}
+#light .individualViewProductCard #size {
+  border-radius: 8px;
+}
 #light .individualViewProdDesc {
   background: #ffffff;
   border: 1px solid #c8c8c8;
@@ -351,6 +358,20 @@
 }
 #light .reviewsRating {
   border-bottom: 3px solid grey;
+}
+#light .login .back {
+  border-radius: 8px;
+  height: 456px;
+}
+#light .login img {
+  border-radius: 8px;
+  height: 456px;
+}
+#light .signUp .back {
+  border-radius: 8px;
+}
+#light .signUp img {
+  border-radius: 8px;
 }
 
 #dark {
@@ -660,6 +681,12 @@
   background: #d9d9d9;
   border: none;
 }
+#dark .individualViewProductCard #qty {
+  border-radius: 8px;
+}
+#dark .individualViewProductCard #size {
+  border-radius: 8px;
+}
 #dark .individualViewProdDesc {
   color: white;
   background: #3d3d3d;
@@ -716,4 +743,18 @@
 #dark .login .back {
   background: #3d3d3d;
   border: 1px solid white;
+  border-radius: 8px;
+}
+#dark .login img {
+  border-radius: 8px;
+}
+#dark .signUp .back {
+  background: #3d3d3d;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+#dark .signUp img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }/*# sourceMappingURL=global.css.map */
