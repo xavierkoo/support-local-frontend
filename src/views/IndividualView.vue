@@ -39,29 +39,29 @@
                                         S${{ product.price }}
                                     </h3>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-2">
                                     <div class="col-1" />
-                                    <h6 class="col-2">
+                                    <h6 class="col-2 my-auto">
                                         Quantity
                                     </h6>
                                     <div class="col-1" />
                                     <input
                                         id="qty"
                                         v-model="quantity"
-                                        class="col-4"
+                                        class="col-4 py-2"
                                         type="text"
                                     >
                                     <div class="col-3" />
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-1" />
-                                    <h6 class="col-2">
+                                    <h6 class="col-2 my-auto">
                                         Size
                                     </h6>
                                     <div class="col-1" />
                                     <input
                                         id="size"
-                                        class="col-4"
+                                        class="col-4 py-2"
                                         type="text"
                                     >
                                     <div class="col-3" />
@@ -162,7 +162,7 @@
                                         >
                                             <div class="col-3 d-flex justify-content-center">
                                                 <img
-                                                    class="w-50 rounded-circle"
+                                                    class="rounded-circle"
                                                     :src="require(`@/${rev.profImageUrl}`)"
                                                     alt=""
                                                 >

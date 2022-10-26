@@ -1,12 +1,14 @@
 <template>
-    <div class="App">
+    <div class="App checkOut">
         <form>
-            <div class="row justify-content-center">
-                <div class="col-10 cont">
-                    <h3>Contact Details</h3>
+            <div class="row">
+                <div class="col-10 container checkOutBack">
+                    <h3 class="my-3">
+                        Contact Details
+                    </h3>
                     <div class="row">
                         <div class="col-md-1" />
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <label for="salutation">Title</label>
                             <input
                                 id="salutation"
@@ -15,8 +17,9 @@
                             >
                         </div>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-1" />
+                        <div class="col-md-5 mb-4">
                             <label for="firstName">First Name</label>
                             <input
                                 id="firstName"
@@ -36,7 +39,7 @@
                                 class="form-control"
                             >
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5 mb-4">
                             <label for="lastName">Last Name</label>
                             <input
                                 id="lastName"
@@ -56,16 +59,21 @@
                                 class="mt-4"
                             >
                             <label for="billDetails">
-                                &nbsp; Biling detail is the same as contact details</label>
+                                &nbsp; Biling detail is the same as contact details
+                            </label>
+                            <div class="col-1" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10 cont">
-                    <h3>Billing Details</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-md-5">
+                <div class="col-10 container checkOutBack">
+                    <h3 class="my-3">
+                        Billing Details
+                    </h3>
+                    <div class="row">
+                        <div class="col-1" />
+                        <div class="col-md-5 mb-4">
                             <label for="firstName">First Name</label>
                             <input
                                 id="firstName"
@@ -85,7 +93,7 @@
                                 class="form-control"
                             >
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5 mb-4">
                             <label for="lastName">Last Name</label>
                             <input
                                 id="lastName"
@@ -105,12 +113,17 @@
                                 type="text"
                                 class="form-control"
                             >
+                            <div class="col-1" />
+                        </div>
+                        <div class="row mx-auto">
+                            <div class="col-4 col-md-8" />
                             <button
                                 type="submit"
-                                class="btn btn-danger mt-3"
+                                class="mainBtnDesign mt-3 col-4 col-md-3"
                             >
                                 Checkout
                             </button>
+                            <div class="col-4 col-md-1" />
                         </div>
                     </div>
                 </div>
@@ -124,18 +137,3 @@ export default {
   name: "App",
 };
 </script>
-
-<style>
-.cont {
-  border: rgb(236, 229, 229) solid 1px;
-  border-radius: 10px;
-  padding: 30px;
-}
-.container {
-  padding: 0px;
-  margin: 100px;
-}
-.inline-block {
-  display: inline-block;
-}
-</style>

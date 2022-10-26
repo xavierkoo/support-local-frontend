@@ -35,7 +35,7 @@
                     </button>
                     <div class="col-1 col-sm-2 col-lg-3" />
                 </div>
-                <div class="row d-none d-sm-block">
+                <div class="row d-none d-sm-block my-3">
                     <div
                         class="footerWrapper col-12 d-flex justify-content-center align-content-center"
                     >
