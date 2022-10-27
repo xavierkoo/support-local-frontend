@@ -21,11 +21,70 @@
                     </div>
                     <div class="col-xl-6 col-md-10 centerbox">
                         <!-- Center Column -->
-                        <img
-                            src="../assets/hero.png"
-                            class=""
-                            style="height: auto; width: 100%"
+                        <!-- Hero Carousell -->
+                        <div
+                            id="carouselId"
+                            class="carousel slide"
+                            data-bs-ride="carousel"
                         >
+                            <ol class="carousel-indicators">
+                                <li
+                                    data-bs-target="#carouselId"
+                                    data-bs-slide-to="0"
+                                    class="active"
+                                    aria-current="true"
+                                    aria-label="First slide"
+                                />
+                                <li
+                                    data-bs-target="#carouselId"
+                                    data-bs-slide-to="1"
+                                    aria-label="Second slide"
+                                />
+                            </ol>
+                            <div
+                                class="carousel-inner"
+                                role="listbox"
+                            >
+                                <div class="carousel-item active">
+                                    <img
+                                        src="../assets/hero.png"
+                                        class="w-100 d-block"
+                                        alt="First slide"
+                                    >
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../assets/towfiqu-barbhuiya-5xTYgw2g7aw-unsplash.jpg"
+                                        class="w-100 d-block"
+                                        alt="Second slide"
+                                    >
+                                </div>
+                            </div>
+                            <button
+                                class="carousel-control-prev"
+                                type="button"
+                                data-bs-target="#carouselId"
+                                data-bs-slide="prev"
+                            >
+                                <span
+                                    class="carousel-control-prev-icon"
+                                    aria-hidden="true"
+                                />
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button
+                                class="carousel-control-next"
+                                type="button"
+                                data-bs-target="#carouselId"
+                                data-bs-slide="next"
+                            >
+                                <span
+                                    class="carousel-control-next-icon"
+                                    aria-hidden="true"
+                                />
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="mt-2">
                             <h5 class="fw-bold mx-3">
                                 Trending Now
@@ -47,6 +106,7 @@
                                         :price="obj.price"
                                         :num-sold="obj.numberSold"
                                         :product-pic-url="obj.imgUrl"
+                                        :product-id="obj.id"
                                         class="mb-3"
                                     />
                                 </template>
@@ -64,6 +124,7 @@
                                         :price="obj.price"
                                         :num-sold="obj.numberSold"
                                         :product-pic-url="obj.imgUrl"
+                                        :product-id="obj.id"
                                         class="mb-3"
                                     />
                                 </template>
