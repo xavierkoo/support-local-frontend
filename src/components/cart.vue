@@ -26,15 +26,16 @@
             </div>
             <div class="col-md-1">
                 <img
-                    src="../assets/bike.png"
+                    :src="img"
                     alt=""
+                    class="img-fluid"
                 >
             </div>
             <div class="col-md-2">
                 <b>{{ name }}</b>
             </div>
             <div class="col-md-2">
-                {{ price }}
+                ${{ price }}
             </div>
             <div class="col-md-2">
                 <input
@@ -47,7 +48,7 @@
                 </span>
             </div>
             <div class="col-md-2">
-                {{ price }}
+                ${{ price }}
             </div>
             <div class="col-md-2">
                 {{ action }}
@@ -88,9 +89,9 @@ export default {
       type: String,
       default: "nextShop",
     },
-    bike: {
+    img: {
       type: String,
-      default: "../assets/bike.png",
+      default: "assets/img/products/martin.png",
     },
     showCheckBox: {
       type: Boolean,

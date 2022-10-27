@@ -9,7 +9,7 @@
                             type="checkbox"
                             class="col-sm-1 cb1 my-auto"
                         >
-                        <h6 class="col-md-2 my-auto">
+                        <h6 class="col-md-6 my-auto align-left">
                             Product
                         </h6>
                         <h6 class="col-md-2 my-auto">
@@ -18,98 +18,35 @@
                         <h6 class="col-md-2 my-auto">
                             Quantity
                         </h6>
-                        <h6 class="col-md-3 my-auto">
-                            Total Price
-                        </h6>
                         <h6 class="col-md-2 my-auto">
-                            Action
+                            Total Price
                         </h6>
                     </div>
                 </div>
                 <div class="row products mx-auto">
                     <CartProducts
-                        v-for="(obj, ind) in shoppingCart"
-                        :key="ind"
-                        :merchant="obj[4]"
-                        :price="obj[3]"
-                        :name="obj[1]"
-                        :bike="obj[5]"
+                        v-for="item of shoppingCart"
+                        :key="item[1]"
+                        :merchant="item[5]"
+                        :price="item[3]"
+                        :name="item[0]"
+                        :img="item[4]"
                         :show-check-box="showCheckBox"
-                        :prod-id="obj[0]"
-                        :date-purchased="obj[6]"
+                        :prod-id="item[1]"
                         :show-qty-input="showQtyInput"
                         :show-date="showDate"
-                        :quantity="obj[2]"
+                        :quantity="item[6]"
+                        :total="total"
                     />
                 </div>
-                <div class="container orderDetails">
-                    <div class="row p-0 mx-auto">
-                        <div class="col-1" />
-                        <div class="my-4 col-4">
-                            <h3>Order Details:</h3>
-                        </div>
-                        <div class="col-7" />
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="row p-0 mx-auto">
-                                <div class="col-2" />
-                                <h6 class="col-5">
-                                    Merchant:
-                                </h6>
-                                <h6 class="col-5">
-                                    nextdealshop
-                                </h6>
-                            </div>
-                            <div class="row p-0 mx-auto">
-                                <div class="col-2" />
-                                <h6 class="col-5">
-                                    Location:
-                                </h6>
-                                <h6 class="col-5">
-                                    81 Victoria St
-                                </h6>
-                            </div>
-                            <div class="row p-0 mx-auto">
-                                <div class="col-2" />
-                                <h6 class="col-5">
-                                    Expected Delivery Date:
-                                </h6>
-                                <h6 class="col-5 my-auto">
-                                    15-10-2022
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 mb-3">
-                            <div class="row p-0 mx-auto">
-                                <div class="col-2" />
-                                <h6 class="col-5">
-                                    Order Status:
-                                </h6>
-                                <h6 class="col-5 my-auto my-auto">
-                                    Waiting for seller to ship
-                                </h6>
-                            </div>
-                            <div class="row p-0 mx-auto my-2">
-                                <div class="col-1 col-xl-2" />
-                                <button
-                                    class="cancelBtnDesign col-4"
-                                    type="button"
-                                >
-                                    Contact Seller
-                                </button>
-                                <div class="col-2 col-xl-1" />
-                                <button
-                                    class="mainBtnDesign col-4"
-                                    type="button"
-                                >
-                                    Mark as Received
-                                </button>
-                                <div class="col-1" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <OrderDetails
+                    v-for="orderList of orderDetailsArr"
+                    :key="orderList[0]"
+                    :merchant="orderList[0]"
+                    :location="orderList[1]"
+                    :delivery-date="orderList[2]"
+                    :order-status="orderList[3]"
+                />
             </div>
         </div>
     </div>
@@ -118,9 +55,11 @@
 <script>
 import axios from "axios"; //npm install axios
 import CartProducts from "../components/cart.vue";
+import OrderDetails from "../components/OrderDetails.vue";
 export default {
   components: {
     CartProducts,
+    OrderDetails,
   },
   data() {
     return {
@@ -128,17 +67,21 @@ export default {
       showCheckBox: false,
       showQtyInput: false,
       showDate: true,
-      name: "",
-      price: "",
-      quantity: "1",
+      name: "", // [0]
+      price: 0, // [3]
+      quantity: 0, // [2]
       action: "Review",
       total: 0,
-      merchant: "",
+      merchant: "", // [5]
       objects: "",
-      bike: "",
-      shoppingCart: "",
-      prodId: "",
-      datePurchased: "",
+      img: "", // [4]
+      shoppingCart: [],
+      prodId: "", // [1]
+      datePurchased: "", // [6]
+      orderDetailsArr: [], // returns nested list of diff merchant's order details
+      location: "",
+      deliveryDate: "",
+      orderStatus: "",
     };
   },
   mounted() {
@@ -148,17 +91,26 @@ export default {
   },
   async beforeMount() {
     //onload event for vue to populate products in cart
-    const user = await axios.get(
-      "https://support-local.herokuapp.com/api/users?userId=" + this.userId
-    );
+    // const user = await axios.get(
+    //   "https://support-local.herokuapp.com/api/users?userId=" + this.userId
+    // );
+    const user = await axios.get("http://localhost:8081/users");
 
     // get the Shopping Cart nested array
     this.shoppingCart = user.data[0].shoppingCart;
 
+    // get order details .orderDetails[replaced with the exact order ID][1]
+    this.orderDetailsArr = user.data[0].orderDetails;
+    this.location = this.orderDetailsArr[0][1];
+    this.deliveryDate = this.orderDetailsArr[0][2];
+    this.orderStatus = this.orderDetailsArr[0][3];
+
+    // Structure of the properties in db
     // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
+    // [ merchantName, location, deliverydate, orderStatus]
 
     // calc total
-    for (li of this.shoppingCart) {
+    for (var li of this.shoppingCart) {
       this.total += Number(li[3]);
     }
   },

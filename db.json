@@ -92,8 +92,25 @@
           "id": "63580adebbe3f9f87c117c5a"
         }
       ],
-      "shoppingCart": [],
-      "orderDetails": [""],
+      "shoppingCart": [
+        [
+          "MARTIN necklace",
+          "63576ea5bbe3f9f87c117c4a",
+          1,
+          89,
+          "assets/img/products/martin.png",
+          "In Good Company",
+          "27/9/2022"
+        ]
+      ],
+      "orderDetails": [
+        [
+          "In Good Company",
+          "81 Victoria St",
+          "15/10/2022",
+          "Waiting for seller to ship"
+        ]
+      ],
       "id": "6357b8bfbbe3f9f87c117c52"
     },
     {
