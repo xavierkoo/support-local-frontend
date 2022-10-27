@@ -29,18 +29,18 @@
                 </div>
                 <div class="row orderBack mx-auto">
                     <CartProducts
-                        v-for="(obj, ind) in shoppingCart"
-                        :key="ind"
-                        :merchant="obj[4]"
-                        :price="obj[3]"
-                        :name="obj[1]"
-                        :bike="obj[5]"
+                        v-for="item of shoppingCart"
+                        :key="item[1]"
+                        :merchant="item[5]"
+                        :price="item[3]"
+                        :name="item[0]"
+                        :img="item[4]"
                         :show-check-box="showCheckBox"
-                        :prod-id="obj[0]"
-                        :date-purchased="obj[6]"
+                        :prod-id="item[1]"
+                        :date-purchased="item[6]"
                         :show-qty-input="showQtyInput"
                         :show-date="showDate"
-                        :quantity="obj[2]"
+                        :quantity="item[6]"
                         :action="action"
                     />
                 </div>
@@ -62,17 +62,17 @@ export default {
       showCheckBox: false,
       showQtyInput: false,
       showDate: true,
-      name: "",
-      price: "",
-      quantity: "1",
+      name: "", // [0]
+      price: "", // [3]
+      quantity: "1", // [2]
       action: "Review",
       total: 0,
-      merchant: "",
+      merchant: "", // [5]
       objects: "",
-      bike: "",
-      shoppingCart: "",
-      prodId: "",
-      datePurchased: "",
+      img: "", // [4]
+      shoppingCart: [],
+      prodId: "", // [1]
+      datePurchased: "", // [6]
     };
   },
   mounted() {
@@ -82,20 +82,35 @@ export default {
   },
   async beforeMount() {
     //onload event for vue to populate products in cart
-    const user = await axios.get(
-      "https://support-local.herokuapp.com/api/users?userId=" + this.userId
-    );
+    const user = await axios.get("http://localhost:8081/users");
+    console.log(user);
+
+    // for later when calling to mongodb
+    // const user = await axios.get(
+    //   "https://support-local.herokuapp.com/api/users?userId=" + this.userId
+    // );
 
     // get the Shopping Cart nested array
     this.shoppingCart = user.data[0].shoppingCart;
+    console.log(this.shoppingCart);
 
     // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
+    // [
+    //     "MARTIN necklace",
+    //     "63576ea5bbe3f9f87c117c4a",
+    //     1,
+    //     89,
+    //     "assets/img/products/martin.png",
+    //     "In Good Company",
+    //     "27/9/2022"
+    //   ];
 
     // calc total
-    for (li of this.shoppingCart) {
-      this.total += Number(li[3]);
-      // console.log(li);
-    }
+    this.total = this.quantity * this.price;
+    // for (var li of this.shoppingCart) {
+    //   this.total += Number(li[3]);
+    //   // console.log(li);
+    // }
   },
 };
 </script>

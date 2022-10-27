@@ -29,18 +29,18 @@
 
                 <div class="row products mx-auto">
                     <CartProducts
-                        v-for="li of shoppingCart"
-                        :key="li[1]"
-                        :merchant="li[5]"
-                        :price="li[3]"
-                        :name="li[0]"
-                        :bike-img="li[4]"
+                        v-for="item of shoppingCart"
+                        :key="item[1]"
+                        :merchant="item[5]"
+                        :price="item[3]"
+                        :name="item[0]"
+                        :img="item[4]"
                         :show-check-box="showCheckBox"
-                        :prod-id="li[1]"
+                        :prod-id="item[1]"
+                        :date-purchased="item[6]"
                         :show-qty-input="showQtyInput"
                         :show-date="showDate"
-                        :quantity="li[2]"
-                        :date-purchased="li[6]"
+                        :quantity="item[6]"
                         :action="action"
                     />
                 </div>
@@ -77,18 +77,17 @@ export default {
       showCheckBox: true,
       showQtyInput: true,
       showDate: false,
-      quantity: 1,
+      name: "", // [0]
+      price: 0, // [3]
+      quantity: 0, // [2]
       action: "Review",
-      name: "",
-      price: "",
       total: 0,
-      merchant: "",
+      merchant: "", // [5]
       objects: "",
-      bikeImg: "",
+      img: "", // [4]
       shoppingCart: [],
-      prodId: "",
-      datePurchased: "",
-      userId: "1",
+      prodId: "", // [1]
+      datePurchased: "", // [6]
     };
   },
   mounted() {
@@ -98,24 +97,21 @@ export default {
   },
   async beforeMount() {
     //onload event for vue to populate products in cart
-    const user = await axios.get(
-      "https://support-local.herokuapp.com/api/users?userId=" + this.userId
-    );
+    const user = await axios.get("http://localhost:8081/users");
+    console.log(user);
+    // const user = await axios.get(
+    //   "https://support-local.herokuapp.com/api/users?userId=" + this.userId
+    // );
 
     // get the Shopping Cart nested array
     this.shoppingCart = user.data[0].shoppingCart;
 
     // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
 
-    // console.log(this.shoppingCart);
-    // console.log(user.data[0]);
-    // console.log(user.data);
-
     // calc total
-    for (li of this.shoppingCart) {
-      this.total += Number(li[3]);
-      // console.log(li);
-    }
+    this.quantity = this.shoppingCart[2];
+    this.price = this.shoppingCart[3];
+    this.total = this.quantity * this.price;
   },
   methods: {
     toCheckOut() {
