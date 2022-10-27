@@ -1,10 +1,4 @@
 <template>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-        crossorigin="anonymous"
-    >
     <div :id="mode">
         <div class="box">
             <div class="app">
@@ -27,9 +21,6 @@
                 </router-link> |
                 <router-link to="/checkout">
                     Checkout
-                </router-link> |
-                <router-link to="/individual">
-                    Individual Product
                 </router-link> |
                 <router-link to="/signup">
                     Sign Up
