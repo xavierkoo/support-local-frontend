@@ -22,8 +22,8 @@
                                 style="height: auto; width: 100%"
                             >
                         </div>
-                        <div class="col-9">
-                            <h6 class="mb-0">
+                        <div class="col-9 mb-0">
+                            <h6 class="mb-1">
                                 {{ merchantName }}
                             </h6>
                             <p class="">
@@ -51,9 +51,10 @@
                         <div
                             class="cardInner d-flex justify-content-center align-content-center"
                         >
-                            <button class="my-auto mainBtnDesign">
-                                More Info
-                            </button>
+                            <a
+                                :href="`http://localhost:8080/#/individual/${productId}`"
+                                class="my-auto mainBtnDesign text-decoration-none"
+                            >More Info</a>
                         </div>
                     </div>
                 </div>
@@ -100,6 +101,10 @@ export default {
     productPicUrl: {
       type: String,
       default: "assets/hero.png",
+    },
+    productId: {
+      type: String,
+      default: "",
     },
   },
   setup() {
