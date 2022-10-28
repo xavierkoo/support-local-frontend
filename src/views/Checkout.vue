@@ -119,7 +119,7 @@
                             <div class="col-4 col-md-8" />
                             <button
                                 type="submit"
-                                class="mainBtnDesign mt-3 col-4 col-md-3"
+                                class="mainBtnDesign my-3 col-4 col-md-3"
                             >
                                 Checkout
                             </button>
