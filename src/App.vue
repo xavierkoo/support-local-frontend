@@ -1,50 +1,53 @@
 <template>
     <div :id="mode">
         <div class="box">
-            <div class="app">
-                <NavBar />
-                <ToggleMode />
+            <Particles />
+            <div class="row blur">
+                <div class="app">
+                    <NavBar />
+                    <ToggleMode />
+                </div>
+
+                <nav class="d-flex justify-content-center">
+                    <router-link to="/landing">
+                        Landing
+                    </router-link> |
+                    <router-link to="/brand">
+                        Individual Brand
+                    </router-link> |
+                    <router-link to="/cart">
+                        ShoppingCart
+                    </router-link> |
+                    <router-link to="/login">
+                        Login
+                    </router-link> |
+                    <router-link to="/checkout">
+                        Checkout
+                    </router-link> |
+                    <router-link to="/signup">
+                        Sign Up
+                    </router-link> |
+                    <router-link to="/orderLog">
+                        Order Log
+                    </router-link> |
+                    <router-link to="/viewOrder">
+                        View Order
+                    </router-link> |
+                    <router-link to="/viewPayment">
+                        View Payment
+                    </router-link>
+                </nav>
+
+                <router-view v-slot="{ Component }">
+                    <transition
+                        name="route"
+                        mode="out-in"
+                    >
+                        <component :is="Component" />
+                    </transition>
+                </router-view>
+                <PageFooter />
             </div>
-
-            <nav>
-                <router-link to="/landing">
-                    Landing
-                </router-link> |
-                <router-link to="/brand">
-                    Individual Brand
-                </router-link> |
-                <router-link to="/cart">
-                    ShoppingCart
-                </router-link> |
-                <router-link to="/login">
-                    Login
-                </router-link> |
-                <router-link to="/checkout">
-                    Checkout
-                </router-link> |
-                <router-link to="/signup">
-                    Sign Up
-                </router-link> |
-                <router-link to="/orderLog">
-                    Order Log
-                </router-link> |
-                <router-link to="/viewOrder">
-                    View Order
-                </router-link> |
-                <router-link to="/viewPayment">
-                    View Payment
-                </router-link>
-            </nav>
-
-            <router-view v-slot="{ Component }">
-                <transition
-                    name="route"
-                    mode="out-in"
-                >
-                    <component :is="Component" />
-                </transition>
-            </router-view>
-            <PageFooter />
         </div>
     </div>
 </template>
@@ -53,12 +56,14 @@
 import NavBar from "./components/NavBar.vue";
 import ToggleMode from "./components/ToggleMode.vue";
 import PageFooter from "./components/PageFooter.vue";
+import Particles from "./components/BackgroundAnimation.vue";
 export default {
   name: "App",
   components: {
     NavBar,
     ToggleMode,
     PageFooter,
+    Particles,
   },
   data() {
     return {

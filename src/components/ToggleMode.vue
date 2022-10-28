@@ -1,6 +1,6 @@
 <template>
     <div :id="modes">
-        <div class="container-fluid box">
+        <div class="container-fluid">
             <div :class="modes === 'dark' ? 'checked' : false">
                 <label class="toggle">
                     <input
