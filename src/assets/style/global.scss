@@ -18,9 +18,13 @@
   button {
     font-family: $bodyFontFamily;
   }
+  .particles {
+    position: absolute;
+  }
 
-  .box {
-    background-color: #ffffff;
+  .blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   //LightToggleMode
@@ -30,6 +34,7 @@
     width: 60px;
     height: 34px;
     margin: 0px auto;
+    background: none;
   }
 
   .toggle input {
@@ -94,6 +99,7 @@
     input {
       border-radius: $btnBorderRadius;
       height: 48px;
+      z-index: 9999;
     }
     button {
       background: $mainBtn;
@@ -326,6 +332,7 @@
   .individualViewProductCard {
     height: 486px;
     border: 1px solid #c8c8c8;
+    background: white;
     border-radius: $boxRadius;
     input {
       background: #d9d9d9;
@@ -400,6 +407,7 @@
     .back {
       border-radius: $boxRadius;
       height: 456px;
+      background: white;
     }
     img {
       border-radius: $boxRadius;
@@ -412,6 +420,7 @@
     .back {
       border-radius: $boxRadius;
       height: 456px;
+      background: white;
     }
     img {
       border-radius: $boxRadius;
@@ -470,7 +479,6 @@
     font-family: $headingFontFamily;
     color: white;
   }
-
   p,
   li,
   div,
@@ -478,8 +486,17 @@
     font-family: $bodyFontFamily;
     color: white;
   }
+
+  .particles {
+    position: absolute;
+  }
+
+  .blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
   .box {
-    background-color: #121212;
+    background: black;
   }
 
   //DarkToggleMode CSS
@@ -879,10 +896,10 @@
       background: $backgroundDark;
       border: $borderDark;
       border-radius: $boxRadius;
+      height: 456px;
     }
     img {
-      width: 100%;
-      height: auto;
+      height: 456px;
       border-radius: $boxRadius;
     }
   }

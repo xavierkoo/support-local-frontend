@@ -19,8 +19,12 @@
 #light button {
   font-family: "Nunito Sans", sans-serif;
 }
-#light .box {
-  background-color: #ffffff;
+#light .particles {
+  position: absolute;
+}
+#light .blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 #light .toggle {
   position: relative;
@@ -28,6 +32,7 @@
   width: 60px;
   height: 34px;
   margin: 0px auto;
+  background: none;
 }
 #light .toggle input {
   opacity: 0;
@@ -77,6 +82,7 @@
 #light .searchBox input {
   border-radius: 16px;
   height: 48px;
+  z-index: 9999;
 }
 #light .searchBox button {
   background: #d36959;
@@ -298,6 +304,7 @@
 #light .individualViewProductCard {
   height: 486px;
   border: 1px solid #c8c8c8;
+  background: white;
   border-radius: 8px;
 }
 #light .individualViewProductCard input {
@@ -361,6 +368,7 @@
 #light .login .back {
   border-radius: 8px;
   height: 456px;
+  background: white;
 }
 #light .login img {
   border-radius: 8px;
@@ -369,6 +377,7 @@
 #light .signUp .back {
   border-radius: 8px;
   height: 456px;
+  background: white;
 }
 #light .signUp img {
   border-radius: 8px;
@@ -426,8 +435,15 @@
   font-family: "Nunito Sans", sans-serif;
   color: white;
 }
+#dark .particles {
+  position: absolute;
+}
+#dark .blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 #dark .box {
-  background-color: #121212;
+  background: black;
 }
 #dark .toggle {
   position: relative;
@@ -784,10 +800,10 @@
   background: #3d3d3d;
   border: 1px solid white;
   border-radius: 8px;
+  height: 456px;
 }
 #dark .signUp img {
-  width: 100%;
-  height: auto;
+  height: 456px;
   border-radius: 8px;
 }
 #dark .orderLog {
