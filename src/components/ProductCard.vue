@@ -51,10 +51,12 @@
                         <div
                             class="cardInner d-flex justify-content-center align-content-center"
                         >
-                            <a
-                                :href="`http://localhost:8080/#/individual/${productId}`"
+                            <router-link
+                                :to="`/individual/${productId}`"
                                 class="my-auto mainBtnDesign text-decoration-none"
-                            >More Info</a>
+                            >
+                                More Info
+                            </router-link>
                         </div>
                     </div>
                 </div>
