@@ -176,7 +176,7 @@
                                             >
                                                 <div class="col-3 d-flex justify-content-center">
                                                     <img
-                                                        class="rounded-circle img-fluid"
+                                                        class="img-fluid"
                                                         :src="require(`@/${rev.profImageUrl}`)"
                                                         alt=""
                                                     >
