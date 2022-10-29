@@ -195,8 +195,8 @@ export default {
     };
   },
   watch: {
-    // A watch function that will trigger when the category is changed.
     category(selectedCat) {
+      // A watch function that will trigger when the category is changed.
       this.viewMore = false;
       var viewMore = this.viewMore;
       this.getSelectedProduct(selectedCat, viewMore);
@@ -211,8 +211,9 @@ export default {
       this.mode = event.detail.storage;
     });
   },
-  // A function that will be called before the component is mounted.
+
   async beforeMount() {
+    // A function that will be called before the component is mounted.
     const res = await axios.get(
       "https://support-local.herokuapp.com/api/products"
     );
@@ -229,7 +230,8 @@ export default {
     this.productList = startUpArr;
   },
   methods: {
-    /* This function is used to change the category of the product.
+    changeCat(value) {
+      /* This function is used to change the category of the product.
       @param{
         Takes in value from emitted from the component (i.e. Category Name)
       }
@@ -237,11 +239,11 @@ export default {
       1 - Updates the category value on the instance level
       2 - Change the reactivity of the product category shown
     */
-    changeCat(value) {
       this.category = value;
     },
 
-    /* This function is get products from API Endpoint and display
+    getSelectedProduct(selectedCat, viewMore) {
+      /* This function is get products from API Endpoint and display
       @param{
         selectedCat - User's selected category
         viewMore - Boolean whether to show more >6 products
@@ -249,7 +251,6 @@ export default {
       Objective:
       1 - Show the products based on the category and number
     */
-    getSelectedProduct(selectedCat, viewMore) {
       let url = "https://support-local.herokuapp.com/api/products";
 
       axios.get(url).then((res) => {
