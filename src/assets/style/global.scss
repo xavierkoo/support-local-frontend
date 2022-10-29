@@ -124,12 +124,6 @@
     p {
       color: white;
     }
-    .email {
-      display: flex;
-      justify-content: end;
-      align-items: end;
-      color: white;
-    }
     span {
       color: black;
     }
@@ -137,6 +131,11 @@
       color: black;
     }
   }
+
+  .email {
+    color: white;
+  }
+
   .footerWrapper .footerButton {
     display: inline-block;
     height: 60px;
@@ -429,7 +428,7 @@
   }
   .vertical-scrollable {
     overflow-y: scroll;
-    height: 80%;
+    height: 100%;
     width: 100%;
     position: absolute;
   }
