@@ -17,10 +17,7 @@
                 <div class="card-body productCard">
                     <div class="row mb-1">
                         <div class="col-3">
-                            <img
-                                :src="require(`@/${profilePicUrl}`)"
-                                style="height: auto; width: 100%"
-                            >
+                            <img :src="require(`@/${profilePicUrl}`)">
                         </div>
                         <div class="col-9 mb-0">
                             <h6 class="mb-1">
@@ -52,8 +49,8 @@
                             class="cardInner d-flex justify-content-center align-content-center"
                         >
                             <router-link
+                                class="mainBtnDesign text-decoration-none text-center p-2 my-auto"
                                 :to="`/individual/${productId}`"
-                                class="my-auto mainBtnDesign text-decoration-none"
                             >
                                 More Info
                             </router-link>
