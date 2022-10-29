@@ -45,9 +45,7 @@
                                 {{ numSold }} Sold
                             </p>
                         </div>
-                        <div
-                            class="cardInner d-flex justify-content-center align-content-center"
-                        >
+                        <div class="d-flex justify-content-center align-content-center">
                             <router-link
                                 class="mainBtnDesign text-decoration-none text-center p-2 my-auto"
                                 :to="`/individual/${productId}`"

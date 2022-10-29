@@ -24,7 +24,7 @@
                         <div class="row mx-auto">
                             <!--Product Image-->
                             <img
-                                class="col-lg-5 individualViewImg my-3"
+                                class="col-lg-5 individualViewImg my-3 p-0"
                                 :src="require(`@/${product.imgUrl}`)"
                             >
                             <div class="col-1" />
