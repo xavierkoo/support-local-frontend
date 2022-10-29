@@ -216,20 +216,6 @@
   height: auto;
   width: 100%;
 }
-#light .cardInner {
-  background-color: white;
-  color: #fff;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 1;
-  opacity: 0;
-}
-#light .card:hover .cardInner {
-  opacity: 1;
-}
 #light .brand-logo {
   width: 160px;
   height: auto;
@@ -625,26 +611,9 @@
   background: #3d3d3d;
   border: none;
 }
-#dark .productCard button {
-  border-radius: 16px;
-  font-size: 16px;
-  height: 40px;
-  background: #d36959;
-  color: white;
-}
-#dark .cardInner {
-  background-color: white;
-  color: #fff;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 1;
-  opacity: 0;
-}
-#dark .card:hover .cardInner {
-  opacity: 1;
+#dark .productCard img {
+  height: auto;
+  width: 100%;
 }
 #dark .footer {
   background: #942c1f;
@@ -853,8 +822,6 @@
 }
 #dark .individualViewImg {
   height: 486px;
-  border: 1px solid white;
-  background: #3d3d3d;
 }
 #dark .individualViewProductCard {
   color: white;

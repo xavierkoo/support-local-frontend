@@ -235,21 +235,6 @@
       width: 100%;
     }
   }
-  .cardInner {
-    background-color: white;
-    color: #fff;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 1;
-    opacity: 0;
-  }
-
-  .card:hover .cardInner {
-    opacity: 1;
-  }
 
   //LightLandingView CSS
   .brand-logo {
@@ -687,27 +672,12 @@
   .productCard {
     background: $backgroundDark;
     border: none;
-    button {
-      @include button;
-      background: $mainBtn;
-      color: white;
+    img {
+      height: auto;
+      width: 100%;
     }
   }
-  .cardInner {
-    background-color: white;
-    color: #fff;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 1;
-    opacity: 0;
-  }
 
-  .card:hover .cardInner {
-    opacity: 1;
-  }
   //DarkFooter CSS
   .footer {
     background: $brandMain;
@@ -929,8 +899,6 @@
 
   .individualViewImg {
     height: 486px;
-    border: $borderDark;
-    background: $backgroundDark;
   }
 
   .individualViewProductCard {
