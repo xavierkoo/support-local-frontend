@@ -22,18 +22,28 @@
                     <div class="col-1 col-sm-3" />
                 </div>
                 <div class="row">
-                    <div class="col-1 col-sm-3" />
-                    <span class="col-2 col-sm-1 my-auto email">Email: </span>
-                    <input
-                        class="col-4 col-sm-4"
-                        type="text"
+                    <form
+                        ref="form"
+                        class="d-flex justify-content-center"
+                        @submit.prevent="sendEmail"
                     >
-                    <button
-                        class="col-4 col-sm-2 col-lg-1 cancelBtnDesign my-auto align-items-end"
-                    >
-                        SignUp
-                    </button>
-                    <div class="col-1 col-sm-2 col-lg-3" />
+                        <div class="col-1 col-sm-3" />
+                        <label class="email my-auto col-2 col-sm-1 justify-content-center">Email:
+                        </label>
+                        <input
+                            v-model="msg"
+                            class="col-4 col-sm-4 m-0"
+                            type="email"
+                            name="user_email"
+                            placeholder="Enter Your Email Address"
+                        >
+                        <input
+                            type="submit"
+                            value="Sign Up"
+                            class="cancelBtnDesign col-4 col-sm-2 col-lg-1 m-0"
+                        >
+                        <div class="col-1 col-sm-2 col-lg-3" />
+                    </form>
                 </div>
                 <div class="row d-none d-sm-block my-3">
                     <div
@@ -71,16 +81,38 @@
 </template>
 
 <script>
+import emailjs from "@emailjs/browser";
 export default {
   data() {
     return {
       mode: localStorage.modes,
+      msg: "",
     };
   },
   mounted() {
     let themejs = document.createElement("script");
     themejs.setAttribute("src", "https://kit.fontawesome.com/a076d05399.js");
     document.head.appendChild(themejs);
+  },
+  methods: {
+    sendEmail() {
+      emailjs
+        .sendForm(
+          "SupportLocal2022",
+          "SupportLocal2022",
+          this.$refs.form,
+          "8Ofr7mrBSFNOFqcER"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+            this.msg = "Sent!";
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
+    },
   },
 };
 </script>
