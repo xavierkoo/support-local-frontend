@@ -24,7 +24,7 @@
                             distance: 400,
                             duration: 2,
                             opacity: 1,
-                            size: 40,
+                            size: 20,
                         },
                         push: {
                             quantity: 3,
@@ -56,7 +56,7 @@
                             enable: true,
                             area: 800,
                         },
-                        value: 5,
+                        value: 10,
                     },
                     opacity: {
                         value: 1,
@@ -66,7 +66,7 @@
                     },
                     size: {
                         random: true,
-                        value: 200,
+                        value: 60,
                     },
                 },
                 detectRetina: true,
