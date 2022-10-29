@@ -2,7 +2,7 @@
     <div :id="mode">
         <div class="box">
             <Particles />
-            <div class="row blur">
+            <div class="container-fluid blur p-0">
                 <div class="app">
                     <NavBar />
                     <ToggleMode />

@@ -3,10 +3,23 @@
         <div class="Individual" />
         <div :id="mode">
             <div v-if="product == null">
-                Loading
+                <div
+                    class="container d-flex justify-content-center align-content-center"
+                >
+                    <div class="spinner">
+                        <img
+                            src="../assets/Nobackgroundlogo.png"
+                            alt=""
+                            class="img-fluid"
+                        >
+                        <div class="spinner-sector spinner-sector-one" />
+                        <div class="spinner-sector spinner-sector-two" />
+                        <div class="spinner-sector spinner-sector-three" />
+                    </div>
+                </div>
             </div>
             <div v-else>
-                <div class="container-fluid box">
+                <div class="container-fluid">
                     <div class="row mx-3">
                         <div class="row mx-auto">
                             <!--Product Image-->
@@ -153,10 +166,7 @@
                                         Product Rating
                                     </h5>
                                 </div>
-                                <div
-                                    class="row mx-auto"
-                                    style="position: relative; height: 500px"
-                                >
+                                <div class="row mx-auto scrollBox">
                                     <div class="container vertical-scrollable mx-auto">
                                         <div v-if="isShow">
                                             <div
@@ -166,7 +176,7 @@
                                             >
                                                 <div class="col-3 d-flex justify-content-center">
                                                     <img
-                                                        class="rounded-circle"
+                                                        class="rounded-circle img-fluid"
                                                         :src="require(`@/${rev.profImageUrl}`)"
                                                         alt=""
                                                     >
@@ -222,7 +232,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row my-3">
                                     <div class="col-4 col-md-5" />
                                     <button
                                         class="col-4 col-md-2 mainBtnDesign"
