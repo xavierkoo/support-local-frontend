@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
 #light {
-	/* Track */
-	/* Handle */
-	/* Handle on hover */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 #light h1,
 #light h2,
@@ -11,413 +11,494 @@
 #light h4,
 #light h5,
 #light h6 {
-	font-family: "Merriweather Sans", sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
 }
 #light p,
 #light li,
 #light div,
 #light button {
-	font-family: "Nunito Sans", sans-serif;
-}
-#light .particles {
-	position: absolute;
+  font-family: "Nunito Sans", sans-serif;
 }
 #light .blur {
-	backdrop-filter: blur(30px);
-	-webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 #light .toggle {
-	position: relative;
-	display: flex;
-	width: 60px;
-	height: 34px;
-	margin: 0px auto;
-	background: none;
+  position: relative;
+  display: flex;
+  width: 60px;
+  height: 34px;
+  margin: 0px auto;
+  background: none;
 }
 #light .toggle input {
-	opacity: 0;
-	width: 0;
-	height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 #light .toggler {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: #d36959;
-	transition: 0.4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d36959;
+  transition: 0.4s;
 }
 #light .toggler:before {
-	position: absolute;
-	content: "";
-	height: 26px;
-	width: 26px;
-	bottom: 4px;
-	left: 4px;
-	background: #fff;
-	transition: 0.4s;
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  bottom: 4px;
+  left: 4px;
+  background: #fff;
+  transition: 0.4s;
 }
 #light input:checked + .toggler {
-	background: #6ae092;
+  background: #6ae092;
 }
 #light input:focus + toggler {
-	box-shadow: 0 0 2px #2196f3;
+  box-shadow: 0 0 2px #2196f3;
 }
 #light input:checked + .toggler:before {
-	transform: translateX(26px);
+  transform: translateX(26px);
 }
 #light .toggler.round {
-	border-radius: 34px;
+  border-radius: 34px;
 }
 #light .toggler.round:before {
-	border-radius: 50%;
+  border-radius: 50%;
 }
 #light .brand-logo {
-	max-width: 160px;
-	height: auto;
-	float: left;
+  max-width: 160px;
+  height: auto;
+  float: left;
 }
 #light .searchBox input {
-	border-radius: 16px;
-	height: 48px;
-	z-index: 9999;
+  border-radius: 16px;
+  height: 48px;
+  z-index: 9999;
 }
 #light .searchBox button {
-	background: #d36959;
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	height: 36px;
-	color: white;
+  background: #d36959;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  height: 36px;
+  color: white;
 }
 #light .footer {
-	background: #942c1f;
+  background: #942c1f;
 }
 #light .footer input {
-	border-radius: 16px;
-	height: 48px;
-	margin-right: 10px;
+  border-radius: 16px;
+  height: 48px;
+  margin-right: 10px;
 }
 #light .footer img {
-	width: 15%;
-	height: 15%;
+  width: 15%;
+  height: 15%;
 }
 #light .footer h2 {
-	color: white;
+  color: white;
 }
 #light .footer p {
-	color: white;
+  color: white;
 }
 #light .footer .email {
-	display: flex;
-	justify-content: end;
-	align-items: end;
-	color: white;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  color: white;
 }
 #light .footer span {
-	color: black;
+  color: black;
 }
 #light .footer i {
-	color: black;
+  color: black;
 }
 #light .footerWrapper .footerButton {
-	display: inline-block;
-	height: 60px;
-	width: 60px;
-	margin: 0 5px;
-	background: #fff;
-	border-radius: 50px;
-	cursor: pointer;
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-	transition: all 0.3s ease-out;
-	overflow: hidden;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 0 5px;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+  overflow: hidden;
 }
 #light .footerWrapper .footerButton .icon {
-	display: inline-block;
-	height: 60px;
-	width: 60px;
-	text-align: center;
-	border-radius: 50px;
-	box-sizing: border-box;
-	line-height: 60px;
-	transition: all 0.3s ease-out;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
 }
 #light .footerWrapper .footerButton:nth-child(1):hover .icon {
-	background: #4267b2;
+  background: #4267b2;
 }
 #light .footerWrapper .footerButton:nth-child(2):hover .icon {
-	background: #1da1f2;
+  background: #1da1f2;
 }
 #light .footerWrapper .footerButton:nth-child(3):hover .icon {
-	background: #e1306c;
+  background: #e1306c;
 }
 #light .footerWrapper .footerButton:nth-child(4):hover .icon {
-	background: #ff0000;
+  background: #ff0000;
 }
 #light .footerWrapper .footerButton .icon i {
-	font-size: 25px;
-	line-height: 60px;
-	transition: all 0.3s ease-out;
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
 }
 #light .footerWrapper .footerButton:hover .icon i {
-	color: #fff;
+  color: #fff;
 }
 #light .footerWrapper .footerButton:hover {
-	width: 200px;
+  width: 200px;
 }
 #light .footerWrapper .footerButton span {
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 60px;
-	margin-left: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
 }
 #light .sideBar {
-	border-radius: 16px;
+  border-radius: 16px;
 }
 #light .sideBar .box {
-	height: 48px;
-	background: #d36959;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 16px;
-	overflow: hidden;
-	transition: 1.8s;
-	position: relative;
-	cursor: pointer;
-	box-shadow: inset 0 black;
+  height: 48px;
+  background: #d36959;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 black;
 }
 #light .sideBar .box:hover {
-	box-shadow: inset 400px 0 0 0 black;
-	cursor: pointer;
-	color: #d36959;
+  box-shadow: inset 400px 0 0 0 black;
+  cursor: pointer;
+  color: #d36959;
 }
 #light .sideBar img {
-	width: 40px;
-	height: auto;
-	margin: 0px 5px;
-	background: white;
-	border-radius: 8px;
+  width: 40px;
+  height: auto;
+  margin: 0px 5px;
+  background: white;
+  border-radius: 8px;
 }
 #light .sideBar span {
-	color: white;
-	margin: 0px 5px;
+  color: white;
+  margin: 0px 5px;
 }
 #light .sideBar a {
-	text-decoration: none;
+  text-decoration: none;
 }
 #light .productCard button {
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	background: #d36959;
-	color: white;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  background: #d36959;
+  color: white;
+}
+#light .productCard img {
+  height: auto;
+  width: 100%;
 }
 #light .cardInner {
-	background-color: white;
-	color: #fff;
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-	z-index: 1;
-	opacity: 0;
+  background-color: white;
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  opacity: 0;
 }
 #light .card:hover .cardInner {
-	opacity: 1;
+  opacity: 1;
 }
 #light .brand-logo {
-	width: 160px;
-	height: auto;
-	float: left;
+  width: 160px;
+  height: auto;
+  float: left;
 }
 #light .centerbox {
-	border-radius: 16px;
+  border-radius: 16px;
 }
 #light .rightbar img {
-	border-radius: 16px;
+  border-radius: 16px;
 }
 #light .mainBtnDesign {
-	background: #d36959;
-	font-family: "Merriweather Sans", sans-serif;
-	color: white;
-	border: 1px solid black;
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	overflow: hidden;
-	transition: 1.8s;
-	position: relative;
-	cursor: pointer;
-	box-shadow: inset 0 black;
+  background: #d36959;
+  font-family: "Merriweather Sans", sans-serif;
+  color: white;
+  border: 1px solid black;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 black;
 }
 #light .mainBtnDesign:hover {
-	box-shadow: inset 400px 0 0 0 black;
-	cursor: pointer;
-	color: #d36959;
+  box-shadow: inset 400px 0 0 0 black;
+  cursor: pointer;
+  color: #d36959;
 }
 #light .cancelBtnDesign {
-	background: white;
-	font-family: "Merriweather Sans", sans-serif;
-	border: solid 1px black;
-	color: black;
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	overflow: hidden;
-	position: relative;
-	transition: 1.8s;
-	cursor: pointer;
-	box-shadow: inset 0 black;
+  background: white;
+  font-family: "Merriweather Sans", sans-serif;
+  border: solid 1px black;
+  color: black;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  transition: 1.8s;
+  cursor: pointer;
+  box-shadow: inset 0 black;
 }
 #light .cancelBtnDesign:hover {
-	box-shadow: inset 500px 0 0 0 black;
-	cursor: pointer;
-	color: white;
+  box-shadow: inset 500px 0 0 0 black;
+  cursor: pointer;
+  color: white;
 }
 #light .anyQuestionBtnDesign {
-	border: none;
-	font-family: "Merriweather Sans", sans-serif;
-	background: white;
-	color: #d36959;
-	width: 180px;
-	height: 40px;
-	font-size: 16px;
-	border-radius: 8px;
-	overflow: hidden;
-	transition: 1.8s;
-	position: relative;
-	cursor: pointer;
-	box-shadow: inset 0 black;
+  border: none;
+  font-family: "Merriweather Sans", sans-serif;
+  background: white;
+  color: #d36959;
+  width: 180px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 black;
 }
 #light .anyQuestionBtnDesign:hover {
-	box-shadow: inset 500px 0 0 0 black;
-	cursor: pointer;
-	color: white;
+  box-shadow: inset 500px 0 0 0 black;
+  cursor: pointer;
+  color: white;
 }
 #light .individualViewImg {
-	height: 486px;
+  height: 486px;
+}
+#light .spinner {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  overflow: hidden;
+  position: relative;
+  -webkit-animation: text-color 1.5s ease-in-out infinite alternate;
+          animation: text-color 1.5s ease-in-out infinite alternate;
+}
+#light .spinner-sector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  -webkit-animation: rotate var(--duration) var(--timing) infinite;
+          animation: rotate var(--duration) var(--timing) infinite;
+  pointer-events: none;
+}
+#light .spinner-sector-one {
+  border-top-color: #942c1f;
+  --duration: 1.5s;
+  --timing: ease-in-out;
+}
+#light .spinner-sector-two {
+  border-left-color: #d36959;
+  --duration: 1.5s;
+  --timing: ease-in;
+}
+#light .spinner-sector-three {
+  border-right-color: #942c1f;
+  --duration: 1.5s;
+  --timing: ease-out;
+}
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes text-color {
+  0% {
+    color: rgb(0, 0, 0);
+  }
+  50% {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    color: rgba(0, 0, 0, 0.1);
+  }
+}
+@keyframes text-color {
+  0% {
+    color: rgb(0, 0, 0);
+  }
+  50% {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    color: rgba(0, 0, 0, 0.1);
+  }
 }
 #light .individualViewProductCard {
-	height: 486px;
-	border: 1px solid #c8c8c8;
-	background: white;
-	border-radius: 8px;
+  height: 486px;
+  border: 1px solid #c8c8c8;
+  background: white;
+  border-radius: 8px;
 }
 #light .individualViewProductCard input {
-	background: #d9d9d9;
-	border: none;
+  background: #d9d9d9;
+  border: none;
 }
 #light .individualViewProductCard #qty {
-	border-radius: 8px;
+  border-radius: 8px;
 }
 #light .individualViewProductCard #size {
-	border-radius: 8px;
+  border-radius: 8px;
 }
 #light .individualViewProdDesc {
-	background: #ffffff;
-	border: 1px solid #c8c8c8;
-	font-size: 16px;
-	border-radius: 8px;
-	text-align: left;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: left;
 }
 #light .individualViewQuesion {
-	background: #d36959;
-	border-radius: 8px;
-	font-size: 16px;
+  background: #d36959;
+  border-radius: 8px;
+  font-size: 16px;
 }
 #light .individualViewProductRating {
-	background: #ffffff;
-	border: 1px solid #c8c8c8;
-	font-size: 16px;
-	border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  font-size: 16px;
+  border-radius: 8px;
 }
 #light .individualViewProductRating button {
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	background: #d36959;
-	color: white;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  background: #d36959;
+  color: white;
+}
+#light .individualViewProductRating .scrollBox {
+  position: relative;
+  height: 400px;
 }
 #light .vertical-scrollable {
-	overflow-y: scroll;
-	height: 80%;
-	width: 100%;
-	position: absolute;
+  overflow-y: scroll;
+  height: 80%;
+  width: 100%;
+  position: absolute;
 }
 #light ::-webkit-scrollbar {
-	width: 20px;
+  width: 20px;
 }
 #light ::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 5px #c8c8c8;
-	border-radius: 10px;
+  box-shadow: inset 0 0 5px #c8c8c8;
+  border-radius: 10px;
 }
 #light ::-webkit-scrollbar-thumb {
-	background: #d36959;
-	border-radius: 10px;
+  background: #d36959;
+  border-radius: 10px;
 }
 #light ::-webkit-scrollbar-thumb:hover {
-	background: #942c1f;
+  background: #942c1f;
 }
 #light .reviewsRating {
-	border-bottom: 3px solid grey;
+  border-bottom: 3px solid grey;
 }
 #light .login .back {
-	border-radius: 8px;
-	height: 456px;
-	background: white;
+  border-radius: 8px;
+  height: 456px;
+  background: white;
 }
 #light .login img {
-	border-radius: 8px;
-	height: 456px;
+  border-radius: 8px;
+  height: 456px;
 }
 #light .signUp .back {
-	border-radius: 8px;
-	height: 456px;
-	background: white;
+  border-radius: 8px;
+  height: 456px;
+  background: white;
 }
 #light .signUp img {
-	border-radius: 8px;
-	height: 456px;
+  border-radius: 8px;
+  height: 456px;
 }
 #light .orderBar {
-	background: #942c1f;
-	color: white;
+  background: #942c1f;
+  color: white;
 }
 #light .shoppingBar {
-	background: #942c1f;
-	color: white;
+  background: #942c1f;
+  color: white;
 }
 #light .shoppingBar button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #light .checkOut .checkOutBack {
-	background: white;
-	border: 1px solid black;
-	border-radius: 8px;
-	color: black;
+  background: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: black;
 }
 #light .checkOut input {
-	background: #d36959;
+  background: #d36959;
 }
 #light .viewOrder .viewOrderBar {
-	background: #942c1f;
-	color: white;
+  background: #942c1f;
+  color: white;
 }
 #light .viewOrder .orderDetails {
-	border: 1px solid black;
-	border-radius: 8px;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 
 #dark {
-	/* Track */
-	/* Handle */
-	/* Handle on hover */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 #dark h1,
 #dark h2,
@@ -425,407 +506,464 @@
 #dark h4,
 #dark h5,
 #dark h6 {
-	font-family: "Merriweather Sans", sans-serif;
-	color: white;
+  font-family: "Merriweather Sans", sans-serif;
+  color: white;
 }
 #dark p,
 #dark li,
 #dark div,
 #dark button {
-	font-family: "Nunito Sans", sans-serif;
-	color: white;
+  font-family: "Nunito Sans", sans-serif;
+  color: white;
 }
 #dark .particles {
-	position: absolute;
+  position: absolute;
 }
 #dark .blur {
-	backdrop-filter: blur(30px);
-	-webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 #dark .box {
-	background: black;
+  background: black;
 }
 #dark .toggle {
-	position: relative;
-	display: flex;
-	width: 60px;
-	height: 34px;
-	margin: 0px auto;
+  position: relative;
+  display: flex;
+  width: 60px;
+  height: 34px;
+  margin: 0px auto;
 }
 #dark .toggle input {
-	opacity: 0;
-	width: 0;
-	height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 #dark .toggler {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: #d36959;
-	transition: 0.4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d36959;
+  transition: 0.4s;
 }
 #dark .toggler:before {
-	position: absolute;
-	content: "";
-	height: 26px;
-	width: 26px;
-	bottom: 4px;
-	left: 4px;
-	background: #fff;
-	transition: 0.4s;
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  bottom: 4px;
+  left: 4px;
+  background: #fff;
+  transition: 0.4s;
 }
 #dark input:checked + .toggler {
-	background: #6ae092;
+  background: #6ae092;
 }
 #dark input:focus + toggler {
-	box-shadow: 0 0 2px #2196f3;
+  box-shadow: 0 0 2px #2196f3;
 }
 #dark input:checked + .toggler:before {
-	transform: translateX(26px);
+  transform: translateX(26px);
 }
 #dark .toggler.round {
-	border-radius: 34px;
+  border-radius: 34px;
 }
 #dark .toggler.round:before {
-	border-radius: 50%;
+  border-radius: 50%;
 }
 #dark .sideBar {
-	border-radius: 16px;
+  border-radius: 16px;
 }
 #dark .sideBar .box {
-	height: 48px;
-	background: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 16px;
-	overflow: hidden;
-	transition: 1.8s;
-	position: relative;
-	cursor: pointer;
-	box-shadow: inset 0 #5dca82;
+  height: 48px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 #5dca82;
 }
 #dark .sideBar .box:hover {
-	box-shadow: inset 400px 0 0 0 #5dca82;
-	cursor: pointer;
-	color: white;
+  box-shadow: inset 400px 0 0 0 #5dca82;
+  cursor: pointer;
+  color: white;
 }
 #dark .sideBar .box:hover span {
-	color: white;
-	margin: 0px 5px;
+  color: white;
+  margin: 0px 5px;
 }
 #dark .sideBar img {
-	width: 40px;
-	margin: 0px 5px;
-	background: white;
-	border-radius: 8px;
+  width: 40px;
+  margin: 0px 5px;
+  background: white;
+  border-radius: 8px;
 }
 #dark .sideBar span {
-	color: black;
-	margin: 0px 5px;
+  color: black;
+  margin: 0px 5px;
 }
 #dark .sideBar a {
-	text-decoration: none;
+  text-decoration: none;
 }
 #dark .brand-logo {
-	max-width: 160px;
-	height: auto;
-	float: left;
+  max-width: 160px;
+  height: auto;
+  float: left;
 }
 #dark .searchBox input {
-	border-radius: 16px;
-	border: 1px solid white;
-	height: 48px;
+  border-radius: 16px;
+  border: 1px solid white;
+  height: 48px;
 }
 #dark .productCard {
-	background: #3d3d3d;
-	border: none;
+  background: #3d3d3d;
+  border: none;
 }
 #dark .productCard button {
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	background: #d36959;
-	color: white;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  background: #d36959;
+  color: white;
 }
 #dark .cardInner {
-	background-color: white;
-	color: #fff;
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-	z-index: 1;
-	opacity: 0;
+  background-color: white;
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  opacity: 0;
 }
 #dark .card:hover .cardInner {
-	opacity: 1;
+  opacity: 1;
 }
 #dark .footer {
-	background: #942c1f;
+  background: #942c1f;
 }
 #dark .footer input {
-	border-radius: 16px;
-	height: 48px;
-	margin-right: 10px;
+  border-radius: 16px;
+  height: 48px;
+  margin-right: 10px;
 }
 #dark .footer img {
-	width: 15%;
-	height: 15%;
+  width: 15%;
+  height: 15%;
 }
 #dark .footer h2 {
-	color: white;
+  color: white;
 }
 #dark .footer p {
-	color: white;
+  color: white;
 }
 #dark .footer .email {
-	display: flex;
-	justify-content: end;
-	align-items: end;
-	color: white;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  color: white;
 }
 #dark .footer span {
-	color: black;
+  color: black;
 }
 #dark .footer i {
-	color: black;
+  color: black;
 }
 #dark .footerWrapper .footerButton {
-	display: inline-block;
-	height: 60px;
-	width: 60px;
-	margin: 0 5px;
-	background: #fff;
-	border-radius: 50px;
-	cursor: pointer;
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-	transition: all 0.3s ease-out;
-	overflow: hidden;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 0 5px;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+  overflow: hidden;
 }
 #dark .footerWrapper .footerButton .icon {
-	display: inline-block;
-	height: 60px;
-	width: 60px;
-	text-align: center;
-	border-radius: 50px;
-	box-sizing: border-box;
-	line-height: 60px;
-	transition: all 0.3s ease-out;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
 }
 #dark .footerWrapper .footerButton:nth-child(1):hover .icon {
-	background: #4267b2;
+  background: #4267b2;
 }
 #dark .footerWrapper .footerButton:nth-child(2):hover .icon {
-	background: #1da1f2;
+  background: #1da1f2;
 }
 #dark .footerWrapper .footerButton:nth-child(3):hover .icon {
-	background: #e1306c;
+  background: #e1306c;
 }
 #dark .footerWrapper .footerButton:nth-child(4):hover .icon {
-	background: #ff0000;
+  background: #ff0000;
 }
 #dark .footerWrapper .footerButton .icon i {
-	font-size: 25px;
-	line-height: 60px;
-	transition: all 0.3s ease-out;
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
 }
 #dark .footerWrapper .footerButton:hover .icon i {
-	color: #fff;
+  color: #fff;
 }
 #dark .footerWrapper .footerButton:hover {
-	width: 200px;
+  width: 200px;
 }
 #dark .footerWrapper .footerButton span {
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 60px;
-	margin-left: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
 }
 #dark .centerbox {
-	border-radius: 16px;
+  border-radius: 16px;
 }
 #dark .centerbox img {
-	border-radius: 16px;
+  border-radius: 16px;
 }
 #dark .rightbar img {
-	border-radius: 16px;
+  border-radius: 16px;
 }
 #dark .mainBtnDesign {
-	background: #d36959;
-	font-family: "Merriweather Sans", sans-serif;
-	color: black;
-	border: 1px solid white;
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	overflow: hidden;
-	transition: 1.8s;
-	position: relative;
-	cursor: pointer;
-	box-shadow: inset 0 white;
+  background: #d36959;
+  font-family: "Merriweather Sans", sans-serif;
+  color: black;
+  border: 1px solid white;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 white;
 }
 #dark .mainBtnDesign:hover {
-	box-shadow: inset 400px 0 0 0 black;
-	cursor: pointer;
-	color: white;
+  box-shadow: inset 400px 0 0 0 black;
+  cursor: pointer;
+  color: white;
 }
 #dark .cancelBtnDesign {
-	background: white;
-	font-family: "Merriweather Sans", sans-serif;
-	border: 1px solid white;
-	color: black;
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	overflow: hidden;
-	transition: 1.8s;
-	position: relative;
-	cursor: pointer;
-	box-shadow: inset 0 white;
+  background: white;
+  font-family: "Merriweather Sans", sans-serif;
+  border: 1px solid white;
+  color: black;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 white;
 }
 #dark .cancelBtnDesign:hover {
-	box-shadow: inset 400px 0 0 0 #942c1f;
-	cursor: pointer;
-	color: white;
+  box-shadow: inset 400px 0 0 0 #942c1f;
+  cursor: pointer;
+  color: white;
 }
 #dark .anyQuestionBtnDesign {
-	border: none;
-	font-family: "Merriweather Sans", sans-serif;
-	background: white;
-	color: #d36959;
-	width: 180px;
-	border-radius: 16px;
-	font-size: 16px;
-	height: 60px;
-	overflow: hidden;
-	transition: 1.8s;
-	position: relative;
-	cursor: pointer;
-	box-shadow: inset 0 white;
+  border: none;
+  font-family: "Merriweather Sans", sans-serif;
+  background: white;
+  color: #d36959;
+  width: 180px;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 60px;
+  overflow: hidden;
+  transition: 1.8s;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 white;
 }
 #dark .anyQuestionBtnDesign:hover {
-	box-shadow: inset 400px 0 0 0 #942c1f;
-	cursor: pointer;
-	color: white;
+  box-shadow: inset 400px 0 0 0 #942c1f;
+  cursor: pointer;
+  color: white;
+}
+#dark .spinner {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  overflow: hidden;
+  position: relative;
+  -webkit-animation: text-color 1.5s ease-in-out infinite alternate;
+          animation: text-color 1.5s ease-in-out infinite alternate;
+}
+#dark .spinner-sector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  -webkit-animation: rotate var(--duration) var(--timing) infinite;
+          animation: rotate var(--duration) var(--timing) infinite;
+  pointer-events: none;
+}
+#dark .spinner-sector-one {
+  border-top-color: #fff;
+  --duration: 1.5s;
+  --timing: ease-in-out;
+}
+#dark .spinner-sector-two {
+  border-left-color: #d36959;
+  --duration: 1.5s;
+  --timing: ease-in;
+}
+#dark .spinner-sector-three {
+  border-right-color: #fff;
+  --duration: 1.5s;
+  --timing: ease-out;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes text-color {
+  0% {
+    color: rgb(0, 0, 0);
+  }
+  50% {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    color: rgba(0, 0, 0, 0.1);
+  }
 }
 #dark .individualViewImg {
-	height: 486px;
-	border: 1px solid white;
-	background: #3d3d3d;
+  height: 486px;
+  border: 1px solid white;
+  background: #3d3d3d;
 }
 #dark .individualViewProductCard {
-	color: white;
-	height: 486px;
-	border: 1px solid white;
-	border-radius: 8px;
-	background: #3d3d3d;
+  color: white;
+  height: 486px;
+  border: 1px solid white;
+  border-radius: 8px;
+  background: #3d3d3d;
 }
 #dark .individualViewProductCard input {
-	background: #d9d9d9;
-	border: none;
+  background: #d9d9d9;
+  border: none;
 }
 #dark .individualViewProductCard #qty {
-	border-radius: 8px;
+  border-radius: 8px;
 }
 #dark .individualViewProductCard #size {
-	border-radius: 8px;
+  border-radius: 8px;
 }
 #dark .individualViewProdDesc {
-	color: white;
-	background: #3d3d3d;
-	border: 1px solid white;
-	font-size: 16px;
-	border-radius: 8px;
-	text-align: left;
+  color: white;
+  background: #3d3d3d;
+  border: 1px solid white;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: left;
 }
 #dark .individualViewQuesion {
-	color: white;
-	background: #3d3d3d;
-	border-radius: 8px;
-	font-size: 16px;
-	border: 1px solid white;
+  color: white;
+  background: #3d3d3d;
+  border-radius: 8px;
+  font-size: 16px;
+  border: 1px solid white;
 }
 #dark .individualViewProductRating {
-	color: white;
-	background: #3d3d3d;
-	border: 1px solid white;
-	font-size: 16px;
-	border-radius: 8px;
+  color: white;
+  background: #3d3d3d;
+  border: 1px solid white;
+  font-size: 16px;
+  border-radius: 8px;
 }
 #dark .individualViewProductRating button {
-	border-radius: 16px;
-	font-size: 16px;
-	height: 40px;
-	background: #d36959;
-	color: white;
-	border: 1px solid white;
+  border-radius: 16px;
+  font-size: 16px;
+  height: 40px;
+  background: #d36959;
+  color: white;
+  border: 1px solid white;
 }
 #dark .vertical-scrollable {
-	overflow-y: scroll;
-	height: 80%;
-	width: 100%;
-	position: absolute;
+  overflow-y: scroll;
+  height: 80%;
+  width: 100%;
+  position: absolute;
 }
 #dark ::-webkit-scrollbar {
-	width: 20px;
+  width: 20px;
 }
 #dark ::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 5px #c8c8c8;
-	border-radius: 10px;
+  box-shadow: inset 0 0 5px #c8c8c8;
+  border-radius: 10px;
 }
 #dark ::-webkit-scrollbar-thumb {
-	background: #d36959;
-	border-radius: 10px;
+  background: #d36959;
+  border-radius: 10px;
 }
 #dark ::-webkit-scrollbar-thumb:hover {
-	background: #942c1f;
+  background: #942c1f;
 }
 #dark .reviewsRating {
-	border-bottom: 3px solid white;
+  border-bottom: 3px solid white;
 }
 #dark .login .back {
-	background: #3d3d3d;
-	border: 1px solid white;
-	border-radius: 8px;
+  background: #3d3d3d;
+  border: 1px solid white;
+  border-radius: 8px;
 }
 #dark .login img {
-	border-radius: 8px;
+  border-radius: 8px;
 }
 #dark .signUp .back {
-	background: #3d3d3d;
-	border: 1px solid white;
-	border-radius: 8px;
-	height: 456px;
+  background: #3d3d3d;
+  border: 1px solid white;
+  border-radius: 8px;
+  height: 456px;
 }
 #dark .signUp img {
-	height: 456px;
-	border-radius: 8px;
+  height: 456px;
+  border-radius: 8px;
 }
 #dark .orderLog {
-	background: #3d3d3d;
+  background: #3d3d3d;
 }
 #dark .orderBar {
-	background: #942c1f;
-	color: white;
+  background: #942c1f;
+  color: white;
 }
 #dark .shoppingBar {
-	background: #942c1f;
-	color: white;
+  background: #942c1f;
+  color: white;
 }
 #dark .shoppingBack {
-	background: #3d3d3d;
+  background: #3d3d3d;
 }
 #dark .checkOut .checkOutBack {
-	background: #3d3d3d;
-	border: 1px solid black;
-	border-radius: 8px;
-	color: white;
+  background: #3d3d3d;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: white;
 }
 #dark .checkOut input {
-	background: #d9d9d9;
+  background: #d9d9d9;
 }
