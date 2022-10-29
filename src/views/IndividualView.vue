@@ -157,7 +157,7 @@
                                     class="row mx-auto"
                                     style="position: relative; height: 500px"
                                 >
-                                    <!-- <div class="container vertical-scrollable mx-auto">
+                                    <div class="container vertical-scrollable mx-auto">
                                         <div v-if="isShow">
                                             <div
                                                 v-for="(rev, idx) in review.slice(0, 3)"
@@ -172,7 +172,7 @@
                                                     >
                                                 </div>
                                                 <div class="col-6">
-                                                    <h3>{{ rev.user.username }}</h3>
+                                                    <h3>{{ rev.username }}</h3>
                                                     <h4 class="d-inline">
                                                         {{ rev.rating }}
                                                         <span
@@ -197,8 +197,8 @@
                                                 >
                                                     <div class="col-3 d-flex justify-content-center">
                                                         <img
-                                                            class="w-50 rounded-circle"
-                                                            src="../assets/appLogo.svg"
+                                                            class="rounded-circle"
+                                                            :src="require(`@/${rev.profImageUrl}`)"
                                                             alt=""
                                                         >
                                                     </div>
@@ -207,7 +207,12 @@
                                                         <h4 class="d-inline">
                                                             {{ rev.rating }}
                                                         </h4>
-                                                        <span class="d-inline">5Star(image)</span>
+                                                        <span
+                                                            v-for="i of rev.rating"
+                                                            :key="i"
+                                                        >
+                                                            {{ starsEmoji }}
+                                                        </span>
                                                         <p>
                                                             {{ rev.orderDetails }}
                                                         </p>
@@ -215,7 +220,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-4 col-md-5" />
@@ -244,6 +249,7 @@
                                 :offer-price="obj.specialPrice"
                                 :product-pic-url="obj.imgUrl"
                                 :profile-pic-url="obj.merchant.imgUrl"
+                                :product-id="obj.id"
                             />
                         </div>
                     </div>
@@ -262,6 +268,45 @@ export default {
   components: {
     ProductCard,
   },
+  async beforeRouteUpdate(to, from) {
+    // If component is all loaded, but user click to see different product
+    // component data will change but page will not reload
+    this.productId = to.params.productId;
+    const selectedProduct = await axios.get(
+      `https://support-local.herokuapp.com/api/products/${this.productId}`
+    );
+    this.product = selectedProduct.data;
+    this.merchant = selectedProduct.data.merchant.name;
+
+    // Fetch and Process Reviews
+    // Get the reviewIds tagged to this individual product
+    let reviewIdArr = selectedProduct.data.reviews;
+    let reviewArr = [];
+    for (const [idx, reviewId] of Object.entries(reviewIdArr)) {
+      let aReview = await axios.get(
+        `https://support-local.herokuapp.com/api/reviews/${reviewId}`
+      );
+      // Extract UserID from aReview & User UserID to find user Obj
+      let userID = aReview.data.user;
+      let aUser = await axios.get(
+        `https://support-local.herokuapp.com/api/users/${userID}`
+      );
+
+      // Find the Username & Find the ProfilePic URL
+      let username = aUser.data.username;
+      let profImageUrl = aUser.data.profImageUrl;
+
+      // Add to aReview Object
+      aReview.data.username = username;
+      aReview.data.profImageUrl = profImageUrl;
+
+      // Add to reviewArr
+      reviewArr.push(aReview.data);
+    }
+    this.review = reviewArr;
+    // Scroll to the top once the user clicks another product
+    window.scrollTo(0, 0);
+  },
   data() {
     return {
       mode: localStorage.modes,
@@ -269,7 +314,7 @@ export default {
       productId: "",
       merchantProducts: "", //merchant Related Products obj
       productList: "", //product obj
-      review: "", //review obj
+      review: "", //review Arr
       merchant: "", //dummy selected merchant In Good Company
       product: null, //dummy selected product Martine Necklace
       quantity: 1,
@@ -311,9 +356,35 @@ export default {
     //   });
 
     this.product = selectedProduct.data;
-    this.review = selectedProduct.data.reviews;
     this.productList = products.data;
     this.merchant = selectedProduct.data.merchant.name;
+
+    // Fetch and Process Reviews
+    // Get the reviewIds tagged to this individual product
+    let reviewIdArr = selectedProduct.data.reviews;
+    let reviewArr = [];
+    for (const [idx, reviewId] of Object.entries(reviewIdArr)) {
+      let aReview = await axios.get(
+        `https://support-local.herokuapp.com/api/reviews/${reviewId}`
+      );
+      // Extract UserID from aReview & User UserID to find user Obj
+      let userID = aReview.data.user;
+      let aUser = await axios.get(
+        `https://support-local.herokuapp.com/api/users/${userID}`
+      );
+
+      // Find the Username & Find the ProfilePic URL
+      let username = aUser.data.username;
+      let profImageUrl = aUser.data.profImageUrl;
+
+      // Add to aReview Object
+      aReview.data.username = username;
+      aReview.data.profImageUrl = profImageUrl;
+
+      // Add to reviewArr
+      reviewArr.push(aReview.data);
+    }
+    this.review = reviewArr;
   },
   methods: {
     addToCart(product) {
