@@ -3,7 +3,7 @@
         <div :id="mode">
             <div class="container-fluid">
                 <br>
-                <div class="row justify-content-center g-2">
+                <div class="row justify-content-center">
                     <div class="col-xl-3 col-md-2 d-none d-md-block">
                         <!-- Left Column-->
                         <!-- Display logo only from MD to Lg -->
