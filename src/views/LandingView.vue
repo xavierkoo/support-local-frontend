@@ -100,6 +100,7 @@
                                 >
                                     <ProductCard
                                         v-if="(idx % 2 == 0) | (idx == 0)"
+                                        :merchant-id="obj.merchant.id"
                                         :merchant-name="obj.merchant.name"
                                         :desc="obj.name"
                                         :offer-price="obj.specialPrice"
@@ -118,6 +119,7 @@
                                 >
                                     <ProductCard
                                         v-if="(idx % 2 == 1) & (idx > 0)"
+                                        :merchant-id="obj.merchant.id"
                                         :merchant-name="obj.merchant.name"
                                         :desc="obj.name"
                                         :offer-price="obj.specialPrice"
@@ -226,7 +228,7 @@ export default {
         }
       }
     }
-
+    console.log(startUpArr);
     this.productList = startUpArr;
   },
   methods: {

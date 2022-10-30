@@ -252,6 +252,7 @@
                             <ProductCard
                                 v-for="(obj, idx) in productList"
                                 :key="idx"
+                                :merchant-id="obj.merchant.id"
                                 :merchant-name="obj.merchant.name"
                                 :desc="obj.name"
                                 :price="obj.price"
@@ -270,7 +271,7 @@
 </template>
 
 <script>
-import axios from "axios"; //npm install axios
+import axios from "axios";
 import ProductCard from "../components/ProductCard.vue"; //import product card
 import { useRoute } from "vue-router";
 
