@@ -57,7 +57,7 @@ const routes = [
     component: viewOrder,
   },
   {
-    path: "/brand",
+    path: "/brand/:merchantId",
     name: "brand",
     component: IndividualBrand,
   },
