@@ -28,8 +28,7 @@
                         @submit.prevent="sendEmail"
                     >
                         <div class="col-1 col-sm-3" />
-                        <label class="email my-auto col-2 col-sm-1 justify-content-center">Email:
-                        </label>
+                        <label class="email my-auto col-2 col-sm-1">Email: </label>
                         <input
                             v-model="msg"
                             class="col-4 col-sm-4 m-0"

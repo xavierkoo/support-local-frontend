@@ -107,17 +107,15 @@
 #light .footer p {
   color: white;
 }
-#light .footer .email {
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  color: white;
-}
 #light .footer span {
   color: black;
 }
 #light .footer i {
   color: black;
+}
+#light .email {
+  color: white;
+  font-size: 16px;
 }
 #light .footerWrapper .footerButton {
   display: inline-block;
@@ -407,7 +405,7 @@
 }
 #light .individualViewProductRating .scrollBox {
   position: relative;
-  height: 400px;
+  height: 10em;
 }
 #light .vertical-scrollable {
   overflow-y: scroll;
@@ -431,6 +429,10 @@
 }
 #light .reviewsRating {
   border-bottom: 3px solid grey;
+}
+#light .reviewsRating img {
+  width: auto;
+  height: 100%;
 }
 #light .login .back {
   border-radius: 8px;
@@ -501,9 +503,6 @@
 #dark button {
   font-family: "Nunito Sans", sans-serif;
   color: white;
-}
-#dark .particles {
-  position: absolute;
 }
 #dark .blur {
   backdrop-filter: blur(10px);
@@ -870,6 +869,10 @@
   color: white;
   border: 1px solid white;
 }
+#dark .individualViewProductRating .scrollBox {
+  position: relative;
+  height: 10em;
+}
 #dark .vertical-scrollable {
   overflow-y: scroll;
   height: 80%;
@@ -900,6 +903,7 @@
 }
 #dark .login img {
   border-radius: 8px;
+  height: 456px;
 }
 #dark .signUp .back {
   background: #3d3d3d;
