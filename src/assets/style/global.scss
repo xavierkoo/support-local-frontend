@@ -134,6 +134,7 @@
 
   .email {
     color: white;
+    font-size: 16px;
   }
 
   .footerWrapper .footerButton {
@@ -423,7 +424,7 @@
 
     .scrollBox {
       position: relative;
-      height: 400px;
+      height: 10em;
     }
   }
   .vertical-scrollable {
@@ -455,6 +456,10 @@
 
   .reviewsRating {
     border-bottom: 3px solid grey;
+    img {
+      width: auto;
+      height: 100%;
+    }
   }
 
   //LightLogin
@@ -540,10 +545,6 @@
   button {
     font-family: $bodyFontFamily;
     color: white;
-  }
-
-  .particles {
-    position: absolute;
   }
 
   .blur {
@@ -947,6 +948,10 @@
       color: white;
       border: $borderDark;
     }
+    .scrollBox {
+      position: relative;
+      height: 10em;
+    }
   }
 
   .vertical-scrollable {
@@ -990,6 +995,7 @@
     }
     img {
       border-radius: $boxRadius;
+      height: 456px;
     }
   }
 

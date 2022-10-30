@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-1" />
-                                        <h3 class="col text-start mb-3">
+                                        <h4 class="col text-start mb-3">
                                             {{ product.rating }}
                                             <span
                                                 v-for="i of product.rating"
@@ -47,8 +47,7 @@
                                             >
                                                 {{ starsEmoji }}
                                             </span>
-                                            / 5
-                                        </h3>
+                                        </h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-1" />
@@ -61,46 +60,54 @@
                                         <h6 class="col-2 my-auto">
                                             Quantity
                                         </h6>
-                                        <div class="col-1" />
+                                        <div class="col-3 col-sm-1" />
                                         <input
                                             id="qty"
                                             v-model="quantity"
                                             class="col-4 py-2"
                                             type="text"
                                         >
-                                        <div class="col-3" />
+                                        <div class="col-1 col-sm-3" />
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-1" />
                                         <h6 class="col-2 my-auto">
                                             Size
                                         </h6>
-                                        <div class="col-1" />
+                                        <div class="col-3 col-sm-1" />
                                         <input
                                             id="size"
                                             class="col-4 py-2"
                                             type="text"
                                         >
-                                        <div class="col-3" />
+                                        <div class="col-2 col-sm-3" />
                                     </div>
                                     <div class="row">
                                         <div class="col-1" />
-                                        <button
-                                            type="button"
-                                            class="col-4 cancelBtnDesign"
-                                            @click="viewCart()"
-                                        >
-                                            View Cart
-                                        </button>
+                                        <div class="row col-sm-4 p-0 m-0 my-2">
+                                            <div class="col-1" />
+                                            <button
+                                                type="button"
+                                                class="col-10 cancelBtnDesign"
+                                                @click="viewCart()"
+                                            >
+                                                View Cart
+                                            </button>
+                                            <div class="col-1" />
+                                        </div>
                                         <div class="col-2" />
-                                        <button
-                                            id="addToCart"
-                                            type="button"
-                                            class="col-4 mainBtnDesign"
-                                            @click="addToCart(product)"
-                                        >
-                                            Add To Cart
-                                        </button>
+                                        <div class="row col-sm-4 p-0 m-0 my-2">
+                                            <div class="col-1" />
+                                            <button
+                                                id="addToCart"
+                                                type="button"
+                                                class="col-10 mainBtnDesign"
+                                                @click="addToCart(product)"
+                                            >
+                                                Add To Cart
+                                            </button>
+                                            <div class="col-1" />
+                                        </div>
                                         <div class="col-1" />
                                     </div>
                                 </div>
@@ -150,7 +157,7 @@
                                     <div
                                         class="col-12 col-md-3 col-lg-3 col-xl-2 my-auto d-flex justify-content-center align-content-center"
                                     >
-                                        <button class="anyQuestionBtnDesign btnAnimation">
+                                        <button class="anyQuestionBtnDesign btnAnimation my-2">
                                             Got any question?
                                         </button>
                                     </div>
@@ -162,7 +169,9 @@
                         <div class="row mx-auto my-3">
                             <div class="container individualViewProductRating">
                                 <div class="row">
-                                    <h5 class="d-flex justify-content-start mx-4 my-3">
+                                    <h5
+                                        class="d-flex justify-content-center justify-content-md-start ps-md-4 ms-md-1 my-3 text-center p-0"
+                                    >
                                         Product Rating
                                     </h5>
                                 </div>
@@ -174,73 +183,99 @@
                                                 :key="idx"
                                                 class="row mx-3 reviewsRating my-4"
                                             >
-                                                <div class="col-3 d-flex justify-content-center">
+                                                <div class="col-1" />
+                                                <div class="col-2 d-flex justify-content-end">
                                                     <img
-                                                        class="img-fluid"
+                                                        class="img-fluid d-none d-md-block"
                                                         :src="require(`@/${rev.profImageUrl}`)"
                                                         alt=""
                                                     >
                                                 </div>
-                                                <div class="col-6">
-                                                    <h3>{{ rev.username }}</h3>
-                                                    <h4 class="d-inline">
-                                                        {{ rev.rating }}
-                                                        <span
-                                                            v-for="i of rev.rating"
-                                                            :key="i"
+                                                <div class="col-md-8 my-auto">
+                                                    <div class="row">
+                                                        <h5
+                                                            class="col-xl-2 my-auto text-center text-md-start"
                                                         >
-                                                            {{ starsEmoji }}
-                                                        </span>
-                                                    </h4>
-                                                    <p>
-                                                        {{ rev.orderDetails }}
-                                                    </p>
+                                                            {{ rev.username }}
+                                                        </h5>
+                                                        <div class="row col-xl-10">
+                                                            <h5
+                                                                class="d-inline my-auto text-center text-md-start ms-2 p-0"
+                                                            >
+                                                                {{ rev.rating }}
+                                                                <span
+                                                                    v-for="i of rev.rating"
+                                                                    :key="i"
+                                                                >
+                                                                    {{ starsEmoji }}
+                                                                </span>
+                                                            </h5>
+                                                            <h5
+                                                                class="my-auto text-center text-md-start ms-2 p-0"
+                                                            >
+                                                                {{ rev.orderDetails }}
+                                                            </h5>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <div class="col-1" />
                                             </div>
                                         </div>
                                         <div v-else>
-                                            <div class="container">
-                                                <div
-                                                    v-for="rev in review"
-                                                    :key="rev.userID"
-                                                    class="row mx-3 reviewsRating my-4"
-                                                >
-                                                    <div class="col-3 d-flex justify-content-center">
-                                                        <img
-                                                            class="rounded-circle"
-                                                            :src="require(`@/${rev.profImageUrl}`)"
-                                                            alt=""
+                                            <div
+                                                v-for="(rev, idx) in review"
+                                                :key="idx"
+                                                class="row mx-3 reviewsRating my-4"
+                                            >
+                                                <div class="col-1" />
+                                                <div class="col-2 d-flex justify-content-end">
+                                                    <img
+                                                        class="img-fluid d-none d-md-block"
+                                                        :src="require(`@/${rev.profImageUrl}`)"
+                                                        alt=""
+                                                    >
+                                                </div>
+                                                <div class="col-md-8 my-auto">
+                                                    <div class="row">
+                                                        <h5
+                                                            class="col-xl-2 my-auto text-center text-md-start"
                                                         >
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <h3>{{ rev.username }}</h3>
-                                                        <h4 class="d-inline">
-                                                            {{ rev.rating }}
-                                                        </h4>
-                                                        <span
-                                                            v-for="i of rev.rating"
-                                                            :key="i"
-                                                        >
-                                                            {{ starsEmoji }}
-                                                        </span>
-                                                        <p>
-                                                            {{ rev.orderDetails }}
-                                                        </p>
+                                                            {{ rev.username }}
+                                                        </h5>
+                                                        <div class="row col-xl-10">
+                                                            <h5
+                                                                class="d-inline my-auto text-center text-md-start ms-2 p-0"
+                                                            >
+                                                                {{ rev.rating }}
+                                                                <span
+                                                                    v-for="i of rev.rating"
+                                                                    :key="i"
+                                                                >
+                                                                    {{ starsEmoji }}
+                                                                </span>
+                                                            </h5>
+                                                            <h5
+                                                                class="my-auto text-center text-md-start ms-2 p-0"
+                                                            >
+                                                                {{ rev.orderDetails }}
+                                                            </h5>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-1" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row my-3">
-                                    <div class="col-4 col-md-5" />
+                                    <div class="col-2 col-md-5" />
                                     <button
-                                        class="col-4 col-md-2 mainBtnDesign"
+                                        class="col-8 col-md-2 mainBtnDesign"
                                         @click="isShow ? (isShow = false) : (isShow = true)"
                                     >
                                         {{ isShow ? "Show More" : "Show Less" }}
                                     </button>
-                                    <div class="col-4 col-md-5" />
+                                    <div class="col-2 col-md-5" />
                                 </div>
                             </div>
                         </div>
