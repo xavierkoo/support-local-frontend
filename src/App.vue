@@ -12,9 +12,6 @@
                         <router-link to="/landing">
                             Landing
                         </router-link> |
-                        <router-link to="/brand">
-                            Individual Brand
-                        </router-link> |
                         <router-link to="/cart">
                             ShoppingCart
                         </router-link> |
