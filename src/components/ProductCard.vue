@@ -15,14 +15,22 @@
                 >
 
                 <div class="card-body productCard">
-                    <div class="row mb-1">
-                        <div class="col-3">
-                            <img :src="require(`@/${profilePicUrl}`)">
+                    <div
+                        v-if="merchantName != ''"
+                        class="row mb-1"
+                    >
+                        <div class="col-3 text-center">
+                            <img
+                                :src="require(`@/${profilePicUrl}`)"
+                                style="width: 90%"
+                            >
                         </div>
-                        <div class="col-9 mb-0">
-                            <h6 class="mb-1">
-                                {{ merchantName }}
-                            </h6>
+                        <div class="col-9 mb-0 my-auto">
+                            <router-link :to="`/brand/${merchantId}`">
+                                <h6 class="mb-0 fw-bold">
+                                    {{ merchantName }}
+                                </h6>
+                            </router-link>
                             <p class="">
                                 {{ lastOnlineHour }} hour ago
                             </p>
@@ -67,9 +75,13 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   name: "ProductCard",
   props: {
+    merchantId: {
+      type: String,
+      default: "",
+    },
     merchantName: {
       type: String,
-      default: "HellowWorld",
+      default: "",
     },
     lastOnlineHour: {
       type: String,
