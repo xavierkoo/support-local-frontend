@@ -6,7 +6,7 @@
         >
             <!-- Insert Img here -->
             <img
-                src="../assets/brandprofilepng.png"
+                :src="require(`@/${merchantPic}`)"
                 alt=""
                 class="d-block mx-auto mt-4"
                 style="width: 30%; height: auto"
@@ -16,8 +16,10 @@
                     {{ merchantName }}
                 </h3>
                 <p class="card-text">
+                    <!-- TODO: Missing Desc -->
                     {{ desc }}
                 </p>
+                <!-- TODO: Need to link this to the email API -->
                 <button class="btn btn-primary">
                     Contact me
                 </button>
