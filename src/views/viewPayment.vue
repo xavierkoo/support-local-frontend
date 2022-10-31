@@ -17,7 +17,7 @@
                         data-card-field
                         autocomplete="off"
                         :maxlength="cardNumberMaxLength"
-                        @input="changeNumber"
+                        @input="updateNumber"
                     >
                 </div>
                 <div class="card-input">
@@ -34,7 +34,7 @@
                         :value="valueFields.cardName"
                         data-card-field
                         autocomplete="off"
-                        @input="changeName"
+                        @input="updateName"
                     >
                 </div>
                 <div class="card-form__row">
@@ -66,7 +66,7 @@
                                     :value="n < 10 ? '0' + n : n"
                                     :disabled="n < minCardMonth"
                                 >
-                                    {{ generateMonthValue(n) }}
+                                    {{ generateMonth(n) }}
                                 </option>
                             </select>
                             <select
@@ -187,18 +187,22 @@ export default {
     },
   },
   methods: {
-    changeName(e) {
-      // this function changes the name of the card dynamically
+    updateName(e) {
+      // updateName(e) method updates the name of the card dynamically
+      // emits input-card-name event in component, passing Name as a parameter when @input is triggered
+      // @input provides two-way data binding by binding the input text element and the value binded to a variable assigned
       this.valueFields.cardName = e.target.value;
       this.$emit("input-card-name", this.valueFields.cardName);
     },
-    changeNumber(e) {
-      // this method changes the number of different card input number, for eg american express has 15 digit input number
+    updateNumber(e) {
+      // this method changes the number of different card input number, and checks and replace characters that dont match
+      // .replace replaces the match of the regex with the first capture group ($1) followed by
+      // a comma, followed by the second capture group ($2)
       this.valueFields.cardNumber = e.target.value;
       const value = this.valueFields.cardNumber.replace(/\D/g, "");
       // american express, 15 digits
       if (/^3[47]\d{0,13}$/.test(value)) {
-        this.valueFields.cardNumber = value
+        this.valueFields.cardNumber = values
           .replace(/(\d{4})/, "$1 ")
           .replace(/(\d{4}) (\d{6})/, "$1 $2 ");
         this.cardNumberMaxLength = 17;
@@ -252,7 +256,7 @@ export default {
       this.valueFields.cardCvv = e.target.value;
       this.$emit("input-card-cvv", this.valueFields.cardCvv);
     },
-    generateMonthValue(n) {
+    generateMonth(n) {
       // method generates the month values
       return n < 10 ? `0${n}` : n;
     },
@@ -266,7 +270,7 @@ export default {
       }
     },
     maskCardNumber() {
-      // this method do not mask the first 4 and last 4 numbers on the card
+      // this method does not mask the last 4 numbers on the card
       this.valueFields.cardNumberNotMask = this.valueFields.cardNumber;
       this.mainCardNumber = this.valueFields.cardNumber;
       const arr = this.valueFields.cardNumber.split("");
@@ -472,5 +476,3 @@ body,
   padding-right: 30px;
 }
 </style>
-
-<!-- <style src="'../.storybook/storybook.css'"></style> -->
