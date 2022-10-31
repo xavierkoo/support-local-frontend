@@ -9,6 +9,7 @@ import SignUp from "../views/Signup.vue";
 import orderLog from "../views/OrderLogs.vue";
 import viewOrder from "../views/ViewOrder.vue";
 import viewPayment from "../views/viewPayment.vue";
+import DashBoard from "../views/Dashboard.vue";
 
 const routes = [
   {
@@ -65,6 +66,11 @@ const routes = [
     path: "/viewPayment",
     name: "viewPayment",
     component: viewPayment,
+  },
+  {
+    path: "/dashboard/:merchantId",
+    name: "dashBoard",
+    component: DashBoard,
   },
 ];
 

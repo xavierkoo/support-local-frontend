@@ -33,6 +33,10 @@
                         <router-link to="/viewPayment">
                             View Payment
                         </router-link>
+                        <router-link to="/dashboard/635abc7fb01737e727fb4b36">
+                            Dashboard
+                        </router-link>
+                        |
                     </nav>
 
                     <router-view v-slot="{ Component }">
