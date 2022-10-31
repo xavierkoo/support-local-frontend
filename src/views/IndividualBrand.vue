@@ -1,11 +1,12 @@
 <template>
     <div>
         <div class="row justify-content-center g-2">
-            <div class="col-xl-4">
+            <div class="col-xl-4 d-none d-xl-block">
                 <!-- Left Col -->
                 <BrandProfile
                     :merchant-name="merchant.name"
                     :merchant-pic="merchant.imgUrl"
+                    :desc="merchant.aboutUs"
                 />
                 <MerchantRating :merchant-rating="merchantRating" />
 
@@ -14,20 +15,41 @@
                     style="height: 444px"
                 >
                     <Map
-                        lat="1.296568"
-                        lng="103.852119"
+                        :lat="merchantLat"
+                        :lng="merchantLng"
                     />
                 </div>
             </div>
-            <div class="col-xl-8">
+            <div class="col-xl-8 col-md-12">
                 <!-- Right Col -->
                 <img
                     src="../assets/offer.png"
                     alt=""
-                    style="border-radius: 0px; width: 100%; height: 444px"
+                    class="img-fluid mx-auto d-block"
                 >
+                <div class="row justify-content-center m-2 d-md-block d-xl-none">
+                    <!-- Split 2 Col to display 2 cards  -->
+                    <div class="col-md-6 d-md-inline-block d-xl-none align-top">
+                        <BrandProfile
+                            :merchant-name="merchant.name"
+                            :merchant-pic="merchant.imgUrl"
+                            :desc="merchant.aboutUs"
+                        />
+                    </div>
+                    <div class="col-md-6 d-none d-md-inline-block d-xl-none align-top">
+                        <div
+                            class="card text-center mt-2"
+                            style="height: 444px"
+                        >
+                            <Map
+                                :lat="merchantLat"
+                                :lng="merchantLng"
+                            />
+                        </div>
+                    </div>
+                </div>
                 <div class="mt-3">
-                    <span class="fw-bold mx-3 text-dark">Trending now</span>
+                    <span class="fw-bold mx-3 text-dark">Featured Product</span>
                 </div>
                 <div class="row justify-content-center m-2">
                     <!-- Split 2 Col to display 2 cards  -->
@@ -102,6 +124,8 @@ export default {
       merchantLatLong: "",
       productList: "",
       merchantRating: 0,
+      merchantLat: 0.0,
+      merchantLng: 0.0,
     };
   },
   watch: {},
@@ -141,9 +165,17 @@ export default {
       // Add to productArr
       productArr.push(selectedProduct.data);
     }
+    // Process the average rating from all the products
     avgRating = Math.floor(avgRating / merchantProducts.length);
     this.merchantRating = avgRating;
+
+    // Assign productArr to state
     this.productList = productArr;
+
+    // Process Lat & Long Coordinates
+    let LatLongArr = selectedMerchant.data.coord.split(",");
+    this.merchantLat = Number(LatLongArr[0].trim());
+    this.merchantLng = Number(LatLongArr[1].trim());
   },
   methods: {},
 };
