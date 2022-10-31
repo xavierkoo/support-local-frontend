@@ -4,5 +4,6 @@ import router from "./router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import Particles from "vue3-particles";
+import Vue from "vue";
 
 createApp(App).use(router).use(Particles).mount("#app");

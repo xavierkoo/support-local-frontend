@@ -25,7 +25,7 @@
             <div class="card-item__wrapper">
                 <div class="card-item__top">
                     <img
-                        src="../assets/images/chip.png"
+                        src="../assets/img/creditCards/chip.png"
                         class="card-item__chip"
                         alt="Card chip image"
                     >
@@ -358,7 +358,7 @@ export default {
       if (this.hasRandomBackgrounds) {
         const random = Math.floor(Math.random() * 25 + 1);
 
-        const path = require(`../assets/images/${random}.jpg`);
+        const path = require(`../assets/img/creditCards/${random}.jpg`);
         return path.default || path;
       }
 
@@ -464,7 +464,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card-item * {
   box-sizing: border-box;
 }
