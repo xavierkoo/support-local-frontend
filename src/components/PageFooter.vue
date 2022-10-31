@@ -28,13 +28,12 @@
                         @submit.prevent="sendEmail"
                     >
                         <div class="col-1 col-sm-3" />
-                        <label class="email my-auto col-2 col-sm-1">Email: </label>
+                        <label class="email my-auto col-2 col-sm-1 text-end">Email: </label>
                         <input
                             v-model="msg"
                             class="col-4 col-sm-4 m-0"
                             type="email"
                             name="user_email"
-                            placeholder="Enter Your Email Address"
                         >
                         <input
                             type="submit"
@@ -105,7 +104,10 @@ export default {
         .then(
           (result) => {
             console.log("SUCCESS!", result.text);
-            this.msg = "Sent!";
+            alert(
+              "You have successfully signed up for the Support Local Newsletter!"
+            );
+            this.msg = "";
           },
           (error) => {
             console.log("FAILED...", error.text);

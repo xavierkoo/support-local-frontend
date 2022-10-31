@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-2">
                 <div class="col-10 container checkOutBack">
                     <h3 class="my-3">
                         Billing Details
