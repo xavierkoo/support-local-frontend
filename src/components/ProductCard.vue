@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="p-0">
         <!-- Card Component -->
         <transition
             appear

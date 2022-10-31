@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="row mt-4">
+                            <div class="row mt-4 mx-auto">
                                 <div class="col-3" />
                                 <button
                                     type="submit"
