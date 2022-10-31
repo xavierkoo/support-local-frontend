@@ -1,167 +1,185 @@
 <template>
-    <div class="App">
+    <div class="App p-0">
         <div :id="mode">
-            <div class="container-fluid">
-                <br>
-                <div class="row justify-content-center">
-                    <div class="col-xl-3 col-md-2 d-none d-md-block">
-                        <!-- Left Column-->
-                        <!-- Display logo only from MD to Lg -->
-                        <!-- Logo will align left, Caption will be visible at XL -->
-                        <div
-                            class="row justify-content-center align-items-center sticky-top"
+            <div v-if="productList == null">
+                <div
+                    class="container d-flex justify-content-center align-content-center"
+                >
+                    <div class="spinner">
+                        <img
+                            src="../assets/Nobackgroundlogo.png"
+                            alt=""
+                            class="img-fluid"
                         >
-                            <SideNavPill
-                                v-for="(cat, idx) in productCatArr"
-                                :key="idx"
-                                :category-name="cat"
-                                @clicked-item="changeCat"
-                            />
-                        </div>
+                        <div class="spinner-sector spinner-sector-one" />
+                        <div class="spinner-sector spinner-sector-two" />
+                        <div class="spinner-sector spinner-sector-three" />
                     </div>
-                    <div class="col-xl-6 col-md-10 centerbox">
-                        <!-- Center Column -->
-                        <!-- Hero Carousell -->
-                        <div
-                            id="carouselId"
-                            class="carousel slide"
-                            data-bs-ride="carousel"
-                        >
-                            <ol class="carousel-indicators">
-                                <li
-                                    data-bs-target="#carouselId"
-                                    data-bs-slide-to="0"
-                                    class="active"
-                                    aria-current="true"
-                                    aria-label="First slide"
-                                />
-                                <li
-                                    data-bs-target="#carouselId"
-                                    data-bs-slide-to="1"
-                                    aria-label="Second slide"
-                                />
-                            </ol>
+                </div>
+            </div>
+            <div v-else>
+                <div class="container-fluid">
+                    <br>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-3 col-md-2 d-none d-md-block">
+                            <!-- Left Column-->
+                            <!-- Display logo only from MD to Lg -->
+                            <!-- Logo will align left, Caption will be visible at XL -->
                             <div
-                                class="carousel-inner"
-                                role="listbox"
+                                class="row justify-content-center align-items-center sticky-top"
                             >
-                                <div class="carousel-item active">
-                                    <img
-                                        src="../assets/hero.png"
-                                        class="w-100 d-block"
-                                        alt="First slide"
-                                    >
-                                </div>
-                                <div class="carousel-item">
-                                    <img
-                                        src="../assets/towfiqu-barbhuiya-5xTYgw2g7aw-unsplash.jpg"
-                                        class="w-100 d-block"
-                                        alt="Second slide"
-                                    >
-                                </div>
-                            </div>
-                            <button
-                                class="carousel-control-prev"
-                                type="button"
-                                data-bs-target="#carouselId"
-                                data-bs-slide="prev"
-                            >
-                                <span
-                                    class="carousel-control-prev-icon"
-                                    aria-hidden="true"
-                                />
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button
-                                class="carousel-control-next"
-                                type="button"
-                                data-bs-target="#carouselId"
-                                data-bs-slide="next"
-                            >
-                                <span
-                                    class="carousel-control-next-icon"
-                                    aria-hidden="true"
-                                />
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div class="mt-2">
-                            <h5 class="fw-bold mx-3">
-                                Trending Now
-                            </h5>
-                        </div>
-                        <div class="row justify-content-center m-2">
-                            <!-- Split 2 Col to display 2 cards  -->
-                            <div class="col-md-6">
-                                <!-- Card Component -->
-                                <template
-                                    v-for="(obj, idx) in productList"
+                                <SideNavPill
+                                    v-for="(cat, idx) in productCatArr"
                                     :key="idx"
-                                >
-                                    <ProductCard
-                                        v-if="(idx % 2 == 0) | (idx == 0)"
-                                        :merchant-id="obj.merchant.id"
-                                        :merchant-name="obj.merchant.name"
-                                        :desc="obj.name"
-                                        :offer-price="obj.specialPrice"
-                                        :price="obj.price"
-                                        :num-sold="obj.numberSold"
-                                        :product-pic-url="obj.imgUrl"
-                                        :product-id="obj.id"
-                                        class="mb-3"
-                                    />
-                                </template>
-                            </div>
-                            <div class="col-md-6">
-                                <template
-                                    v-for="(obj, idx) in productList"
-                                    :key="idx"
-                                >
-                                    <ProductCard
-                                        v-if="(idx % 2 == 1) & (idx > 0)"
-                                        :merchant-id="obj.merchant.id"
-                                        :merchant-name="obj.merchant.name"
-                                        :desc="obj.name"
-                                        :offer-price="obj.specialPrice"
-                                        :price="obj.price"
-                                        :num-sold="obj.numberSold"
-                                        :product-pic-url="obj.imgUrl"
-                                        :product-id="obj.id"
-                                        class="mb-3"
-                                    />
-                                </template>
+                                    :category-name="cat"
+                                    @clicked-item="changeCat"
+                                />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-4 col-md-5" />
-                            <button
-                                v-if="viewMore == false"
-                                class="btn mainBtnDesign col-4 col-md-2"
-                                @click="viewMore = true"
+                        <div class="col-xl-6 col-md-10 centerbox">
+                            <!-- Center Column -->
+                            <!-- Hero Carousell -->
+                            <div
+                                id="carouselId"
+                                class="carousel slide"
+                                data-bs-ride="carousel"
                             >
-                                View More
-                            </button>
-                            <div class="col-4 col-md-5" />
+                                <ol class="carousel-indicators">
+                                    <li
+                                        data-bs-target="#carouselId"
+                                        data-bs-slide-to="0"
+                                        class="active"
+                                        aria-current="true"
+                                        aria-label="First slide"
+                                    />
+                                    <li
+                                        data-bs-target="#carouselId"
+                                        data-bs-slide-to="1"
+                                        aria-label="Second slide"
+                                    />
+                                </ol>
+                                <div
+                                    class="carousel-inner"
+                                    role="listbox"
+                                >
+                                    <div class="carousel-item active">
+                                        <img
+                                            src="../assets/hero.png"
+                                            class="w-100 d-block"
+                                            alt="First slide"
+                                        >
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img
+                                            src="../assets/towfiqu-barbhuiya-5xTYgw2g7aw-unsplash.jpg"
+                                            class="w-100 d-block"
+                                            alt="Second slide"
+                                        >
+                                    </div>
+                                </div>
+                                <button
+                                    class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carouselId"
+                                    data-bs-slide="prev"
+                                >
+                                    <span
+                                        class="carousel-control-prev-icon"
+                                        aria-hidden="true"
+                                    />
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button
+                                    class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carouselId"
+                                    data-bs-slide="next"
+                                >
+                                    <span
+                                        class="carousel-control-next-icon"
+                                        aria-hidden="true"
+                                    />
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <div class="mt-2">
+                                <h5 class="fw-bold mx-3">
+                                    Trending Now
+                                </h5>
+                            </div>
+                            <div class="row justify-content-center m-2">
+                                <!-- Split 2 Col to display 2 cards  -->
+                                <div class="col-md-6">
+                                    <!-- Card Component -->
+                                    <template
+                                        v-for="(obj, idx) in productList"
+                                        :key="idx"
+                                    >
+                                        <ProductCard
+                                            v-if="(idx % 2 == 0) | (idx == 0)"
+                                            :merchant-id="obj.merchant.id"
+                                            :merchant-name="obj.merchant.name"
+                                            :desc="obj.name"
+                                            :offer-price="obj.specialPrice"
+                                            :price="obj.price"
+                                            :num-sold="obj.numberSold"
+                                            :product-pic-url="obj.imgUrl"
+                                            :product-id="obj.id"
+                                            class="mb-3"
+                                        />
+                                    </template>
+                                </div>
+                                <div class="col-md-6">
+                                    <template
+                                        v-for="(obj, idx) in productList"
+                                        :key="idx"
+                                    >
+                                        <ProductCard
+                                            v-if="(idx % 2 == 1) & (idx > 0)"
+                                            :merchant-id="obj.merchant.id"
+                                            :merchant-name="obj.merchant.name"
+                                            :desc="obj.name"
+                                            :offer-price="obj.specialPrice"
+                                            :price="obj.price"
+                                            :num-sold="obj.numberSold"
+                                            :product-pic-url="obj.imgUrl"
+                                            :product-id="obj.id"
+                                            class="mb-3"
+                                        />
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 col-md-5" />
+                                <button
+                                    v-if="viewMore == false"
+                                    class="btn mainBtnDesign col-4 col-md-2"
+                                    @click="viewMore = true"
+                                >
+                                    View More
+                                </button>
+                                <div class="col-4 col-md-5" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 d-none d-xl-block rightbar">
-                        <!-- Right Column -->
-                        <!-- Displays Ads on XL and Abovee-->
-                        <img
-                            class="mb-2"
-                            src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
-                            style="width: 100%; height: auto"
-                        >
-                        <img
-                            class="mb-2"
-                            src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
-                            style="width: 100%; height: auto"
-                        >
-                        <img
-                            class="mb-2"
-                            src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
-                            style="width: 100%; height: auto"
-                        >
+                        <div class="col-xl-3 d-none d-xl-block rightbar">
+                            <!-- Right Column -->
+                            <!-- Displays Ads on XL and Abovee-->
+                            <img
+                                class="mb-2"
+                                src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                                style="width: 100%; height: auto"
+                            >
+                            <img
+                                class="mb-2"
+                                src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                                style="width: 100%; height: auto"
+                            >
+                            <img
+                                class="mb-2"
+                                src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                                style="width: 100%; height: auto"
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,7 +203,7 @@ export default {
       mode: localStorage.modes,
       category: "all",
       viewMore: false,
-      productList: "",
+      productList: null,
       productCatArr: [
         "Food & Beverages",
         "Men's Apparel",
