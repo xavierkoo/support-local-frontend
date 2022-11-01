@@ -7,7 +7,7 @@
                     <NavBar />
                     <ToggleMode />
                 </div>
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex justify-content-center minHeight">
                     <nav class="">
                         <router-link to="/landing">
                             Landing
@@ -33,6 +33,10 @@
                         <router-link to="/viewPayment">
                             View Payment
                         </router-link>
+                        <router-link to="/dashboard/635abc7fb01737e727fb4b36">
+                            Dashboard
+                        </router-link>
+                        |
                     </nav>
 
                     <router-view v-slot="{ Component }">
@@ -43,8 +47,8 @@
                             <component :is="Component" />
                         </transition>
                     </router-view>
-                    <PageFooter />
                 </div>
+                <PageFooter />
             </div>
         </div>
     </div>

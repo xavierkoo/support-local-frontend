@@ -1,6 +1,16 @@
 @import "./variable";
 @import "./functions";
 
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+.minHeight {
+  min-height: 55vh;
+}
+
 #light {
   //general
   h1,
@@ -513,7 +523,7 @@
       color: black;
     }
     input {
-      background: $mainBtn;
+      background: #c8c8c8;
     }
   }
   //LightCheckOut

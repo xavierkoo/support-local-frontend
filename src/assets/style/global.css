@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.minHeight {
+  min-height: 55vh;
+}
+
 #light {
   /* Track */
   /* Handle */
@@ -473,7 +484,7 @@
   color: black;
 }
 #light .checkOut input {
-  background: #d36959;
+  background: #c8c8c8;
 }
 #light .viewOrder .viewOrderBar {
   background: #942c1f;

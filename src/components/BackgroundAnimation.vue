@@ -1,5 +1,5 @@
 <template>
-    <div class="back">
+    <div class="backAni">
         <Particles
             id="tsparticles"
             class="particles"
