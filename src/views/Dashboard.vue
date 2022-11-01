@@ -555,7 +555,7 @@ export default {
           }
         )
         .then((res) => {
-          // TODO: update the productList on the instance level
+          location.reload();
           this.newProdName = "";
           this.newProdPrice = 0;
           this.newProdCategory = "";
