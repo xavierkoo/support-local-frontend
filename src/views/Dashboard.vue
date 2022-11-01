@@ -15,7 +15,10 @@
                             <h4>You have earned</h4>
                             <span class="fw-bold">$XXX.XX </span><span>so far</span>
                         </div>
-                        <div>
+                        <section>
+                            <!-- Form Section -->
+
+                            <!-- Add Product -->
                             <div
                                 v-if="addNew"
                                 class="container border-bottom mb-4"
@@ -163,8 +166,9 @@
                                     Something went wrong! Try submitting again~
                                 </h1>
                             </div>
-                        </div>
-                        <div>
+                        </section>
+                        <section>
+                            <!-- Product Overview Section -->
                             <div class="row g-2">
                                 <div class="col-9">
                                     <h4 class="fw-bold">
@@ -205,13 +209,15 @@
                                     :key="idx"
                                 >
                                     <MerchantProductRow
+                                        :product-obj="obj"
                                         :product-name="obj.name"
                                         :category="obj.category"
                                         :unit-price="obj.price"
+                                        @delete-item="deleteProduct"
                                     />
                                 </template>
                             </div>
-                        </div>
+                        </section>
                     </div>
                     <div class="col" />
                 </div>
@@ -309,6 +315,7 @@ export default {
         })
         .then((res) => {
           console.log(res.data);
+          this.productList.push(res.data);
           this.newProdName = "";
           this.newProdPrice = 0;
           this.newProdCategory = "";
@@ -323,6 +330,8 @@ export default {
           var merchantProdArr = this.merchant.products;
           // Add to Merchant Product Arr
           merchantProdArr.push(res.data.id);
+          // Update current instance without getting again
+          this.merchant.products = merchantProdArr;
           // PATCH Merchant Product Arr (override)
           axios.patch(
             `https://support-local.herokuapp.com/api/merchants/${this.merchant.id}`,
@@ -337,12 +346,41 @@ export default {
           this.error = true;
         });
     },
-    deleteProduct() {
-      // Define
+    deleteProduct(prodId) {
       // DELETE
-      // GET Merchant Product Arr
-      // Remove from Merchant Product Arr
-      // PATCH Merchant Product Arr(override)
+      axios
+        .delete(`https://support-local.herokuapp.com/api/products/${prodId}`)
+        .then((res) => {
+          // GET Merchant Product Arr
+          var merchantProdArr = this.merchant.products;
+          // Remove from Merchant Product Arr
+          var index = merchantProdArr.indexOf(prodId);
+          if (index > -1) {
+            // only splice array when item is found
+            // 2nd parameter means remove one item only
+            merchantProdArr.splice(index, 1);
+          }
+          // Update current instance without getting again
+          this.merchant.products = merchantProdArr;
+          // PATCH Merchant Product Arr (override)
+          axios.patch(
+            `https://support-local.herokuapp.com/api/merchants/${this.merchant.id}`,
+            {
+              products: this.merchant.products,
+            }
+          );
+
+          // Loop through existing instance and remove product with the selected id
+          for (let i = 0; i < this.productList.length; i++) {
+            const product = this.productList[i];
+            if (product.id == prodId) {
+              this.productList.splice(i, 1);
+            }
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     },
     updateProduct() {
       // Define

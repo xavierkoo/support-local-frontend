@@ -10,7 +10,10 @@
             {{ unitPrice }}
         </div>
         <div class="col-sm-3">
-            <button class="btn btn-danger me-2">
+            <button
+                class="btn btn-danger me-2"
+                @click="$emit('deleteItem', productObj.id)"
+            >
                 Delete
             </button>
             <button class="btn btn-warning">
@@ -36,7 +39,13 @@ export default {
       type: Number,
       default: 99.0,
     },
+    productObj: {
+      type: Object,
+      default: () => ({}),
+    },
   },
+  emits: ["deleteItem"],
+  methods: {},
 };
 </script>
 
