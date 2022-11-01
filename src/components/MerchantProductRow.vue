@@ -16,7 +16,10 @@
             >
                 Delete
             </button>
-            <button class="btn btn-warning">
+            <button
+                class="btn btn-warning"
+                @click="$emit('editItem', productObj.id)"
+            >
                 Edit
             </button>
         </div>
@@ -44,7 +47,7 @@ export default {
       default: () => ({}),
     },
   },
-  emits: ["deleteItem"],
+  emits: ["deleteItem", "editItem"],
   methods: {},
 };
 </script>
