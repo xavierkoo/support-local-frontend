@@ -16,7 +16,6 @@
                     {{ merchantName }}
                 </h3>
                 <p class="card-text">
-                    <!-- TODO: Missing Desc -->
                     {{ desc }}
                 </p>
                 <!-- TODO: Need to link this to the email API -->

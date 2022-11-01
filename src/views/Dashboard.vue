@@ -16,6 +16,155 @@
                             <span class="fw-bold">$XXX.XX </span><span>so far</span>
                         </div>
                         <div>
+                            <div
+                                v-if="addNew"
+                                class="container border-bottom mb-4"
+                            >
+                                <form @submit.prevent="addProduct">
+                                    <h3 class="fw-bold">
+                                        Add New Product
+                                    </h3>
+                                    <div class="row justify-content-center g-2">
+                                        <div class="col-md-6">
+                                            <!-- Left Col -->
+                                            <div class="mb-3">
+                                                <label
+                                                    for="prodName"
+                                                    class="form-label"
+                                                >Product Name</label>
+                                                <input
+                                                    id="prodName"
+                                                    v-model="newProdName"
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Maria Dress"
+                                                    required
+                                                >
+                                            </div>
+                                            <div class="mb-3">
+                                                <label
+                                                    for="prodCat"
+                                                    class="form-label"
+                                                >Category</label>
+                                                <input
+                                                    id="prodCat"
+                                                    v-model="newProdCategory"
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Women's Apparel"
+                                                    required
+                                                >
+                                            </div>
+                                            <div class="mb-3">
+                                                <label
+                                                    for="prodImgURL"
+                                                    class="form-label"
+                                                >Product Image</label>
+                                                <input
+                                                    id="prodImgURL"
+                                                    v-model="newProdImgURL"
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="assets/img/products/martin.png"
+                                                    required
+                                                >
+                                            </div>
+                                            <div class="mb-3">
+                                                <label
+                                                    for="prodDesc"
+                                                    class="form-label"
+                                                >Description</label>
+                                                <input
+                                                    id="prodDesc"
+                                                    v-model="newProdDesc"
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="A long wavey dress for good for all climates"
+                                                    required
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- Right Col -->
+                                            <div class="mb-3">
+                                                <label
+                                                    for="prodPrice"
+                                                    class="form-label"
+                                                >Price</label>
+                                                <input
+                                                    id="prodPrice"
+                                                    v-model="newProdPrice"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="65.00"
+                                                    step="0.1"
+                                                    min="1"
+                                                    required
+                                                >
+                                            </div>
+                                            <div class="mb-3">
+                                                <label
+                                                    for="prodRating"
+                                                    class="form-label"
+                                                >Rating</label>
+                                                <input
+                                                    id="prodRating"
+                                                    v-model="newProdRating"
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder="3"
+                                                    step="1"
+                                                    min="1"
+                                                    max="5"
+                                                    required
+                                                >
+                                            </div>
+                                            <div class="mb-3">
+                                                <label
+                                                    for="prodNumSold"
+                                                    class="form-label"
+                                                >Number Sold</label>
+                                                <input
+                                                    id="prodNumSold"
+                                                    v-model="newProdNumSold"
+                                                    type="number"
+                                                    class="form-control"
+                                                    step="1"
+                                                    min="0"
+                                                    required
+                                                >
+                                            </div>
+                                            <div class="mb-3">
+                                                <label
+                                                    for="prodSpecs"
+                                                    class="form-label"
+                                                >Product Specs (separate with ,)</label>
+                                                <input
+                                                    id="prodSpecs"
+                                                    v-model="newProdSpec"
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="100% cotten, Washer ready"
+                                                    required
+                                                >
+                                            </div>
+                                        </div>
+                                        <input
+                                            type="submit"
+                                            value="Add"
+                                            class="btn btn-primary"
+                                        >
+                                    </div>
+                                </form>
+                                <h1 v-if="submitting">
+                                    Submitting
+                                </h1>
+                                <h1 v-if="error">
+                                    Something went wrong! Try submitting again~
+                                </h1>
+                            </div>
+                        </div>
+                        <div>
                             <div class="row g-2">
                                 <div class="col-9">
                                     <h4 class="fw-bold">
@@ -23,7 +172,11 @@
                                     </h4>
                                 </div>
                                 <div class="col-3">
-                                    <button class="btn btn-primary float-end mb-2">
+                                    <button
+                                        v-if="addNew != true"
+                                        class="btn btn-primary float-end mb-2"
+                                        @click="setAddNew()"
+                                    >
                                         Add Product
                                     </button>
                                 </div>
@@ -79,15 +232,19 @@ export default {
     return {
       mode: localStorage.modes,
       merchant: "",
-      merchantId: "",
-      merchantName: "",
-      merchantDesc: "",
-      merchantEmail: "",
-      merchantLatLong: "",
       productList: "",
       merchantRating: 0,
-      merchantLat: 0.0,
-      merchantLng: 0.0,
+      addNew: false,
+      submitting: false,
+      error: false,
+      newProdName: "",
+      newProdPrice: 0,
+      newProdCategory: "",
+      newProdRating: 0,
+      newProdImgURL: "",
+      newProdNumSold: 0,
+      newProdDesc: "",
+      newProdSpec: "",
     };
   },
   watch: {},
@@ -100,6 +257,7 @@ export default {
   async beforeMount() {
     // A function that will be called before the component is mounted.
     const route = useRoute();
+
     // Pull all products from the specific merchantID
     // Retrieve merchant from API Endpoint
     const selectedMerchant = await axios.get(
@@ -133,10 +291,51 @@ export default {
   methods: {
     addProduct() {
       // Define
+      this.submitting = true;
+      this.error = false;
+      let productSpecArr = this.newProdSpec.split(",");
       // POST
-      // GET Merchant Product Arr
-      // Add to Merchant Product Arr
-      // PATCH Merchant Product Arr (override)
+      axios
+        .post("https://support-local.herokuapp.com/api/products", {
+          name: this.newProdName,
+          price: this.newProdPrice,
+          category: this.newProdCategory,
+          rating: this.newProdRating,
+          numberSold: this.newProdNumSold,
+          imgUrl: this.newProdImgURL,
+          productDesc: this.newProdDesc,
+          merchant: this.merchant.id,
+          productSpec: productSpecArr,
+        })
+        .then((res) => {
+          console.log(res.data);
+          this.newProdName = "";
+          this.newProdPrice = 0;
+          this.newProdCategory = "";
+          this.newProdRating = 0;
+          this.newProdImgURL = "";
+          this.newProdNumSold = 0;
+          this.newProdDesc = "";
+          this.newProdSpec = "";
+          this.submitting = false;
+
+          // GET Merchant Product Arr
+          var merchantProdArr = this.merchant.products;
+          // Add to Merchant Product Arr
+          merchantProdArr.push(res.data.id);
+          // PATCH Merchant Product Arr (override)
+          axios.patch(
+            `https://support-local.herokuapp.com/api/merchants/${this.merchant.id}`,
+            {
+              products: merchantProdArr,
+            }
+          );
+          this.addNew = false;
+        })
+        .catch((err) => {
+          console.error(err);
+          this.error = true;
+        });
     },
     deleteProduct() {
       // Define
@@ -148,6 +347,9 @@ export default {
     updateProduct() {
       // Define
       // PATCH Product Field (override)
+    },
+    setAddNew() {
+      this.addNew = true;
     },
   },
 };
