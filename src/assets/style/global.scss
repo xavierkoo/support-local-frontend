@@ -5,10 +5,10 @@ html,
 body {
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
+  contain: content;
 }
 .minHeight {
-  min-height: 55vh;
+  min-height: 60vh;
 }
 
 #light {
@@ -276,7 +276,7 @@ body {
     cursor: pointer;
     box-shadow: inset 0000 black;
     &:hover {
-      box-shadow: inset 400px 0 0 0 black;
+      box-shadow: inset 500px 0 0 0 black;
       cursor: pointer;
       color: $mainBtn;
     }
@@ -537,6 +537,38 @@ body {
       border-radius: $boxRadius;
     }
   }
+
+  //LightDashboard
+  .dashAll {
+    background: white;
+    padding: 0px 12px;
+    border-radius: $boxRadius;
+    .dashName {
+      color: $brandMain;
+    }
+    .pAndL {
+      color: rgb(8, 219, 8);
+    }
+    .addProductBtnDesign {
+      //btn
+      background: $mainBtn;
+      font-family: $headingFontFamily;
+      color: white;
+      border: $borderLight;
+      border-radius: $btnBorderRadius;
+      font-size: 16px;
+      overflow: hidden;
+      transition: 1.8s;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0000 black;
+      &:hover {
+        box-shadow: inset 400px 0 0 0 black;
+        cursor: pointer;
+        color: $mainBtn;
+      }
+    }
+  }
 }
 
 #dark {
@@ -789,7 +821,7 @@ body {
   .mainBtnDesign {
     background: $mainBtn;
     font-family: $headingFontFamily;
-    color: black;
+    color: white;
     border: $borderDark;
     @include button;
     overflow: hidden;
@@ -798,7 +830,7 @@ body {
     cursor: pointer;
     box-shadow: inset 0000 white;
     &:hover {
-      box-shadow: inset 400px 0 0 0 black;
+      box-shadow: inset 500px 0 0 0 black;
       cursor: pointer;
       color: white;
     }
@@ -1027,6 +1059,7 @@ body {
   //DarkOrderLogs
   .orderLog {
     background: $backgroundDark;
+    border-radius: $boxRadius;
   }
   .orderBar {
     background: $brandMain;
@@ -1052,6 +1085,41 @@ body {
     }
     input {
       background: #d9d9d9;
+    }
+  }
+  //DarkMerchantProductRow
+  .orderBack {
+    border-radius: $boxRadius;
+  }
+  //DarkAddProduct
+  .dashAll {
+    background: $backgroundDark;
+    padding: 0px 12px;
+    border-radius: $boxRadius;
+    .dashName {
+      color: $mainBtn;
+    }
+    .pAndL {
+      color: rgb(8, 219, 8);
+    }
+    .addProductBtnDesign {
+      //btn
+      background: $mainBtn;
+      font-family: $headingFontFamily;
+      color: white;
+      border: $borderLight;
+      border-radius: $btnBorderRadius;
+      font-size: 16px;
+      overflow: hidden;
+      transition: 1.8s;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0000 black;
+      &:hover {
+        box-shadow: inset 400px 0 0 0 black;
+        cursor: pointer;
+        color: $mainBtn;
+      }
     }
   }
 }
