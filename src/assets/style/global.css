@@ -477,6 +477,19 @@ body {
   justify-content: center;
   align-items: center;
 }
+#light .shoppingBack {
+  background: white;
+}
+#light .pageBack h4,
+#light .pageBack h5 {
+  color: #d36959;
+}
+#light .cartBack .productBack {
+  background: #c8c8c8;
+}
+#light .cartBack input {
+  width: 50px;
+}
 #light .checkOut .checkOutBack {
   background: white;
   border: 1px solid black;
@@ -970,6 +983,16 @@ body {
 }
 #dark .shoppingBack {
   background: #3d3d3d;
+}
+#dark .pageBack h4,
+#dark .pageBack h5 {
+  color: #fff;
+}
+#dark .cartBack .productBack {
+  background: rgb(51, 48, 48);
+}
+#dark .cartBack input {
+  width: 50px;
 }
 #dark .checkOut .checkOutBack {
   background: #3d3d3d;

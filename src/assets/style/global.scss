@@ -513,6 +513,25 @@ body {
       @include center;
     }
   }
+  .shoppingBack {
+    background: white;
+  }
+  .pageBack {
+    h4,
+    h5 {
+      color: $mainBtn;
+    }
+  }
+
+  //LightCartComponent
+  .cartBack {
+    .productBack {
+      background: #c8c8c8;
+    }
+    input {
+      width: 50px;
+    }
+  }
 
   //LightCheckOut
   .checkOut {
@@ -1073,6 +1092,22 @@ body {
   }
   .shoppingBack {
     background: $backgroundDark;
+  }
+  .pageBack {
+    h4,
+    h5 {
+      color: #fff;
+    }
+  }
+
+  //DarkCartComponent
+  .cartBack {
+    .productBack {
+      background: rgb(51, 48, 48);
+    }
+    input {
+      width: 50px;
+    }
   }
 
   //DarkCheckOut

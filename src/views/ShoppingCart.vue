@@ -1,15 +1,15 @@
 <template>
     <div :id="mode">
         <div class="container">
-            <div class="row shoppingBack p-0">
+            <div class="row shoppingBack">
                 <div class="d-none d-sm-block">
-                    <div class="row shoppingBar text-center py-2 mb-2">
+                    <div class="row shoppingBar text-center py-2">
                         <input
                             v-if="showCheckBox"
                             type="checkbox"
                             class="col-sm-1 cb1 my-auto"
                         >
-                        <h6 class="col-sm-2 my-auto">
+                        <h6 class="col-sm-3 col-lg-4 my-auto text-start">
                             Product
                         </h6>
                         <h6 class="col-sm-2 my-auto">
@@ -18,17 +18,18 @@
                         <h6 class="col-sm-2 my-auto">
                             Quantity
                         </h6>
-                        <h6 class="col-sm-3 my-auto">
+                        <h6 class="col-sm-2 my-auto">
                             Total Price
                         </h6>
-                        <h6 class="col-sm-2 my-auto">
+                        <h6 class="col-sm-2 col-lg-1 my-auto">
                             Action
                         </h6>
                     </div>
                 </div>
 
-                <div class="row products mx-auto">
-                    <CartProducts
+                <div class="products">
+                    <CartProducts />
+                    <!-- <CartProducts
                         v-for="item of shoppingCart"
                         :key="item[1]"
                         :merchant="item[5]"
@@ -42,22 +43,24 @@
                         :show-date="showDate"
                         :quantity="item[6]"
                         :action="action"
-                    />
+                    /> -->
                 </div>
-                <div class="row p-0 mx-auto">
-                    <div class="col-sm-5 col-md-6" />
-                    <h5 class="col4-4 col-sm-2 col-md-2 my-auto">
-                        Total:
+                <div class="row p-0 mx-auto mt-3 pageBack">
+                    <div class="col-1 col-sm-4 col-md-5" />
+                    <h5 class="col-4 p-0 p-sm-auto col-sm-3 col-md-3 my-auto text-end">
+                        Total Price:
                     </h5>
-                    <h4 class="col-4 col-sm-2 col-md-2 my-auto">
+                    <h5 class="col-2 p-0 p-sm-auto col-sm-2 col-md-2 my-auto text-center">
                         ${{ total }}
-                    </h4>
+                    </h5>
                     <button
                         type="button"
                         class="mainBtnDesign col-4 col-sm-3 col-md-2"
                     >
                         Order Now
                     </button>
+                    <div class="col-1 col-sm-5 col-md-6" />
+                    <hr class="mt-2 mb-0">
                 </div>
             </div>
         </div>
