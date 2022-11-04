@@ -547,6 +547,7 @@ body {
   }
   //LightCheckOut
   .viewOrder {
+    background: white;
     .viewOrderBar {
       background: $brandMain;
       color: white;
@@ -554,6 +555,7 @@ body {
     .orderDetails {
       border: $borderLight;
       border-radius: $boxRadius;
+      background: #ebd142;
     }
   }
 
@@ -586,6 +588,13 @@ body {
         cursor: pointer;
         color: $mainBtn;
       }
+    }
+  }
+  //LightReview
+  .review {
+    background: $mainBtn;
+    .prompt {
+      color: white;
     }
   }
 }
@@ -1156,5 +1165,9 @@ body {
         color: $mainBtn;
       }
     }
+  }
+  //DarkReview
+  .review {
+    background: $mainBtn;
   }
 }

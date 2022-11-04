@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/component-definition-name-casing -->
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <div class="cartBack">
+    <div class="container-fluid cartBack">
         <div class="row py-3">
             <div class="col-1 d-block d-sm-none" />
             <div

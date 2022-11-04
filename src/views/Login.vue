@@ -13,8 +13,8 @@
                     >
                     <div class="col-md-5 container shadow back px-5 mb-2">
                         <div class="row display-6 mt-4">
-                            <h3>
-                                <bold>Login</bold>
+                            <h3 class="fw-bold">
+                                Login
                             </h3>
                         </div>
                         <div class="row my-2">

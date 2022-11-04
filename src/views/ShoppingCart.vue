@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class="products">
+                <div class="products p-0">
                     <CartProducts />
                     <!-- <CartProducts
                         v-for="item of shoppingCart"

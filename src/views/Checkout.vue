@@ -1,22 +1,21 @@
 <template>
     <div class="App checkOut">
         <form>
-            <div class="row">
-                <div class="col-10 container checkOutBack">
-                    <h3 class="my-3">
-                        Contact Details
-                    </h3>
-                    <div class="row">
-                        <div class="col-md-1" />
-                        <div class="col-md-2">
-                            <label for="salutation">Title</label>
-                            <input
-                                id="salutation"
-                                type="text"
-                                class="form-control"
-                            >
-                        </div>
+            <div class="col-10 container checkOutBack">
+                <h3 class="my-3">
+                    Contact Details
+                </h3>
+                <div class="row">
+                    <div class="col-md-1" />
+                    <div class="col-md-2">
+                        <label for="salutation">Title</label>
+                        <input
+                            id="salutation"
+                            type="text"
+                            class="form-control"
+                        >
                     </div>
+
                     <div class="row">
                         <div class="col-1" />
                         <div class="col-md-5 mb-4">
