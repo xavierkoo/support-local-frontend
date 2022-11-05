@@ -101,7 +101,7 @@
                                         <button
                                             id="addToCart"
                                             type="button"
-                                            class="col-10 mainBtnDesign"
+                                            class="col-10 addBtnDesign"
                                             @click="addToCart()"
                                         >
                                             Add To Cart
@@ -182,7 +182,7 @@
                                                 <div class="col-md-2" />
                                                 <div class="col-2 d-flex justify-content-end">
                                                     <img
-                                                        class="img-fluid d-none d-md-block"
+                                                        class="userPhoto d-none d-md-block"
                                                         :src="require(`@/${rev.profImageUrl}`)"
                                                         alt=""
                                                     >
@@ -226,7 +226,7 @@
                                                 <div class="col-md-2" />
                                                 <div class="col-2 d-flex justify-content-end">
                                                     <img
-                                                        class="img-fluid d-none d-md-block"
+                                                        class="userPhoto d-none d-md-block"
                                                         :src="require(`@/${rev.profImageUrl}`)"
                                                         alt=""
                                                     >

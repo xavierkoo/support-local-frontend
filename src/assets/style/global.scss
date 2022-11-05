@@ -281,6 +281,23 @@ body {
       color: $mainBtn;
     }
   }
+  .addBtnDesign {
+    background: $mainBtn;
+    font-family: $headingFontFamily;
+    color: white;
+    border: $borderDark;
+    @include button;
+    overflow: hidden;
+    transition: 1.8s;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0000 #5dca82;
+    &:hover {
+      box-shadow: inset 500px 0 0 0 #5dca82;
+      cursor: pointer;
+      color: white;
+    }
+  }
 
   .cancelBtnDesign {
     background: white;
@@ -438,11 +455,13 @@ body {
       height: 10em;
     }
   }
+
   .vertical-scrollable {
     overflow-y: scroll;
     height: 100%;
     width: 100%;
     position: absolute;
+    contain: content;
   }
   ::-webkit-scrollbar {
     width: 20px;
@@ -467,9 +486,9 @@ body {
 
   .reviewsRating {
     border-bottom: 3px solid grey;
-    img {
+    .userPhoto {
+      height: 100px;
       width: auto;
-      height: 100%;
     }
   }
 
@@ -864,6 +883,24 @@ body {
     }
   }
 
+  .addBtnDesign {
+    background: $mainBtn;
+    font-family: $headingFontFamily;
+    color: white;
+    border: $borderDark;
+    @include button;
+    overflow: hidden;
+    transition: 1.8s;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0000 #5dca82;
+    &:hover {
+      box-shadow: inset 500px 0 0 0 #5dca82;
+      cursor: pointer;
+      color: white;
+    }
+  }
+
   .cancelBtnDesign {
     background: white;
     font-family: $headingFontFamily;
@@ -1055,6 +1092,10 @@ body {
 
   .reviewsRating {
     border-bottom: 3px solid white;
+    .userPhoto {
+      height: 100px;
+      width: auto;
+    }
   }
 
   //DarkLogin
@@ -1063,6 +1104,7 @@ body {
       background: $backgroundDark;
       border: $borderDark;
       border-radius: $boxRadius;
+      height: 456px;
     }
     img {
       border-radius: $boxRadius;
