@@ -59,7 +59,10 @@
             <div
                 class="text-end col-sm-2 mt-2 mt-sm-auto col-lg-1 my-auto text-sm-center"
             >
-                {{ action }}
+                <span
+                    class="deleteItem"
+                    @click="deleteItem()"
+                >{{ action }}</span>
             </div>
         </div>
     </div>
@@ -117,10 +120,17 @@ export default {
         this.$store.commit("removeFromCart", this.product); // decrement in local storage
       }
     },
+    deleteItem() {
+      this.$store.commit("deleteItem", this.product);
+    },
   },
 };
 </script>
 
 <style scoped>
 @import "../assets/style/global.css";
+.deleteItem {
+  text-decoration: underline;
+  color: blue;
+}
 </style>

@@ -58,6 +58,12 @@ export default createStore({
         state.cart = JSON.parse(cart);
       }
     },
+    deleteItem(state, product) {
+      let item = state.cart.find((i) => i.id === product.id);
+      let index = state.cart.indexOf(item);
+      state.cart.splice(index, 1);
+      // localStorage.removeItem(item1);
+    },
   },
   actions: {},
   modules: {},

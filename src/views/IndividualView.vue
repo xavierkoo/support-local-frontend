@@ -453,6 +453,9 @@ export default {
     viewCart() {
       this.$router.push("cart");
     },
+    deleteItem() {
+      this.$store.commit("deleteItem", this.product);
+    },
   },
 };
 </script>
