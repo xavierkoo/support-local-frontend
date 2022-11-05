@@ -23,24 +23,6 @@
                     </div>
                 </div>
                 <div class="products p-0">
-                    <CartProducts />
-                    <!--This should be orderlog-->
-                    <!--
-                        <CartProducts
-                        v-for="item of shoppingCart"
-                        :key="item[1]"
-                        :merchant="item[5]"
-                        :price="item[3]"
-                        :name="item[0]"
-                        :img="item[4]"
-                        :show-check-box="showCheckBox"
-                        :prod-id="item[1]"
-                        :show-qty-input="showQtyInput"
-                        :show-date="showDate"
-                        :quantity="item[6]"
-                        :total="total"
-                    />
-                    -->
                     <div v-if="rate == true">
                         <ReviewRating
                             :user-id="userID"
@@ -65,12 +47,11 @@
 
 <script>
 import axios from "axios"; //npm install axios
-import CartProducts from "../components/cart.vue";
+
 import OrderDetails from "../components/OrderDetails.vue";
 import ReviewRating from "../components/ReviewRating.vue";
 export default {
   components: {
-    CartProducts,
     OrderDetails,
     ReviewRating,
   },
@@ -79,7 +60,7 @@ export default {
       mode: localStorage.modes,
       rate: true, //v-if for rating.   Change to true if rate is clicked
       userID: "635ac046b01737e727fb4b42", // I need the current logged in userID
-      productID: "63613fddde3eb86075932c20", // I need the the current product is being reviewed. Should be pass from orderlogs page
+      productID: "635abd38b01737e727fb4b38", // I need the the current product is being reviewed. Should be pass from orderlogs page
       showCheckBox: true,
       showQtyInput: false,
       showDate: true,

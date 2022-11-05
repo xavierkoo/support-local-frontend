@@ -69,11 +69,11 @@ export default {
   props: {
     userId: {
       type: String,
-      default: "635ac046b01737e727fb4b42", //need to get dynamically based on login
+      default: "", //need to get dynamically based on login
     },
     productId: {
       type: String,
-      default: "63613fddde3eb86075932c20", //need to get dynamically
+      default: "", //need to get dynamically
     },
   },
   data() {
@@ -109,8 +109,8 @@ export default {
       //post new review to review database
       axios
         .post("https://support-local.herokuapp.com/api/reviews", {
-          user: this.user,
-          product: this.product,
+          user: this.userId,
+          product: this.productId,
           rating: this.rating,
           orderDetails: this.review,
         })
