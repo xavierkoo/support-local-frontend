@@ -4,12 +4,7 @@
             <div class="row orderLog p-0">
                 <div class="d-none d-sm-block">
                     <div class="row orderBar text-center py-2 mb-2">
-                        <div class="col-sm-1 cb1">
-                            <input
-                                v-if="showCheckBox"
-                                type="checkbox"
-                            >
-                        </div>
+                        <div class="col-sm-1 cb1" />
                         <div class="col-sm-2">
                             <b>Product</b>
                         </div>

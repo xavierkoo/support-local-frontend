@@ -25,7 +25,7 @@
                         <div class="col-10 dashAll">
                             <!-- Main Content -->
                             <div class="mb-5 text-center text-sm-start mt-3">
-                                <h2>
+                                <h2 class="fw-bold">
                                     Welcome Back!
                                     <span class="fw-bold dashName d-block d-sm-inline">{{
                                         merchant.name

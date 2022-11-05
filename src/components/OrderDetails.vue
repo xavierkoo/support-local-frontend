@@ -1,78 +1,84 @@
 <template>
-    <div class="container p-0">
-        <div class="row bg-light mx-4 mt-5">
-            <div class="container px-5 py-4">
-                <h5 style="color: black">
-                    <b>Order Details:</b>
+    <div class="container-fluid">
+        <div class="row bg-light mt-5">
+            <div class="px-3 py-4">
+                <h5
+                    class="fw-bold"
+                    style="color: black"
+                >
+                    Order Details:
                 </h5>
             </div>
         </div>
-        <div class="row bg-light mx-4 px-5 py-2">
+        <div class="row bg-light px-3">
             <div
-                class="col-xl-2 col-md-6 col-sm-6"
+                class="col-xl-2 col-md-6 col-6 my-2"
                 style="color: black"
             >
                 <b>Merchant:</b>
             </div>
             <div
-                class="col-xl-4 col-md-6 col-sm-6"
+                class="col-xl-4 col-md-6 col-6 my-2"
                 style="color: black"
             >
                 {{ merchant }}
             </div>
             <div
-                class="col-xl-2 col-md-6 col-sm-6"
+                class="col-xl-2 col-md-6 col-6 my-2"
                 style="color: black"
             >
                 <b>Order Status:</b>
             </div>
             <div
-                class="col-xl-4 col-md-6 col-sm-6"
+                class="col-xl-4 col-md-6 col-6 my-2"
                 style="color: black"
             >
                 {{ orderStatus }}
             </div>
         </div>
-        <div class="row bg-light mx-4 px-5 py-2">
+        <div class="row bg-light px-3">
             <div
-                class="col-xl-2 col-md-6 col-sm-6"
+                class="col-xl-2 col-md-6 col-6 my-2"
                 style="color: black"
             >
                 <b>Location:</b>
             </div>
             <div
-                class="col-xl-2 col-md-6 col-sm-6"
+                class="col-xl-2 col-md-6 col-6 my-2"
                 style="color: black"
             >
                 {{ location }}
             </div>
             <div class="col-md-6" />
         </div>
-        <div class="row bg-light mx-4 px-5 py-2">
+        <div class="row bg-light px-3">
             <div
-                class="col-xl-2 col-md-6 col-sm-6"
+                class="col-xl-2 col-md-6 col-6 my-2"
                 style="color: black"
             >
                 <b>Expected Delivery Date:</b>
             </div>
             <div
-                class="col-xl-4 col-md-4 col-sm-6"
+                class="col-xl-4 col-md-4 col-6 my-2"
                 style="color: black"
             >
                 {{ deliveryDate }}
             </div>
-            <div class="col-xl-3 col-md-6 col-sm-6 py-2">
+
+            <div
+                class="col-xl-3 col-md-6 col-sm-6 col-5 my-2 px-0 px-sm-auto text-end text-xl-start"
+            >
                 <button
-                    class="btn btn-secondary button"
+                    class="cancelBtnDesign"
                     type="button"
                     style="color: black"
                 >
                     Contact Seller
                 </button>
             </div>
-            <div class="col-xl-3 col-md-4 col-sm-6 py-2">
+            <div class="col-xl-3 col-md-4 col-sm-6 col-7 my-2">
                 <button
-                    class="btn btn-danger button"
+                    class="mainBtnDesign"
                     type="button"
                 >
                     Mark as Received

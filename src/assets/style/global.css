@@ -499,6 +499,9 @@ body {
 #light .checkOut input {
   background: #c8c8c8;
 }
+#light .viewOrder {
+  background: white;
+}
 #light .viewOrder .viewOrderBar {
   background: #942c1f;
   color: white;
@@ -506,6 +509,7 @@ body {
 #light .viewOrder .orderDetails {
   border: 1px solid black;
   border-radius: 8px;
+  background: #ebd142;
 }
 #light .dashAll {
   background: white;
@@ -535,6 +539,12 @@ body {
   box-shadow: inset 400px 0 0 0 black;
   cursor: pointer;
   color: #d36959;
+}
+#light .review {
+  background: #d36959;
+}
+#light .review .prompt {
+  color: white;
 }
 
 #dark {
@@ -1034,4 +1044,7 @@ body {
   box-shadow: inset 400px 0 0 0 black;
   cursor: pointer;
   color: #d36959;
+}
+#dark .review {
+  background: #d36959;
 }

@@ -37,20 +37,24 @@ export default createStore({
       updateLocalStorage(state.cart);
     },
     removeFromCart(state, product) {
-      let item = state.cart.find((i) => i.name === product.name);
+      // Find the product from the local storage cart by id, then remove by decrementing
+      let item = state.cart.find((i) => i.id === product.id);
 
       if (item) {
         if (item.quantity > 1) {
           item.quantity--;
         } else {
-          state.cart = state.cart.filter((i) => i.name !== product.name);
+          state.cart = state.cart.filter((i) => i.id !== product.id);
         }
       }
+      // call updateLocalStorage(state.cart) to update the local storage cart
       updateLocalStorage(state.cart);
     },
     updateCartFromLocalStorage(state) {
+      // update cart by .getItem
       const cart = localStorage.getItem("cart");
       if (cart) {
+        // if cart exist (not null), update new cart to local storage
         state.cart = JSON.parse(cart);
       }
     },

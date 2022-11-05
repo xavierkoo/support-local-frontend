@@ -1,5 +1,3 @@
-<!-- eslint-disable vue/component-definition-name-casing -->
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div class="cartBack">
         <div class="row py-3">
@@ -94,6 +92,7 @@ export default {
   },
   data() {
     return {
+      // current qty
       quantity: this.product.quantity,
     };
   },
@@ -107,9 +106,8 @@ export default {
   },
   methods: {
     addOrRemoveFromCart() {
-      var storeVal = this.product.quantity;
-      var changedVal = this.quantity;
-      console.log(storeVal, changedVal);
+      var storeVal = this.product.quantity; // local storage qty
+      var changedVal = this.quantity; // current qty
 
       if (storeVal < changedVal) {
         // means that person added to cart

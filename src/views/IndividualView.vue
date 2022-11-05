@@ -165,7 +165,7 @@
                             <div class="container individualViewProductRating">
                                 <div class="row">
                                     <h5
-                                        class="d-flex justify-content-center justify-content-md-start ps-md-4 ms-md-1 mt-3 text-center"
+                                        class="d-flex justify-content-center justify-content-md-start ps-md-4 ms-md-1 mt-3 text-center fw-bold"
                                     >
                                         Product Rating
                                     </h5>
@@ -189,13 +189,13 @@
                                                 <div class="col-md-7 my-auto">
                                                     <div class="row">
                                                         <h5
-                                                            class="col-xl-2 my-auto text-center text-md-start ms-2 ms-md-0"
+                                                            class="col-xl-2 my-auto text-start text-sm-center ms-sm-2 text-md-start ms-md-0"
                                                         >
                                                             {{ rev.username }}
                                                         </h5>
                                                         <div class="row col-xl-10 m-0 p-0 ms-1 ms-xl-0">
                                                             <h5
-                                                                class="d-inline my-auto text-center text-md-start ms-2 p-0"
+                                                                class="d-inline my-auto text-start text-sm-center text-md-start ms-2 p-0"
                                                             >
                                                                 {{ rev.rating }}
                                                                 <span
@@ -206,7 +206,7 @@
                                                                 </span>
                                                             </h5>
                                                             <h5
-                                                                class="my-auto text-center text-md-start ms-2 p-0"
+                                                                class="my-auto text-start text-sm-center text-md-start ms-2 p-0"
                                                             >
                                                                 {{ rev.orderDetails }}
                                                             </h5>
@@ -233,13 +233,13 @@
                                                 <div class="col-md-7 my-auto">
                                                     <div class="row">
                                                         <h5
-                                                            class="col-xl-2 my-auto text-center text-md-start"
+                                                            class="col-xl-2 my-auto text-start text-sm-center ms-sm-2 text-md-start ms-md-0"
                                                         >
                                                             {{ rev.username }}
                                                         </h5>
-                                                        <div class="row col-xl-10">
+                                                        <div class="row col-xl-10 m-0 p-0 ms-1 ms-xl-0">
                                                             <h5
-                                                                class="d-inline my-auto text-center text-md-start ms-2 p-0"
+                                                                class="d-inline my-auto text-start text-sm-center text-md-start ms-2 p-0"
                                                             >
                                                                 {{ rev.rating }}
                                                                 <span
@@ -250,7 +250,7 @@
                                                                 </span>
                                                             </h5>
                                                             <h5
-                                                                class="my-auto text-center text-md-start ms-2 p-0"
+                                                                class="my-auto text-start text-sm-center text-md-start ms-2 p-0"
                                                             >
                                                                 {{ rev.orderDetails }}
                                                             </h5>
@@ -276,7 +276,9 @@
                         </div>
                         <!--Related Products-->
                         <div class="d-flex justify-content-start my-3 ms-sm-3">
-                            <h5>Related Products</h5>
+                            <h5 class="fw-bold">
+                                Related Products
+                            </h5>
                         </div>
                         <div class="row row-cols-sm-2 row-cols-lg-3 mx-auto">
                             <ProductCard
@@ -441,28 +443,11 @@ export default {
   },
   methods: {
     addToCart() {
-      // push shopping cart's product details into the array to be sent to db, subsequently used in the ShoppingCart/ViewOrder pages
-      // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
-      //   var dateObj = new Date();
-      //   var date = dateObj.getDate();
-      //   var month = dateObj.getMonth();
-      //   var year = dateObj.getFullYear();
-      //   console.log(date);
-      //   var datePurchased = date + `/` + month + `/` + year;
-
-      // Commit product object to local storage
+      // Commit and add selected product object to local storage
       this.$store.commit("addToCart", this.selectedProd);
-      //   this.shoppingCart.push([
-      //     product.name,
-      //     product.id,
-      //     this.quantity,
-      //     product.price,
-      //     product.imgUrl,
-      //     this.merchant,
-      //     datePurchased,
-      //   ]);
     },
     removeFromCart() {
+      // Commit and remove selected product from local storage
       this.$store.commit("removeFromCart", this.product);
     },
     viewCart() {

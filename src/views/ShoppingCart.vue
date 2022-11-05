@@ -82,10 +82,11 @@ export default {
   },
   computed: {
     items() {
+      // call and get local storage cart items
       return this.$store.getters.cartItems;
     },
     total() {
-      console.log(this.items);
+      // calculate total of all products in cart
       var total1 = 0;
       for (var product of this.items) {
         console.log(product);

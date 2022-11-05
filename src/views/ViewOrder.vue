@@ -1,30 +1,32 @@
 <template>
     <div :id="mode">
         <div class="container">
-            <div class="row viewOrder p-0">
+            <div class="row viewOrder">
                 <div class="d-none d-sm-block">
-                    <div class="row viewOrderBar text-center py-2 mb-2">
-                        <input
-                            v-if="showCheckBox"
-                            type="checkbox"
-                            class="col-sm-1 cb1 my-auto"
-                        >
-                        <h6 class="col-md-6 my-auto align-left">
+                    <div class="row viewOrderBar text-center py-2">
+                        <div class="col-sm-1 cb1 my-auto" />
+                        <h6 class="col-sm-3 col-lg-4 my-auto text-start">
                             Product
                         </h6>
-                        <h6 class="col-md-2 my-auto">
+                        <h6 class="col-sm-2 my-auto">
                             Unit Price
                         </h6>
-                        <h6 class="col-md-2 my-auto">
+                        <h6 class="col-sm-2 my-auto">
                             Quantity
                         </h6>
-                        <h6 class="col-md-2 my-auto">
+                        <h6 class="col-sm-2 my-auto">
                             Total Price
+                        </h6>
+                        <h6 class="col-sm-2 col-lg-1 my-auto">
+                            Action
                         </h6>
                     </div>
                 </div>
-                <div class="row products mx-auto">
-                    <CartProducts
+                <div class="products p-0">
+                    <CartProducts />
+                    <!--This should be orderlog-->
+                    <!--
+                        <CartProducts
                         v-for="item of shoppingCart"
                         :key="item[1]"
                         :merchant="item[5]"
@@ -38,15 +40,24 @@
                         :quantity="item[6]"
                         :total="total"
                     />
+                    -->
+                    <div v-if="rate == true">
+                        <ReviewRating
+                            :user-id="userID"
+                            :product-id="productID"
+                            class="rounded-bottom"
+                        />
+                    </div>
                 </div>
-                <OrderDetails
+                <OrderDetails />
+                <!-- <OrderDetails
                     v-for="orderList of orderDetailsArr"
                     :key="orderList[0]"
                     :merchant="orderList[0]"
                     :location="orderList[1]"
                     :delivery-date="orderList[2]"
                     :order-status="orderList[3]"
-                />
+                /> -->
             </div>
         </div>
     </div>
@@ -56,15 +67,20 @@
 import axios from "axios"; //npm install axios
 import CartProducts from "../components/cart.vue";
 import OrderDetails from "../components/OrderDetails.vue";
+import ReviewRating from "../components/ReviewRating.vue";
 export default {
   components: {
     CartProducts,
     OrderDetails,
+    ReviewRating,
   },
   data() {
     return {
       mode: localStorage.modes,
-      showCheckBox: false,
+      rate: true, //v-if for rating.   Change to true if rate is clicked
+      userID: "635ac046b01737e727fb4b42", // I need the current logged in userID
+      productID: "63613fddde3eb86075932c20", // I need the the current product is being reviewed. Should be pass from orderlogs page
+      showCheckBox: true,
       showQtyInput: false,
       showDate: true,
       name: "", // [0]
@@ -90,29 +106,25 @@ export default {
     });
   },
   async beforeMount() {
-    //onload event for vue to populate products in cart
-    // const user = await axios.get(
-    //   "https://support-local.herokuapp.com/api/users?userId=" + this.userId
-    // );
-    const user = await axios.get("http://localhost:8081/users");
-
-    // get the Shopping Cart nested array
-    this.shoppingCart = user.data[0].shoppingCart;
-
-    // get order details .orderDetails[replaced with the exact order ID][1]
-    this.orderDetailsArr = user.data[0].orderDetails;
-    this.location = this.orderDetailsArr[0][1];
-    this.deliveryDate = this.orderDetailsArr[0][2];
-    this.orderStatus = this.orderDetailsArr[0][3];
-
-    // Structure of the properties in db
-    // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
-    // [ merchantName, location, deliverydate, orderStatus]
-
-    // calc total
-    for (var li of this.shoppingCart) {
-      this.total += Number(li[3]);
-    }
+    // //onload event for vue to populate products in cart
+    // // const user = await axios.get(
+    // //   "https://support-local.herokuapp.com/api/users?userId=" + this.userId
+    // // );
+    // const user = await axios.get("http://localhost:8081/users");
+    // // get the Shopping Cart nested array
+    // this.shoppingCart = user.data[0].shoppingCart;
+    // // get order details .orderDetails[replaced with the exact order ID][1]
+    // this.orderDetailsArr = user.data[0].orderDetails;
+    // this.location = this.orderDetailsArr[0][1];
+    // this.deliveryDate = this.orderDetailsArr[0][2];
+    // this.orderStatus = this.orderDetailsArr[0][3];
+    // // Structure of the properties in db
+    // // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
+    // // [ merchantName, location, deliverydate, orderStatus]
+    // // calc total
+    // for (var li of this.shoppingCart) {
+    //   this.total += Number(li[3]);
+    // }
   },
   methods: {
     toCheckOut() {
