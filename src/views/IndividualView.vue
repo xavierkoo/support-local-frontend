@@ -85,13 +85,14 @@
                                     <div class="col-1" />
                                     <div class="row col-sm-4 p-0 m-0 my-2">
                                         <div class="col-1" />
-                                        <button
-                                            type="button"
-                                            class="col-10 cancelBtnDesign"
-                                            @click="viewCart()"
-                                        >
-                                            View Cart
-                                        </button>
+                                        <router-link to="/cart">
+                                            <button
+                                                type="button"
+                                                class="col-10 cancelBtnDesign"
+                                            >
+                                                View Cart
+                                            </button>
+                                        </router-link>
                                         <div class="col-1" />
                                     </div>
                                     <div class="col-2" />
@@ -449,9 +450,6 @@ export default {
     removeFromCart() {
       // Commit and remove selected product from local storage
       this.$store.commit("removeFromCart", this.product);
-    },
-    viewCart() {
-      this.$router.push("cart");
     },
     deleteItem() {
       this.$store.commit("deleteItem", this.product);
