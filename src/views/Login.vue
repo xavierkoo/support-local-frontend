@@ -61,12 +61,14 @@
                         </div>
                         <div class="row my-2">
                             <div class="col-3" />
-                            <button
-                                type="submit"
-                                class="col-6 cancelBtnDesign"
-                            >
-                                Sign Up
-                            </button>
+                            <router-link to="/signup">
+                                <button
+                                    type="submit"
+                                    class="col-6 cancelBtnDesign"
+                                >
+                                    Sign Up
+                                </button>
+                            </router-link>
                             <div class="col-3" />
                         </div>
                     </div>
@@ -100,7 +102,7 @@ export default {
           //     emailErrMsg
           //   ),
         },
-        password: { required, minLength: minLength(6) },
+        password: { required, minLength: minLength(8) },
       };
     });
     const v$ = useValidate(rules, state);
@@ -120,7 +122,7 @@ export default {
   methods: {
     submitForm(v$) {
       // make api call to db to get
-      let url = "http://localhost:8081/user";
+      let url = `https://support-local.herokuapp.com/api/users`;
       this.v$.$validate();
       axios
         .get(url)
@@ -140,11 +142,11 @@ export default {
 
             // check both conditions met, route to the landing page
             if (isValidEmail && isValidPassword) {
-              this.$router.push("landing");
+              this.$router.push("viewPayment");
             } else {
               // clear input value w/o refreshing page
-              document.querySelector("#emailAdd").value = "";
-              document.querySelector("#password").value = "";
+              this.state.email = "";
+              this.state.password = "";
 
               // set isInvalid to show the red error msg in the form
               this.isInvalid = true;

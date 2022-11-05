@@ -118,7 +118,7 @@ export default {
         },
         password: {
           // uses vuelidate the validate the password and confirm password
-          password: { required, minLength: minLength(6) },
+          password: { required, minLength: minLength(8) },
           confirm: { required, sameAs: sameAs(state.password.password) },
         },
       };
@@ -135,22 +135,23 @@ export default {
     submitForm() {
       // method gets user's input values and add it into the db
       // trying to add data into userBase db
-      let url = "http://localhost:8081/userBase";
+      let url = "https://support-local.herokuapp.com/api/users";
+      var inputPassword = this.state.password.password;
+      var inputEmail = this.state.email;
       this.v$.$validate();
       axios
-        .get(url)
-        .then((resp) => {
+        .post(url, {
+          email: inputEmail,
+          password: inputPassword,
+          profImgUrl: "assets/profilepng.png",
+          reviews: [],
+          orderDetails: [],
+        })
+        .then((res) => {
           if (!this.v$.$error) {
-            // alert("form successful");
-            console.log(resp.data);
-            // do form validation here
-            var inputPassword = document.getElementById("password").value;
-            var inputEmail = document.getElementById("emailAdd").value;
-
-            // somehow need to append data into userBase db here ------
-
+            console.log(res.data);
             // route to landing page
-            this.$router.push("landing");
+            this.$router.push("login");
           } else {
             // did not meet input requirement
             console.log("form failed");
@@ -159,13 +160,6 @@ export default {
         .catch((err) => {
           console.log(err.message);
         });
-      // this.v$.$validate();
-      // if (!this.v$.$error) {
-      //   alert("form successful");
-      // } else {
-      //   alert("form failed");
-      // }
-      //   alert("Form successfully submitted");
     },
   },
 };
