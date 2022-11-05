@@ -23,7 +23,7 @@
                             <form>
                                 <div class="row my-2">
                                     <div class="form-group">
-                                        <label for="Email">Email <span>*</span></label>
+                                        <label for="Email">Email: <span>*</span></label>
                                         <input
                                             id="emailAdd"
                                             v-model="state.email"
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="row my-2">
                                     <div class="form-group">
-                                        <label for="password">Password <span>*</span></label>
+                                        <label for="password">Password: (min. 8 characters) <span>*</span></label>
                                         <input
                                             id="password"
                                             v-model="state.password.password"
@@ -143,7 +143,7 @@ export default {
         .post(url, {
           email: inputEmail,
           password: inputPassword,
-          profImgUrl: "assets/profilepng.png",
+          profImageUrl: "assets/profilepng.png",
           reviews: [],
           orderDetails: [],
         })
