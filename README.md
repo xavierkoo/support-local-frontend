@@ -1,6 +1,10 @@
-# support-local
+![Nobackgroundlogo](https://user-images.githubusercontent.com/86020207/200137707-5c6d0b28-968c-4ebb-9bee-a8ad4efe6e16.png)
 
-Netlify Link: https://supportlocal.netlify.app/
+# Support Local
+
+Main App Link: https://supportlocal.netlify.app/
+
+Backend Code: https://github.com/WAD2-T05/support-local-backend
 
 ## Project setup
 ```
