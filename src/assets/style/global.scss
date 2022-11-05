@@ -1,6 +1,16 @@
 @import "./variable";
 @import "./functions";
 
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  contain: content;
+}
+.minHeight {
+  min-height: 60vh;
+}
+
 #light {
   //general
   h1,
@@ -266,7 +276,7 @@
     cursor: pointer;
     box-shadow: inset 0000 black;
     &:hover {
-      box-shadow: inset 400px 0 0 0 black;
+      box-shadow: inset 500px 0 0 0 black;
       cursor: pointer;
       color: $mainBtn;
     }
@@ -503,6 +513,25 @@
       @include center;
     }
   }
+  .shoppingBack {
+    background: white;
+  }
+  .pageBack {
+    h4,
+    h5 {
+      color: $mainBtn;
+    }
+  }
+
+  //LightCartComponent
+  .cartBack {
+    .productBack {
+      background: #c8c8c8;
+    }
+    input {
+      width: 50px;
+    }
+  }
 
   //LightCheckOut
   .checkOut {
@@ -513,7 +542,7 @@
       color: black;
     }
     input {
-      background: $mainBtn;
+      background: #c8c8c8;
     }
   }
   //LightCheckOut
@@ -525,6 +554,38 @@
     .orderDetails {
       border: $borderLight;
       border-radius: $boxRadius;
+    }
+  }
+
+  //LightDashboard
+  .dashAll {
+    background: white;
+    padding: 0px 12px;
+    border-radius: $boxRadius;
+    .dashName {
+      color: $brandMain;
+    }
+    .pAndL {
+      color: rgb(8, 219, 8);
+    }
+    .addProductBtnDesign {
+      //btn
+      background: $mainBtn;
+      font-family: $headingFontFamily;
+      color: white;
+      border: $borderLight;
+      border-radius: $btnBorderRadius;
+      font-size: 16px;
+      overflow: hidden;
+      transition: 1.8s;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0000 black;
+      &:hover {
+        box-shadow: inset 400px 0 0 0 black;
+        cursor: pointer;
+        color: $mainBtn;
+      }
     }
   }
 }
@@ -779,7 +840,7 @@
   .mainBtnDesign {
     background: $mainBtn;
     font-family: $headingFontFamily;
-    color: black;
+    color: white;
     border: $borderDark;
     @include button;
     overflow: hidden;
@@ -788,7 +849,7 @@
     cursor: pointer;
     box-shadow: inset 0000 white;
     &:hover {
-      box-shadow: inset 400px 0 0 0 black;
+      box-shadow: inset 500px 0 0 0 black;
       cursor: pointer;
       color: white;
     }
@@ -1017,6 +1078,7 @@
   //DarkOrderLogs
   .orderLog {
     background: $backgroundDark;
+    border-radius: $boxRadius;
   }
   .orderBar {
     background: $brandMain;
@@ -1031,6 +1093,22 @@
   .shoppingBack {
     background: $backgroundDark;
   }
+  .pageBack {
+    h4,
+    h5 {
+      color: #fff;
+    }
+  }
+
+  //DarkCartComponent
+  .cartBack {
+    .productBack {
+      background: rgb(51, 48, 48);
+    }
+    input {
+      width: 50px;
+    }
+  }
 
   //DarkCheckOut
   .checkOut {
@@ -1042,6 +1120,41 @@
     }
     input {
       background: #d9d9d9;
+    }
+  }
+  //DarkMerchantProductRow
+  .orderBack {
+    border-radius: $boxRadius;
+  }
+  //DarkAddProduct
+  .dashAll {
+    background: $backgroundDark;
+    padding: 0px 12px;
+    border-radius: $boxRadius;
+    .dashName {
+      color: $mainBtn;
+    }
+    .pAndL {
+      color: rgb(8, 219, 8);
+    }
+    .addProductBtnDesign {
+      //btn
+      background: $mainBtn;
+      font-family: $headingFontFamily;
+      color: white;
+      border: $borderLight;
+      border-radius: $btnBorderRadius;
+      font-size: 16px;
+      overflow: hidden;
+      transition: 1.8s;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0000 black;
+      &:hover {
+        box-shadow: inset 400px 0 0 0 black;
+        cursor: pointer;
+        color: $mainBtn;
+      }
     }
   }
 }

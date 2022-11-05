@@ -269,7 +269,7 @@ export default {
         : this.defaultPlaceholder;
     },
     getCreditCardImage() {
-      const path = require(`../assets/images/${this.cardType}.png`);
+      const path = require(`../assets/img/${this.cardType}.png`);
       return path.default || path;
     },
     cardType() {
@@ -347,7 +347,7 @@ export default {
       const numberImage = parseInt(this.backgroundImage);
 
       if (this.isBackgroundImageFromAssets) {
-        const path = require(`../assets/images/${numberImage}.jpg`);
+        const path = require(`../assets/img/${numberImage}.jpg`);
         return path.default || path;
       }
 

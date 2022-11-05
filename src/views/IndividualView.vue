@@ -101,7 +101,7 @@
                                             id="addToCart"
                                             type="button"
                                             class="col-10 mainBtnDesign"
-                                            @click="addToCart(product)"
+                                            @click="addToCart()"
                                         >
                                             Add To Cart
                                         </button>
@@ -367,7 +367,13 @@ export default {
       cart: [],
       shoppingCart: [],
       starsEmoji: "⭐️",
+      selectedProd: "", // product obj retrieved from api
     };
+  },
+  computed: {
+    // productQuantity() {
+    //   return this.$store.getters.productQuantity(this.product);
+    // },
   },
 
   mounted() {
@@ -391,16 +397,13 @@ export default {
     const selectedProduct = await axios.get(
       `https://support-local.herokuapp.com/api/products/${route.params.productId}`
     );
-    //retrieve merchant that is selling the selected product
 
-    // await axios
-    //   .post("http://localhost:8080/users")
-    //   .then((resp) => {
-    //     console.log(resp.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err.message);
-    //   });
+    // selectedProduct will act as a db to get the data
+    console.log(selectedProduct);
+    this.selectedProd = selectedProduct.data; // get the prod data property
+    console.log(this.selectedProd);
+
+    //retrieve merchant that is selling the selected product
 
     this.product = selectedProduct.data;
     this.productList = products.data;
@@ -437,26 +440,30 @@ export default {
     this.review = reviewArr;
   },
   methods: {
-    addToCart(product) {
+    addToCart() {
       // push shopping cart's product details into the array to be sent to db, subsequently used in the ShoppingCart/ViewOrder pages
       // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
-      var dateObj = new Date();
-      var date = dateObj.getDate();
-      var month = dateObj.getMonth();
-      var year = dateObj.getFullYear();
-      console.log(date);
-      var datePurchased = date + `/` + month + `/` + year;
+      //   var dateObj = new Date();
+      //   var date = dateObj.getDate();
+      //   var month = dateObj.getMonth();
+      //   var year = dateObj.getFullYear();
+      //   console.log(date);
+      //   var datePurchased = date + `/` + month + `/` + year;
 
-      // push array into the shopping cart array: nested list to db user
-      this.shoppingCart.push([
-        product.name,
-        product.id,
-        this.quantity,
-        product.price,
-        product.imgUrl,
-        this.merchant,
-        datePurchased,
-      ]);
+      // Commit product object to local storage
+      this.$store.commit("addToCart", this.selectedProd);
+      //   this.shoppingCart.push([
+      //     product.name,
+      //     product.id,
+      //     this.quantity,
+      //     product.price,
+      //     product.imgUrl,
+      //     this.merchant,
+      //     datePurchased,
+      //   ]);
+    },
+    removeFromCart() {
+      this.$store.commit("removeFromCart", this.product);
     },
     viewCart() {
       this.$router.push("cart");

@@ -7,7 +7,7 @@
                         <div class="col col-lg-3 col-md-3 d-sm-block">
                             <router-link :to="`/landing`">
                                 <img
-                                    src="../assets/appLogo.svg"
+                                    src="../assets/Nobackgroundlogo.png"
                                     alt=""
                                     class="brand-logo"
                                 >

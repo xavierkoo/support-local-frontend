@@ -1,56 +1,66 @@
 <!-- eslint-disable vue/component-definition-name-casing -->
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <div>
-        <div class="row mx-4">
-            <div class="col-md-1 cb1">
+    <div class="cartBack">
+        <div class="row py-3">
+            <div class="col-1 d-block d-sm-none" />
+            <div
+                class="col-1 cb1 my-auto d-flex justify-content-center align-content-center"
+            >
                 <input
                     v-if="showCheckBox"
                     id="cb"
                     type="checkbox"
                 >
             </div>
-            <div class="col-md-11">
+            <div class="col-8">
                 <div>
-                    <b>{{ merchant }} </b> &nbsp;
+                    <b>{{ product.merchant }} </b> &nbsp;
                     <b v-if="showDate">{{ datePurchased }}</b>
                 </div>
             </div>
         </div>
-        <div class="row bg-light py-5 mx-4">
-            <div class="col-md-1 cb1">
+        <div class="row productBack py-5">
+            <div class="col-1 d-block d-sm-none" />
+            <div
+                class="col-1 col-sm-1 cb1 my-auto d-flex justify-content-center align-content-center"
+            >
                 <input
                     v-if="showCheckBox"
                     type="checkbox"
                 >
             </div>
-            <div class="col-md-1">
+            <div class="col-sm-1 d-none d-lg-block">
                 <img
                     :src="img"
                     alt=""
-                    class="img-fluid"
+                    class="img-fluid my-auto"
                 >
             </div>
-            <div class="col-md-2">
-                <b>{{ name }}</b>
+            <div class="col-7 col-sm-3 col-lg-3 my-auto">
+                <b>{{ product.name }}</b>
             </div>
-            <div class="col-md-2">
-                ${{ price }}
+            <div class="text-end col-3 col-sm-2 my-auto text-sm-center">
+                ${{ product.price }}
             </div>
-            <div class="col-md-2">
+            <div class="text-end mt-2 mt-sm-auto col-sm-2 my-auto text-sm-center">
                 <input
                     v-if="showQtyInput"
+                    v-model="quantity"
                     type="number"
-                    value="1"
+                    class="text-end"
+                    @change="addOrRemoveFromCart()"
                 >
                 <span v-if="!showQtyInput">
-                    {{ quantity }}
+                    {{ product.quantity }}
                 </span>
             </div>
-            <div class="col-md-2">
-                ${{ price }}
+            <div class="col-sm-2 my-auto text-center d-none d-sm-block">
+                ${{ item_cost.toFixed(2) }}
             </div>
-            <div class="col-md-2">
+            <div
+                class="text-end col-sm-2 mt-2 mt-sm-auto col-lg-1 my-auto text-sm-center"
+            >
                 {{ action }}
             </div>
         </div>
@@ -61,37 +71,9 @@
 export default {
   name: "CartProducts",
   props: {
-    name: {
-      type: String,
-      default: "Bicycle",
-    },
-    price: {
-      type: String,
-      default: "180",
-    },
-    quantity: {
-      type: String,
-      default: "1",
-    },
-    action: {
-      type: String,
-      default: "Delete",
-    },
-    order: {
-      type: String,
-      default: "Order Now",
-    },
-    total: {
-      type: String,
-      default: "180",
-    },
-    merchant: {
-      type: String,
-      default: "nextShop",
-    },
-    img: {
-      type: String,
-      default: "assets/img/products/martin.png",
+    product: {
+      type: Object,
+      default: null,
     },
     showCheckBox: {
       type: Boolean,
@@ -101,47 +83,46 @@ export default {
       type: Boolean,
       default: true,
     },
-    datePurchased: {
-      type: String,
-      default: "20/1/2022",
-    },
     showDate: {
       type: Boolean,
       default: true,
+    },
+    action: {
+      type: String,
+      default: "Delete",
+    },
+  },
+  data() {
+    return {
+      quantity: this.product.quantity,
+    };
+  },
+  computed: {
+    item_cost() {
+      return this.product.price * this.quantity;
+    },
+    items() {
+      return this.$store.getters.cartItems;
+    },
+  },
+  methods: {
+    addOrRemoveFromCart() {
+      var storeVal = this.product.quantity;
+      var changedVal = this.quantity;
+      console.log(storeVal, changedVal);
+
+      if (storeVal < changedVal) {
+        // means that person added to cart
+        this.$store.commit("addToCart", this.product); // increment in local storage
+      } else if (storeVal > this.quantity) {
+        // person removed from cart
+        this.$store.commit("removeFromCart", this.product); // decrement in local storage
+      }
     },
   },
 };
 </script>
 
 <style scoped>
-.black {
-  color: black;
-}
-img {
-  border-radius: 0;
-}
-.container {
-  text-align: left;
-}
-.row1 {
-  color: white;
-}
-.row {
-  padding: 10px 0;
-}
-.cb1 {
-  text-align: right;
-}
-.totalrow {
-  padding: 50px 0 0 10px;
-}
-.red {
-  color: rgb(160, 39, 39);
-}
-/* .button {
-  width: 100px;
-} */
-input[type="number"] {
-  width: 50px;
-}
+@import "../assets/style/global.css";
 </style>
