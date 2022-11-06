@@ -16,9 +16,16 @@ Backend: https://github.com/WAD2-T05/support-local-backend
 ## Screenshots
 
 ## Project setup
+
+### Download project repository to your local directory:
+```
+git clone git@github.com:WAD2-T05/support-local.git
+```
+
+### Open your terminal in local project, and execute:
 ```
 npm install
-```
+``` 
 
 ### Compiles and hot-reloads for development
 ```
