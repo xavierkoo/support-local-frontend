@@ -4,7 +4,7 @@
 
 Main App Link: https://supportlocal.netlify.app/
 
-Backend Code: https://github.com/WAD2-T05/support-local-backend
+Backend: https://github.com/WAD2-T05/support-local-backend
 
 ## Project setup
 ```
