@@ -6,6 +6,9 @@ Main App Link: https://supportlocal.netlify.app/
 
 Backend: https://github.com/WAD2-T05/support-local-backend
 
+## Tech Stack 
+* HTML, CSS, SCSS, Javascript, Vue.js
+
 ## Project setup
 ```
 npm install
