@@ -64,7 +64,7 @@
                                         id="qty"
                                         v-model="quantity"
                                         class="col-5 py-2"
-                                        type="text"
+                                        type="number"
                                     >
                                     <div class="col-1 col-sm-3" />
                                 </div>
@@ -366,7 +366,7 @@ export default {
       review: "", //review Arr
       merchant: null, //dummy selected merchant In Good Company
       product: null, //dummy selected product Martine Necklace
-      quantity: 1,
+      quantity: 1, // v-model qty
       cart: [],
       shoppingCart: [],
       starsEmoji: "⭐️",
@@ -402,18 +402,20 @@ export default {
     );
 
     // selectedProduct will act as a db to get the data
-    console.log(selectedProduct);
     this.selectedProd = selectedProduct.data; // get the prod data property
-    console.log(this.selectedProd);
 
     //retrieve merchant that is selling the selected product
-
     this.product = selectedProduct.data;
     this.productList = products.data;
     this.merchantId = this.product.merchant;
     const url = `https://support-local.herokuapp.com/api/merchants/${this.merchantId}`;
     const merchant = await axios.get(url);
     this.merchant = merchant.data;
+
+    // retrieve merchant name from this.merchant
+    var merchantName = this.merchant.name;
+    // add merchant name to this.selectedProd
+    this.selectedProd["merchantName"] = merchantName;
 
     // Fetch and Process Reviews
     // Get the reviewIds tagged to this individual product
@@ -445,6 +447,8 @@ export default {
   methods: {
     addToCart() {
       // Commit and add selected product object to local storage
+      // retrieve qty from v-model and add to this.selectedProd
+      this.selectedProd["quantity"] = this.quantity;
       this.$store.commit("addToCart", this.selectedProd);
     },
     removeFromCart() {
