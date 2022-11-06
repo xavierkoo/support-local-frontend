@@ -466,6 +466,19 @@ body {
   height: 100px;
   width: auto;
 }
+#light .reviewsRating h5 {
+  font-size: 0.83rem;
+}
+@media (min-width: 500px) {
+  #light .reviewsRating h5 {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1440px) {
+  #light .reviewsRating h5 {
+    font-size: 2em;
+  }
+}
 #light .login .back {
   border-radius: 8px;
   height: 456px;
@@ -502,6 +515,13 @@ body {
 }
 #light .pageBack h4,
 #light .pageBack h5 {
+  color: #d36959;
+}
+#light .cartEmpty {
+  background: white;
+  border-radius: 8px;
+}
+#light .cartEmpty h3 {
   color: #d36959;
 }
 #light .cartBack .productBack {
@@ -1041,6 +1061,13 @@ body {
 #dark .pageBack h4,
 #dark .pageBack h5 {
   color: #fff;
+}
+#dark .cartEmpty {
+  background: #3d3d3d;
+  border-radius: 8px;
+}
+#dark .cartEmpty h3 {
+  color: #d36959;
 }
 #dark .cartBack .productBack {
   background: rgb(51, 48, 48);
