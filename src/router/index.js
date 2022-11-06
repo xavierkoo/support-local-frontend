@@ -18,6 +18,11 @@ const routes = [
     component: LandingView,
   },
   {
+    path: "/index.html",
+    name: "index.html",
+    component: LandingView,
+  },
+  {
     path: "/landing",
     name: "landing",
     component: LandingView,
