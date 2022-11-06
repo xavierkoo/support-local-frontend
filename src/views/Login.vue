@@ -48,25 +48,36 @@
                                 <br>
                             </form>
                         </div>
-                        <div class="row my-2">
+                        <div class="row mt-4">
                             <div class="col-3" />
-                            <router-link to="/checkout">
-                                <button
-                                    type="submit"
-                                    class="col-6 mainBtnDesign"
-                                    @click="submitForm()"
-                                >
-                                    Log In
-                                </button>
-                            </router-link>
+                            <div class="col-6">
+                                <router-link to="/checkout">
+                                    <button
+                                        type="submit"
+                                        class="col-12 mainBtnDesign"
+                                        @click="submitForm()"
+                                    >
+                                        Log In
+                                    </button>
+                                </router-link>
+                            </div>
                             <div class="col-3" />
                         </div>
-                        <div class="row my-2">
+                        <div class="row mt-5 text-center">
+                            <div class="col">
+                                Don't have an account
+                            </div>
+                        </div>
+                        <div class="row my-3">
                             <div class="col-3" />
-                            Don't have an account?
-                            <router-link to="/signup">
-                                <a href="" />Sign up
-                            </router-link>
+                            <div class="col-6 text-center">
+                                <router-link to="/signup">
+                                    <a
+                                        id="signUp"
+                                        href=""
+                                    />Sign Up
+                                </router-link>
+                            </div>
                             <div class="col-3" />
                         </div>
                     </div>

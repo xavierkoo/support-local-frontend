@@ -37,7 +37,7 @@
                     />
                     <div class="col-2 col-sm-4 d-block d-md-none" />
                     <button
-                        class="cancelBtnDesign d-block d-md-none col-5 col-sm-3 col-md-3"
+                        class="cancelBtnDesign d-block d-md-none col-5 col-sm-3 col-md-3 mb-2"
                         @click="send"
                     >
                         send review
@@ -47,7 +47,7 @@
                     <div class="col-lg-1" />
                     <div class="col-1 d-block d-md-none" />
                     <button
-                        class="cancelBtnDesign col-md-7 my-2"
+                        class="cancelBtnDesign col-md-7 mb-2"
                         @click="send"
                     >
                         send review

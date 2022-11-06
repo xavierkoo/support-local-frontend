@@ -66,7 +66,7 @@
             </div>
 
             <div
-                class="col-xl-3 col-md-6 col-sm-6 col-5 my-2 px-0 px-sm-auto text-end text-xl-start"
+                class="col-xl-2 col-md-6 col-sm-6 col-6 my-2 px-0 px-sm-auto text-end text-xl-start px-1"
             >
                 <button
                     class="cancelBtnDesign"
@@ -76,12 +76,12 @@
                     Contact Seller
                 </button>
             </div>
-            <div class="col-xl-3 col-md-4 col-sm-6 col-7 my-2">
+            <div class="col-xl-4 col-md-4 col-sm-6 col-6 my-2 px-1">
                 <button
-                    class="mainBtnDesign"
+                    class="mainBtnDesign px-4"
                     type="button"
                 >
-                    Mark as Received
+                    Received
                 </button>
             </div>
             <div class="col-md-2" />

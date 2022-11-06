@@ -17,6 +17,7 @@
 		"bootstrap": "^5.2.2",
 		"core-js": "^3.8.3",
 		"gsap": "^3.11.3",
+		"rfs": "^9.0.6",
 		"tsparticles": "^2.3.4",
 		"vue": "^3.2.40",
 		"vue-paycard": "^0.7.0",

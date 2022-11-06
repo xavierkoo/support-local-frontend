@@ -57,16 +57,18 @@
                 </div>
             </div>
         </div>
-        <div
-            v-if="!isCartNotEmpty"
-            class="container"
-        >
-            <div class="container">
+        <div v-if="!isCartNotEmpty">
+            <div class="container cartEmpty p-3">
                 <h3>YOUR BAG</h3>
                 <hr>
                 <div>
-                    Your shopping bag is empty <br>
-                    <router-link to="/landing">
+                    <div class="mb-3">
+                        Your shopping bag is empty
+                    </div>
+                    <router-link
+                        to="/landing"
+                        class="mainBtnDesign text-decoration-none text-center p-2 my-auto"
+                    >
                         <b>Start shopping now!</b>
                     </router-link>
                 </div>

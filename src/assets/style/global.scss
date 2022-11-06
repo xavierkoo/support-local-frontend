@@ -1,6 +1,6 @@
 @import "./variable";
 @import "./functions";
-
+@import "../../../node_modules/rfs/scss.scss";
 html,
 body {
   margin: 0px;
@@ -490,6 +490,19 @@ body {
       height: 100px;
       width: auto;
     }
+    h5 {
+      @include font-size(0.83rem);
+    }
+    @media (min-width: 500px) {
+      h5 {
+        @include font-size(1.5em);
+      }
+    }
+    @media (min-width: 1440px) {
+      h5 {
+        @include font-size(2em);
+      }
+    }
   }
 
   //LightLogin
@@ -538,6 +551,13 @@ body {
   .pageBack {
     h4,
     h5 {
+      color: $mainBtn;
+    }
+  }
+  .cartEmpty {
+    background: white;
+    border-radius: $boxRadius;
+    h3 {
       color: $mainBtn;
     }
   }
@@ -1148,6 +1168,13 @@ body {
     h4,
     h5 {
       color: #fff;
+    }
+  }
+  .cartEmpty {
+    background: $backgroundDark;
+    border-radius: $boxRadius;
+    h3 {
+      color: $mainBtn;
     }
   }
 

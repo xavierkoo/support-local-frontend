@@ -2,7 +2,7 @@
     <div class="p-0">
         <div class="Individual" />
         <div :id="mode">
-            <div v-if="product == null || merchant == null">
+            <div v-if="product == null || merchant == null || review == null">
                 <div
                     class="container d-flex justify-content-center align-content-center"
                 >
@@ -85,14 +85,16 @@
                                     <div class="col-1" />
                                     <div class="row col-sm-4 p-0 m-0 my-2">
                                         <div class="col-1" />
-                                        <router-link to="/cart">
-                                            <button
-                                                type="button"
-                                                class="col-10 cancelBtnDesign"
-                                            >
-                                                View Cart
-                                            </button>
-                                        </router-link>
+                                        <div class="col-10 p-0">
+                                            <router-link to="/cart">
+                                                <button
+                                                    type="button"
+                                                    class="col-12 cancelBtnDesign"
+                                                >
+                                                    View Cart
+                                                </button>
+                                            </router-link>
+                                        </div>
                                         <div class="col-1" />
                                     </div>
                                     <div class="col-2" />
@@ -180,23 +182,23 @@
                                                 class="row mx-3 reviewsRating mt-1"
                                             >
                                                 <div class="col-md-2" />
-                                                <div class="col-2 d-flex justify-content-end">
+                                                <div class="col-2 d-flex justify-content-end my-auto">
                                                     <img
                                                         class="userPhoto d-none d-md-block"
                                                         :src="require(`@/${rev.profImageUrl}`)"
                                                         alt=""
                                                     >
                                                 </div>
-                                                <div class="col-md-7 my-auto">
+                                                <div class="col-md-7 ms-lg-5 my-3">
                                                     <div class="row">
                                                         <h5
-                                                            class="col-xl-2 my-auto text-start text-sm-center ms-sm-2 text-md-start ms-md-0"
+                                                            class="col-xl-10 my-auto text-start text-sm-center ms-1 ms-md-0 text-md-start ms-md-0 fw-bold p-0"
                                                         >
-                                                            {{ rev.username }}
+                                                            User {{ rev.user }}
                                                         </h5>
                                                         <div class="row col-xl-10 m-0 p-0 ms-1 ms-xl-0">
                                                             <h5
-                                                                class="d-inline my-auto text-start text-sm-center text-md-start ms-2 p-0"
+                                                                class="d-inline my-auto text-start text-sm-center text-md-start p-0"
                                                             >
                                                                 {{ rev.rating }}
                                                                 <span
@@ -207,7 +209,7 @@
                                                                 </span>
                                                             </h5>
                                                             <h5
-                                                                class="my-auto text-start text-sm-center text-md-start ms-2 p-0"
+                                                                class="my-auto text-start text-sm-center text-md-start p-0"
                                                             >
                                                                 {{ rev.orderDetails }}
                                                             </h5>
@@ -363,7 +365,7 @@ export default {
       merchantId: "",
       merchantProducts: "", //merchant Related Products obj
       productList: "", //product obj
-      review: "", //review Arr
+      review: null, //review Arr
       merchant: null, //dummy selected merchant In Good Company
       product: null, //dummy selected product Martine Necklace
       quantity: 1, // v-model qty
@@ -436,6 +438,7 @@ export default {
       let profImageUrl = aUser.data.profImageUrl;
 
       // Add to aReview Object
+
       aReview.data.username = username;
       aReview.data.profImageUrl = profImageUrl;
 
