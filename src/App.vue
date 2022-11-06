@@ -12,17 +12,11 @@
                         <router-link to="/landing">
                             Landing
                         </router-link> |
-                        <router-link to="/cart">
-                            ShoppingCart
-                        </router-link> |
-                        <router-link to="/login">
-                            Login
-                        </router-link> |
                         <router-link to="/checkout">
                             Checkout
                         </router-link> |
-                        <router-link to="/signup">
-                            Sign Up
+                        <router-link to="/viewPayment">
+                            View Payment
                         </router-link> |
                         <router-link to="/orderLog">
                             Order Log
@@ -30,11 +24,8 @@
                         <router-link to="/viewOrder">
                             View Order
                         </router-link> |
-                        <router-link to="/viewPayment">
-                            View Payment
-                        </router-link>
                         <router-link to="/dashboard/635abc7fb01737e727fb4b36">
-                            Dashboard
+                            Merchant Dashboard
                         </router-link>
                         |
                     </nav>
