@@ -122,6 +122,12 @@ export default {
   methods: {
     submitForm(v$) {
       // make api call to db to get
+      document.getElementById(
+                 "errmsgEmail"
+               ).innerHTML = ``;
+               document.getElementById(
+                 "errmsgPassword"
+               ).innerHTML = ``;
       let url = `https://support-local.herokuapp.com/api/users`;
       this.v$.$validate();
       axios
@@ -151,12 +157,12 @@ export default {
               // set isInvalid to show the red error msg in the form
               this.isInvalid = true;
               // display err msg
-              // document.getElementById(
-              //   "errmsgEmail"
-              // ).innerHTML = `<span class='color:red'>Incorrect Email</span>`;
-              // document.getElementById(
-              //   "errmsgPassword"
-              // ).innerHTML = `<span class='color:red'>Incorrect Password</span>`;
+              document.getElementById(
+                 "errmsgEmail"
+               ).innerHTML = `<span class='color:red'>Correct Email </span>`;
+               document.getElementById(
+                 "errmsgPassword"
+               ).innerHTML = `<span class='color:red'>Correct Password </span>`;
             }
           } else {
             // did not meet input requirement
