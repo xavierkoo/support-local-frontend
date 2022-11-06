@@ -102,19 +102,17 @@ export default {
   },
   async beforeMount() {
     // get the Shopping Cart nested array
-    this.shoppingCart = user.data[0].shoppingCart;
-
+    // this.shoppingCart = user.data[0].shoppingCart;
     // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
-
     // calc total
-    this.quantity = this.shoppingCart[2];
-    this.price = this.shoppingCart[3];
-    this.total = this.quantity * this.price;
+    // this.quantity = this.shoppingCart[2];
+    // this.price = this.shoppingCart[3];
+    // this.total = this.quantity * this.price;
   },
   methods: {
     toCheckOut() {
       // method routes to checkout page when clicked on 'order now'
-      this.$router.push("checkout");
+      // this.$router.push("checkout");
     },
   },
 };
