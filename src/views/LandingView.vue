@@ -103,7 +103,7 @@
                                 </button>
                             </div>
                             <div class="mt-2">
-                                <h5 class="fw-bold mx-3">
+                                <h5 class="fw-bold mx-3 my-4">
                                     Trending Now
                                 </h5>
                             </div>
