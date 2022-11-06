@@ -7,10 +7,7 @@
                 @click="$emit('clickedItem', categoryName)"
             >
                 <div class="col-1" />
-                <img
-                    src="../assets/navSidePlaceholder.png"
-                    class="col-2"
-                >
+                <img :src="require(`@/${categoryImage}`)">
                 <span class="col-8 d-none d-xl-inline pill text-start">
                     {{ categoryName }}
                 </span>
@@ -30,13 +27,47 @@ export default {
     },
     categoryImg: {
       type: String,
-      default: "../assets/navSidePlaceholder.png'",
+      default: "../assets/navSidePlaceholder.png",
     },
   },
   emits: ["clickedItem"],
+  data() {
+    return {
+      categoryImage: "",
+    };
+  },
+
+  beforeMount() {
+    if (this.categoryName == "Food & Beverages") {
+      this.categoryImage = "assets/img/icons/Food.svg";
+    }
+
+    if (this.categoryName == "Men's Apparel") {
+      this.categoryImage = "assets/img/icons/MenApparel.svg";
+    }
+
+    if (this.categoryName == "Women's Apparel") {
+      this.categoryImage = "assets/img/icons/WomenApparel.svg";
+    }
+
+    if (this.categoryName == "Electronics") {
+      this.categoryImage = "assets/img/icons/Electronics.svg";
+    }
+
+    if (this.categoryName == "Hobbies & Books") {
+      this.categoryImage = "assets/img/icons/HobbiesBooks.svg";
+    }
+
+    if (this.categoryName == "Beauty & Personal") {
+      this.categoryImage = "assets/img/icons/BeautyPersonal.svg";
+    }
+  },
 };
 </script>
 
 <style scoped>
 @import "../assets/style/global.css";
+.bg-none {
+  background-color: #d36959;
+}
 </style>
