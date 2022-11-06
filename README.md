@@ -2,14 +2,33 @@
 
 # Support Local
 
+Support Local is THE one-stop shop for all things local. It compiles all local businesses, and services in an easy-to-use portal and allows them to offer their products and services to customers through the platform.
+
 Main App Link: https://supportlocal.netlify.app/
 
-Backend Code: https://github.com/WAD2-T05/support-local-backend
+Backend Repository: https://github.com/WAD2-T05/support-local-backend
+
+## Frontend Tech Stack 
+* HTML
+* CSS
+* SCSS
+* GSAP
+* Javascript
+* Vue.js
+
+## Screenshots
 
 ## Project setup
+
+### Download project repository to your local directory:
+```
+git clone git@github.com:WAD2-T05/support-local.git
+```
+
+### Open your terminal in local project, and execute:
 ```
 npm install
-```
+``` 
 
 ### Compiles and hot-reloads for development
 ```
