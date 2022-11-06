@@ -117,11 +117,12 @@
                     </div>
                 </div>
                 <div class="card-form__row">
-                    <router-link to="/orderLog">
-                        <button class="btn btn-primary">
-                            Pay
-                        </button>
-                    </router-link>
+                    <button
+                        class="btn btn-primary"
+                        @click="$router.push('/orderLog')"
+                    >
+                        Pay
+                    </button>
                 </div>
             </div>
         </div>

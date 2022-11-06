@@ -51,15 +51,13 @@
                         <div class="row mt-4">
                             <div class="col-3" />
                             <div class="col-6">
-                                <router-link to="/checkout">
-                                    <button
-                                        type="submit"
-                                        class="col-12 mainBtnDesign"
-                                        @click="submitForm()"
-                                    >
-                                        Log In
-                                    </button>
-                                </router-link>
+                                <button
+                                    type="submit"
+                                    class="col-12 mainBtnDesign"
+                                    @click="submitForm()"
+                                >
+                                    Log In
+                                </button>
                             </div>
                             <div class="col-3" />
                         </div>
@@ -153,7 +151,7 @@ export default {
 
             // check both conditions met, route to the landing page
             if (isValidEmail && isValidPassword) {
-              this.$router.push("viewPayment");
+              this.$router.push("/checkout");
             } else {
               // clear input value w/o refreshing page
               this.state.email = "";

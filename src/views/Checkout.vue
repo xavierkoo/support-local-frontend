@@ -116,14 +116,13 @@
                     </div>
                     <div class="row mx-auto">
                         <div class="col-3 col-md-8" />
-                        <router-link to="/viewPayment">
-                            <button
-                                type="submit"
-                                class="mainBtnDesign my-3 col-6 col-md-3"
-                            >
-                                Checkout
-                            </button>
-                        </router-link>
+                        <button
+                            type="button"
+                            class="mainBtnDesign my-3 col-6 col-md-3"
+                            @click="$router.push(`/viewPayment`)"
+                        >
+                            Checkout
+                        </button>
                         <div class="col-3 col-md-1" />
                     </div>
                 </div>
@@ -135,5 +134,8 @@
 <script>
 export default {
   name: "App",
+  methods: {
+    //TODO: Insert Validation Here
+  },
 };
 </script>
