@@ -30,7 +30,8 @@ export default createStore({
         item.quantity++;
       } else {
         // create the item and push it into the cart
-        state.cart.push({ ...product, quantity: 1 });
+        // state.cart.push({ ...product, quantity: 1 });
+        state.cart.push(product);
       }
 
       // if user closes the page and comes back to it ltr, the state of the cart will not change (retains the data)
@@ -59,10 +60,10 @@ export default createStore({
       }
     },
     deleteItem(state, product) {
-      // let item = state.cart.find((i) => i.id === product.id);
+      let item = state.cart.find((i) => i.id === product.id);
       let index = state.cart.indexOf(item);
       state.cart.splice(index, 1);
-      // localStorage.removeItem(item);
+
       let temp = state.cart.filter((item) => item.id != product.id);
       localStorage.setItem("cart", JSON.stringify(temp));
     },
@@ -70,7 +71,3 @@ export default createStore({
   actions: {},
   modules: {},
 });
-
-// const app = createApp();
-// app.use(store);
-// app.mount("#app");

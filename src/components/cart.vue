@@ -13,7 +13,7 @@
             </div>
             <div class="col-8">
                 <div>
-                    <b>{{ product.merchant }} </b> &nbsp;
+                    <b>{{ product.merchantName }} </b> &nbsp;
                     <b v-if="showDate">{{ datePurchased }}</b>
                 </div>
             </div>
