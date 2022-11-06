@@ -4,12 +4,12 @@
             <div class="row shoppingBack">
                 <div class="d-none d-sm-block">
                     <div class="row shoppingBar text-center py-2">
-                        <input
+                        <!-- <input
                             v-if="showCheckBox"
                             type="checkbox"
                             class="col-sm-1 cb1 my-auto"
-                        >
-                        <h6 class="col-sm-3 col-lg-4 my-auto text-start">
+                        > -->
+                        <h6 class="col-sm-4 col-lg-4 my-auto text-start px-4">
                             Product
                         </h6>
                         <h6 class="col-sm-2 my-auto">
@@ -65,19 +65,6 @@ export default {
   data() {
     return {
       mode: localStorage.modes,
-      showCheckBox: true,
-      showQtyInput: true,
-      showDate: false,
-      name: "", // [0]
-      price: 0, // [3]
-      quantity: 0, // [2]
-      action: "Review",
-      merchant: "", // [5]
-      objects: "",
-      img: "", // [4]
-      shoppingCart: [],
-      prodId: "", // [1]
-      datePurchased: "", // [6]
     };
   },
   computed: {
@@ -99,21 +86,6 @@ export default {
     window.addEventListener("modes-localstorage-changed", (event) => {
       this.mode = event.detail.storage;
     });
-  },
-  async beforeMount() {
-    // get the Shopping Cart nested array
-    // this.shoppingCart = user.data[0].shoppingCart;
-    // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
-    // calc total
-    // this.quantity = this.shoppingCart[2];
-    // this.price = this.shoppingCart[3];
-    // this.total = this.quantity * this.price;
-  },
-  methods: {
-    toCheckOut() {
-      // method routes to checkout page when clicked on 'order now'
-      // this.$router.push("checkout");
-    },
   },
 };
 </script>
