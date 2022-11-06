@@ -50,24 +50,22 @@
                         </div>
                         <div class="row my-2">
                             <div class="col-3" />
-                            <button
-                                type="submit"
-                                class="col-6 mainBtnDesign"
-                                @click="submitForm()"
-                            >
-                                Log In
-                            </button>
+                            <router-link to="/checkout">
+                                <button
+                                    type="submit"
+                                    class="col-6 mainBtnDesign"
+                                    @click="submitForm()"
+                                >
+                                    Log In
+                                </button>
+                            </router-link>
                             <div class="col-3" />
                         </div>
                         <div class="row my-2">
                             <div class="col-3" />
+                            Don't have an account?
                             <router-link to="/signup">
-                                <button
-                                    type="submit"
-                                    class="col-6 cancelBtnDesign"
-                                >
-                                    Sign Up
-                                </button>
+                                <a href="" />Sign up
                             </router-link>
                             <div class="col-3" />
                         </div>
@@ -122,12 +120,8 @@ export default {
   methods: {
     submitForm(v$) {
       // make api call to db to get
-      document.getElementById(
-                 "errmsgEmail"
-               ).innerHTML = ``;
-               document.getElementById(
-                 "errmsgPassword"
-               ).innerHTML = ``;
+      document.getElementById("errmsgEmail").innerHTML = ``;
+      document.getElementById("errmsgPassword").innerHTML = ``;
       let url = `https://support-local.herokuapp.com/api/users`;
       this.v$.$validate();
       axios
@@ -158,11 +152,11 @@ export default {
               this.isInvalid = true;
               // display err msg
               document.getElementById(
-                 "errmsgEmail"
-               ).innerHTML = `<span class='color:red'>Correct Email </span>`;
-               document.getElementById(
-                 "errmsgPassword"
-               ).innerHTML = `<span class='color:red'>Correct Password </span>`;
+                "errmsgEmail"
+              ).innerHTML = `<span class='color:red'>Correct Email </span>`;
+              document.getElementById(
+                "errmsgPassword"
+              ).innerHTML = `<span class='color:red'>Correct Password </span>`;
             }
           } else {
             // did not meet input requirement

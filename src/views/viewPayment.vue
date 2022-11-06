@@ -116,6 +116,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-form__row">
+                    <router-link to="/orderLog">
+                        <button class="btn btn-primary">
+                            Pay
+                        </button>
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>

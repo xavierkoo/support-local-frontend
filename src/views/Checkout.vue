@@ -116,12 +116,14 @@
                     </div>
                     <div class="row mx-auto">
                         <div class="col-3 col-md-8" />
-                        <button
-                            type="submit"
-                            class="mainBtnDesign my-3 col-6 col-md-3"
-                        >
-                            Checkout
-                        </button>
+                        <router-link to="/viewPayment">
+                            <button
+                                type="submit"
+                                class="mainBtnDesign my-3 col-6 col-md-3"
+                            >
+                                Checkout
+                            </button>
+                        </router-link>
                         <div class="col-3 col-md-1" />
                     </div>
                 </div>
