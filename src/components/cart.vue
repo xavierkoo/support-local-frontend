@@ -1,16 +1,7 @@
 <template>
     <div class="cartBack">
         <div class="row py-3">
-            <div class="col-1 d-block d-sm-none" />
-            <div
-                class="col-1 cb1 my-auto d-flex justify-content-center align-content-center"
-            >
-                <input
-                    v-if="showCheckBox"
-                    id="cb"
-                    type="checkbox"
-                >
-            </div>
+            <div class="col-1 d-block d-sm-none" />w
             <div class="col-8">
                 <div>
                     <b>{{ product.merchantName }} </b> &nbsp;
