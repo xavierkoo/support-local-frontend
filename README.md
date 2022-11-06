@@ -10,6 +10,7 @@ Backend Repository: https://github.com/WAD2-T05/support-local-backend
 * HTML
 * CSS
 * SCSS
+* GSAP
 * Javascript
 * Vue.js
 
