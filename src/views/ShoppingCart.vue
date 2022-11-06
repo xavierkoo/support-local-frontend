@@ -1,6 +1,9 @@
 <template>
     <div :id="mode">
-        <div class="container">
+        <div
+            v-if="isCartNotEmpty"
+            class="container"
+        >
             <div class="row shoppingBack">
                 <div class="d-none d-sm-block">
                     <div class="row shoppingBar text-center py-2">
@@ -52,6 +55,21 @@
                 </div>
             </div>
         </div>
+        <div
+            v-if="!isCartNotEmpty"
+            class="container"
+        >
+            <div class="container">
+                <h3>YOUR BAG</h3>
+                <hr>
+                <div>
+                    Your shopping bag is empty <br>
+                    <router-link to="/landing">
+                        <b>Start shopping now!</b>
+                    </router-link>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -70,6 +88,7 @@ export default {
   computed: {
     items() {
       // call and get local storage cart items
+      console.log(this.$store.getters.cartItems);
       return this.$store.getters.cartItems;
     },
     total() {
@@ -80,6 +99,13 @@ export default {
         total1 += product.quantity * product.price;
       }
       return total1;
+    },
+    isCartNotEmpty() {
+      if (this.$store.getters.cartItems.length == 0) {
+        return false;
+      } else {
+        return true;
+      }
     },
   },
   mounted() {
