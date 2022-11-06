@@ -1,63 +1,86 @@
 <template>
     <header>
-        <nav>
-            <div :id="mode">
-                <div class="container-fluid">
-                    <div class="row justify-content-center align-items-center g-2">
-                        <div class="col col-lg-3 col-md-3 d-sm-block">
-                            <router-link :to="`/landing`">
-                                <img
-                                    src="../assets/Nobackgroundlogo.png"
-                                    alt=""
-                                    class="brand-logo"
-                                >
-                            </router-link>
-                        </div>
-                        <div class="col col-lg-7 col-md-7 d-none d-md-block searchBox">
-                            <div class="text-center">
-                                <input
-                                    type="text"
-                                    placeholder="Search for your product"
-                                    style="width: 60%"
-                                >
-                                <button class="mx-3 mainBtnDesign">
-                                    Search
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col col-lg-2 col-md-2 d-none d-sm-block">
-                            <div
-                                class="pe-3"
-                                style="float: right; height: 45px"
+        <nav class="navbar navbar-expand-md bg-light">
+            <div class="container-fluid">
+                <router-link :to="`/landing`">
+                    <img
+                        src="../assets/Nobackgroundlogo.png"
+                        alt=""
+                        class="brand-logo"
+                    >
+                </router-link>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon" />
+                </button>
+                <div
+                    id="navbarSupportedContent"
+                    class="collapse navbar-collapse justify-content-end"
+                >
+                    <form
+                        class="d-flex ms-auto justify-content-center"
+                        role="search"
+                    >
+                        <input
+                            class="form-control me-2"
+                            style="width: 40vw"
+                            type="search"
+                            placeholder="Search"
+                            aria-label="Search"
+                        >
+                        <button
+                            class="btn btn-outline-success"
+                            type="submit"
+                        >
+                            Search
+                        </button>
+                    </form>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <router-link
+                                to="/cart"
+                                class="nav-link"
                             >
-                                <svg
-                                    class="me-3"
-                                    style="width: 30%; height: 100%"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <router-link :to="`/signup`">
-                                        <path
-                                            fill="currentColor"
-                                            d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
-                                        />
+                                Cart
+                            </router-link>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <router-link
+                                        to="/signup"
+                                        class="dropdown-item"
+                                    >
+                                        Sign Up
                                     </router-link>
-                                </svg>
-
-                                <svg
-                                    class="me-3"
-                                    style="width: 30%; height: 100%"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <router-link :to="`/cart`">
-                                        <path
-                                            fill="currentColor"
-                                            d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
-                                        />
+                                </li>
+                                <li>
+                                    <router-link
+                                        to="/login"
+                                        class="dropdown-item"
+                                    >
+                                        Login
                                     </router-link>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
