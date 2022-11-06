@@ -29,15 +29,24 @@
                         role="search"
                     >
                         <input
-                            class="form-control me-2"
+                            v-model="searchInput"
+                            class="form-control"
                             style="width: 40vw"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
+                            list="datalistOptions"
+                            placeholder="Type to search..."
                         >
+                        <datalist id="datalistOptions">
+                            <option
+                                v-for="(item, index) in productList"
+                                :key="index"
+                                :value="titleCase(item.name)"
+                            />
+                        </datalist>
+
                         <button
                             class="btn btn-outline-success"
-                            type="submit"
+                            type="button"
+                            @click="redirect()"
                         >
                             Search
                         </button>
@@ -88,16 +97,69 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       mode: localStorage.modes,
+      searchInput: "",
+      productList: [],
     };
+  },
+  async beforeMount() {
+    // A function that will be called before the component is mounted.
+    const res = await axios.get(
+      "https://support-local.herokuapp.com/api/products"
+    );
+    let startUpArr = [];
+    for (const key in res.data) {
+      if (Object.hasOwnProperty.call(res.data, key)) {
+        const element = res.data[key];
+        let productSearchPair = {};
+        productSearchPair["id"] = element.id;
+        productSearchPair["name"] = element.name;
+        startUpArr.push(productSearchPair);
+      }
+    }
+    this.productList = startUpArr;
   },
   mounted() {
     window.addEventListener("modes-localstorage-changed", (event) => {
       this.mode = event.detail.storage;
     });
+  },
+  methods: {
+    redirect() {
+      // On click of the search button, function searches the productList
+      // Redirects to the first individual product that matchs the search product name
+      let prodName = this.searchInput;
+      let resultKey = "";
+      for (const aProductSearchPair of this.productList) {
+        if (this.titleCase(aProductSearchPair.name) == prodName) {
+          resultKey = aProductSearchPair.id;
+          break;
+        }
+      }
+      if (resultKey == "") {
+        alert("There is no such product! Search again");
+        this.searchInput = "";
+      } else {
+        this.$router.push(`/individual/${resultKey}`);
+      }
+    },
+
+    titleCase(str) {
+      // Ref: https://stackoverflow.com/questions/32589197/how-can-i-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript
+      var splitStr = str.toLowerCase().split(" ");
+      for (var i = 0; i < splitStr.length; i++) {
+        // You do not need to check if i is larger than splitStr length, as your for does that for you
+        // Assign it back to the array
+        splitStr[i] =
+          splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+      }
+      // Directly return the joined string
+      return splitStr.join(" ");
+    },
   },
 };
 </script>
