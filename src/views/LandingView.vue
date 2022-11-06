@@ -246,7 +246,6 @@ export default {
         }
       }
     }
-    console.log(startUpArr);
     this.productList = startUpArr;
   },
   methods: {
@@ -279,7 +278,6 @@ export default {
         } else {
           var maxArrLen = 99;
         }
-        console.log(res.data);
         let productArr = [];
         if (selectedCat == "all") {
           this.productList = res.data;
