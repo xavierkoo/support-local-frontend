@@ -44,12 +44,14 @@
                     <h5 class="col-2 p-0 p-sm-auto col-sm-2 col-md-2 my-auto text-center">
                         ${{ total }}
                     </h5>
-                    <button
-                        type="button"
-                        class="mainBtnDesign col-4 col-sm-3 col-md-2"
-                    >
-                        Order Now
-                    </button>
+                    <router-link to="/login">
+                        <button
+                            type="button"
+                            class="mainBtnDesign col-4 col-sm-3 col-md-2"
+                        >
+                            Order Now
+                        </button>
+                    </router-link>
                     <div class="col-1 col-sm-5 col-md-6" />
                     <hr class="mt-2 mb-0">
                 </div>
