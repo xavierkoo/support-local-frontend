@@ -96,18 +96,12 @@ export default {
       email: "",
       password: "",
     });
-    // Setting custom error messages
-    // const emailErrMsg = (value) => value.includes("@");
 
     const rules = computed(() => {
       return {
         email: {
           required,
           email,
-          //   emailErrMsg: helpers.withMessage(
-          //     "Invalid email address!",
-          //     emailErrMsg
-          //   ),
         },
         password: { required, minLength: minLength(8) },
       };
@@ -128,20 +122,16 @@ export default {
   },
   methods: {
     submitForm(v$) {
-      // make api call to db to get
-      document.getElementById("errmsgEmail").innerHTML = ``;
-      document.getElementById("errmsgPassword").innerHTML = ``;
+      // // make api call to db to get
       let url = `https://support-local.herokuapp.com/api/users`;
       this.v$.$validate();
       axios
         .get(url)
         .then((resp) => {
           if (!this.v$.$error) {
-            // alert("form successful");
             console.log(resp.data);
             var data = resp.data;
             var dbEmail = data[0].email;
-            // console.log(dbEmail);
             // check if email exist in db
             var checkEmail = (data) => data.email === this.state.email;
             var isValidEmail = data.some(checkEmail);
@@ -156,16 +146,6 @@ export default {
               // clear input value w/o refreshing page
               this.state.email = "";
               this.state.password = "";
-
-              // set isInvalid to show the red error msg in the form
-              this.isInvalid = true;
-              // display err msg
-              document.getElementById(
-                "errmsgEmail"
-              ).innerHTML = `<span class='color:red'>Correct Email </span>`;
-              document.getElementById(
-                "errmsgPassword"
-              ).innerHTML = `<span class='color:red'>Correct Password </span>`;
             }
           } else {
             // did not meet input requirement
