@@ -1,7 +1,7 @@
 <template>
     <div class="cartBack">
         <div class="row py-3">
-            <div class="col-1 d-block d-sm-none" />w
+            <div class="col-1 d-block d-sm-none" />
             <div class="col-8">
                 <div>
                     <b>{{ product.merchantName }} </b> &nbsp;
@@ -26,7 +26,7 @@
                     class="img-fluid my-auto"
                 >
             </div>
-            <div class="col-7 col-sm-3 col-lg-3 my-auto">
+            <div class="col-7 col-sm-3 col-lg-3 my-auto px-5">
                 <b>{{ product.name }}</b>
             </div>
             <div class="text-end col-3 col-sm-2 my-auto text-sm-center">
