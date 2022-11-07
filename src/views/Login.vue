@@ -27,7 +27,7 @@
                                         type="email"
                                         class="form-control"
                                     >
-                                    <span id="errmsgEmail" />
+                                    <span v-if="isInvalid">{{ errMsgEmail }}</span>
                                     <span v-if="v$.email.$error">
                                         {{ v$.email.$errors[0].$message }}
                                     </span>
@@ -40,7 +40,8 @@
                                         v-model="state.password"
                                         type="password"
                                         class="form-control"
-                                    ><span id="errmsgPassword" />
+                                    >
+                                    <span v-if="isInvalid">{{ errMsgPassword }}</span>
                                     <span v-if="v$.password.$error">
                                         {{ v$.password.$errors[0].$message }}
                                     </span>
@@ -96,12 +97,18 @@ export default {
       email: "",
       password: "",
     });
+    // Setting custom error messages
+    // const emailErrMsg = (value) => value.includes("@");
 
     const rules = computed(() => {
       return {
         email: {
           required,
           email,
+          // emailErrMsg: helpers.withMessage(
+          //   "Invalid email address!",
+          //   emailErrMsg
+          // ),
         },
         password: { required, minLength: minLength(8) },
       };
@@ -115,8 +122,8 @@ export default {
   },
   data() {
     return {
-      errMsgEmail: "",
-      errMsgPassword: "",
+      errMsgEmail: "Correct Email ",
+      errMsgPassword: "Correct Password ",
       isInvalid: false,
     };
   },
@@ -146,6 +153,9 @@ export default {
               // clear input value w/o refreshing page
               this.state.email = "";
               this.state.password = "";
+
+              // set isInvalid to show the red error msg in the form
+              this.isInvalid = true;
             }
           } else {
             // did not meet input requirement
