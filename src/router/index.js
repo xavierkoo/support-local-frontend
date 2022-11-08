@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import IndividualBrand from "../views/IndividualBrand.vue";
 import LandingView from "../views/LandingView.vue";
 import ShoppingCart from "../views/ShoppingCart.vue";
@@ -8,7 +8,7 @@ import IndividualView from "../views/IndividualView.vue";
 import SignUp from "../views/Signup.vue";
 import orderLog from "../views/OrderLogs.vue";
 import viewOrder from "../views/ViewOrder.vue";
-import viewPayment from "../views/viewPayment.vue";
+import Payment from "../views/Payment.vue";
 import DashBoard from "../views/Dashboard.vue";
 
 const routes = [
@@ -68,9 +68,9 @@ const routes = [
     component: IndividualBrand,
   },
   {
-    path: "/viewPayment",
-    name: "viewPayment",
-    component: viewPayment,
+    path: "/payment",
+    name: "payment",
+    component: Payment,
   },
   {
     path: "/dashboard/:merchantId",
@@ -80,7 +80,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 
