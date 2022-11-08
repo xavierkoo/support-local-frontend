@@ -1,53 +1,78 @@
 <template>
     <div :id="mode">
         <div class="container">
-            <div class="row viewOrder">
-                <div class="d-none d-sm-block">
-                    <div class="row viewOrderBar text-center py-2">
-                        <div class="col-sm-1 cb1 my-auto" />
-                        <h6 class="col-sm-3 col-lg-4 my-auto text-start">
-                            Product
-                        </h6>
-                        <h6 class="col-sm-2 my-auto">
-                            Unit Price
-                        </h6>
-                        <h6 class="col-sm-2 my-auto">
-                            Quantity
-                        </h6>
-                        <h6 class="col-sm-2 my-auto">
-                            Total Price
-                        </h6>
-                        <h6 class="col-sm-2 col-lg-1 my-auto">
-                            Action
-                        </h6>
+            <div class="d-none d-sm-block">
+                <div
+                    class="row justify-content-center align-items-center text-center g-2 orderBar"
+                >
+                    <div class="col-sm-3">
+                        <b>Product</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Unit Price</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Quantity</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Total Price</b>
+                    </div>
+                    <div class="col-sm-3">
+                        <b>Action</b>
                     </div>
                 </div>
-                <div class="products p-0">
-                    <div v-if="rate == true">
-                        <ReviewRating
-                            :user-id="userID"
-                            :product-id="productID"
-                            class="rounded-bottom"
-                        />
-                    </div>
-                </div>
-                <OrderDetails />
-                <!-- <OrderDetails
-                    v-for="orderList of orderDetailsArr"
-                    :key="orderList[0]"
-                    :merchant="orderList[0]"
-                    :location="orderList[1]"
-                    :delivery-date="orderList[2]"
-                    :order-status="orderList[3]"
-                /> -->
             </div>
+            <div class="products p-0">
+                <div class="row py-3">
+                    <div class="col-1 d-block d-sm-none" />
+                    <div class="col-8">
+                        <div>
+                            <!-- <b><b>{{ orderId }}</b></b> -->
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="row justify-content-center align-items-center text-center g-2 bg-secondary text-light"
+                >
+                    <div class="col-sm-3">
+                        {{ productObj.name }}
+                    </div>
+                    <div class="col-sm-2">
+                        {{ productObj.price }}
+                    </div>
+                    <div class="col-sm-2">
+                        {{ productObj.qty }}
+                    </div>
+                    <div class="col-sm-2">
+                        {{ productObj.price * productObj.qty }}
+                    </div>
+                    <div class="col-sm-3">
+                        <button @click="rateToggle">
+                            Rate
+                        </button>
+                    </div>
+                </div>
+                <div v-if="rate == true">
+                    <ReviewRating
+                        :user-id="userID"
+                        :product-id="productID"
+                        class="rounded-bottom"
+                    />
+                </div>
+            </div>
+            <OrderDetails
+                :merchant="merchantObj.name"
+                :location="merchantObj.location"
+                :delivery-date="orderObj.deliveryDate"
+                :order-status="orderObj.orderStatus"
+            />
         </div>
     </div>
 </template>
 
 <script>
 import axios from "axios"; //npm install axios
-
+import { useRoute } from "vue-router";
 import OrderDetails from "../components/OrderDetails.vue";
 import ReviewRating from "../components/ReviewRating.vue";
 export default {
@@ -59,26 +84,11 @@ export default {
     return {
       mode: localStorage.modes,
       rate: true, //v-if for rating.   Change to true if rate is clicked
-      userID: "635ac046b01737e727fb4b42", // I need the current logged in userID
-      productID: "635abd38b01737e727fb4b38", // I need the the current product is being reviewed. Should be pass from orderlogs page
-      showCheckBox: true,
-      showQtyInput: false,
-      showDate: true,
-      name: "", // [0]
-      price: 0, // [3]
-      quantity: 0, // [2]
-      action: "Review",
-      total: 0,
-      merchant: "", // [5]
-      objects: "",
-      img: "", // [4]
-      shoppingCart: [],
-      prodId: "", // [1]
-      datePurchased: "", // [6]
-      orderDetailsArr: [], // returns nested list of diff merchant's order details
-      location: "",
-      deliveryDate: "",
-      orderStatus: "",
+      userID: "", // I need the current logged in userID
+      productID: "", // I need the the current product is being reviewed. Should be pass from orderlogs page
+      productObj: {},
+      orderObj: {},
+      merchantObj: {},
     };
   },
   mounted() {
@@ -87,29 +97,26 @@ export default {
     });
   },
   async beforeMount() {
-    // //onload event for vue to populate products in cart
-    // // const user = await axios.get(
-    // //   "https://support-local.herokuapp.com/api/users?userId=" + this.userId
-    // // );
-    // const user = await axios.get("http://localhost:8081/users");
-    // // get the Shopping Cart nested array
-    // this.shoppingCart = user.data[0].shoppingCart;
-    // // get order details .orderDetails[replaced with the exact order ID][1]
-    // this.orderDetailsArr = user.data[0].orderDetails;
-    // this.location = this.orderDetailsArr[0][1];
-    // this.deliveryDate = this.orderDetailsArr[0][2];
-    // this.orderStatus = this.orderDetailsArr[0][3];
-    // // Structure of the properties in db
-    // // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
-    // // [ merchantName, location, deliverydate, orderStatus]
-    // // calc total
-    // for (var li of this.shoppingCart) {
-    //   this.total += Number(li[3]);
-    // }
+    const route = useRoute();
+    this.productObj = JSON.parse(route.params.prod);
+    this.orderObj = JSON.parse(route.params.order);
+    let merchantId = this.productObj.merchant;
+    let merchant = await axios.get(
+      `https://support-local.herokuapp.com/api/merchants/${merchantId}`
+    );
+
+    this.merchantObj = merchant.data;
+
+    this.userID = window.localStorage.getItem("userId");
+    this.productID = this.productObj.id;
   },
   methods: {
-    toCheckOut() {
-      this.$router.push("checkout");
+    rateToggle() {
+      if (this.rate != true) {
+        this.rate = true;
+      } else {
+        this.rate = !true;
+      }
     },
   },
 };

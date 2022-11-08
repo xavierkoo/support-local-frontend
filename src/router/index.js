@@ -58,9 +58,10 @@ const routes = [
     component: orderLog,
   },
   {
-    path: "/viewOrder",
+    path: "/viewOrder/:prod/:order",
     name: "viewOrder",
     component: viewOrder,
+    props: true,
   },
   {
     path: "/brand/:merchantId",
