@@ -182,7 +182,7 @@
                             class="mainBtnDesign my-3 col-6 col-md-3"
                             @click="submitForm()"
                         >
-                            Checkout
+                            Payment
                         </button>
                         <div class="col-3 col-md-1" />
                     </div>
