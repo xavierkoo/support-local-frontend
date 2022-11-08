@@ -212,6 +212,7 @@ export default {
         "Electronics",
         "Hobbies & Books",
         "Beauty & Personal",
+        "Services",
       ],
     };
   },
