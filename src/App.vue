@@ -15,8 +15,8 @@
                         <router-link to="/checkout">
                             Checkout
                         </router-link> |
-                        <router-link to="/viewPayment">
-                            View Payment
+                        <router-link to="/Payment">
+                            Payment
                         </router-link> |
                         <router-link to="/orderLog">
                             Order Log

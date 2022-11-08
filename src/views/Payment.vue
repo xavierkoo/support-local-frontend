@@ -119,7 +119,7 @@
                 <div class="card-form__row">
                     <button
                         class="btn btn-primary"
-                        @click="$router.push('/orderLog')"
+                        @click="payNow"
                     >
                         Pay
                     </button>
@@ -131,6 +131,7 @@
 
 <script>
 import VuePaycard from "../../src/components/VuePaycard";
+import axios from "axios";
 
 export default {
   name: "FormComponent",
@@ -161,6 +162,13 @@ export default {
       },
     },
   },
+  emits: [
+    "input-card-name",
+    "input-card-number",
+    "input-card-month",
+    "input-card-year",
+    "input-card-cvv",
+  ],
   data: () => ({
     minCardYear: new Date().getFullYear(),
     mainCardNumber: "",
@@ -235,13 +243,12 @@ export default {
           .replace(/(\d{4}) (\d{4}) (\d{4})/, "$1 $2 $3 ");
         this.cardNumberMaxLength = 19;
       }
-      // eslint-disable-next-line
       if (e.inputType == "deleteContentBackward") {
         const lastChar = this.valueFields.cardNumber.substring(
           this.valueFields.cardNumber.length,
           this.valueFields.cardNumber.length - 1
         );
-        // eslint-disable-next-line
+
         if (lastChar == " ") {
           this.valueFields.cardNumber = this.valueFields.cardNumber.substring(
             0,
@@ -292,6 +299,59 @@ export default {
     unMaskCardNumber() {
       // method unmask all the card numbers
       this.valueFields.cardNumber = this.mainCardNumber;
+    },
+    payNow() {
+      // Get the data object & userID stored on local storage
+      let currentCartObj = this.$store.getters.cartItems;
+      let currentCartArr = [];
+      let currentUserID = window.localStorage.getItem("userId");
+      let date = new Date();
+      let todayDate = date.toLocaleDateString("en-TT");
+      let deliveryDate = new Date(
+        date.setDate(date.getDate() + 7)
+      ).toLocaleDateString("en-TT");
+
+      for (const item of currentCartObj) {
+        let tempArr = { prodId: item.id, qty: item.quantity };
+        currentCartArr.push(tempArr);
+      }
+
+      // Post details to the orders based on the requirements
+      axios
+        .post("https://support-local.herokuapp.com/api/orders", {
+          // Add Key: Values
+          user: currentUserID,
+          orderDate: todayDate,
+          orderStatus: "Waiting for Seller to ship",
+          products: currentCartArr,
+          deliveryDate: deliveryDate,
+        })
+        .then(async (res) => {
+          // RESPONSE returns the newly injected order object
+          const user = await axios.get(
+            `https://support-local.herokuapp.com/api/users/${currentUserID}`
+          );
+          // GET User's orderDetails Arr
+          let orderDetailArr = user.data.orderDetails;
+
+          // Add to User's orderDetails Arr
+          orderDetailArr.push(res.data.id);
+
+          // PATCH User's orderDetails Arr (override)
+          axios.patch(
+            `https://support-local.herokuapp.com/api/users/${currentUserID}`,
+            {
+              orderDetails: orderDetailArr,
+            }
+          );
+          // Clears the cart from local storage
+          window.localStorage.removeItem("cart");
+          this.$router.push("/orderLog");
+        })
+        .catch((err) => {
+          console.error(err);
+          this.error = true;
+        });
     },
   },
 };
@@ -476,7 +536,6 @@ body,
   box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
 }
 .card-input__input.-select {
-  -webkit-appearance: none;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC");
   background-size: 12px;
   background-position: 90% center;
