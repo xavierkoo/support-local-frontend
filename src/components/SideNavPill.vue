@@ -61,6 +61,10 @@ export default {
     if (this.categoryName == "Beauty & Personal") {
       this.categoryImage = "assets/img/icons/BeautyPersonal.svg";
     }
+
+    if (this.categoryName == "Services") {
+      this.categoryImage = "assets/img/icons/Services.svg";
+    }
   },
 };
 </script>
