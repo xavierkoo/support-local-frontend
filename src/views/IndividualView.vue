@@ -453,6 +453,7 @@ export default {
       // retrieve qty from v-model and add to this.selectedProd
       this.selectedProd["quantity"] = this.quantity;
       this.$store.commit("addToCart", this.selectedProd);
+      alert(`${this.selectedProd.name} has been added!`);
     },
     removeFromCart() {
       // Commit and remove selected product from local storage
