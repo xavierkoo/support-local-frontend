@@ -7,11 +7,6 @@
             <div class="row shoppingBack">
                 <div class="d-none d-sm-block">
                     <div class="row shoppingBar text-center py-2">
-                        <!-- <input
-                            v-if="showCheckBox"
-                            type="checkbox"
-                            class="col-sm-1 cb1 my-auto"
-                        > -->
                         <h6 class="col-sm-4 col-lg-4 my-auto text-start px-4">
                             Product
                         </h6>
@@ -81,6 +76,7 @@
 import axios from "axios"; //npm install axios
 import CartProducts from "../components/cart.vue";
 export default {
+  name: "App",
   components: {
     CartProducts,
   },
