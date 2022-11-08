@@ -152,7 +152,7 @@
                             <div class="row">
                                 <div class="col-4 col-md-5" />
                                 <button
-                                    v-if="viewMore == false"
+                                    v-if="viewMore == false && moreThanSix == true"
                                     class="btn mainBtnDesign col-4 col-md-2"
                                     @click="viewMore = true"
                                 >
@@ -202,6 +202,7 @@ export default {
     return {
       mode: localStorage.modes,
       category: "all",
+      moreThanSix: false,
       viewMore: false,
       productList: null,
       productCatArr: [
@@ -243,6 +244,8 @@ export default {
         const element = res.data[key];
         if (startUpArr.length < 6) {
           startUpArr.push(element);
+        } else {
+          this.moreThanSix = true;
         }
       }
     }
