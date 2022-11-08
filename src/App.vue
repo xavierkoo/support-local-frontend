@@ -12,12 +12,6 @@
                         <router-link to="/landing">
                             Landing
                         </router-link> |
-                        <router-link to="/checkout">
-                            Checkout
-                        </router-link> |
-                        <router-link to="/Payment">
-                            Payment
-                        </router-link> |
                         <router-link to="/orderLog">
                             Order Log
                         </router-link> |
