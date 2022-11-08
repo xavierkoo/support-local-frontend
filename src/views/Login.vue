@@ -1,5 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div class="login">
         <div :id="mode">
@@ -27,7 +25,10 @@
                                         type="email"
                                         class="form-control"
                                     >
-                                    <span v-if="isInvalid">{{ errMsgEmail }}</span>
+                                    <span v-if="(isEmailIn == false) & (isInvalid == true)">{{
+                                        errMsgEmail
+                                    }}</span>
+                                    <br>
                                     <span v-if="v$.email.$error">
                                         {{ v$.email.$errors[0].$message }}
                                     </span>
@@ -41,7 +42,7 @@
                                         type="password"
                                         class="form-control"
                                     >
-                                    <span v-if="isInvalid">{{ errMsgPassword }}</span>
+                                    <span v-if="isInvalid == true">{{ errMsgPassword }}</span><br>
                                     <span v-if="v$.password.$error">
                                         {{ v$.password.$errors[0].$message }}
                                     </span>
@@ -64,20 +65,10 @@
                         </div>
                         <div class="row mt-5 text-center">
                             <div class="col">
-                                Don't have an account
-                            </div>
-                        </div>
-                        <div class="row my-3">
-                            <div class="col-3" />
-                            <div class="col-6 text-center">
                                 <router-link to="/signup">
-                                    <a
-                                        id="signUp"
-                                        href=""
-                                    />Sign Up
+                                    Don't have an account
                                 </router-link>
                             </div>
-                            <div class="col-3" />
                         </div>
                     </div>
                     <div class="col-md-1" />
@@ -88,27 +79,22 @@
 </template>
 <script>
 import useValidate from "@vuelidate/core";
-import { required, email, minLength, helpers } from "@vuelidate/validators";
+import { required, email, minLength } from "@vuelidate/validators";
 import axios from "axios";
 import { reactive, computed } from "vue";
 export default {
+  name: "App",
   setup() {
     const state = reactive({
       email: "",
       password: "",
     });
-    // Setting custom error messages
-    // const emailErrMsg = (value) => value.includes("@");
 
     const rules = computed(() => {
       return {
         email: {
           required,
           email,
-          // emailErrMsg: helpers.withMessage(
-          //   "Invalid email address!",
-          //   emailErrMsg
-          // ),
         },
         password: { required, minLength: minLength(8) },
       };
@@ -122,9 +108,10 @@ export default {
   },
   data() {
     return {
-      errMsgEmail: "Correct Email ",
-      errMsgPassword: "Correct Password ",
+      isEmailIn: false,
       isInvalid: false,
+      errMsgEmail: "Email is not a valid account with us!",
+      errMsgPassword: "Invaild Password!",
     };
   },
   methods: {
@@ -132,35 +119,61 @@ export default {
       // // make api call to db to get
       let url = `https://support-local.herokuapp.com/api/users`;
       this.v$.$validate();
+
       axios
         .get(url)
         .then((resp) => {
           if (!this.v$.$error) {
-            console.log(resp.data);
             var data = resp.data;
-            var dbEmail = data[0].email;
-            // check if email exist in db
-            var checkEmail = (data) => data.email === this.state.email;
-            var isValidEmail = data.some(checkEmail);
-            // check if password exist in db
-            var checkPassword = (data) => data.password === this.state.password;
-            var isValidPassword = data.some(checkPassword);
+            let correctEmail = false;
+            let correctPassword = false;
 
-            // check both conditions met, route to the landing page
-            if (isValidEmail && isValidPassword) {
-              this.$router.push("/checkout");
-            } else {
-              // clear input value w/o refreshing page
+            for (const user of data) {
+              console.log(user);
+              if (this.state.email === user.email) {
+                if (this.state.password === user.password) {
+                  // (Email, Password) pair matches => SUCCESS
+                  // 1. Extract user.Id from the user
+                  // 2. Log user into memory
+
+                  let userID = user.id;
+                  window.localStorage.setItem("userId", `${userID}`);
+                  correctEmail = true;
+                  correctPassword = true;
+                  this.isInvalid = false;
+                  this.isEmailIn = true;
+
+                  console.log("All Correct, User Logged into Memory");
+                  this.$router.push("/checkout");
+                }
+                // Wrong Password but Email is present in the database
+                correctEmail = true;
+              }
+            }
+
+            if (correctEmail == true && correctPassword == false) {
+              //
+              // Wrong Password but Email is present in the database
+              //
+
+              this.isEmailIn = true;
+              this.isInvalid = true;
+              this.state.password = "";
+            } else if ((correctEmail == false) & (correctPassword == false)) {
+              //
+              // No such email is present in the database
+              //
+              this.isInvalid = true;
               this.state.email = "";
               this.state.password = "";
-
-              // set isInvalid to show the red error msg in the form
-              this.isInvalid = true;
             }
           } else {
-            // did not meet input requirement
-            // alert("form failed");
-            console.log("form failed");
+            //
+            // clear input value w/o refreshing page
+            //
+            this.state.email = "";
+            this.state.password = "";
+            this.isInvalid = true;
           }
         })
         .catch((err) => {
