@@ -1,73 +1,47 @@
 <template>
     <div :id="mode">
         <div class="container">
-            <div class="row orderLog p-0">
-                <div class="d-none d-sm-block">
-                    <div class="row orderBar text-center py-2 mb-2">
-                        <div class="col-sm-1 cb1" />
-                        <div class="col-sm-2">
-                            <b>Product</b>
-                        </div>
-                        <div class="col-sm-2">
-                            <b>Unit Price</b>
-                        </div>
-                        <div class="col-sm-2">
-                            <b>Quantity</b>
-                        </div>
-                        <div class="col-sm-3">
-                            <b>Total Price</b>
-                        </div>
-                        <div class="col-sm-2">
-                            <b>Action</b>
-                        </div>
+            <div class="d-none d-sm-block">
+                <div
+                    class="row justify-content-center align-items-center text-center g-2 orderBar"
+                >
+                    <div class="col-sm-3">
+                        <b>Product</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Unit Price</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Quantity</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Total Price</b>
+                    </div>
+                    <div class="col-sm-3">
+                        <b>Action</b>
                     </div>
                 </div>
-                <div class="row orderBack mx-auto">
-                    <CartProducts
-                        v-for="item of shoppingCart"
-                        :key="item[1]"
-                        :merchant="item[5]"
-                        :price="item[3]"
-                        :name="item[0]"
-                        :img="item[4]"
-                        :show-check-box="showCheckBox"
-                        :prod-id="item[1]"
-                        :date-purchased="item[6]"
-                        :show-qty-input="showQtyInput"
-                        :show-date="showDate"
-                        :quantity="item[6]"
-                        :action="action"
-                    />
-                </div>
             </div>
+            <OrderRow
+                v-for="(order, index) in selectedUserOrders"
+                :key="index"
+                :order-id="order.id"
+                :order="order"
+                :products="order.products"
+            />
         </div>
     </div>
 </template>
 
 <script>
-import axios from "axios"; //npm install axios
-import CartProducts from "../components/cart.vue";
+import axios from "axios";
+import OrderRow from "@/components/OrderRow.vue";
 export default {
-  components: {
-    CartProducts,
-  },
+  components: { OrderRow },
   data() {
     return {
       mode: localStorage.modes,
-      showCheckBox: false,
-      showQtyInput: false,
-      showDate: true,
-      name: "", // [0]
-      price: "", // [3]
-      quantity: "1", // [2]
-      action: "Review",
-      total: 0,
-      merchant: "", // [5]
-      objects: "",
-      img: "", // [4]
-      shoppingCart: [],
-      prodId: "", // [1]
-      datePurchased: "", // [6]
+      selectedUserOrders: "",
     };
   },
   mounted() {
@@ -76,36 +50,25 @@ export default {
     });
   },
   async beforeMount() {
-    //onload event for vue to populate products in cart
-    const user = await axios.get("http://localhost:8081/users");
-    console.log(user);
+    // Get all the orders from the orders api endpoint
+    let userId = window.localStorage.getItem("userId");
+    // 1. AXIOS Get specific userID
+    let user = await axios.get(
+      `https://support-local.herokuapp.com/api/users/${userId}`
+    );
 
-    // for later when calling to mongodb
-    // const user = await axios.get(
-    //   "https://support-local.herokuapp.com/api/users?userId=" + this.userId
-    // );
+    let userOrderIdArr = user.data.orderDetails;
+    let selectedUserOrders = [];
 
-    // get the Shopping Cart nested array
-    this.shoppingCart = user.data[0].shoppingCart;
-    console.log(this.shoppingCart);
-
-    // [ productName, prodID, qty, price, imgURL, merchantName, datePurchased ]
-    // [
-    //     "MARTIN necklace",
-    //     "63576ea5bbe3f9f87c117c4a",
-    //     1,
-    //     89,
-    //     "assets/img/products/martin.png",
-    //     "In Good Company",
-    //     "27/9/2022"
-    //   ];
-
-    // calc total
-    this.total = this.quantity * this.price;
-    // for (var li of this.shoppingCart) {
-    //   this.total += Number(li[3]);
-    //   // console.log(li);
-    // }
+    // 2. LOOP & AXIOS Get specific orderIDs found in the user obj
+    for (const orderId of userOrderIdArr) {
+      const anOrder = await axios.get(
+        `https://support-local.herokuapp.com/api/orders/${orderId}`
+      );
+      selectedUserOrders.push(anOrder.data);
+    }
+    // 3. Load into Instance
+    this.selectedUserOrders = selectedUserOrders;
   },
 };
 </script>
