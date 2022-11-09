@@ -9,12 +9,6 @@
                 </div>
                 <div class="row d-flex justify-content-center minHeight">
                     <nav class="">
-                        <router-link to="/landing">
-                            Landing
-                        </router-link> |
-                        <router-link to="/orderLog">
-                            Order Log
-                        </router-link> |
                         <router-link to="/dashboard/635abc7fb01737e727fb4b36">
                             Merchant Dashboard
                         </router-link>
