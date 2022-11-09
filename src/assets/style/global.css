@@ -254,7 +254,7 @@ body {
   font-size: 16px;
   height: 40px;
   overflow: hidden;
-  transition: 0.35s;
+  transition: 0.5s;
   position: relative;
   cursor: pointer;
   box-shadow: inset 0 black;
@@ -318,9 +318,9 @@ body {
   box-shadow: inset 0 black;
 }
 #light .anyQuestionBtnDesign:hover {
-  box-shadow: inset 500px 0 0 0 lightgray;
+  box-shadow: inset 500px 0 0 0 black;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 #light .individualViewImg {
   height: 486px;
