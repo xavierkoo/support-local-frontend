@@ -1,18 +1,7 @@
 <template>
     <div class="App p-0">
         <div v-if="productList == null">
-            <div class="container d-flex justify-content-center align-content-center">
-                <div class="spinner">
-                    <img
-                        src="../assets/Nobackgroundlogo.png"
-                        alt=""
-                        class="img-fluid"
-                    >
-                    <div class="spinner-sector spinner-sector-one" />
-                    <div class="spinner-sector spinner-sector-two" />
-                    <div class="spinner-sector spinner-sector-three" />
-                </div>
-            </div>
+            <loading />
         </div>
         <div v-else>
             <div class="container-fluid">
@@ -186,6 +175,7 @@
 <script>
 import ProductCard from "../components/ProductCard.vue";
 import SideNavPill from "../components/SideNavPill.vue";
+import Loading from "../components/LoadingAnimation.vue";
 import axios from "axios";
 
 export default {
@@ -193,6 +183,7 @@ export default {
   components: {
     ProductCard,
     SideNavPill,
+    Loading,
   },
   data() {
     return {

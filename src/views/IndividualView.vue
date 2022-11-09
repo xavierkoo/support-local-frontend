@@ -3,20 +3,7 @@
         <div class="Individual" />
         <div :id="mode">
             <div v-if="product == null || merchant == null || review == null">
-                <div
-                    class="container d-flex justify-content-center align-content-center"
-                >
-                    <div class="spinner">
-                        <img
-                            src="../assets/Nobackgroundlogo.png"
-                            alt=""
-                            class="img-fluid"
-                        >
-                        <div class="spinner-sector spinner-sector-one" />
-                        <div class="spinner-sector spinner-sector-two" />
-                        <div class="spinner-sector spinner-sector-three" />
-                    </div>
-                </div>
+                <Loading />
             </div>
             <div v-else>
                 <div class="container-fluid p-0 m-0">
@@ -316,10 +303,12 @@
 import axios from "axios";
 import ProductCard from "../components/ProductCard.vue"; //import product card
 import { useRoute } from "vue-router";
+import Loading from "../components/LoadingAnimation.vue";
 
 export default {
   components: {
     ProductCard,
+    Loading,
   },
   async beforeRouteUpdate(to, from) {
     // If component is all loaded, but user click to see different product

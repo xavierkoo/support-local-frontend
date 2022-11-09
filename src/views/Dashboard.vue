@@ -1,18 +1,7 @@
 <template>
     <div class="App">
         <div v-if="productList == null">
-            <div class="container d-flex justify-content-center align-content-center">
-                <div class="spinner">
-                    <img
-                        src="../assets/Nobackgroundlogo.png"
-                        alt=""
-                        class="img-fluid"
-                    >
-                    <div class="spinner-sector spinner-sector-one" />
-                    <div class="spinner-sector spinner-sector-two" />
-                    <div class="spinner-sector spinner-sector-three" />
-                </div>
-            </div>
+            <Loading />
         </div>
         <div v-else>
             <div class="container-fluid">
@@ -403,10 +392,11 @@
 import MerchantProductRow from "@/components/MerchantProductRow.vue";
 import axios from "axios";
 import { useRoute } from "vue-router";
+import Loading from "../components/LoadingAnimation.vue";
 
 export default {
   name: "App",
-  components: { MerchantProductRow },
+  components: { MerchantProductRow, Loading },
   data() {
     return {
       merchant: "",
