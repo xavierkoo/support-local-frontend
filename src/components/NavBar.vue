@@ -60,7 +60,10 @@
                                 Cart
                             </router-link>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li
+                            v-if="loginFlag"
+                            class="nav-item dropdown"
+                        >
                             <a
                                 class="nav-link dropdown-toggle navProfile"
                                 href="#"
@@ -69,6 +72,36 @@
                                 aria-expanded="false"
                             >
                                 Profile
+                            </a>
+                            <ul class="dropdown-menu dpMenu">
+                                <li>
+                                    <router-link
+                                        to="/orderLog"
+                                        class="dropdown-item dpSign"
+                                    >
+                                        My Orders
+                                    </router-link>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        @click="logOut"
+                                    >Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li
+                            v-else
+                            class="nav-item dropdown"
+                        >
+                            <a
+                                class="nav-link dropdown-toggle navProfile"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Guest
                             </a>
                             <ul class="dropdown-menu dpMenu">
                                 <li>
@@ -104,6 +137,7 @@ export default {
       mode: localStorage.modes,
       searchInput: "",
       productList: [],
+      loginFlag: false,
     };
   },
   async beforeMount() {
@@ -123,10 +157,18 @@ export default {
     }
     this.productList = startUpArr;
   },
+
   mounted() {
     window.addEventListener("modes-localstorage-changed", (event) => {
       this.mode = event.detail.storage;
     });
+    setInterval(() => {
+      if (window.localStorage.getItem("userId") === null) {
+        this.loginFlag = false;
+      } else {
+        this.loginFlag = true;
+      }
+    }, 1000);
   },
   methods: {
     redirect() {
@@ -146,6 +188,11 @@ export default {
       } else {
         this.$router.push(`/individual/${resultKey}`);
       }
+    },
+
+    logOut() {
+      window.localStorage.removeItem("userId");
+      window.localStorage.removeItem("cart");
     },
 
     titleCase(str) {
