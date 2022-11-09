@@ -3,7 +3,7 @@
         <div class="container">
             <div class="d-none d-sm-block">
                 <div
-                    class="row justify-content-center align-items-center text-center g-2 orderBar"
+                    class="row justify-content-center align-items-center text-center orderBar"
                 >
                     <div class="col-sm-3">
                         <b>Product</b>
@@ -22,51 +22,64 @@
                     </div>
                 </div>
             </div>
-            <div class="products p-0">
-                <div class="row py-3">
-                    <div class="col-1 d-block d-sm-none" />
-                    <div class="col-8">
-                        <div>
-                            <b>{{ orderObj.id }}</b>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="row justify-content-center align-items-center text-center g-2 bg-secondary text-light"
-                >
-                    <div class="col-sm-3">
-                        {{ productObj.name }}
-                    </div>
-                    <div class="col-sm-2">
-                        {{ productObj.price }}
-                    </div>
-                    <div class="col-sm-2">
-                        {{ productObj.qty }}
-                    </div>
-                    <div class="col-sm-2">
-                        {{ productObj.price * productObj.qty }}
-                    </div>
-                    <div class="col-sm-3">
-                        <button @click="rateToggle">
-                            Rate
-                        </button>
-                    </div>
-                </div>
-                <div v-if="rate == true">
-                    <ReviewRating
-                        :user-id="userID"
-                        :product-id="productID"
-                        class="rounded-bottom"
-                    />
-                </div>
+            <div class="orderRow row">
+                <h6 class="fw-bold my-auto col-sm-4 col-lg-3 text-center py-3">
+                    <h5 class="d-block d-sm-none fw-bold">
+                        OrderID:
+                    </h5>
+                    {{ orderObj.id }}
+                </h6>
+                <hr class="m-0">
             </div>
-            <OrderDetails
-                :merchant="merchantObj.name"
-                :location="merchantObj.location"
-                :delivery-date="orderObj.deliveryDate"
-                :order-status="orderObj.orderStatus"
-            />
+            <div class="row text-center orderRowIndItem">
+                <div class="col-sm-3 py-3 my-auto">
+                    <h5 class="d-block d-sm-none fw-bold">
+                        Product:
+                    </h5>
+                    {{ productObj.name }}
+                </div>
+                <div class="col-sm-2 py-3 my-auto">
+                    <span class="d-inline-block d-sm-none">Price: </span> ${{
+                        productObj.price
+                    }}
+                </div>
+                <div class="col-sm-2 py-3 my-auto">
+                    <span class="d-inline-block d-sm-none">Quantity: </span>
+                    {{ productObj.qty }}
+                </div>
+                <div class="col-sm-2 py-3 my-auto">
+                    <span class="d-inline-block d-sm-none">Total Price:</span> ${{
+                        productObj.price * productObj.qty
+                    }}
+                </div>
+                <div class="col-3 d-inline-block d-sm-none" />
+                <div class="col-6 col-sm-3 py-3 my-auto">
+                    <button
+                        class="mainBtnDesign w-100"
+                        @click="rateToggle"
+                    >
+                        Rate
+                    </button>
+                </div>
+                <div class="col-3 d-inline-block d-sm-none" />
+            </div>
+            <div
+                v-if="rate == true"
+                class="row"
+            >
+                <ReviewRating
+                    :user-id="userID"
+                    :product-id="productID"
+                    class="rounded-bottom"
+                />
+            </div>
         </div>
+        <OrderDetails
+            :merchant="merchantObj.name"
+            :location="merchantObj.location"
+            :delivery-date="orderObj.deliveryDate"
+            :order-status="orderObj.orderStatus"
+        />
     </div>
 </template>
 

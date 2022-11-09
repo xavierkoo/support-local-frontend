@@ -1,15 +1,11 @@
 <template>
     <div>
-        <div
-            class="card text-center pt-2"
-            style="height: 444px"
-        >
+        <div class="card text-center pt-2 brandProfile">
             <!-- Insert Img here -->
             <img
                 :src="require(`@/${merchantPic}`)"
                 alt=""
                 class="d-block mx-auto mt-4"
-                style="width: 30%; height: auto"
             >
             <div class="card-body">
                 <h3 class="card-title fw-bold">
@@ -20,7 +16,7 @@
                     {{ desc }}
                 </p>
                 <!-- TODO: Need to link this to the email API -->
-                <button class="btn btn-primary">
+                <button class="btn mainBtnDesign">
                     Contact me
                 </button>
             </div>
@@ -53,4 +49,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "../assets/style/global.css";
+</style>
