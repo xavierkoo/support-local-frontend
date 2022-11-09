@@ -6,9 +6,8 @@
         >
             <div class="row shoppingBack">
                 <div class="d-none d-sm-block">
-                    <div class="row shoppingBar text-center py-2">
-                        <div class="col-lg-1" />
-                        <h6 class="col-sm-4 col-lg-4 my-auto text-start px-4">
+                    <div class="row shoppingBar text-center py-2 px-2">
+                        <h6 class="col-sm-4 col-lg-4 my-auto text-start">
                             Product
                         </h6>
                         <h6 class="col-sm-2 my-auto">
@@ -17,7 +16,7 @@
                         <h6 class="col-sm-2 my-auto">
                             Quantity
                         </h6>
-                        <h6 class="col-sm-2 my-auto">
+                        <h6 class="col-sm-2 col-lg-3 my-auto">
                             Total Price
                         </h6>
                         <h6 class="col-sm-2 col-lg-1 my-auto">
