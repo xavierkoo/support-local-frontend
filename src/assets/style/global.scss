@@ -283,7 +283,7 @@ body {
     border: none;
     @include button;
     overflow: hidden;
-    transition: 0.5s;
+    transition: 0.35s;
     position: relative;
     cursor: pointer;
     box-shadow: inset 0000 black;
@@ -344,9 +344,9 @@ body {
     cursor: pointer;
     box-shadow: inset 0000 black;
     &:hover {
-      box-shadow: inset 500px 0 0 0 black;
+      box-shadow: inset 500px 0 0 0 lightgray;
       cursor: pointer;
-      color: white;
+      color: black;
     }
   }
 
