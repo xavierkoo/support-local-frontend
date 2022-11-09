@@ -132,7 +132,6 @@ export default {
   },
   data() {
     return {
-      mode: localStorage.modes,
       merchant: "",
       merchantId: "",
       merchantDesc: "",

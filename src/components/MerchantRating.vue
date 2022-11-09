@@ -8,7 +8,9 @@
                 <h3 class="card-title fw-bold">
                     Merchant Rating
                 </h3>
-                <h1>{{ merchantRating }} {{ star }}</h1>
+                <h1 class="ps-3">
+                    {{ merchantRating }}{{ star }}
+                </h1>
             </div>
         </div>
     </div>

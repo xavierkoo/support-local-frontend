@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav class="navbar navbar-expand-md bg-light">
+        <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <router-link :to="`/landing`">
                     <img
@@ -10,7 +10,7 @@
                     >
                 </router-link>
                 <button
-                    class="navbar-toggler"
+                    class="navbar-toggler burger"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
@@ -44,7 +44,7 @@
                         </datalist>
 
                         <button
-                            class="btn btn-outline-success"
+                            class="btn mainBtnDesign ms-2"
                             type="button"
                             @click="redirect()"
                         >
@@ -55,14 +55,14 @@
                         <li class="nav-item">
                             <router-link
                                 to="/cart"
-                                class="nav-link"
+                                class="nav-link navCart"
                             >
                                 Cart
                             </router-link>
                         </li>
                         <li class="nav-item dropdown">
                             <a
-                                class="nav-link dropdown-toggle"
+                                class="nav-link dropdown-toggle navProfile"
                                 href="#"
                                 role="button"
                                 data-bs-toggle="dropdown"
@@ -70,11 +70,11 @@
                             >
                                 Profile
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu dpMenu">
                                 <li>
                                     <router-link
                                         to="/signup"
-                                        class="dropdown-item"
+                                        class="dropdown-item dpSign"
                                     >
                                         Sign Up
                                     </router-link>
@@ -82,7 +82,7 @@
                                 <li>
                                     <router-link
                                         to="/login"
-                                        class="dropdown-item"
+                                        class="dropdown-item dpLogin"
                                     >
                                         Login
                                     </router-link>

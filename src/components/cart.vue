@@ -9,7 +9,7 @@
                 </div>
             </div>
         </div>
-        <div class="row productBack py-5">
+        <div class="row productBack py-3">
             <div class="col-1 d-block d-sm-none" />
             <div
                 class="col-1 col-sm-1 cb1 my-auto d-flex justify-content-center align-content-center"
@@ -26,13 +26,13 @@
                     class="img-fluid my-auto"
                 >
             </div>
-            <div class="col-7 col-sm-3 col-lg-3 my-auto px-5">
+            <div class="col-7 col-sm-3 col-lg-3 my-auto text-center">
                 <b>{{ product.name }}</b>
             </div>
             <div class="text-end col-3 col-sm-2 my-auto text-sm-center">
                 ${{ product.price }}
             </div>
-            <div class="text-end mt-2 mt-sm-auto col-sm-2 my-auto text-sm-center">
+            <div class="text-center mt-2 mt-sm-auto col-sm-2 my-auto text-sm-center">
                 <input
                     v-if="showQtyInput"
                     v-model="quantity"
@@ -48,12 +48,14 @@
                 ${{ item_cost.toFixed(2) }}
             </div>
             <div
-                class="text-end col-sm-2 mt-2 mt-sm-auto col-lg-1 my-auto text-sm-center"
+                class="text-center col-sm-2 mt-2 mt-sm-auto col-lg-1 my-auto text-sm-center"
             >
-                <span
-                    class="deleteItem"
+                <button
+                    class="cancelBtnDesign"
                     @click="deleteItem()"
-                >{{ action }}</span>
+                >
+                    {{ action }}
+                </button>
             </div>
         </div>
     </div>
@@ -120,8 +122,4 @@ export default {
 
 <style scoped>
 @import "../assets/style/global.css";
-.deleteItem {
-  text-decoration: underline;
-  color: blue;
-}
 </style>

@@ -1,18 +1,22 @@
 <template>
-    <div class="card-form">
-        <div class="card-list">
-            <VuePaycard :value-fields="valueFields" />
-            <div class="card-form__inner">
-                <div class="card-input">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1" />
+            <div class="col-lg-5 my-auto p-0 mx-lg-2 mx-xl-0">
+                <VuePaycard :value-fields="valueFields" />
+            </div>
+            <div class="col-1 col-md-2 d-lg-none" />
+            <div class="col-10 col-sm-10 col-md-8 col-lg-4 paymentForm mt-3">
+                <div class="card-input mt-2 mx-2">
                     <label
                         for="cardNumber"
-                        class="card-input__label"
+                        class="form-label"
                     >Card Number</label>
                     <input
                         :id="inputFields.cardNumber"
                         type="tel"
                         title="Number"
-                        class="card-input__input"
+                        class="form-control"
                         :value="valueFields.cardNumber"
                         data-card-field
                         autocomplete="off"
@@ -20,93 +24,95 @@
                         @input="updateNumber"
                     >
                 </div>
-                <div class="card-input">
+                <div class="card-input mt-2 mx-2">
                     <label
                         for="cardName"
-                        class="card-input__label"
+                        class="form-label"
                     >Card Holder</label>
                     <input
                         :id="inputFields.cardName"
                         v-letter-only
                         type="text"
                         title="Name"
-                        class="card-input__input"
+                        class="form-control"
                         :value="valueFields.cardName"
                         data-card-field
                         autocomplete="off"
                         @input="updateName"
                     >
                 </div>
-                <div class="card-form__row">
-                    <div class="card-form__col">
-                        <div class="card-form__group">
-                            <label
-                                for="cardMonth"
-                                class="card-input__label"
-                                aria-label="Expiration Date"
-                            >Expiration Date</label>
-                            <select
-                                :id="inputFields.cardMonth"
-                                v-model="valueFields.cardMonth"
-                                class="card-input__input -select"
-                                aria-label="Card Month"
-                                title="Month"
-                                data-card-field
+
+                <div class="row">
+                    <div class="col-7">
+                        <label
+                            for="cardMonth"
+                            class="form-label mt-2 mx-2 col-12"
+                            aria-label="Expiration Date"
+                        >Expiration Date</label>
+                        <select
+                            :id="inputFields.cardMonth"
+                            v-model="valueFields.cardMonth"
+                            class="col-4 mx-1 mx-sm-2 mthDrop m-0"
+                            aria-label="Card Month"
+                            title="Month"
+                            data-card-field
+                        >
+                            <option
+                                value
+                                disabled
+                                selected
                             >
-                                <option
-                                    value
-                                    disabled
-                                    selected
-                                >
-                                    Month
-                                </option>
-                                <option
-                                    v-for="n in 12"
-                                    :key="n"
-                                    :value="n < 10 ? '0' + n : n"
-                                    :disabled="n < minCardMonth"
-                                >
-                                    {{ generateMonth(n) }}
-                                </option>
-                            </select>
-                            <select
-                                :id="inputFields.cardYear"
-                                v-model="valueFields.cardYear"
-                                class="card-input__input -select"
-                                aria-label="Card year"
-                                title="Year"
-                                data-card-field
+                                Month
+                            </option>
+                            <option
+                                v-for="n in 12"
+                                :key="n"
+                                :value="n < 10 ? '0' + n : n"
+                                :disabled="n < minCardMonth"
                             >
-                                <option
-                                    value
-                                    disabled
-                                    selected
-                                >
-                                    Year
-                                </option>
-                                <option
-                                    v-for="(n, $index) in 12"
-                                    :key="n"
-                                    :value="$index + minCardYear"
-                                >
-                                    {{ $index + minCardYear }}
-                                </option>
-                            </select>
-                        </div>
+                                {{ generateMonth(n) }}
+                            </option>
+                        </select>
+                        <select
+                            :id="inputFields.cardYear"
+                            v-model="valueFields.cardYear"
+                            class="col-3 yearDrop"
+                            aria-label="Card year"
+                            title="Year"
+                            data-card-field
+                        >
+                            <option
+                                value
+                                disabled
+                                selected
+                            >
+                                Year
+                            </option>
+                            <option
+                                v-for="(n, $index) in 12"
+                                :key="n"
+                                :value="$index + minCardYear"
+                            >
+                                {{ $index + minCardYear }}
+                            </option>
+                        </select>
                     </div>
-                    <div class="card-form__col -cvv">
-                        <div class="card-input">
+
+                    <div class="col-5">
+                        <div class="row">
                             <label
                                 for="cardCvv"
-                                class="card-input__label"
+                                class="form-label mt-2 mx-2 col-5 text-start p-0 ms-4"
                                 aria-label="Card CVV"
                             >CVV</label>
+                        </div>
+                        <div class="row">
                             <input
                                 :id="inputFields.cardCvv"
                                 v-number-only
                                 type="tel"
                                 title="CVV"
-                                class="card-input__input"
+                                class="cvvInput ms-4"
                                 maxlength="4"
                                 :value="valueFields.cardCvv"
                                 data-card-field
@@ -116,15 +122,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-form__row">
+                <div class="row mx-2 my-3">
+                    <div class="col-1" />
+                    <button class="cancelBtnDesign col-4">
+                        Cancel
+                    </button>
+                    <div class="col-2" />
                     <button
-                        class="btn btn-primary"
+                        class="col-4 mainBtnDesign"
                         @click="payNow"
                     >
                         Pay
                     </button>
+                    <div class="col-1" />
                 </div>
             </div>
+            <div class="col-1 col-md-2 d-lg-none" />
         </div>
     </div>
 </template>
@@ -536,6 +549,7 @@ body,
   box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
 }
 .card-input__input.-select {
+  -webkit-appearance: none;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC");
   background-size: 12px;
   background-position: 90% center;

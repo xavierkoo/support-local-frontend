@@ -24,7 +24,7 @@
                         <div class="row mx-auto">
                             <!--Product Image-->
                             <img
-                                class="col-lg-5 individualViewImg my-3 p-0"
+                                class="col-lg-5 individualViewImg my-3 p-0 img-fluid"
                                 :src="require(`@/${product.imgUrl}`)"
                             >
                             <div class="col-1" />
@@ -137,24 +137,24 @@
                             <div class="container">
                                 <div class="row individualViewQuesion">
                                     <div
-                                        class="col-12 col-md-4 col-lg-4 col-xl-3 d-flex justify-content-center"
+                                        class="col-12 col-lg-4 col-xl-3 d-flex justify-content-center"
                                     >
                                         <img
-                                            class="w-50 my-2 rounded-circle"
+                                            class="img-fluid my-2 rounded-circle"
                                             :src="require(`@/${merchant.imgUrl}`)"
                                             alt=""
                                         >
                                     </div>
-                                    <div class="col-12 col-md-5 col-lg-5 col-xl-7 my-auto">
-                                        <h3 class="text-center text-md-start">
+                                    <div class="col-12 col-lg-5 col-xl-7 my-auto">
+                                        <h3 class="text-center text-lg-start">
                                             {{ merchant.name }}
                                         </h3>
-                                        <p class="col-12 text-center text-sm-start m-0">
+                                        <p class="col-12 text-center text-lg-start m-0">
                                             {{ merchant.aboutUs }}
                                         </p>
                                     </div>
                                     <div
-                                        class="col-12 col-md-3 col-lg-3 col-xl-2 my-auto d-flex justify-content-center align-content-center"
+                                        class="col-12 col-lg-3 col-xl-2 my-auto d-flex justify-content-center align-content-center"
                                     >
                                         <button class="anyQuestionBtnDesign btnAnimation my-2">
                                             Got any question?
@@ -181,18 +181,21 @@
                                                 :key="idx"
                                                 class="row mx-3 reviewsRating mt-1"
                                             >
-                                                <div class="col-md-2" />
-                                                <div class="col-2 d-flex justify-content-end my-auto">
+                                                <div class="col-md-1 col-lg-1" />
+                                                <div
+                                                    class="col-2 col-md-2 col-lg-2 d-flex justify-content-md-end my-auto"
+                                                >
                                                     <img
                                                         class="userPhoto d-none d-md-block"
                                                         :src="require(`@/${rev.profImageUrl}`)"
                                                         alt=""
                                                     >
                                                 </div>
-                                                <div class="col-md-7 ms-lg-5 my-3">
+                                                <div class="col-md-1 d-none d-md-block" />
+                                                <div class="col-md-7 my-3 ms-xl-4">
                                                     <div class="row">
                                                         <h5
-                                                            class="col-xl-10 my-auto text-start text-sm-center ms-1 ms-md-0 text-md-start ms-md-0 fw-bold p-0"
+                                                            class="col-xl-10 my-auto text-start text-sm-center ps-1 ps-xl-0 text-md-start ms-md-0 fw-bold p-0"
                                                         >
                                                             User {{ rev.user }}
                                                         </h5>
@@ -225,24 +228,27 @@
                                                 :key="idx"
                                                 class="row mx-3 reviewsRating mt-1"
                                             >
-                                                <div class="col-md-2" />
-                                                <div class="col-2 d-flex justify-content-end">
+                                                <div class="col-md-1 col-lg-1" />
+                                                <div
+                                                    class="col-2 col-md-2 col-lg-2 d-flex justify-content-md-end my-auto"
+                                                >
                                                     <img
                                                         class="userPhoto d-none d-md-block"
                                                         :src="require(`@/${rev.profImageUrl}`)"
                                                         alt=""
                                                     >
                                                 </div>
-                                                <div class="col-md-7 my-auto">
+                                                <div class="col-md-1 d-none d-md-block" />
+                                                <div class="col-md-7 my-3 ms-xl-4">
                                                     <div class="row">
                                                         <h5
-                                                            class="col-xl-2 my-auto text-start text-sm-center ms-sm-2 text-md-start ms-md-0"
+                                                            class="col-xl-10 my-auto text-start text-sm-center ps-1 ps-xl-0 text-md-start ms-md-0 fw-bold p-0"
                                                         >
-                                                            {{ rev.username }}
+                                                            User {{ rev.user }}
                                                         </h5>
                                                         <div class="row col-xl-10 m-0 p-0 ms-1 ms-xl-0">
                                                             <h5
-                                                                class="d-inline my-auto text-start text-sm-center text-md-start ms-2 p-0"
+                                                                class="d-inline my-auto text-start text-sm-center text-md-start p-0"
                                                             >
                                                                 {{ rev.rating }}
                                                                 <span
@@ -253,7 +259,7 @@
                                                                 </span>
                                                             </h5>
                                                             <h5
-                                                                class="my-auto text-start text-sm-center text-md-start ms-2 p-0"
+                                                                class="my-auto text-start text-sm-center text-md-start p-0"
                                                             >
                                                                 {{ rev.orderDetails }}
                                                             </h5>
