@@ -1,67 +1,39 @@
 <template>
-    <div class="container-fluid">
-        <div class="row bg-light mt-5">
-            <div class="px-3 py-4">
-                <h5
-                    class="fw-bold"
-                    style="color: black"
-                >
+    <div class="container orderDetails mt-4">
+        <div class="row mt-3">
+            <div class="px-3">
+                <h5 class="fw-bold">
                     Order Details:
                 </h5>
             </div>
         </div>
-        <div class="row bg-light px-3">
-            <div
-                class="col-xl-2 col-md-6 col-6 my-2"
-                style="color: black"
-            >
+        <div class="row px-3">
+            <div class="col-xl-2 col-md-6 col-6 my-2">
                 <b>Merchant:</b>
             </div>
-            <div
-                class="col-xl-4 col-md-6 col-6 my-2"
-                style="color: black"
-            >
+            <div class="col-xl-4 col-md-6 col-6 my-2">
                 {{ merchant }}
             </div>
-            <div
-                class="col-xl-2 col-md-6 col-6 my-2"
-                style="color: black"
-            >
+            <div class="col-xl-2 col-md-6 col-6 my-2 ps-xl-0">
                 <b>Order Status:</b>
             </div>
-            <div
-                class="col-xl-4 col-md-6 col-6 my-2"
-                style="color: black"
-            >
+            <div class="col-xl-4 col-md-6 col-6 my-2">
                 {{ orderStatus }}
             </div>
         </div>
-        <div class="row bg-light px-3">
-            <div
-                class="col-xl-2 col-md-6 col-6 my-2"
-                style="color: black"
-            >
+        <div class="row px-3">
+            <div class="col-xl-2 col-md-6 col-6 my-2">
                 <b>Location:</b>
             </div>
-            <div
-                class="col-xl-2 col-md-6 col-6 my-2"
-                style="color: black"
-            >
+            <div class="col-xl-4 col-md-6 col-6 my-2">
                 {{ location }}
             </div>
-            <div class="col-md-6" />
         </div>
-        <div class="row bg-light px-3">
-            <div
-                class="col-xl-2 col-md-6 col-6 my-2"
-                style="color: black"
-            >
+        <div class="row px-3">
+            <div class="col-xl-2 col-md-6 col-6 my-2">
                 <b>Expected Delivery Date:</b>
             </div>
-            <div
-                class="col-xl-4 col-md-4 col-6 my-2"
-                style="color: black"
-            >
+            <div class="col-xl-4 col-md-4 col-6 my-2">
                 {{ deliveryDate }}
             </div>
 
@@ -71,7 +43,6 @@
                 <button
                     class="cancelBtnDesign"
                     type="button"
-                    style="color: black"
                 >
                     Contact Seller
                 </button>

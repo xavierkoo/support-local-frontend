@@ -1,33 +1,35 @@
 <template>
-    <div class="container">
-        <div class="d-none d-sm-block">
-            <div
-                class="row justify-content-center align-items-center text-center g-2 orderBar"
-            >
-                <div class="col-sm-3">
-                    <b>Product</b>
-                </div>
-                <div class="col-sm-2">
-                    <b>Unit Price</b>
-                </div>
-                <div class="col-sm-2">
-                    <b>Quantity</b>
-                </div>
-                <div class="col-sm-2">
-                    <b>Total Price</b>
-                </div>
-                <div class="col-sm-3">
-                    <b>Action</b>
+    <div>
+        <div class="container">
+            <div class="d-none d-sm-block">
+                <div
+                    class="row justify-content-center align-items-center text-center orderBar"
+                >
+                    <div class="col-sm-3">
+                        <b>Product</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Unit Price</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Quantity</b>
+                    </div>
+                    <div class="col-sm-2">
+                        <b>Total Price</b>
+                    </div>
+                    <div class="col-sm-3">
+                        <b>Action</b>
+                    </div>
                 </div>
             </div>
+            <OrderRow
+                v-for="(order, index) in selectedUserOrders"
+                :key="index"
+                :order-id="order.id"
+                :order="order"
+                :products="order.products"
+            />
         </div>
-        <OrderRow
-            v-for="(order, index) in selectedUserOrders"
-            :key="index"
-            :order-id="order.id"
-            :order="order"
-            :products="order.products"
-        />
     </div>
 </template>
 
@@ -39,6 +41,7 @@ export default {
   data() {
     return {
       selectedUserOrders: "",
+      done: null,
     };
   },
   mounted() {

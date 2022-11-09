@@ -7,6 +7,10 @@
             </div>
             <div class="col-1 col-md-2 d-lg-none" />
             <div class="col-10 col-sm-10 col-md-8 col-lg-4 paymentForm mt-3">
+                <h2 class="fw-bold ms-2 my-3">
+                    Payment Details
+                </h2>
+
                 <div class="card-input mt-2 mx-2">
                     <label
                         for="cardNumber"

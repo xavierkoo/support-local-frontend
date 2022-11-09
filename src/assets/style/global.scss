@@ -40,7 +40,7 @@ body {
     display: flex;
     width: 60px;
     height: 34px;
-    margin: 0px auto;
+    margin: 0px;
     background: none;
   }
 
@@ -510,6 +510,28 @@ body {
     }
   }
 
+  //LightIndividualBrand
+  .individualBrand {
+    .map {
+      height: 444px;
+    }
+  }
+
+  //DarkMerchantRating
+  .merchantRating {
+    height: 267px;
+  }
+
+  //LightBrandProfile
+  .brandProfile {
+    height: 444px;
+
+    img {
+      width: 30%;
+      height: auto;
+    }
+  }
+
   //LightSignUP
   .signUp {
     .back {
@@ -523,7 +545,19 @@ body {
     }
   }
 
-  //LightOrderLogs
+  //LightOrderRow
+  .orderRow {
+    background: white;
+  }
+  .orderRowIndItem {
+    background: white;
+  }
+
+  //LightOrderLogs & LightViewOrder
+  .orderLog {
+    background: white;
+    border-radius: $boxRadius;
+  }
   .orderBar {
     background: $brandMain;
     color: white;
@@ -576,17 +610,12 @@ body {
       background: #c8c8c8;
     }
   }
-  //LightCheckOut
+  //LightViewOrder
   .viewOrder {
     background: white;
     .viewOrderBar {
       background: $brandMain;
       color: white;
-    }
-    .orderDetails {
-      border: $borderLight;
-      border-radius: $boxRadius;
-      background: #ebd142;
     }
   }
 
@@ -650,6 +679,12 @@ body {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
   }
+
+  //LightOrderDetails
+  .orderDetails {
+    border: $borderLight;
+    border-radius: $boxRadius;
+  }
 }
 
 #dark {
@@ -685,7 +720,7 @@ body {
     display: flex;
     width: 60px;
     height: 34px;
-    margin: 0px auto;
+    margin: 0px;
   }
 
   .toggle input {
@@ -1186,7 +1221,15 @@ body {
     }
   }
 
-  //DarkOrderLogs
+  //DarkOrderRow
+  .orderRow {
+    background: $backgroundDark;
+  }
+  .orderRowIndItem {
+    background: rgb(51, 48, 48);
+  }
+
+  //DarkOrderLogs & Darkvieworder
   .orderLog {
     background: $backgroundDark;
     border-radius: $boxRadius;
@@ -1215,6 +1258,31 @@ body {
     border-radius: $boxRadius;
     h3 {
       color: $mainBtn;
+    }
+  }
+
+  //DarkIndividualBrand
+  .individualBrand {
+    .map {
+      height: 444px;
+    }
+  }
+
+  //DarkMerchantRating
+  .merchantRating {
+    height: 267px;
+    background: $backgroundDark;
+    border: $borderDark;
+  }
+
+  //DarkBrandProfile
+  .brandProfile {
+    height: 444px;
+    background: $backgroundDark;
+    border: $borderDark;
+    img {
+      width: 30%;
+      height: auto;
     }
   }
 
@@ -1279,7 +1347,41 @@ body {
   .review {
     background: $mainBtn;
   }
+
+  //DarkViewPayment
+  .paymentForm {
+    border: $borderDark;
+    border-radius: $boxRadius;
+    background: $backgroundDark;
+  }
+  .mthDrop,
+  .yearDrop,
+  .cvvInput {
+    display: inline;
+    width: 45%;
+    height: calc(1.5em + 0.75rem + 2px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }
+  //DarkOrderDetails
+  .orderDetails {
+    background: $backgroundDark;
+    border: $borderDark;
+    border-radius: $boxRadius;
+    b,
+    div {
+      color: white;
+    }
+  }
 }
+
+//cardAniamtion
 
 .creditCard {
   .card-item * {

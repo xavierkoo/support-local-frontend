@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div
-            class="card text-center pt-2 mt-2"
-            style="height: 267px"
-        >
+        <div class="card text-center pt-2 mt-2 merchantRating">
             <div class="card-body">
                 <h3 class="card-title fw-bold">
                     Merchant Rating

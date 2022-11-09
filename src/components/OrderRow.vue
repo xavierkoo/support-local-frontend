@@ -1,30 +1,37 @@
 <template>
-    <div class="row py-3">
-        <div class="col-1 d-block d-sm-none" />
-        <div class="col-8">
-            <div>
-                <b><b>{{ orderId }}</b></b>
-            </div>
-        </div>
+    <div class="row orderRow">
+        <h6 class="fw-bold my-auto col-sm-4 col-lg-3 text-center py-3">
+            <h5 class="d-block d-sm-none fw-bold">
+                OrderID:
+            </h5>
+            {{ orderId }}
+        </h6>
+        <hr class="m-0">
     </div>
     <div
         v-for="(prod, index) in productsArr"
         :key="index"
-        class="row justify-content-center align-items-center text-center g-2 bg-secondary text-light"
+        class="row text-center orderRowIndItem"
     >
-        <div class="col-sm-3">
+        <div class="col-sm-3 py-3 my-auto">
+            <h5 class="d-block d-sm-none fw-bold">
+                Product:
+            </h5>
             {{ prod.name }}
         </div>
-        <div class="col-sm-2">
-            {{ prod.price }}
+        <div class="col-sm-2 py-3 my-auto">
+            <span class="d-inline-block d-sm-none">Price: </span> ${{ prod.price }}
         </div>
-        <div class="col-sm-2">
-            {{ prod.qty }}
+        <div class="col-sm-2 py-3 my-auto">
+            <span class="d-inline-block d-sm-none">Quantity: </span> {{ prod.qty }}
         </div>
-        <div class="col-sm-2">
-            {{ prod.price * prod.qty }}
+        <div class="col-sm-2 py-3 my-auto">
+            <span class="d-inline-block d-sm-none">Total Price:</span> ${{
+                prod.price * prod.qty
+            }}
         </div>
-        <div class="col-sm-3">
+        <div class="col-3 d-inline-block d-sm-none" />
+        <div class="col-6 col-sm-3 py-3 my-auto">
             <router-link
                 :to="{
                     name: 'viewOrder',
@@ -34,9 +41,13 @@
                     },
                 }"
             >
-                Review
+                <button class="mainBtnDesign w-100">
+                    Review
+                </button>
             </router-link>
         </div>
+        <div class="col-3 d-inline-block d-sm-none" />
+        <hr class="m-0">
     </div>
 </template>
 
@@ -58,6 +69,7 @@ export default {
       default: () => {},
     },
   },
+
   data() {
     return {
       productsArr: [],

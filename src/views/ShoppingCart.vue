@@ -7,6 +7,7 @@
             <div class="row shoppingBack">
                 <div class="d-none d-sm-block">
                     <div class="row shoppingBar text-center py-2">
+                        <div class="col-lg-1" />
                         <h6 class="col-sm-4 col-lg-4 my-auto text-start px-4">
                             Product
                         </h6>

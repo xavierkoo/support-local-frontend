@@ -39,7 +39,7 @@ body {
   display: flex;
   width: 60px;
   height: 34px;
-  margin: 0px auto;
+  margin: 0px;
   background: none;
 }
 #light .toggle input {
@@ -478,6 +478,19 @@ body {
   border-radius: 8px;
   height: 456px;
 }
+#light .individualBrand .map {
+  height: 444px;
+}
+#light .merchantRating {
+  height: 267px;
+}
+#light .brandProfile {
+  height: 444px;
+}
+#light .brandProfile img {
+  width: 30%;
+  height: auto;
+}
 #light .signUp .back {
   border-radius: 8px;
   height: 456px;
@@ -486,6 +499,16 @@ body {
 #light .signUp img {
   border-radius: 8px;
   height: 456px;
+}
+#light .orderRow {
+  background: white;
+}
+#light .orderRowIndItem {
+  background: white;
+}
+#light .orderLog {
+  background: white;
+  border-radius: 8px;
 }
 #light .orderBar {
   background: #942c1f;
@@ -535,11 +558,6 @@ body {
 #light .viewOrder .viewOrderBar {
   background: #942c1f;
   color: white;
-}
-#light .viewOrder .orderDetails {
-  border: 1px solid black;
-  border-radius: 8px;
-  background: #ebd142;
 }
 #light .dashAll {
   background: white;
@@ -596,6 +614,10 @@ body {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
+#light .orderDetails {
+  border: 1px solid black;
+  border-radius: 8px;
+}
 
 #dark {
   /* Track */
@@ -630,7 +652,7 @@ body {
   display: flex;
   width: 60px;
   height: 34px;
-  margin: 0px auto;
+  margin: 0px;
 }
 #dark .toggle input {
   opacity: 0;
@@ -1079,6 +1101,12 @@ body {
   height: 456px;
   border-radius: 8px;
 }
+#dark .orderRow {
+  background: #3d3d3d;
+}
+#dark .orderRowIndItem {
+  background: rgb(51, 48, 48);
+}
 #dark .orderLog {
   background: #3d3d3d;
   border-radius: 8px;
@@ -1104,6 +1132,23 @@ body {
 }
 #dark .cartEmpty h3 {
   color: #d36959;
+}
+#dark .individualBrand .map {
+  height: 444px;
+}
+#dark .merchantRating {
+  height: 267px;
+  background: #3d3d3d;
+  border: 1px solid white;
+}
+#dark .brandProfile {
+  height: 444px;
+  background: #3d3d3d;
+  border: 1px solid white;
+}
+#dark .brandProfile img {
+  width: 30%;
+  height: auto;
 }
 #dark .cartBack .productBack {
   background: rgb(51, 48, 48);
@@ -1154,6 +1199,35 @@ body {
 }
 #dark .review {
   background: #d36959;
+}
+#dark .paymentForm {
+  border: 1px solid white;
+  border-radius: 8px;
+  background: #3d3d3d;
+}
+#dark .mthDrop,
+#dark .yearDrop,
+#dark .cvvInput {
+  display: inline;
+  width: 45%;
+  height: calc(1.5em + 0.75rem + 2px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+#dark .orderDetails {
+  background: #3d3d3d;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+#dark .orderDetails b,
+#dark .orderDetails div {
+  color: white;
 }
 
 .creditCard .card-item * {
