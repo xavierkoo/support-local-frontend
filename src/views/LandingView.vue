@@ -280,11 +280,20 @@ export default {
         if (viewMore === false) {
           var maxArrLen = 6;
         } else {
-          var maxArrLen = 99;
+          var maxArrLen = 12;
+          this.moreThanSix = false;
         }
         let productArr = [];
         if (selectedCat == "all") {
-          this.productList = res.data;
+          for (const key in res.data) {
+            if (Object.hasOwnProperty.call(res.data, key)) {
+              const element = res.data[key];
+              if (productArr.length < maxArrLen) {
+                productArr.push(element);
+              }
+            }
+          }
+          this.productList = productArr;
         } else {
           for (const key in res.data) {
             if (Object.hasOwnProperty.call(res.data, key)) {
@@ -293,8 +302,8 @@ export default {
               if ((category == selectedCat) & (productArr.length < maxArrLen)) {
                 productArr.push(element);
               }
-              this.productList = productArr;
             }
+            this.productList = productArr;
           }
         }
       });
