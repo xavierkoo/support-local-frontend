@@ -9,11 +9,24 @@
                     <div class="col-md-1" />
                     <div class="col-md-2">
                         <label for="salutation">Title</label>
-                        <input
+                        <select
                             id="salutation"
                             type="text"
                             class="form-control"
                         >
+                            <option value="Mr">
+                                Mr
+                            </option>
+                            <option value="Ms">
+                                Ms
+                            </option>
+                            <option value="Mrs">
+                                Mrs
+                            </option>
+                            <option value="Mdm">
+                                Mdm
+                            </option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -289,48 +302,12 @@ export default {
   },
   methods: {
     submitForm(v$) {
-      // // make api call to db to get
-      let url = `https://support-local.herokuapp.com/api/users`;
       this.v$.$validate();
-      axios
-        .get(url)
-        .then((resp) => {
-          if (!this.v$.$error) {
-            // executes to true, email passed requirements
-
-            // check if first email exist in db
-            var data = resp.data;
-            var checkEmail = (data) => data.email === this.state.email;
-            var isValidEmail = data.some(checkEmail);
-
-            // check if second email exist in db
-            var checkEmail2 = (data) => data.email2 === this.state.email2;
-            var isValidEmail2 = data.some(checkEmail2);
-
-            // // check if contactNo meets requirement
-            // if (this.contactNo1.length != 8) {
-            //   this.invalidNumber = true;
-            // }
-
-            if (isValidEmail && isValidEmail2) {
-              this.$router.push("/viewPayment");
-            } else {
-              this.state.email = "";
-              this.state.email2 = "";
-              this.showEmailMsg = true;
-              this.showEmailMsg2 = true;
-              //   this.invalidNumber2 = true;
-            }
-          } else {
-            // did not meet email input requirement
-            // alert("form failed");
-            // this.invalidNumber = true;
-            console.log("form failed");
-          }
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+      if (!this.v$.$error) {
+        this.$router.push("/viewPayment");
+      } else {
+        console.log("form failed");
+      }
     },
     autoFill() {
       //auto fill the input fields for billing details by v-binding
