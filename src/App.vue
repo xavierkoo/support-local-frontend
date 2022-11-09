@@ -5,7 +5,6 @@
             <div class="container-fluid blur p-0">
                 <div class="app">
                     <NavBar />
-                    <ToggleMode />
                 </div>
                 <div class="row d-flex justify-content-center minHeight">
                     <nav class="">
@@ -32,14 +31,12 @@
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import ToggleMode from "./components/ToggleMode.vue";
 import PageFooter from "./components/PageFooter.vue";
 import Particles from "./components/BackgroundAnimation.vue";
 export default {
   name: "App",
   components: {
     NavBar,
-    ToggleMode,
     PageFooter,
     Particles,
   },
