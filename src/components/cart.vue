@@ -1,32 +1,22 @@
 <template>
     <div class="cartBack">
-        <div class="row py-3 px-2 text-center text-sm-start">
-            <h5 class="d-block d-sm-none fw-bold">
-                Merchant Name:
-            </h5>
-            <h6 class="fw-bold text-sm-start text-center">
-                {{ product.merchantName }}
-            </h6>
-            <h6 v-if="showDate">
-                {{ datePurchased }}
-            </h6>
-        </div>
-        <div class="row productBack py-3 px-2">
-            <div class="col-sm-3 col-lg-4 my-auto text-center">
-                <h5 class="d-block d-sm-none fw-bold">
-                    Product:
-                </h5>
-                <h6 class="fw-bold text-sm-start text-center">
-                    {{ product.name }}
-                </h6>
+        <div class="row py-3">
+            <div class="col-1 d-block d-sm-none" />
+            <div class="col-8">
+                <div>
+                    <b>{{ product.merchantName }} </b> &nbsp;
+                    <b v-if="showDate">{{ datePurchased }}</b>
+                </div>
             </div>
-            <div class="text-center col-sm-2 my-auto text-sm-center">
-                <span class="d-inline-block d-sm-none">Price: </span> ${{
-                    product.price
-                }}
+        </div>
+        <div class="row productBack py-3">
+            <div class="col-7 col-sm-3 col-lg-5 my-auto text-center">
+                <b>{{ product.name }}</b>
+            </div>
+            <div class="text-end col-3 col-sm-2 my-auto text-sm-center">
+                ${{ product.price }}
             </div>
             <div class="text-center mt-2 mt-sm-auto col-sm-2 my-auto text-sm-center">
-                <span class="d-inline-block d-sm-none">Quantity:</span>
                 <input
                     v-if="showQtyInput"
                     v-model="quantity"
@@ -34,26 +24,23 @@
                     class="text-end"
                     @change="addOrRemoveFromCart()"
                 >
-
                 <span v-if="!showQtyInput">
                     {{ product.quantity }}
                 </span>
             </div>
-            <div class="col-sm-3 my-auto text-center d-none d-sm-block">
+            <div class="col-sm-2 my-auto text-center d-none d-sm-block">
                 ${{ item_cost.toFixed(2) }}
             </div>
-            <div class="col-3 d-inline-block d-sm-none" />
             <div
-                class="text-center col-6 col-sm-2 mt-2 mt-sm-auto col-lg-1 my-auto text-sm-center"
+                class="text-center col-sm-2 mt-2 mt-sm-auto col-lg-1 my-auto text-sm-center"
             >
                 <button
-                    class="cancelBtnDesign w-100"
+                    class="cancelBtnDesign"
                     @click="deleteItem()"
                 >
                     {{ action }}
                 </button>
             </div>
-            <div class="col-3 d-inline-block d-sm-none" />
         </div>
     </div>
 </template>
