@@ -408,7 +408,7 @@ export default {
 
     //retrieve merchant that is selling the selected product
     this.product = selectedProduct.data;
-    this.productList = products.data;
+    this.productList = products.data.slice(0, 12);
     this.merchantId = this.product.merchant;
     const url = `https://support-local.herokuapp.com/api/merchants/${this.merchantId}`;
     const merchant = await axios.get(url);
