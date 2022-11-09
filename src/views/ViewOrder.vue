@@ -1,5 +1,5 @@
 <template>
-    <div :id="mode">
+    <div class="viewOrder">
         <div class="container">
             <div class="d-none d-sm-block">
                 <div
@@ -82,7 +82,6 @@ export default {
   },
   data() {
     return {
-      mode: localStorage.modes,
       rate: true, //v-if for rating.   Change to true if rate is clicked
       userID: "", // I need the current logged in userID
       productID: "", // I need the the current product is being reviewed. Should be pass from orderlogs page

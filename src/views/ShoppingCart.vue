@@ -1,5 +1,5 @@
 <template>
-    <div :id="mode">
+    <div>
         <div
             v-if="isCartNotEmpty"
             class="container"
@@ -39,15 +39,18 @@
                     <h5 class="col-2 p-0 p-sm-auto col-sm-2 col-md-2 my-auto text-center">
                         ${{ total }}
                     </h5>
-                    <router-link to="/login">
+                    <router-link
+                        to="/login"
+                        class="col-4 col-sm-3 col-md-2"
+                    >
                         <button
                             type="button"
-                            class="mainBtnDesign col-4 col-sm-3 col-md-2"
+                            class="mainBtnDesign"
                         >
                             Order Now
                         </button>
                     </router-link>
-                    <div class="col-1 col-sm-5 col-md-6" />
+                    <div class="col-1 col-sm-5" />
                     <hr class="mt-2 mb-0">
                 </div>
             </div>
@@ -81,9 +84,7 @@ export default {
     CartProducts,
   },
   data() {
-    return {
-      mode: localStorage.modes,
-    };
+    return {};
   },
   computed: {
     items() {

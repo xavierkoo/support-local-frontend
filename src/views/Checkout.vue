@@ -15,87 +15,89 @@
                             class="form-control"
                         >
                     </div>
-
-                    <div class="row">
+                </div>
+                <div class="row">
+                    <div class="col-1" />
+                    <div class="col-md-5 mb-4 pe-md-0">
+                        <label for="firstName">First Name <span>*</span></label>
+                        <input
+                            id="firstName"
+                            v-model="state.fName1"
+                            type="text"
+                            class="form-control"
+                        >
+                        <span v-if="v$.fName1.$error">
+                            {{ v$.fName1.$errors[0].$message }} <br>
+                        </span>
+                        <label for="inputEmail">Email <span>*</span></label>
+                        <input
+                            id="inputEmail"
+                            v-model="state.email"
+                            type="email"
+                            class="form-control"
+                        >
+                        <span v-if="!showEmailMsg">
+                            <span v-if="v$.email.$error">
+                                {{ v$.email.$errors[0].$message }} <br>
+                            </span>
+                        </span>
+                        <span v-if="showEmailMsg">Invalid Email <br></span>
+                        <label for="address">Address <span>*</span></label>
+                        <input
+                            id="address"
+                            v-model="state.add1"
+                            type="text"
+                            class="form-control"
+                        >
+                        <span v-if="v$.add1.$error">
+                            {{ v$.add1.$errors[0].$message }} <br>
+                        </span>
+                        <label for="postal">Postal Code <span>*</span></label>
+                        <input
+                            id="postal"
+                            v-model="state.postal1"
+                            type="text"
+                            class="form-control"
+                        >
+                        <span v-if="v$.postal1.$error">
+                            {{ v$.postal1.$errors[0].$message }} <br>
+                        </span>
+                    </div>
+                    <div class="col-md-5 mb-4 pe-md-0">
+                        <label for="lastName">Last Name <span>*</span></label>
+                        <input
+                            id="lastName"
+                            v-model="state.lName1"
+                            type="text"
+                            class="form-control"
+                        >
+                        <span v-if="v$.lName1.$error">
+                            {{ v$.lName1.$errors[0].$message }} <br>
+                        </span>
+                        <label for="contactNumber">Contact Number <span>*</span></label>
+                        <input
+                            id="contactNumber"
+                            v-model="state.contactNo1"
+                            type="number"
+                            class="form-control"
+                            style="width: 100%"
+                        >
+                        <span v-if="v$.contactNo1.$error">
+                            Please enter a valid Contact Number! <br>
+                        </span>
+                        <input
+                            id="billDetails"
+                            type="checkbox"
+                            class="mt-4"
+                            @change="autoFill()"
+                        >
+                        <label
+                            for="billDetails"
+                            class="ps-1"
+                        >
+                            Billing details same as contact details
+                        </label>
                         <div class="col-1" />
-                        <div class="col-md-5 mb-4">
-                            <label for="firstName">First Name <span>*</span></label>
-                            <input
-                                id="firstName"
-                                v-model="state.fName1"
-                                type="text"
-                                class="form-control"
-                            >
-                            <span v-if="v$.fName1.$error">
-                                {{ v$.fName1.$errors[0].$message }} <br>
-                            </span>
-                            <label for="inputEmail">Email <span>*</span></label>
-                            <input
-                                id="inputEmail"
-                                v-model="state.email"
-                                type="email"
-                                class="form-control"
-                            >
-                            <span v-if="!showEmailMsg">
-                                <span v-if="v$.email.$error">
-                                    {{ v$.email.$errors[0].$message }} <br>
-                                </span>
-                            </span>
-                            <span v-if="showEmailMsg">Invalid Email <br></span>
-                            <label for="address">Address <span>*</span></label>
-                            <input
-                                id="address"
-                                v-model="state.add1"
-                                type="text"
-                                class="form-control"
-                            >
-                            <span v-if="v$.add1.$error">
-                                {{ v$.add1.$errors[0].$message }} <br>
-                            </span>
-                            <label for="postal">Postal Code <span>*</span></label>
-                            <input
-                                id="postal"
-                                v-model="state.postal1"
-                                type="text"
-                                class="form-control"
-                            >
-                            <span v-if="v$.postal1.$error">
-                                {{ v$.postal1.$errors[0].$message }} <br>
-                            </span>
-                        </div>
-                        <div class="col-md-5 mb-4">
-                            <label for="lastName">Last Name <span>*</span></label>
-                            <input
-                                id="lastName"
-                                v-model="state.lName1"
-                                type="text"
-                                class="form-control"
-                            >
-                            <span v-if="v$.lName1.$error">
-                                {{ v$.lName1.$errors[0].$message }} <br>
-                            </span>
-                            <label for="contactNumber">Contact Number <span>*</span></label>
-                            <input
-                                id="contactNumber"
-                                v-model="state.contactNo1"
-                                type="number"
-                                class="form-control"
-                                style="width: 100%"
-                            >
-                            <span v-if="v$.contactNo1.$error">
-                                Please enter a valid Contact Number! <br>
-                            </span>
-                            <input
-                                id="billDetails"
-                                type="checkbox"
-                                class="mt-4"
-                                @change="autoFill()"
-                            >
-                            <label for="billDetails">
-                                &nbsp; Billing detail is the same as contact details
-                            </label>
-                            <div class="col-1" />
-                        </div>
                     </div>
                 </div>
             </div>
@@ -106,7 +108,7 @@
                 </h3>
                 <div class="row">
                     <div class="col-1" />
-                    <div class="col-md-5 mb-4">
+                    <div class="col-md-5 mb-4 pe-md-0">
                         <label for="firstName">First Name <span>*</span></label>
                         <input
                             id="firstName"
@@ -141,7 +143,7 @@
                             {{ v$.add2.$errors[0].$message }} <br>
                         </span>
                     </div>
-                    <div class="col-md-5 mb-4">
+                    <div class="col-md-5 mb-4 pe-md-0">
                         <label for="lastName">Last Name <span>*</span></label>
                         <input
                             id="lastName"
@@ -177,6 +179,7 @@
                     </div>
                     <div class="row mx-auto">
                         <div class="col-3 col-md-8" />
+
                         <button
                             type="button"
                             class="mainBtnDesign my-3 col-6 col-md-3"
@@ -184,6 +187,7 @@
                         >
                             Payment
                         </button>
+
                         <div class="col-3 col-md-1" />
                     </div>
                 </div>
