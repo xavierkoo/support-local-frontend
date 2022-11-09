@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <br>
                 <div class="row justify-content-center">
-                    <div class="col-xl-3 col-md-2 d-none d-md-block">
+                    <div class="col-xl-3 col-md-2 d-none d-md-block sidePanel">
                         <!-- Left Column-->
                         <!-- Display logo only from MD to Lg -->
                         <!-- Logo will align left, Caption will be visible at XL -->
@@ -111,7 +111,7 @@
                                         :num-sold="obj.numberSold"
                                         :product-pic-url="obj.imgUrl"
                                         :product-id="obj.id"
-                                        class="mb-3"
+                                        class="mb-3 card-grow"
                                     />
                                 </template>
                             </div>
@@ -130,7 +130,7 @@
                                         :num-sold="obj.numberSold"
                                         :product-pic-url="obj.imgUrl"
                                         :product-id="obj.id"
-                                        class="mb-3"
+                                        class="mb-3 card-grow"
                                     />
                                 </template>
                             </div>
@@ -300,4 +300,8 @@ export default {
 
 <style>
 @import "../assets/style/global.css";
+
+.sidePanel {
+  border-right: 1px solid #c8c8c8;
+}
 </style>

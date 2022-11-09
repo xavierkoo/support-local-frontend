@@ -2,9 +2,14 @@
     <div class="App checkOut">
         <form @submit.prevent="onSubmit">
             <div class="container checkOutBack my-3">
-                <h3 class="my-3">
-                    Contact Details
-                </h3>
+                <div class="row">
+                    <div class="col-md-1" />
+                    <div class="col-md-11">
+                        <h3 class="my-3">
+                            <b>Contact Details</b>
+                        </h3>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-1" />
                     <div class="col-md-2">
@@ -116,9 +121,14 @@
             </div>
 
             <div class="container checkOutBack">
-                <h3 class="my-3">
-                    Billing Details
-                </h3>
+                <div class="row">
+                    <div class="col-md-1" />
+                    <div class="col-md-11">
+                        <h3 class="my-3">
+                            <b>Billing Details</b>
+                        </h3>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-1" />
                     <div class="col-md-5 mb-4 pe-md-0">

@@ -8,7 +8,7 @@
             @enter="enter"
             @after-enter="afterEnter"
         >
-            <div class="card">
+            <div class="card drop-sd-card">
                 <img
                     class="rounded-0 card-img-top"
                     :src="require(`@/${productPicUrl}`)"
@@ -58,7 +58,7 @@
                                 class="mainBtnDesign text-decoration-none text-center p-2 my-auto"
                                 :to="`/individual/${productId}`"
                             >
-                                More Info
+                                Buy now!
                             </router-link>
                         </div>
                     </div>
@@ -147,4 +147,8 @@ export default {
 
 <style scoped>
 @import "../assets/style/global.css";
+
+.card {
+  border: 0px !important;
+}
 </style>

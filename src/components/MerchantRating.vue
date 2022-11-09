@@ -1,7 +1,9 @@
 <template>
     <div>
-        <div class="card text-center pt-2 mt-2 merchantRating">
-            <div class="card-body">
+        <div
+            class="card text-center pt-2 mt-2 merchantRating d-flex justify-content-center align-items-center"
+        >
+            <div class="">
                 <h3 class="card-title fw-bold">
                     Merchant Rating
                 </h3>

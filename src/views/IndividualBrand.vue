@@ -52,7 +52,9 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <span class="fw-bold mx-3">Featured Product</span>
+                            <h5 class="fw-bold mx-3 my-4">
+                                Trending Now
+                            </h5>
                         </div>
                         <div class="row justify-content-center m-2">
                             <!-- Split 2 Col to display 2 cards  -->
@@ -72,7 +74,7 @@
                                         :num-sold="obj.numberSold"
                                         :product-pic-url="obj.imgUrl"
                                         :product-id="obj.id"
-                                        class="mb-3"
+                                        class="mb-3 card-grow"
                                     />
                                 </template>
                             </div>
@@ -91,7 +93,7 @@
                                         :num-sold="obj.numberSold"
                                         :product-pic-url="obj.imgUrl"
                                         :product-id="obj.id"
-                                        class="mb-3"
+                                        class="mb-3 card-grow"
                                     />
                                 </template>
                             </div>
