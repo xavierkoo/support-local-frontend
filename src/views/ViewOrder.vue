@@ -27,7 +27,7 @@
                     <div class="col-1 d-block d-sm-none" />
                     <div class="col-8">
                         <div>
-                            <!-- <b><b>{{ orderId }}</b></b> -->
+                            <b>{{ orderObj.id }}</b>
                         </div>
                     </div>
                 </div>
