@@ -1,24 +1,26 @@
 <template>
     <div>
-        <div class="card text-center pt-2 brandProfile">
-            <!-- Insert Img here -->
-            <img
-                :src="require(`@/${merchantPic}`)"
-                alt=""
-                class="d-block mx-auto mt-4"
-            >
-            <div class="card-body">
-                <h3 class="card-title fw-bold">
-                    {{ merchantName }}
-                </h3>
-                <p class="card-text">
-                    <!-- TODO: Missing Desc -->
-                    {{ desc }}
-                </p>
-                <!-- TODO: Need to link this to the email API -->
-                <button class="btn mainBtnDesign">
-                    Contact me
-                </button>
+        <div
+            class="card text-center pt-2 brandProfile d-flex justify-content-center align-items-center"
+        >
+            <div>
+                <img
+                    :src="require(`@/${merchantPic}`)"
+                    alt=""
+                    class="d-block mx-auto mt-4"
+                >
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">
+                        {{ merchantName }}
+                    </h3>
+                    <p class="card-text">
+                        {{ desc }}
+                    </p>
+                    <!-- TODO: Need to link this to the email API -->
+                    <button class="btn mainBtnDesign">
+                        Contact me
+                    </button>
+                </div>
             </div>
         </div>
     </div>

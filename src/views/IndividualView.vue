@@ -20,7 +20,7 @@
                                 <div class="row mt-5">
                                     <div class="col-1" />
                                     <h2 class="col text-start mb-3">
-                                        {{ product.name }}
+                                        <b>{{ product.name }}</b>
                                     </h2>
                                 </div>
                                 <div class="row">
@@ -52,19 +52,6 @@
                                         v-model="quantity"
                                         class="col-5 py-2"
                                         type="number"
-                                    >
-                                    <div class="col-1 col-sm-3" />
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-1" />
-                                    <h6 class="col-2 my-auto">
-                                        Size
-                                    </h6>
-                                    <div class="col-3 col-sm-1" />
-                                    <input
-                                        id="size"
-                                        class="col-5 py-2"
-                                        type="text"
                                     >
                                     <div class="col-1 col-sm-3" />
                                 </div>
@@ -105,7 +92,7 @@
                             <!--Product Desc-->
                             <div class="row individualViewProdDesc mx-auto">
                                 <h5 class="d-flex align-items-start mx-2 my-2">
-                                    Product Description
+                                    <b>Product Description</b>
                                 </h5>
                                 <h6 class="d-flex align-items-start mx-2 my-3">
                                     {{ product.name }}
@@ -113,7 +100,7 @@
                                 <ul
                                     v-for="(specs, idx) in product.productSpec"
                                     :key="idx"
-                                    class="mx-4"
+                                    class="mx-4 my-1"
                                 >
                                     <li>{{ specs }}</li>
                                 </ul>
@@ -134,7 +121,7 @@
                                     </div>
                                     <div class="col-12 col-lg-5 col-xl-7 my-auto">
                                         <h3 class="text-center text-lg-start">
-                                            {{ merchant.name }}
+                                            <b>{{ merchant.name }}</b>
                                         </h3>
                                         <p class="col-12 text-center text-lg-start m-0">
                                             {{ merchant.aboutUs }}
@@ -289,7 +276,7 @@
                                 :product-pic-url="obj.imgUrl"
                                 :profile-pic-url="obj.merchant.imgUrl"
                                 :product-id="obj.id"
-                                class="px-sm-2 mb-2"
+                                class="px-sm-2 mb-2 card-grow"
                             />
                         </div>
                     </div>

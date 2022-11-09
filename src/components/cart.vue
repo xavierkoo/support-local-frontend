@@ -10,23 +10,7 @@
             </div>
         </div>
         <div class="row productBack py-3">
-            <div class="col-1 d-block d-sm-none" />
-            <div
-                class="col-1 col-sm-1 cb1 my-auto d-flex justify-content-center align-content-center"
-            >
-                <input
-                    v-if="showCheckBox"
-                    type="checkbox"
-                >
-            </div>
-            <div class="col-sm-1 d-none d-lg-block">
-                <img
-                    :src="img"
-                    alt=""
-                    class="img-fluid my-auto"
-                >
-            </div>
-            <div class="col-7 col-sm-3 col-lg-3 my-auto text-center">
+            <div class="col-7 col-sm-3 col-lg-5 my-auto text-center">
                 <b>{{ product.name }}</b>
             </div>
             <div class="text-end col-3 col-sm-2 my-auto text-sm-center">

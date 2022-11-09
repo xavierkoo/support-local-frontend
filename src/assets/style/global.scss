@@ -11,6 +11,22 @@ body {
   min-height: 60vh;
 }
 
+//Drop Shadows
+.drop-sd-card {
+  filter: drop-shadow(2px 10px 10px rgba(0, 0, 0, 0.1));
+}
+
+.drop-sd-btn {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.card-grow {
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
 #light {
   //general
   h1,
@@ -30,8 +46,8 @@ body {
   }
 
   .blur {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   //LightToggleMode
@@ -197,32 +213,30 @@ body {
   }
   //sideNavPill CSS
   .sideBar {
-    border-radius: $btnBorderRadius;
+    border-radius: $secondaryBorderRadius;
     .box {
       height: 48px;
-      background: $mainBtn;
+      background: $secondaryBtn;
       @include center;
-      border-radius: $btnBorderRadius;
+      border-radius: $secondaryBorderRadius;
       overflow: hidden;
-      transition: 1.8s;
+      transition: 0.5s;
       position: relative;
       cursor: pointer;
-      box-shadow: inset 0000 black;
+      box-shadow: inset 0000 $mainBtn;
       &:hover {
-        box-shadow: inset 400px 0 0 0 black;
+        box-shadow: inset 400px 0 0 0 $mainBtn;
         cursor: pointer;
-        color: $mainBtn;
       }
     }
     img {
       width: 40px;
       height: auto;
       margin: 0px 5px;
-      background: white;
       border-radius: $boxRadius;
     }
     span {
-      color: white;
+      color: $secondaryBtnFontColor;
       margin: 0px 5px;
     }
     a {
@@ -262,30 +276,31 @@ body {
   //LightIndividualView CSS
   .mainBtnDesign {
     //btn
-    background: $mainBtn;
-    font-family: $headingFontFamily;
+    background: $brandMain;
+    font-family: $bodyFontFamily;
     color: white;
-    border: $borderLight;
+    border-radius: $boxRadius;
+    border: none;
     @include button;
     overflow: hidden;
-    transition: 1.8s;
+    transition: 0.35s;
     position: relative;
     cursor: pointer;
     box-shadow: inset 0000 black;
     &:hover {
-      box-shadow: inset 500px 0 0 0 black;
+      box-shadow: inset 500px 0 0 0 #c53b29;
       cursor: pointer;
-      color: $mainBtn;
+      color: white;
     }
   }
   .addBtnDesign {
-    background: $mainBtn;
-    font-family: $headingFontFamily;
+    background: $brandMain;
+    font-family: $bodyFontFamily;
     color: white;
-    border: $borderDark;
+    border: 0px;
     @include button;
     overflow: hidden;
-    transition: 1.8s;
+    transition: 0.5s;
     position: relative;
     cursor: pointer;
     box-shadow: inset 0000 #5dca82;
@@ -299,12 +314,12 @@ body {
   .cancelBtnDesign {
     background: white;
     font-family: $headingFontFamily;
-    border: solid 1px black;
+    border: none;
     color: black;
     @include button;
     overflow: hidden;
     position: relative;
-    transition: 1.8s;
+    transition: 0.5s;
     cursor: pointer;
     box-shadow: inset 0000 black;
     &:hover {
@@ -324,14 +339,14 @@ body {
     font-size: 16px;
     border-radius: $boxRadius;
     overflow: hidden;
-    transition: 1.8s;
+    transition: 0.5s;
     position: relative;
     cursor: pointer;
     box-shadow: inset 0000 black;
     &:hover {
-      box-shadow: inset 500px 0 0 0 black;
+      box-shadow: inset 500px 0 0 0 lightgray;
       cursor: pointer;
-      color: white;
+      color: black;
     }
   }
 
@@ -410,7 +425,7 @@ body {
     background: white;
     border-radius: $boxRadius;
     input {
-      background: #d9d9d9;
+      background: $inputShade;
       border: none;
     }
     #qty {
@@ -433,7 +448,7 @@ body {
     background: $mainBtn;
     border-radius: $boxRadius;
     font-size: $bodyLarge;
-    color: white;
+    color: black;
   }
 
   .individualViewProductRating {
@@ -443,7 +458,8 @@ body {
     border-radius: $boxRadius;
     button {
       @include button;
-      background: $mainBtn;
+      background: $brandMain;
+      border: none;
       color: white;
     }
 
@@ -602,12 +618,15 @@ body {
   .checkOut {
     .checkOutBack {
       background: white;
-      border: $borderLight;
+      border: 0.3px solid lightgray;
       border-radius: $boxRadius;
       color: black;
     }
     input {
-      background: #c8c8c8;
+      background: $inputShade;
+    }
+    select {
+      background: $inputShade;
     }
   }
   //LightViewOrder
@@ -991,7 +1010,7 @@ body {
   .cancelBtnDesign {
     background: white;
     font-family: $headingFontFamily;
-    border: $borderDark;
+    border: none;
     color: black;
     @include button;
     overflow: hidden;
