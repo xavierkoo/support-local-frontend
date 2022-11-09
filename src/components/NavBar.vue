@@ -9,6 +9,7 @@
                         class="brand-logo"
                     >
                 </router-link>
+
                 <button
                     class="navbar-toggler burger"
                     type="button"
@@ -51,6 +52,9 @@
                             Search
                         </button>
                     </form>
+                    <div class="nav-item">
+                        <toggle-mode class="ms-3 d-none d-md-block" />
+                    </div>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <router-link
@@ -122,6 +126,9 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item d-md-none">
+                            <toggle-mode />
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -131,7 +138,11 @@
 
 <script>
 import axios from "axios";
+import ToggleMode from "../components/ToggleMode.vue";
 export default {
+  components: {
+    ToggleMode,
+  },
   data() {
     return {
       mode: localStorage.modes,

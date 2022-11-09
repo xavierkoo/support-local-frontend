@@ -1,16 +1,14 @@
 <template>
-    <div :id="modes">
-        <div class="container-fluid">
-            <div :class="modes === 'dark' ? 'checked' : false">
-                <label class="toggle">
-                    <input
-                        type="checkbox"
-                        :checked="modes === 'dark' ? 'checked' : false"
-                        @change="toggle"
-                    >
-                    <span class="toggler round" />
-                </label>
-            </div>
+    <div class="container-fluid p-0">
+        <div :class="modes === 'dark' ? 'checked' : false">
+            <label class="toggle">
+                <input
+                    type="checkbox"
+                    :checked="modes === 'dark' ? 'checked' : false"
+                    @change="toggle"
+                >
+                <span class="toggler round" />
+            </label>
         </div>
     </div>
 </template>
