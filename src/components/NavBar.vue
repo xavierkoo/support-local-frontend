@@ -193,6 +193,7 @@ export default {
     logOut() {
       window.localStorage.removeItem("userId");
       window.localStorage.removeItem("cart");
+      this.$router.push("/");
     },
 
     titleCase(str) {
