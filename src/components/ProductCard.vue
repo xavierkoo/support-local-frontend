@@ -23,7 +23,7 @@
                             <img
                                 class="rounded-circle"
                                 :src="require(`@/${profilePicUrl}`)"
-                                style="width: 90%"
+                                style="width: 100%; height: 100%"
                             >
                         </div>
                         <div class="col-9 mb-0 my-auto">
