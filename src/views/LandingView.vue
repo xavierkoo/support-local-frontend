@@ -110,6 +110,8 @@
                                         :price="obj.price"
                                         :num-sold="obj.numberSold"
                                         :product-pic-url="obj.imgUrl"
+                                        :profile-pic-url="obj.merchant.imgUrl"
+                                        :last-online-hour="obj.merchant.lastOnline"
                                         :product-id="obj.id"
                                         class="mb-3 card-grow"
                                     />
@@ -129,6 +131,8 @@
                                         :price="obj.price"
                                         :num-sold="obj.numberSold"
                                         :product-pic-url="obj.imgUrl"
+                                        :profile-pic-url="obj.merchant.imgUrl"
+                                        :last-online-hour="obj.merchant.lastOnline"
                                         :product-id="obj.id"
                                         class="mb-3 card-grow"
                                     />
