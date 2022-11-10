@@ -80,7 +80,7 @@
                             <ul class="dropdown-menu dpMenu">
                                 <li v-if="merchantFlag">
                                     <router-link
-                                        to="/dashboard/"
+                                        :to="merchantDashHref"
                                         class="dropdown-item dpSign"
                                     >
                                         Dashboard
@@ -159,7 +159,7 @@ export default {
       loginFlag: false,
       merchantFlag: false,
       userId: "",
-      merchantDashHref: `/dashboard/${this.userId}`,
+      merchantDashHref: ``,
     };
   },
   async beforeMount() {
@@ -191,6 +191,7 @@ export default {
         this.loginFlag = true;
         if (window.localStorage.getItem("accType") === "Merchant") {
           this.userId = window.localStorage.getItem("userId");
+          this.merchantDashHref = `/dashboard/${this.userId}`;
           this.merchantFlag = true;
         }
       }
@@ -219,6 +220,7 @@ export default {
     logOut() {
       window.localStorage.removeItem("userId");
       window.localStorage.removeItem("cart");
+      window.localStorage.removeItem("accType");
       this.$router.push("/");
     },
 
