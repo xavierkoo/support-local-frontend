@@ -320,55 +320,61 @@ export default {
     payNow() {
       // Get the data object & userID stored on local storage
       let currentCartObj = this.$store.getters.cartItems;
-      let currentCartArr = [];
       let currentUserID = window.localStorage.getItem("userId");
-      let date = new Date();
-      let todayDate = date.toLocaleDateString("en-TT");
-      let deliveryDate = new Date(
-        date.setDate(date.getDate() + 7)
-      ).toLocaleDateString("en-TT");
 
-      for (const item of currentCartObj) {
-        let tempArr = { prodId: item.id, qty: item.quantity };
-        currentCartArr.push(tempArr);
+      if (
+        (currentCartObj == null) |
+        (currentCartObj.length == 0) |
+        (currentUserID == null)
+      ) {
+        alert("You seem to have jumped through a loophole... Time to go back!");
+        this.$router.push("/");
+      } else {
+        let currentCartArr = [];
+        let date = new Date();
+        let todayDate = date.toLocaleDateString("en-TT");
+        let deliveryDate = new Date(
+          date.setDate(date.getDate() + 7)
+        ).toLocaleDateString("en-TT");
+        for (const item of currentCartObj) {
+          let tempArr = { prodId: item.id, qty: item.quantity };
+          currentCartArr.push(tempArr);
+        }
+        // Post details to the orders based on the requirements
+        axios
+          .post("https://support-local.herokuapp.com/api/orders", {
+            // Add Key: Values
+            user: currentUserID,
+            orderDate: todayDate,
+            orderStatus: "Waiting for Seller to ship",
+            products: currentCartArr,
+            deliveryDate: deliveryDate,
+          })
+          .then(async (res) => {
+            // RESPONSE returns the newly injected order object
+            const user = await axios.get(
+              `https://support-local.herokuapp.com/api/users/${currentUserID}`
+            );
+            // GET User's orderDetails Arr
+            let orderDetailArr = user.data.orderDetails;
+            // Add to User's orderDetails Arr
+            orderDetailArr.push(res.data.id);
+            // PATCH User's orderDetails Arr (override)
+            axios.patch(
+              `https://support-local.herokuapp.com/api/users/${currentUserID}`,
+              {
+                orderDetails: orderDetailArr,
+              }
+            );
+            // Clears the cart from local storage
+            window.localStorage.removeItem("cart");
+            this.$router.push("/orderLog");
+          })
+          .catch((err) => {
+            console.error(err);
+            this.error = true;
+          });
       }
-
-      // Post details to the orders based on the requirements
-      axios
-        .post("https://support-local.herokuapp.com/api/orders", {
-          // Add Key: Values
-          user: currentUserID,
-          orderDate: todayDate,
-          orderStatus: "Waiting for Seller to ship",
-          products: currentCartArr,
-          deliveryDate: deliveryDate,
-        })
-        .then(async (res) => {
-          // RESPONSE returns the newly injected order object
-          const user = await axios.get(
-            `https://support-local.herokuapp.com/api/users/${currentUserID}`
-          );
-          // GET User's orderDetails Arr
-          let orderDetailArr = user.data.orderDetails;
-
-          // Add to User's orderDetails Arr
-          orderDetailArr.push(res.data.id);
-
-          // PATCH User's orderDetails Arr (override)
-          axios.patch(
-            `https://support-local.herokuapp.com/api/users/${currentUserID}`,
-            {
-              orderDetails: orderDetailArr,
-            }
-          );
-          // Clears the cart from local storage
-          window.localStorage.removeItem("cart");
-          this.$router.push("/orderLog");
-        })
-        .catch((err) => {
-          console.error(err);
-          this.error = true;
-        });
     },
   },
 };
