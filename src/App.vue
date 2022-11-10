@@ -7,13 +7,6 @@
                     <NavBar />
                 </div>
                 <div class="row d-flex justify-content-center minHeight">
-                    <nav class="">
-                        <router-link to="/dashboard/635abc7fb01737e727fb4b36">
-                            Merchant Dashboard
-                        </router-link>
-                        |
-                    </nav>
-
                     <router-view v-slot="{ Component }">
                         <transition
                             name="route"

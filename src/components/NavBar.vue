@@ -78,7 +78,15 @@
                                 Profile
                             </a>
                             <ul class="dropdown-menu dpMenu">
-                                <li>
+                                <li v-if="merchantFlag">
+                                    <router-link
+                                        to="/dashboard/"
+                                        class="dropdown-item dpSign"
+                                    >
+                                        Dashboard
+                                    </router-link>
+                                </li>
+                                <li v-else>
                                     <router-link
                                         to="/orderLog"
                                         class="dropdown-item dpSign"
@@ -149,6 +157,9 @@ export default {
       searchInput: "",
       productList: [],
       loginFlag: false,
+      merchantFlag: false,
+      userId: "",
+      merchantDashHref: `/dashboard/${this.userId}`,
     };
   },
   async beforeMount() {
@@ -178,8 +189,12 @@ export default {
         this.loginFlag = false;
       } else {
         this.loginFlag = true;
+        if (window.localStorage.getItem("accType") === "Merchant") {
+          this.userId = window.localStorage.getItem("userId");
+          this.merchantFlag = true;
+        }
       }
-    }, 1000);
+    }, 3000);
   },
   methods: {
     redirect() {
