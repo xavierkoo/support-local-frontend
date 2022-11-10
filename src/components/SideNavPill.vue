@@ -3,6 +3,7 @@
         <div class="row">
             <a
                 class="box text-center w-75 mx-4"
+                :class="{ active: isActive }"
                 role="button"
                 @click="$emit('clickedItem', categoryName)"
             >
@@ -29,6 +30,10 @@ export default {
       type: String,
       default: "../assets/navSidePlaceholder.png",
     },
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ["clickedItem"],
   data() {
@@ -38,6 +43,10 @@ export default {
   },
 
   beforeMount() {
+    if (this.categoryName == "all") {
+      this.categoryImage = "assets/img/icons/All.svg";
+    }
+
     if (this.categoryName == "Food & Beverages") {
       this.categoryImage = "assets/img/icons/Food.svg";
     }
@@ -73,5 +82,9 @@ export default {
 @import "../assets/style/global.css";
 .bg-none {
   background-color: #d36959;
+}
+
+.active {
+  background-color: #d36959 !important;
 }
 </style>

@@ -18,6 +18,7 @@
                                 v-for="(cat, idx) in productCatArr"
                                 :key="idx"
                                 :category-name="cat"
+                                :is-active="category == cat ? true : false"
                                 @clicked-item="changeCat"
                             />
                         </div>
@@ -196,6 +197,7 @@ export default {
       viewMore: false,
       productList: null,
       productCatArr: [
+        "all",
         "Food & Beverages",
         "Men's Apparel",
         "Women's Apparel",
