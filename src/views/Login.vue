@@ -46,6 +46,27 @@
                                     {{ v$.password.$errors[0].$message }}
                                 </span>
                             </div>
+                            <div class="row my-2">
+                                <div class="mb-3">
+                                    <label for="accType">Type of Account</label>
+                                    <select
+                                        id="accType"
+                                        v-model="state.accType"
+                                        class="form-select form-select-lg"
+                                        name=""
+                                    >
+                                        <option selected>
+                                            Select one
+                                        </option>
+                                        <option value="Patron">
+                                            Patron
+                                        </option>
+                                        <option value="Merchant">
+                                            Merchant
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
                             <br>
                         </form>
                     </div>
@@ -86,6 +107,7 @@ export default {
     const state = reactive({
       email: "",
       password: "",
+      accType: "",
     });
 
     const rules = computed(() => {
@@ -95,6 +117,7 @@ export default {
           email,
         },
         password: { required, minLength: minLength(8) },
+        accType: { required },
       };
     });
     const v$ = useValidate(rules, state);
@@ -115,68 +138,131 @@ export default {
   methods: {
     submitForm(v$) {
       // // make api call to db to get
-      let url = `https://support-local.herokuapp.com/api/users`;
       this.v$.$validate();
+      if (this.state.accType == "Merchant") {
+        console.log("test");
+        let url = `https://support-local.herokuapp.com/api/merchants`;
+        axios
+          .get(url)
+          .then((resp) => {
+            if (!this.v$.$error) {
+              var data = resp.data;
+              let correctEmail = false;
+              let correctPassword = false;
 
-      axios
-        .get(url)
-        .then((resp) => {
-          if (!this.v$.$error) {
-            var data = resp.data;
-            let correctEmail = false;
-            let correctPassword = false;
+              for (const user of data) {
+                if (this.state.email === user.email) {
+                  if (this.state.password === user.password) {
+                    // (Email, Password) pair matches => SUCCESS
+                    // 1. Extract user.Id from the user
+                    // 2. Log user into memory
 
-            for (const user of data) {
-              console.log(user);
-              if (this.state.email === user.email) {
-                if (this.state.password === user.password) {
-                  // (Email, Password) pair matches => SUCCESS
-                  // 1. Extract user.Id from the user
-                  // 2. Log user into memory
+                    let userID = user.id;
+                    window.localStorage.setItem("userId", `${userID}`);
+                    correctEmail = true;
+                    correctPassword = true;
+                    this.isInvalid = false;
+                    this.isEmailIn = true;
 
-                  let userID = user.id;
-                  window.localStorage.setItem("userId", `${userID}`);
+                    console.log("All Correct, User Logged into Memory");
+                    this.$router.push(`/dashboard/${userID}`);
+                  }
+                  // Wrong Password but Email is present in the database
                   correctEmail = true;
-                  correctPassword = true;
-                  this.isInvalid = false;
-                  this.isEmailIn = true;
-
-                  console.log("All Correct, User Logged into Memory");
-                  this.$router.push("/checkout");
                 }
-                // Wrong Password but Email is present in the database
-                correctEmail = true;
               }
-            }
 
-            if (correctEmail == true && correctPassword == false) {
-              //
-              // Wrong Password but Email is present in the database
-              //
+              if (correctEmail == true && correctPassword == false) {
+                //
+                // Wrong Password but Email is present in the database
+                //
 
-              this.isEmailIn = true;
-              this.isInvalid = true;
-              this.state.password = "";
-            } else if ((correctEmail == false) & (correctPassword == false)) {
+                this.isEmailIn = true;
+                this.isInvalid = true;
+                this.state.password = "";
+              } else if ((correctEmail == false) & (correctPassword == false)) {
+                //
+                // No such email is present in the database
+                //
+                this.isInvalid = true;
+                this.state.email = "";
+                this.state.password = "";
+              }
+            } else {
               //
-              // No such email is present in the database
+              // clear input value w/o refreshing page
               //
-              this.isInvalid = true;
               this.state.email = "";
               this.state.password = "";
+              this.isInvalid = true;
             }
-          } else {
-            //
-            // clear input value w/o refreshing page
-            //
-            this.state.email = "";
-            this.state.password = "";
-            this.isInvalid = true;
-          }
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      }
+
+      if (this.state.accType == "Patron") {
+        let url = `https://support-local.herokuapp.com/api/users`;
+        axios
+          .get(url)
+          .then((resp) => {
+            if (!this.v$.$error) {
+              var data = resp.data;
+              let correctEmail = false;
+              let correctPassword = false;
+
+              for (const user of data) {
+                if (this.state.email === user.email) {
+                  if (this.state.password === user.password) {
+                    // (Email, Password) pair matches => SUCCESS
+                    // 1. Extract user.Id from the user
+                    // 2. Log user into memory
+
+                    let userID = user.id;
+                    window.localStorage.setItem("userId", `${userID}`);
+                    correctEmail = true;
+                    correctPassword = true;
+                    this.isInvalid = false;
+                    this.isEmailIn = true;
+
+                    console.log("All Correct, User Logged into Memory");
+                    this.$router.back();
+                  }
+                  // Wrong Password but Email is present in the database
+                  correctEmail = true;
+                }
+              }
+
+              if (correctEmail == true && correctPassword == false) {
+                //
+                // Wrong Password but Email is present in the database
+                //
+
+                this.isEmailIn = true;
+                this.isInvalid = true;
+                this.state.password = "";
+              } else if ((correctEmail == false) & (correctPassword == false)) {
+                //
+                // No such email is present in the database
+                //
+                this.isInvalid = true;
+                this.state.email = "";
+                this.state.password = "";
+              }
+            } else {
+              //
+              // clear input value w/o refreshing page
+              //
+              this.state.email = "";
+              this.state.password = "";
+              this.isInvalid = true;
+            }
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      }
     },
   },
 };
