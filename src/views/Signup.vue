@@ -84,13 +84,7 @@
 <script>
 import useValidate from "@vuelidate/core";
 import axios from "axios";
-import {
-  required,
-  email,
-  minLength,
-  sameAs,
-  helpers,
-} from "@vuelidate/validators";
+import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
 export default {
   setup() {
@@ -100,19 +94,14 @@ export default {
         password: "",
         confirm: "",
       },
+      accType: "",
     });
-    // Setting custom error messages
-    // const emailErrMsg = (value) => value.includes("@");
 
     const rules = computed(() => {
       return {
         email: {
           required,
           email,
-          //   emailErrMsg: helpers.withMessage(
-          //     "Invalid email address!",
-          //     emailErrMsg
-          //   ),
         },
         password: {
           // uses vuelidate the validate the password and confirm password
@@ -133,10 +122,13 @@ export default {
     submitForm() {
       // method gets user's input values and add it into the db
       // trying to add data into userBase db
-      let url = "https://support-local.herokuapp.com/api/users";
+
       var inputPassword = this.state.password.password;
       var inputEmail = this.state.email;
+      var accType = this.state.accType;
       this.v$.$validate();
+
+      let url = "https://support-local.herokuapp.com/api/users";
       axios
         .post(url, {
           email: inputEmail,

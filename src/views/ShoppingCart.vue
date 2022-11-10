@@ -40,7 +40,8 @@
                         ${{ total }}
                     </h5>
                     <router-link
-                        to="/login"
+                        v-if="loginFlag"
+                        to="/checkout"
                         class="col-4 col-sm-3 col-md-2"
                     >
                         <button
@@ -48,6 +49,18 @@
                             class="mainBtnDesign"
                         >
                             Order Now
+                        </button>
+                    </router-link>
+                    <router-link
+                        v-else
+                        to="/login"
+                        class="col-4 col-sm-3 col-md-2"
+                    >
+                        <button
+                            type="button"
+                            class="mainBtnDesign"
+                        >
+                            Login to Order
                         </button>
                     </router-link>
                     <div class="col-1 col-sm-5" />
@@ -84,7 +97,9 @@ export default {
     CartProducts,
   },
   data() {
-    return {};
+    return {
+      loginFlag: false,
+    };
   },
   computed: {
     items() {
@@ -113,6 +128,12 @@ export default {
     window.addEventListener("modes-localstorage-changed", (event) => {
       this.mode = event.detail.storage;
     });
+
+    if (window.localStorage.getItem("userId") === null) {
+      this.loginFlag = false;
+    } else {
+      this.loginFlag = true;
+    }
   },
 };
 </script>
