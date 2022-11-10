@@ -49,30 +49,42 @@
                 <div
                     class="footerWrapper d-flex justify-content-center align-content-center p-0"
                 >
-                    <div class="footerButton">
+                    <a
+                        class="footerButton text-decoration-none"
+                        href="https://www.facebook.com/profile.php?id=100087343224860"
+                    >
                         <div class="icon">
                             <i class="fab fa-facebook-f" />
                         </div>
                         <span> Facebook</span>
-                    </div>
-                    <div class="footerButton">
+                    </a>
+                    <a
+                        class="footerButton text-decoration-none"
+                        href="https://twitter.com/SupportLocalWAD"
+                    >
                         <div class="icon">
                             <i class="fab fa-twitter" />
                         </div>
                         <span> Twitter</span>
-                    </div>
-                    <div class="footerButton">
+                    </a>
+                    <a
+                        class="footerButton text-decoration-none"
+                        href="https://www.instagram.com/supportlocalwad2/"
+                    >
                         <div class="icon">
                             <i class="fab fa-instagram" />
                         </div>
                         <span> Instagram</span>
-                    </div>
-                    <div class="footerButton">
+                    </a>
+                    <a
+                        class="footerButton text-decoration-none"
+                        href="https://www.youtube.com/channel/UCiY4X25IhzK4wrOn6ButkSQ"
+                    >
                         <div class="icon">
                             <i class="fab fa-youtube" />
                         </div>
                         <span> Youtube</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
