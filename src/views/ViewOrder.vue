@@ -79,6 +79,7 @@
             :location="merchantObj.location"
             :delivery-date="orderObj.deliveryDate"
             :order-status="orderObj.orderStatus"
+            :order-id="orderObj.id"
         />
     </div>
 </template>
@@ -129,6 +130,23 @@ export default {
       } else {
         this.rate = !true;
       }
+    },
+    updateDeliveryStatus() {
+      //orderObj.id
+      this.deliveryStatus = "Item Received!"
+        .patch(
+          `https://support-local.herokuapp.com/api/orders/${orderObj.id}`,
+          {
+            orderStatus: this.deliveryStatus,
+          }
+        )
+        .then((res) => {
+          location.reload();
+          console.log("Delivery Status Updated");
+        })
+        .catch((err) => {
+          console.log("Error Patching~");
+        });
     },
   },
 };
