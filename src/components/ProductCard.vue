@@ -85,8 +85,8 @@ export default {
       default: "",
     },
     lastOnlineHour: {
-      type: String,
-      default: "1",
+      type: Number,
+      default: 1,
     },
     desc: {
       type: String,
