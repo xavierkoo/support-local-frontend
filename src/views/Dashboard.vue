@@ -17,7 +17,9 @@
                                     merchant.name
                                 }}</span>
                             </h2>
-                            <h4><span>P/L:</span> <span class="pAndL"> $XXX.XX</span></h4>
+                            <h4>
+                                <span>P/L:</span> <span class="pAndL"> ${{ totalProfit }}</span>
+                            </h4>
                         </div>
                         <section>
                             <!-- Form Section -->
@@ -402,6 +404,7 @@ export default {
       merchant: "",
       productList: null,
       merchantRating: 0,
+      totalProfit: 0,
       addNew: false,
       editProd: false,
       submitting: false,
@@ -439,6 +442,7 @@ export default {
     let merchantProducts = selectedMerchant.data.products;
     let productArr = [];
     let avgRating = 0;
+    let totalProfit = 0;
 
     for (const prodId of merchantProducts) {
       // Retrieve product based on productId
@@ -446,6 +450,8 @@ export default {
         `https://support-local.herokuapp.com/api/products/${prodId}`
       );
       avgRating += selectedProduct.data.rating;
+      totalProfit +=
+        selectedProduct.data.price * selectedProduct.data.numberSold;
 
       // Add to productArr
       productArr.push(selectedProduct.data);
@@ -453,6 +459,7 @@ export default {
     // Process the average rating from all the products
     avgRating = Math.floor(avgRating / merchantProducts.length);
     this.merchantRating = avgRating;
+    this.totalProfit = totalProfit;
 
     // Assign productArr to state
     this.productList = productArr;

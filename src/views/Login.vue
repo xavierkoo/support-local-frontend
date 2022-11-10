@@ -159,6 +159,10 @@ export default {
 
                     let userID = user.id;
                     window.localStorage.setItem("userId", `${userID}`);
+                    window.localStorage.setItem(
+                      "accType",
+                      `${this.state.accType}`
+                    );
                     correctEmail = true;
                     correctPassword = true;
                     this.isInvalid = false;
@@ -221,6 +225,10 @@ export default {
 
                     let userID = user.id;
                     window.localStorage.setItem("userId", `${userID}`);
+                    window.localStorage.setItem(
+                      "accType",
+                      `${this.state.accType}`
+                    );
                     correctEmail = true;
                     correctPassword = true;
                     this.isInvalid = false;
