@@ -18,7 +18,7 @@
                 <b>Order Status:</b>
             </div>
             <div class="col-xl-4 col-md-6 col-6 my-2">
-                {{ orderStatus }}
+                {{ deliveryStatus }}
             </div>
         </div>
         <div class="row px-3">
@@ -49,8 +49,10 @@
             </div>
             <div class="col-xl-4 col-md-4 col-sm-6 col-6 my-2 px-1">
                 <button
+                    v-if="orderStatus != 'Item Received!'"
                     class="mainBtnDesign px-4"
                     type="button"
+                    @click="updateDeliveryStatus()"
                 >
                     Received
                 </button>
@@ -60,8 +62,10 @@
     </div>
 </template>
 <script>
+import axios from "axios";
+
 export default {
-  name: "CartProducts",
+  name: "OrderItem",
   props: {
     merchant: {
       type: String,
@@ -78,6 +82,37 @@ export default {
     orderStatus: {
       type: String,
       default: "Waiting for seller to ship",
+    },
+    orderId: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      deliveryStatus: this.orderStatus,
+    };
+  },
+  methods: {
+    updateDeliveryStatus() {
+      //orderObj.id
+      let deliveryStatus = "Item Received!";
+      axios
+        .patch(
+          `https://support-local.herokuapp.com/api/orders/${this.orderId}`,
+          {
+            orderStatus: deliveryStatus,
+          }
+        )
+        .then((res) => {
+          location.reload();
+          this.deliveryStatus = deliveryStatus;
+          console.log("Delivery Status Updated");
+        })
+        .catch((err) => {
+          console.log(err);
+          console.log("Error Patching~");
+        });
     },
   },
 };
