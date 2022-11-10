@@ -86,7 +86,7 @@
                                         Dashboard
                                     </router-link>
                                 </li>
-                                <li v-else>
+                                <li v-if="merchantFlag == false">
                                     <router-link
                                         to="/orderLog"
                                         class="dropdown-item dpSign"
