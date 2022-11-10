@@ -21,6 +21,7 @@
                     >
                         <div class="col-3 text-center">
                             <img
+                                class="rounded-circle"
                                 :src="require(`@/${profilePicUrl}`)"
                                 style="width: 90%"
                             >
