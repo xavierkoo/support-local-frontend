@@ -21,9 +21,9 @@
                     >
                         <div class="col-3 text-center">
                             <img
-                                class="rounded-circle"
+                                class="rounded"
                                 :src="require(`@/${profilePicUrl}`)"
-                                style="width: 100%; height: 100%"
+                                style="width: 100%; height: 100%; object-fit: contain"
                             >
                         </div>
                         <div class="col-9 mb-0 my-auto">
