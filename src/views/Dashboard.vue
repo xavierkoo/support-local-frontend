@@ -478,7 +478,6 @@ export default {
           productSpec: productSpecArr,
         })
         .then((res) => {
-          console.log(res.data);
           this.productList.push(res.data);
           this.newProdName = "";
           this.newProdPrice = 0;

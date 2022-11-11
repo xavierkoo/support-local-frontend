@@ -169,7 +169,6 @@ export default {
       `https://support-local.herokuapp.com/api/merchants/${route.params.merchantId}`
     );
     this.merchant = selectedMerchant.data;
-    console.log(this.merchant);
 
     // For loop the different productId
     let merchantProducts = selectedMerchant.data.products;

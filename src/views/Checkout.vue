@@ -316,7 +316,7 @@ export default {
       if (!this.v$.$error) {
         this.$router.push("/payment");
       } else {
-        console.log("form failed");
+        console.log("There seems to be something wrong with the form inputs!");
       }
     },
     autoFill() {
