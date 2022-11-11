@@ -31,7 +31,7 @@
                     <div class="col-xl-8 col-md-12">
                         <!-- Right Col -->
                         <img
-                            src="../assets/offer.png"
+                            src="../assets/img/placeholders/offer.png"
                             alt=""
                             class="img-fluid mx-auto d-block"
                         >

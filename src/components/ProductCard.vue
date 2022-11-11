@@ -106,11 +106,11 @@ export default {
     },
     profilePicUrl: {
       type: String,
-      default: "assets/profilepng.png",
+      default: "",
     },
     productPicUrl: {
       type: String,
-      default: "assets/hero.png",
+      default: "",
     },
     productId: {
       type: String,
