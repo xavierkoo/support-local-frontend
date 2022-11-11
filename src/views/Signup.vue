@@ -133,7 +133,7 @@ export default {
         .post(url, {
           email: inputEmail,
           password: inputPassword,
-          profImageUrl: "assets/profilepng.png",
+          profImageUrl: "assets/img/placeholders/dp1.jpeg",
           reviews: [],
           orderDetails: [],
         })
