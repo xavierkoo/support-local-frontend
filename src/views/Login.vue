@@ -18,32 +18,38 @@
                     <div class="row my-2">
                         <form>
                             <div class="form-group my-3">
-                                <label for="Email">Email <span>*</span></label>
+                                <label for="Email">Email <span class="text-danger">*</span></label>
                                 <input
                                     id="emailAdd"
                                     v-model="state.email"
                                     type="email"
                                     class="form-control"
                                 >
-                                <span v-if="(isEmailIn == false) & (isInvalid == true)">{{
+                                <span
+                                    v-if="v$.email.$error"
+                                    class="text-danger"
+                                >
+                                    {{ invalidEmail }}
+                                </span>
+                                <span v-else-if="(isEmailIn == false) & (isInvalid == true)">{{
                                     errMsgEmail
                                 }}</span>
-                                <span v-if="v$.email.$error">
-                                    {{ v$.email.$errors[0].$message }}
-                                </span>
                             </div>
                             <div class="form-group my-3">
-                                <label for="password">Password <span>*</span></label>
+                                <label for="password">Password <span class="text-danger">*</span></label>
                                 <input
                                     id="password"
                                     v-model="state.password"
                                     type="password"
                                     class="form-control"
                                 >
-                                <span v-if="isInvalid == true">{{ errMsgPassword }}</span>
-                                <span v-if="v$.password.$error">
-                                    {{ v$.password.$errors[0].$message }}
+                                <span
+                                    v-if="v$.password.$error"
+                                    class="text-danger"
+                                >
+                                    {{ errMsgPassword }}
                                 </span>
+                                <span v-else-if="isInvalid == true">{{ errMsgPassword }}</span>
                             </div>
                             <div class="row my-2">
                                 <div class="mb-3">
@@ -130,7 +136,8 @@ export default {
       isEmailIn: false,
       isInvalid: false,
       errMsgEmail: "Email is not a valid account with us!",
-      errMsgPassword: "Invaild Password!",
+      errMsgPassword: "Invalid Password!",
+      invalidEmail: "Invalid Email!",
     };
   },
   methods: {

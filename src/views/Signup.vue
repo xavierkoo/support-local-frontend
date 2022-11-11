@@ -20,43 +20,53 @@
                         <form>
                             <div class="row my-2">
                                 <div class="form-group">
-                                    <label for="Email">Email: <span>*</span></label>
+                                    <label for="Email">Email: <span class="text-danger">*</span></label>
                                     <input
                                         id="emailAdd"
                                         v-model="state.email"
                                         type="email"
                                         class="form-control"
                                     >
-                                    <span v-if="v$.email.$error">
-                                        {{ v$.email.$errors[0].$message }}
+                                    <span
+                                        v-if="v$.email.$error"
+                                        class="text-danger"
+                                    >
+                                        {{ invalidEmail }}
                                     </span>
                                 </div>
                             </div>
                             <div class="row my-2">
                                 <div class="form-group">
-                                    <label for="password">Password: (min. 8 characters) <span>*</span></label>
+                                    <label for="password">Password: (min. 8 characters)
+                                        <span class="text-danger">*</span></label>
                                     <input
                                         id="password"
                                         v-model="state.password.password"
                                         type="password"
                                         class="form-control"
                                     >
-                                    <span v-if="v$.password.$error">
-                                        {{ v$.password.$errors[0].$message }}
+                                    <span
+                                        v-if="v$.password.$error"
+                                        class="text-danger"
+                                    >
+                                        {{ errMsgPassword }}
                                     </span>
                                 </div>
                             </div>
                             <div class="row my-2">
                                 <div class="form-group">
-                                    <label for="cfmpassword">Confirm Password <span>*</span></label>
+                                    <label for="cfmpassword">Confirm Password <span class="text-danger">*</span></label>
                                     <input
                                         id="cfmpassword"
                                         v-model="state.password.confirm"
                                         type="password"
                                         class="form-control"
                                     >
-                                    <span v-if="v$.password.$error">
-                                        {{ v$.password.$errors[0].$message }}
+                                    <span
+                                        v-if="v$.password.$error"
+                                        class="text-danger"
+                                    >
+                                        {{ errMsgPassword }}
                                     </span>
                                 </div>
                             </div>
@@ -115,6 +125,12 @@ export default {
     return {
       state,
       v$,
+    };
+  },
+  data() {
+    return {
+      errMsgPassword: "Invalid Password!",
+      invalidEmail: "Invalid Email!",
     };
   },
   methods: {
