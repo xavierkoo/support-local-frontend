@@ -167,21 +167,23 @@
                     <div class="col-xl-3 d-none d-xl-block rightbar">
                         <!-- Right Column -->
                         <!-- Displays Ads on XL and Abovee-->
-                        <img
-                            class="mb-2"
-                            src="../assets/img/placeholders/sidedrink.avif"
-                            style="width: 100%; height: auto"
-                        >
-                        <img
-                            class="mb-2"
-                            src="../assets/img/placeholders/sidemilk.avif"
-                            style="width: 100%; height: auto"
-                        >
-                        <img
-                            class="mb-2"
-                            src="../assets/img/placeholders/sidesale.avif"
-                            style="width: 100%; height: auto"
-                        >
+                        <div class="sticky-top">
+                            <img
+                                class="mb-2"
+                                src="../assets/img/placeholders/sidedrink.avif"
+                                style="width: 100%; height: auto"
+                            >
+                            <img
+                                class="mb-2"
+                                src="../assets/img/placeholders/sidemilk.avif"
+                                style="width: 100%; height: auto"
+                            >
+                            <img
+                                class="mb-2"
+                                src="../assets/img/placeholders/sidesale.avif"
+                                style="width: 100%; height: auto"
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
