@@ -141,7 +141,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item d-md-none">
+                        <li class="nav-item d-md-none mt-2">
                             <toggle-mode />
                         </li>
                     </ul>
