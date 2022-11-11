@@ -307,13 +307,13 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-4" />
+                                            <div class="col-3" />
                                             <input
                                                 type="submit"
                                                 value="Update"
-                                                class="btn mainBtnDesign col-4"
+                                                class="btn mainBtnDesign col-6"
                                             >
-                                            <div class="col-4" />
+                                            <div class="col-3" />
                                         </div>
                                     </div>
                                 </form>
