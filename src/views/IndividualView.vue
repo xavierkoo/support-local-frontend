@@ -246,7 +246,9 @@
                                     <div class="vertical-scrollable p-0">
                                         <div v-if="review.length == 0">
                                             <div class="container text-center">
-                                                <h5 class="text-secondary">No Reviews Yet</h5>
+                                                <h5 class="text-secondary">
+                                                    No Reviews Yet
+                                                </h5>
                                             </div>
                                         </div>
                                         <div v-else>
@@ -408,6 +410,7 @@ export default {
       `https://support-local.herokuapp.com/api/products/${this.productId}`
     );
     this.product = selectedProduct.data;
+    this.selectedProd = selectedProduct.data; // get the prod data property
     this.merchantId = this.product.merchant;
     const url = `https://support-local.herokuapp.com/api/merchants/${this.merchantId}`;
     const merchant = await axios.get(url);
