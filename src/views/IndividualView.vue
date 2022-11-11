@@ -149,111 +149,118 @@
                                 </div>
                                 <div class="row mx-auto scrollBox">
                                     <div class="vertical-scrollable p-0">
-                                        <div v-if="isShow">
-                                            <div
-                                                v-for="(rev, idx) in review.slice(0, 3)"
-                                                :key="idx"
-                                                class="row mx-3 reviewsRating mt-1"
-                                            >
-                                                <div class="col-md-1 col-lg-1" />
-                                                <div
-                                                    class="col-2 col-md-2 col-lg-2 d-flex justify-content-md-end my-auto"
-                                                >
-                                                    <img
-                                                        class="userPhoto d-none d-md-block"
-                                                        :src="require(`@/${rev.profImageUrl}`)"
-                                                        alt=""
-                                                    >
-                                                </div>
-                                                <div class="col-md-1 d-none d-md-block" />
-                                                <div class="col-md-7 my-3 ms-xl-4">
-                                                    <div class="row">
-                                                        <h5
-                                                            class="col-xl-10 my-auto text-start text-sm-center ps-1 ps-xl-0 text-md-start ms-md-0 fw-bold p-0"
-                                                        >
-                                                            User {{ rev.user }}
-                                                        </h5>
-                                                        <div class="row col-xl-10 m-0 p-0 ms-1 ms-xl-0">
-                                                            <h5
-                                                                class="d-inline my-auto text-start text-sm-center text-md-start p-0"
-                                                            >
-                                                                {{ rev.rating }}
-                                                                <span
-                                                                    v-for="i of rev.rating"
-                                                                    :key="i"
-                                                                >
-                                                                    {{ starsEmoji }}
-                                                                </span>
-                                                            </h5>
-                                                            <h5
-                                                                class="my-auto text-start text-sm-center text-md-start p-0"
-                                                            >
-                                                                {{ rev.orderDetails }}
-                                                            </h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1" />
+                                        <div v-if="review.length == 0">
+                                            <div class="container text-center">
+                                                <h5 class="text-secondary">No Reviews Yet</h5>
                                             </div>
                                         </div>
                                         <div v-else>
-                                            <div
-                                                v-for="(rev, idx) in review"
-                                                :key="idx"
-                                                class="row mx-3 reviewsRating mt-1"
-                                            >
-                                                <div class="col-md-1 col-lg-1" />
+                                            <div v-if="isShow">
                                                 <div
-                                                    class="col-2 col-md-2 col-lg-2 d-flex justify-content-md-end my-auto"
+                                                    v-for="(rev, idx) in review.slice(0, 3)"
+                                                    :key="idx"
+                                                    class="row mx-3 reviewsRating mt-1"
                                                 >
-                                                    <img
-                                                        class="userPhoto d-none d-md-block"
-                                                        :src="require(`@/${rev.profImageUrl}`)"
-                                                        alt=""
+                                                    <div class="col-md-1 col-lg-1" />
+                                                    <div
+                                                        class="col-2 col-md-2 col-lg-2 d-flex justify-content-md-end my-auto"
                                                     >
-                                                </div>
-                                                <div class="col-md-1 d-none d-md-block" />
-                                                <div class="col-md-7 my-3 ms-xl-4">
-                                                    <div class="row">
-                                                        <h5
-                                                            class="col-xl-10 my-auto text-start text-sm-center ps-1 ps-xl-0 text-md-start ms-md-0 fw-bold p-0"
+                                                        <img
+                                                            class="userPhoto d-none d-md-block"
+                                                            :src="require(`@/${rev.profImageUrl}`)"
+                                                            alt=""
                                                         >
-                                                            User {{ rev.user }}
-                                                        </h5>
-                                                        <div class="row col-xl-10 m-0 p-0 ms-1 ms-xl-0">
+                                                    </div>
+                                                    <div class="col-md-1 d-none d-md-block" />
+                                                    <div class="col-md-7 my-3 ms-xl-4">
+                                                        <div class="row">
                                                             <h5
-                                                                class="d-inline my-auto text-start text-sm-center text-md-start p-0"
+                                                                class="col-xl-10 my-auto text-start text-sm-center ps-1 ps-xl-0 text-md-start ms-md-0 fw-bold p-0"
                                                             >
-                                                                {{ rev.rating }}
-                                                                <span
-                                                                    v-for="i of rev.rating"
-                                                                    :key="i"
+                                                                User {{ rev.user }}
+                                                            </h5>
+                                                            <div class="row col-xl-10 m-0 p-0 ms-1 ms-xl-0">
+                                                                <h5
+                                                                    class="d-inline my-auto text-start text-sm-center text-md-start p-0"
                                                                 >
-                                                                    {{ starsEmoji }}
-                                                                </span>
-                                                            </h5>
-                                                            <h5
-                                                                class="my-auto text-start text-sm-center text-md-start p-0"
-                                                            >
-                                                                {{ rev.orderDetails }}
-                                                            </h5>
+                                                                    {{ rev.rating }}
+                                                                    <span
+                                                                        v-for="i of rev.rating"
+                                                                        :key="i"
+                                                                    >
+                                                                        {{ starsEmoji }}
+                                                                    </span>
+                                                                </h5>
+                                                                <h5
+                                                                    class="my-auto text-start text-sm-center text-md-start p-0"
+                                                                >
+                                                                    {{ rev.orderDetails }}
+                                                                </h5>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-1" />
                                                 </div>
-                                                <div class="col-1" />
+                                            </div>
+                                            <div v-else>
+                                                <div
+                                                    v-for="(rev, idx) in review"
+                                                    :key="idx"
+                                                    class="row mx-3 reviewsRating mt-1"
+                                                >
+                                                    <div class="col-md-1 col-lg-1" />
+                                                    <div
+                                                        class="col-2 col-md-2 col-lg-2 d-flex justify-content-md-end my-auto"
+                                                    >
+                                                        <img
+                                                            class="userPhoto d-none d-md-block"
+                                                            :src="require(`@/${rev.profImageUrl}`)"
+                                                            alt=""
+                                                        >
+                                                    </div>
+                                                    <div class="col-md-1 d-none d-md-block" />
+                                                    <div class="col-md-7 my-3 ms-xl-4">
+                                                        <div class="row">
+                                                            <h5
+                                                                class="col-xl-10 my-auto text-start text-sm-center ps-1 ps-xl-0 text-md-start ms-md-0 fw-bold p-0"
+                                                            >
+                                                                User {{ rev.user }}
+                                                            </h5>
+                                                            <div class="row col-xl-10 m-0 p-0 ms-1 ms-xl-0">
+                                                                <h5
+                                                                    class="d-inline my-auto text-start text-sm-center text-md-start p-0"
+                                                                >
+                                                                    {{ rev.rating }}
+                                                                    <span
+                                                                        v-for="i of rev.rating"
+                                                                        :key="i"
+                                                                    >
+                                                                        {{ starsEmoji }}
+                                                                    </span>
+                                                                </h5>
+                                                                <h5
+                                                                    class="my-auto text-start text-sm-center text-md-start p-0"
+                                                                >
+                                                                    {{ rev.orderDetails }}
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-1" />
+                                                </div>
+                                            </div>
+                                            <div class="row my-3 pe-1 pe-md-0">
+                                                <div class="col-2 col-md-5" />
+                                                <button
+                                                    class="col-8 col-md-2 mainBtnDesign"
+                                                    @click="isShow ? (isShow = false) : (isShow = true)"
+                                                >
+                                                    {{ isShow ? "Show More" : "Show Less" }}
+                                                </button>
+                                                <div class="col-2 col-md-5" />
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row my-3 pe-1 pe-md-0">
-                                    <div class="col-2 col-md-5" />
-                                    <button
-                                        class="col-8 col-md-2 mainBtnDesign"
-                                        @click="isShow ? (isShow = false) : (isShow = true)"
-                                    >
-                                        {{ isShow ? "Show More" : "Show Less" }}
-                                    </button>
-                                    <div class="col-2 col-md-5" />
                                 </div>
                             </div>
                         </div>
