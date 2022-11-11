@@ -3,7 +3,7 @@
         <div class="container">
             <div class="d-none d-sm-block">
                 <div
-                    class="row justify-content-center align-items-center text-center orderBar"
+                    class="row justify-content-center align-items-center text-center orderBar py-sm-2"
                 >
                     <div class="col-sm-3">
                         <b>Product</b>
