@@ -138,9 +138,10 @@
                                             Got any question?
                                         </button>
                                     </div>
+
                                     <div
                                         id="staticBackdrop"
-                                        class="modal fade shadowbox sticky-top"
+                                        class="modal fade shadowbox sticky-top BootModal"
                                         data-bs-keyboard="false"
                                         tabindex="-1"
                                         aria-labelledby="staticBackdropLabel"
