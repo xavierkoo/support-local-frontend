@@ -15,13 +15,11 @@
                         </h5>
                         <button
                             type="button"
-                            class="close"
+                            class="btn-close"
                             data-dismiss="modal"
                             aria-label="Close"
                             @click="closeModal"
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        />
                     </div>
                     <form
                         ref="form"
