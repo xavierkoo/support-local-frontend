@@ -314,7 +314,7 @@ export default {
     submitForm(v$) {
       this.v$.$validate();
       if (!this.v$.$error) {
-        this.$router.push("/viewPayment");
+        this.$router.push("/payment");
       } else {
         console.log("form failed");
       }

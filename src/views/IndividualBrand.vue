@@ -12,7 +12,7 @@
                             :merchant-name="merchant.name"
                             :merchant-pic="merchant.imgUrl"
                             :desc="merchant.aboutUs"
-                            @fire-Modal="showModal"
+                            @fire-modal="showModal"
                         />
                         <BootstrapModal
                             v-if="show"
@@ -44,7 +44,7 @@
                                     :merchant-name="merchant.name"
                                     :merchant-pic="merchant.imgUrl"
                                     :desc="merchant.aboutUs"
-                                    @fire-Modal="showModal"
+                                    @fire-modal="showModal"
                                 />
                                 <BootstrapModal
                                     v-if="show"
