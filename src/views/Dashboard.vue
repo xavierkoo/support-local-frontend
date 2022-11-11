@@ -74,7 +74,7 @@
                                                     v-model="newProdImgURL"
                                                     type="text"
                                                     class="form-control"
-                                                    placeholder="assets/img/products/martin.png"
+                                                    placeholder="assets/img/products/martin.avif"
                                                     required
                                                 >
                                             </div>
