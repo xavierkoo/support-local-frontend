@@ -191,6 +191,7 @@ LIGHT MODE STYLES
     transition: all 0.3s ease-out;
     overflow: hidden;
   }
+
   .footerWrapper .footerButton .icon {
     display: inline-block;
     height: 60px;
@@ -213,14 +214,15 @@ LIGHT MODE STYLES
   .footerWrapper .footerButton:nth-child(4):hover .icon {
     background: #ff0000;
   }
-  .footerWrapper .footerButton .icon i {
+  .footerWrapper .footerButton .icon .i {
     font-size: 25px;
     line-height: 60px;
     transition: all 0.3s ease-out;
   }
-  .footerWrapper .footerButton:hover .icon i {
+  .footerWrapper .footerButton:hover .icon .i {
     color: #fff;
   }
+
   .footerWrapper .footerButton:hover {
     width: 200px;
   }
@@ -929,10 +931,6 @@ DARK MODE STYLES
       border: none;
       border-radius: $boxRadius;
     }
-    img {
-      width: 15%;
-      height: 15%;
-    }
     h2 {
       color: white;
     }
@@ -986,12 +984,13 @@ DARK MODE STYLES
   .footerWrapper .footerButton:nth-child(4):hover .icon {
     background: #ff0000;
   }
-  .footerWrapper .footerButton .icon i {
+  .footerWrapper .footerButton .icon .imgIcon {
     font-size: 25px;
     line-height: 60px;
     transition: all 0.3s ease-out;
   }
-  .footerWrapper .footerButton:hover .icon i {
+
+  .footerWrapper .footerButton:hover .icon .imgIcon {
     color: #fff;
   }
   .footerWrapper .footerButton:hover {

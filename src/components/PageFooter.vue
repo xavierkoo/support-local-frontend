@@ -54,7 +54,11 @@
                         href="https://www.facebook.com/profile.php?id=100087343224860"
                     >
                         <div class="icon">
-                            <i class="fab fa-facebook-f" />
+                            <img
+                                class="imgIcon w-50 h-50"
+                                src="../assets/img/icons/facebook-f.svg"
+                                alt=""
+                            >
                         </div>
                         <span> Facebook</span>
                     </a>
@@ -63,7 +67,11 @@
                         href="https://twitter.com/SupportLocalWAD"
                     >
                         <div class="icon">
-                            <i class="fab fa-twitter" />
+                            <img
+                                class="imgIcon w-50 h-50"
+                                src="../assets/img/icons/twitter.svg"
+                                alt=""
+                            >
                         </div>
                         <span> Twitter</span>
                     </a>
@@ -72,7 +80,11 @@
                         href="https://www.instagram.com/supportlocalwad2/"
                     >
                         <div class="icon">
-                            <i class="fab fa-instagram" />
+                            <img
+                                class="imgIcon w-50 h-50"
+                                src="../assets/img/icons/instagram.svg"
+                                alt=""
+                            >
                         </div>
                         <span> Instagram</span>
                     </a>
@@ -81,7 +93,11 @@
                         href="https://www.youtube.com/channel/UCiY4X25IhzK4wrOn6ButkSQ"
                     >
                         <div class="icon">
-                            <i class="fab fa-youtube" />
+                            <img
+                                class="imgIcon w-50 h-50"
+                                src="../assets/img/icons/youtube.svg"
+                                alt=""
+                            >
                         </div>
                         <span> Youtube</span>
                     </a>
@@ -99,11 +115,6 @@ export default {
       mode: localStorage.modes,
       msg: "",
     };
-  },
-  mounted() {
-    let themejs = document.createElement("script");
-    themejs.setAttribute("src", "https://kit.fontawesome.com/a076d05399.js");
-    document.head.appendChild(themejs);
   },
   methods: {
     sendEmail() {
