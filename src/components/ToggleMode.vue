@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { ResolveLoader } from "webpack-chain";
+
 export default {
   name: "MyToggle",
   props: {
@@ -60,10 +62,17 @@ export default {
         "(prefers-color-scheme: dark)"
       ).matches;
       if (hasDarkPreference) {
+        this.reload();
+        window.stop();
         return "dark";
       } else {
+        this.reload();
+        window.stop();
         return "light";
       }
+    },
+    reload() {
+      window.location.reload();
     },
   },
 };
