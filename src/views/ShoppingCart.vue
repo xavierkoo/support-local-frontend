@@ -76,11 +76,12 @@
                     <div class="mb-3">
                         Your shopping bag is empty
                     </div>
-                    <router-link
-                        to="/landing"
-                        class="mainBtnDesign text-decoration-none text-center p-2 my-auto"
-                    >
-                        <b>Start shopping now!</b>
+                    <router-link to="/landing">
+                        <button
+                            class="btn mainBtnDesign text-decoration-none text-center p-2 my-auto"
+                        >
+                            Start shopping now!
+                        </button>
                     </router-link>
                 </div>
             </div>
@@ -89,7 +90,6 @@
 </template>
 
 <script>
-import axios from "axios"; //npm install axios
 import CartProducts from "../components/cart.vue";
 export default {
   name: "App",
@@ -137,3 +137,7 @@ export default {
   },
 };
 </script>
+
+<style>
+@import "../assets/style/global.css";
+</style>

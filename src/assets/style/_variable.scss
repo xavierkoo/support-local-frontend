@@ -1,19 +1,32 @@
+// Fonts
 @import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
-$mainBtn: #d36959; //main button color
+$headingFontFamily: "Merriweather Sans", sans-serif; //heading font
+$bodyFontFamily: "Nunito Sans", sans-serif; //body font
+
+// Btn
 $btnWidth: 180px; //button width
 $btnHeight: 40px; //button height
 $btnBorderRadius: 16px; //main button radius
 $bodyLarge: 16px; //font size for body
 $bodySmall: 13px; //font-size for body
-$headingFontFamily: "Merriweather Sans", sans-serif; //heading font
-$bodyFontFamily: "Nunito Sans", sans-serif; //body font
-$boxRadius: 8px; //box/container and some button border radius
-$backgroundDark: #3d3d3d; //background for cards in darkmode
-$borderDark: 1px solid white;
-$borderLight: 1px solid black;
-$brandMain: #942c1f;
-$secondaryBtn: #f0f0f0;
 $secondaryBorderRadius: 8px;
 $secondaryBtnFontColor: #000;
+
+// Box
+$boxRadius: 8px; //box container and some button border radius
+
+//Light
+$mainBtn: #d36959; //main button color
+$brandMain: #942c1f;
 $inputShade: #f1f1f1;
+$secondaryBtn: #f0f0f0;
+$borderLight: 1px solid black;
+
+//Dark
+$backgroundDark: #252525; //background for cards in darkmode
+$secondaryDark: #414141;
+$mainBtnDark: #ce0000;
+$darkShade: #af0404;
+
+$borderDark: 1px solid #3d3d3d;

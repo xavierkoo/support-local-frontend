@@ -37,7 +37,7 @@
                 },
                 particles: {
                     color: {
-                        value: '#d36959',
+                        value: '#af0404',
                     },
 
                     collisions: {
@@ -54,15 +54,15 @@
                     number: {
                         density: {
                             enable: true,
-                            area: 800,
+                            area: 1000,
                         },
-                        value: 10,
+                        value: 8,
                     },
                     opacity: {
                         value: 1,
                     },
                     shape: {
-                        type: 'circle',
+                        type: 'star',
                     },
                     size: {
                         random: true,
@@ -77,13 +77,10 @@
 
 <script setup>
 import { loadFull } from "tsparticles";
-import { ZIndex } from "tsparticles-engine";
 
 const particlesInit = async (engine) => {
   await loadFull(engine);
 };
 
-const particlesLoaded = async (container) => {
-  console.log("Particles container loaded", container);
-};
+const particlesLoaded = async (container) => {};
 </script>
