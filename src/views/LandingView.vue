@@ -192,12 +192,12 @@ export default {
   },
   data() {
     return {
-      category: "all",
+      category: "All",
       moreThanSix: false,
       viewMore: false,
       productList: null,
       productCatArr: [
-        "all",
+        "All",
         "Food & Beverages",
         "Men's Apparel",
         "Women's Apparel",
@@ -276,7 +276,7 @@ export default {
           this.moreThanSix = false;
         }
         let productArr = [];
-        if (selectedCat == "all") {
+        if (selectedCat == "All") {
           for (const key in res.data) {
             if (Object.hasOwnProperty.call(res.data, key)) {
               const element = res.data[key];

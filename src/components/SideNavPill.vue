@@ -43,7 +43,7 @@ export default {
   },
 
   beforeMount() {
-    if (this.categoryName == "all") {
+    if (this.categoryName == "All") {
       this.categoryImage = "assets/img/icons/All.svg";
     }
 
