@@ -139,12 +139,11 @@ export default {
         })
         .then((res) => {
           if (!this.v$.$error) {
-            console.log(res.data);
             // route to landing page
-            this.$router.push("login");
+            this.$router.push("/landing");
           } else {
             // did not meet input requirement
-            console.log("form failed");
+            console.log("Form input did not meet the input requirement!");
           }
         })
         .catch((err) => {
