@@ -44,6 +44,11 @@
                                     data-bs-slide-to="1"
                                     aria-label="Second slide"
                                 />
+                                <li
+                                    data-bs-target="#carouselId"
+                                    data-bs-slide-to="2"
+                                    aria-label="Third slide"
+                                />
                             </ol>
                             <div
                                 class="carousel-inner"
@@ -51,16 +56,23 @@
                             >
                                 <div class="carousel-item active">
                                     <img
-                                        src="../assets/hero.png"
+                                        src="../assets/img/placeholders/walchcarousell.avif"
                                         class="w-100 d-block"
                                         alt="First slide"
                                     >
                                 </div>
                                 <div class="carousel-item">
                                     <img
-                                        src="../assets/towfiqu-barbhuiya-5xTYgw2g7aw-unsplash.jpg"
+                                        src="../assets/img/placeholders/walchcarousell.avif"
                                         class="w-100 d-block"
                                         alt="Second slide"
+                                    >
+                                </div>
+                                <div class="carousel-item">
+                                    <img
+                                        src="../assets/img/placeholders/salecarousell.avif"
+                                        class="w-100 d-block"
+                                        alt="Third slide"
                                     >
                                 </div>
                             </div>
@@ -157,17 +169,17 @@
                         <!-- Displays Ads on XL and Abovee-->
                         <img
                             class="mb-2"
-                            src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                            src="../assets/img/placeholders/sidedrink.avif"
                             style="width: 100%; height: auto"
                         >
                         <img
                             class="mb-2"
-                            src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                            src="../assets/img/placeholders/sidemilk.avif"
                             style="width: 100%; height: auto"
                         >
                         <img
                             class="mb-2"
-                            src="../assets/mathilde-langevin-p3O5f4u95Lo-unsplash.jpg"
+                            src="../assets/img/placeholders/sidesale.avif"
                             style="width: 100%; height: auto"
                         >
                     </div>
