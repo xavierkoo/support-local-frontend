@@ -189,12 +189,12 @@ LIGHT MODE STYLES
 #light .footerWrapper .footerButton:nth-child(4):hover .icon {
   background: #ff0000;
 }
-#light .footerWrapper .footerButton .icon i {
+#light .footerWrapper .footerButton .icon .i {
   font-size: 25px;
   line-height: 60px;
   transition: all 0.3s ease-out;
 }
-#light .footerWrapper .footerButton:hover .icon i {
+#light .footerWrapper .footerButton:hover .icon .i {
   color: #fff;
 }
 #light .footerWrapper .footerButton:hover {
@@ -838,10 +838,6 @@ DARK MODE STYLES
   border: none;
   border-radius: 8px;
 }
-#dark .footer img {
-  width: 15%;
-  height: 15%;
-}
 #dark .footer h2 {
   color: white;
 }
@@ -894,12 +890,12 @@ DARK MODE STYLES
 #dark .footerWrapper .footerButton:nth-child(4):hover .icon {
   background: #ff0000;
 }
-#dark .footerWrapper .footerButton .icon i {
+#dark .footerWrapper .footerButton .icon .imgIcon {
   font-size: 25px;
   line-height: 60px;
   transition: all 0.3s ease-out;
 }
-#dark .footerWrapper .footerButton:hover .icon i {
+#dark .footerWrapper .footerButton:hover .icon .imgIcon {
   color: #fff;
 }
 #dark .footerWrapper .footerButton:hover {
