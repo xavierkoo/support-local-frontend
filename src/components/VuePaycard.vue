@@ -26,7 +26,7 @@
                 <div class="card-item__wrapper px-1">
                     <div class="card-item__top">
                         <img
-                            src="../assets/img/creditCards/chip.png"
+                            src="../assets/img/creditCards/chip.avif"
                             class="card-item__chip"
                             alt="Card chip image"
                         >
@@ -269,7 +269,7 @@ export default {
         : this.defaultPlaceholder;
     },
     getCreditCardImage() {
-      const path = require(`../assets/img/creditCards/${this.cardType}.png`);
+      const path = require(`../assets/img/creditCards/${this.cardType}.avif`);
       return path.default || path;
     },
     cardType() {
