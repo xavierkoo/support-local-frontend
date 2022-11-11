@@ -4,7 +4,7 @@
             <h5 class="d-block d-sm-none fw-bold">
                 Merchant Name:
             </h5>
-            <h6 class="fw-bold text-sm-start text-center">
+            <h6 class="fw-bold text-sm-start text-center my-auto">
                 {{ product.merchantName }}
             </h6>
             <h6 v-if="showDate">

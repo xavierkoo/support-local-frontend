@@ -3,12 +3,22 @@
 @import "../../../node_modules/rfs/scss.scss";
 html,
 body {
-  margin: 0px;
-  padding: 0px;
   contain: content;
 }
+
 .minHeight {
   min-height: 60vh;
+}
+.modal-backdrop {
+  display: none;
+}
+
+.shadowbox {
+  background: rgb(46, 45, 45);
+  opacity: 98%;
+}
+.modal {
+  --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 //Drop Shadows
@@ -566,7 +576,7 @@ body {
     background: white;
   }
   .orderRowIndItem {
-    background: white;
+    background: rgb(187, 180, 180);
   }
 
   //LightOrderLogs & LightViewOrder

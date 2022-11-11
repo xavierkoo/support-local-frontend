@@ -2,13 +2,20 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
 html,
 body {
-  margin: 0px;
-  padding: 0px;
   contain: content;
 }
 
 .minHeight {
   min-height: 60vh;
+}
+
+.modal-backdrop {
+  display: none;
+}
+
+.shadowbox {
+  background: rgb(46, 45, 45);
+  opacity: 98%;
 }
 
 .drop-sd-card {
@@ -519,7 +526,7 @@ body {
   background: white;
 }
 #light .orderRowIndItem {
-  background: white;
+  background: rgb(187, 180, 180);
 }
 #light .orderLog {
   background: white;

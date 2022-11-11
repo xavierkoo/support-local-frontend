@@ -1,6 +1,6 @@
 <template>
     <div class="row orderRow">
-        <h6 class="fw-bold my-auto col-sm-4 col-lg-3 text-center py-3">
+        <h6 class="fw-bold my-auto col-sm-4 col-lg-3 text-center py-3 orderID">
             <h5 class="d-block d-sm-none fw-bold">
                 OrderID:
             </h5>
