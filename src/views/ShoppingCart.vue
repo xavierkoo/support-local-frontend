@@ -32,21 +32,26 @@
                 />
 
                 <div class="row p-0 mx-auto mt-3 pageBack">
-                    <div class="col-1 col-sm-4 col-md-5" />
-                    <h5 class="col-4 p-0 p-sm-auto col-sm-3 col-md-3 my-auto text-end">
+                    <div class="col-2 col-sm-3 col-md-3 col-lg-5" />
+                    <h5
+                        class="col-4 ms-4 ms-sm-0 p-0 p-sm-auto col-sm-3 col-md-3 my-auto text-end"
+                    >
                         Total Price:
                     </h5>
-                    <h5 class="col-2 p-0 p-sm-auto col-sm-2 col-md-2 my-auto text-center">
+                    <h5
+                        class="col-4 p-0 p-sm-auto col-sm-2 col-md-2 my-auto ms-3 ms-sm-0 text-start text-sm-center"
+                    >
                         ${{ total }}
                     </h5>
+                    <div class="col-3 d-block d-sm-none" />
                     <router-link
                         v-if="loginFlag"
                         to="/checkout"
-                        class="col-4 col-sm-3 col-md-2"
+                        class="col-6 col-sm-3 col-md-2"
                     >
                         <button
                             type="button"
-                            class="mainBtnDesign"
+                            class="mainBtnDesign w-100"
                         >
                             Order Now
                         </button>
@@ -54,15 +59,16 @@
                     <router-link
                         v-else
                         to="/login"
-                        class="col-4 col-sm-3 col-md-2"
+                        class="col-6 col-sm-4 col-md-4 col-lg-2"
                     >
                         <button
                             type="button"
-                            class="mainBtnDesign"
+                            class="mainBtnDesign w-100"
                         >
                             Login to Order
                         </button>
                     </router-link>
+                    <div class="col-3 d-block d-sm-none" />
                     <div class="col-1 col-sm-5" />
                     <hr class="mt-2 mb-0">
                 </div>

@@ -8,9 +8,9 @@
                 alt=""
                 class="img-fluid"
             >
-            <div class="spinner-sector spinner-sector-one" />
-            <div class="spinner-sector spinner-sector-two" />
-            <div class="spinner-sector spinner-sector-three" />
+            <div class="spinner-part spinner-part-one" />
+            <div class="spinner-part spinner-part-two" />
+            <div class="spinner-part spinner-part-three" />
         </div>
     </div>
 </template>
