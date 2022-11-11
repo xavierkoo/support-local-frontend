@@ -78,7 +78,7 @@ export default {
   },
   data() {
     return {
-      rating: 0,
+      rating: 1,
       review: "",
       userSelectedreviewArr: "",
       productSelectedreviewArr: "",
@@ -107,36 +107,40 @@ export default {
     },
     send() {
       //post new review to review database
-      axios
-        .post("https://support-local.herokuapp.com/api/reviews", {
-          user: this.userId,
-          product: this.productId,
-          rating: this.rating,
-          orderDetails: this.review,
-        })
-        .then((res) => {
-          console.log(res.data.id);
-          this.rating = 0;
-          this.review = "";
-          this.userSelectedreviewArr.push(res.data.id); //push new review id into user review array to prepare for patch (replace)
-          this.productSelectedreviewArr.push(res.data.id); //push new review id into product review array to prepare for patch (replace)
-          axios.patch(
-            `https://support-local.herokuapp.com/api/users/${this.userId}`,
-            {
-              reviews: this.userSelectedreviewArr,
-            }
-          );
-          axios.patch(
-            `https://support-local.herokuapp.com/api/products/${this.productId}`,
-            {
-              reviews: this.productSelectedreviewArr,
-            }
-          );
-        })
-        .catch((err) => {
-          console.error(err);
-          this.error = true;
-        });
+      if (this.review.trim().length < 20) {
+        alert("Invalid review. Review must be atleast 20 characters long.");
+      } else {
+        axios
+          .post("https://support-local.herokuapp.com/api/reviews", {
+            user: this.userId,
+            product: this.productId,
+            rating: this.rating,
+            orderDetails: this.review,
+          })
+          .then((res) => {
+            console.log(res.data.id);
+            this.rating = 1;
+            this.review = "";
+            this.userSelectedreviewArr.push(res.data.id); //push new review id into user review array to prepare for patch (replace)
+            this.productSelectedreviewArr.push(res.data.id); //push new review id into product review array to prepare for patch (replace)
+            axios.patch(
+              `https://support-local.herokuapp.com/api/users/${this.userId}`,
+              {
+                reviews: this.userSelectedreviewArr,
+              }
+            );
+            axios.patch(
+              `https://support-local.herokuapp.com/api/products/${this.productId}`,
+              {
+                reviews: this.productSelectedreviewArr,
+              }
+            );
+          })
+          .catch((err) => {
+            console.error(err);
+            this.error = true;
+          });
+      }
     },
   },
 };
