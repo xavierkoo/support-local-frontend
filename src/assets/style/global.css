@@ -807,6 +807,10 @@ DARK MODE STYLES
   height: auto;
   width: 100%;
 }
+#dark .productCard a {
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
+}
 #dark .footer {
   background: #af0404;
 }

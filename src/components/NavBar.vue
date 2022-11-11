@@ -77,11 +77,15 @@
                             >
                                 Profile
                             </a>
-                            <ul class="dropdown-menu dpMenu">
+                            <ul
+                                class="dropdown-menu dpMenu"
+                                style="margin: 0"
+                            >
                                 <li v-if="merchantFlag">
                                     <router-link
                                         :to="merchantDashHref"
                                         class="dropdown-item dpSign"
+                                        style="margin: 0"
                                     >
                                         Dashboard
                                     </router-link>
@@ -115,7 +119,10 @@
                             >
                                 Guest
                             </a>
-                            <ul class="dropdown-menu dpMenu">
+                            <ul
+                                class="dropdown-menu dpMenu"
+                                style="margin: 0"
+                            >
                                 <li>
                                     <router-link
                                         to="/signup"
