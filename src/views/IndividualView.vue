@@ -11,7 +11,8 @@
                         <div class="row mx-auto">
                             <!--Product Image-->
                             <img
-                                class="col-lg-5 individualViewImg my-3 p-0 img-fluid"
+                                class="col-lg-5 individualViewImg my-3 p-0"
+                                style="object-fit: contain"
                                 :src="require(`@/${product.imgUrl}`)"
                             >
                             <div class="col-1" />

@@ -6,6 +6,7 @@
                 <img
                     src="https://i.pinimg.com/originals/7f/98/dc/7f98dcad5579ed7fc4d4b88b79ecfea4.jpg"
                     alt=""
+                    style="object-fit: contain"
                     class="col-md-5 d-none d-md-block"
                 >
                 <div class="col-md-5 container back px-5 mb-2">

@@ -118,14 +118,11 @@
                                                 >Rating</label>
                                                 <input
                                                     id="prodRating"
-                                                    v-model="newProdRating"
                                                     type="number"
                                                     class="form-control"
-                                                    placeholder="3"
-                                                    step="1"
-                                                    min="1"
-                                                    max="5"
-                                                    required
+                                                    placeholder="5"
+                                                    disabled
+                                                    readonly
                                                 >
                                             </div>
                                             <div class="mb-3">
@@ -135,12 +132,10 @@
                                                 >Number Sold</label>
                                                 <input
                                                     id="prodNumSold"
-                                                    v-model="newProdNumSold"
                                                     type="number"
                                                     class="form-control"
-                                                    step="1"
-                                                    min="0"
-                                                    required
+                                                    disabled
+                                                    readonly
                                                 >
                                             </div>
                                             <div class="mb-3">
@@ -312,13 +307,13 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-4" />
+                                            <div class="col-3" />
                                             <input
                                                 type="submit"
                                                 value="Update"
-                                                class="btn mainBtnDesign col-4"
+                                                class="btn mainBtnDesign col-6"
                                             >
-                                            <div class="col-4" />
+                                            <div class="col-3" />
                                         </div>
                                     </div>
                                 </form>
@@ -413,7 +408,7 @@ export default {
       newProdName: "",
       newProdPrice: 0,
       newProdCategory: "",
-      newProdRating: 0,
+      newProdRating: 5,
       newProdImgURL: "",
       newProdNumSold: 0,
       newProdDesc: "",

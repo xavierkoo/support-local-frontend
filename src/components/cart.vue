@@ -26,7 +26,7 @@
                 }}
             </div>
             <div class="text-center mt-2 mt-sm-auto col-sm-2 my-auto text-sm-center">
-                <span class="d-inline-block d-sm-none">Quantity:</span>
+                <span class="d-inline-block d-sm-none me-2">Quantity:</span>
                 <input
                     v-if="showQtyInput"
                     v-model="quantity"

@@ -23,6 +23,17 @@
                             />
                         </div>
                     </div>
+                    <div class="d-block d-md-none">
+                        <div class="row row-cols-2 row-cols-sm-3">
+                            <SideNavPill
+                                v-for="(cat, idx) in productCatArr"
+                                :key="idx"
+                                :category-name="cat"
+                                :is-active="category == cat ? true : false"
+                                @clicked-item="changeCat"
+                            />
+                        </div>
+                    </div>
                     <div class="col-xl-6 col-md-10 centerbox">
                         <!-- Center Column -->
                         <!-- Hero Carousell -->
