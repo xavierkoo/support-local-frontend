@@ -12,6 +12,12 @@
                             :merchant-name="merchant.name"
                             :merchant-pic="merchant.imgUrl"
                             :desc="merchant.aboutUs"
+                            @fire-Modal="showModal"
+                        />
+                        <BootstrapModal
+                            v-if="show"
+                            :merchant-email="merchant.email"
+                            @close-modal-event="hideModal"
                         />
                         <MerchantRating :merchant-rating="merchantRating" />
 
@@ -38,6 +44,12 @@
                                     :merchant-name="merchant.name"
                                     :merchant-pic="merchant.imgUrl"
                                     :desc="merchant.aboutUs"
+                                    @fire-Modal="showModal"
+                                />
+                                <BootstrapModal
+                                    v-if="show"
+                                    :merchant-email="merchant.email"
+                                    @close-modal-event="hideModal"
                                 />
                             </div>
                             <div
@@ -113,6 +125,7 @@ import Map from "../components/Map.vue";
 import BrandProfile from "../components/BrandProfile.vue";
 import MerchantRating from "../components/MerchantRating.vue";
 import Loading from "../components/LoadingAnimation.vue";
+import BootstrapModal from "../components/BootstrapModal.vue";
 
 export default {
   name: "App",
@@ -122,13 +135,13 @@ export default {
     BrandProfile,
     MerchantRating,
     Loading,
+    BootstrapModal,
   },
   data() {
     return {
+      show: false,
       merchant: "",
       merchantId: "",
-      merchantDesc: "",
-      merchantEmail: "",
       merchantLatLong: "",
       productList: null,
       merchantRating: 0,
@@ -185,7 +198,16 @@ export default {
     this.merchantLat = Number(LatLongArr[0].trim());
     this.merchantLng = Number(LatLongArr[1].trim());
   },
-  methods: {},
+  methods: {
+    showModal() {
+      this.show = true;
+      window.scrollTo(0, 0);
+    },
+    hideModal() {
+      this.show = false;
+      window.scrollTo(0, 30);
+    },
+  },
 };
 </script>
 

@@ -17,7 +17,10 @@
                         {{ desc }}
                     </p>
                     <!-- TODO: Need to link this to the email API -->
-                    <button class="btn mainBtnDesign">
+                    <button
+                        class="mainBtnDesign mb-2"
+                        @click="fireModal"
+                    >
                         Contact me
                     </button>
                 </div>
@@ -46,6 +49,12 @@ export default {
     merchantPic: {
       type: String,
       default: "",
+    },
+  },
+  emits: ["fireModal"],
+  methods: {
+    fireModal() {
+      this.$emit("fireModal");
     },
   },
 };
