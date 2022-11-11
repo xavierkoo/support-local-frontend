@@ -151,10 +151,10 @@ LIGHT MODE STYLES
   //LightFooter CSS
   .footer {
     background: $brandMain;
-    input {
-      border-radius: $btnBorderRadius;
-      height: 48px;
-      margin-right: 10px;
+    .emailInput {
+      border-radius: $boxRadius;
+      border: none;
+      line-height: 1.5;
     }
     img {
       width: 15%;
@@ -293,6 +293,26 @@ LIGHT MODE STYLES
   }
 
   //LightIndividualView CSS
+  .signUpBtnDesign {
+    background: white;
+    font-size: 16px;
+    height: $btnHeight;
+    font-family: $headingFontFamily;
+    border: 0.3px solid lightgray;
+    color: black;
+    border-radius: $boxRadius;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: inset 0000 black;
+    &:hover {
+      box-shadow: inset 500px 0 0 0 black;
+      cursor: pointer;
+      color: white;
+    }
+  }
+
   .mainBtnDesign {
     //btn
     background: $brandMain;
@@ -904,10 +924,10 @@ DARK MODE STYLES
   //DarkFooter CSS
   .footer {
     background: $darkShade;
-    input {
-      border-radius: $btnBorderRadius;
-      height: 48px;
-      margin-right: 10px;
+    .emailInput {
+      line-height: 1.5;
+      border: none;
+      border-radius: $boxRadius;
     }
     img {
       width: 15%;

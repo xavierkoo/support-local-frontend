@@ -130,10 +130,10 @@ LIGHT MODE STYLES
 #light .footer {
   background: #942c1f;
 }
-#light .footer input {
-  border-radius: 16px;
-  height: 48px;
-  margin-right: 10px;
+#light .footer .emailInput {
+  border-radius: 8px;
+  border: none;
+  line-height: 1.5;
 }
 #light .footer img {
   width: 15%;
@@ -260,6 +260,25 @@ LIGHT MODE STYLES
 }
 #light .rightbar img {
   border-radius: 16px;
+}
+#light .signUpBtnDesign {
+  background: white;
+  font-size: 16px;
+  height: 40px;
+  font-family: "Merriweather Sans", sans-serif;
+  border: 0.3px solid lightgray;
+  color: black;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.5s;
+  cursor: pointer;
+  box-shadow: inset 0 black;
+}
+#light .signUpBtnDesign:hover {
+  box-shadow: inset 500px 0 0 0 black;
+  cursor: pointer;
+  color: white;
 }
 #light .mainBtnDesign {
   background: #942c1f;
@@ -814,10 +833,10 @@ DARK MODE STYLES
 #dark .footer {
   background: #af0404;
 }
-#dark .footer input {
-  border-radius: 16px;
-  height: 48px;
-  margin-right: 10px;
+#dark .footer .emailInput {
+  line-height: 1.5;
+  border: none;
+  border-radius: 8px;
 }
 #dark .footer img {
   width: 15%;
