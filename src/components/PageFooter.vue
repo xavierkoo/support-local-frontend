@@ -4,7 +4,7 @@
             <div class="row m-0">
                 <div class="col-2 col-sm-4" />
                 <h2
-                    class="col-8 col-sm-4 mt-3 d-flex justify-content-center align-content-center text-center"
+                    class="col-8 col-sm-4 mt-3 d-flex justify-content-center align-content-center text-center pe-0"
                 >
                     Stay Connected!
                 </h2>
@@ -13,7 +13,7 @@
             <div class="row m-0">
                 <div class="col-1 col-sm-3" />
                 <p
-                    class="col-10 col-sm-6 text-center d-flex justify-content-center align-content-center"
+                    class="col-10 col-sm-6 text-center d-flex justify-content-center align-content-center pe-0"
                 >
                     Sign up for the Support Local Newsletter now to <br>
                     get the latest updates!
@@ -32,7 +32,7 @@
                     </label>
                     <input
                         v-model="msg"
-                        class="col-8 col-sm-6 m-0"
+                        class="col-8 col-sm-6 m-0 emailInput"
                         type="email"
                         name="user_email"
                     >
@@ -40,7 +40,7 @@
                     <input
                         type="submit"
                         value="Sign Up"
-                        class="cancelBtnDesign col-4 col-sm-2 col-md-2 col-lg-1 m-0 my-2 my-sm-auto"
+                        class="signUpBtnDesign col-4 col-sm-2 col-md-2 col-lg-1 m-0 my-2 my-sm-auto ms-sm-2"
                     >
                     <div class="col-sm-2" />
                 </div>
