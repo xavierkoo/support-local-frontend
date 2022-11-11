@@ -254,7 +254,7 @@
                                         <div v-else>
                                             <div v-if="isShow">
                                                 <div
-                                                    v-for="(rev, idx) in review.slice(0, 3)"
+                                                    v-for="(rev, idx) in review.slice(0, 2)"
                                                     :key="idx"
                                                     class="row mx-3 reviewsRating mt-1"
                                                 >

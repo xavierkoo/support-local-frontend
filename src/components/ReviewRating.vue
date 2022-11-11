@@ -23,7 +23,7 @@
             <div class="col-md-4">
                 <div class="row my-md-4">
                     <div class="col-1 d-block d-md-none" />
-                    <Label class="prompt col-11 col-md-5 col-lg-4 text-start ps-0 my-auto">Rate Me</Label>
+                    <label class="prompt col-11 col-md-5 col-lg-4 text-start ps-0 my-auto">Rate Me</label>
                     <div class="col-1 d-block d-md-none" />
                     <star-rating
                         v-model:rating="rating"
@@ -40,7 +40,7 @@
                         class="cancelBtnDesign d-block d-md-none col-5 col-sm-3 col-md-3 mb-2"
                         @click="send"
                     >
-                        send review
+                        Send review
                     </button>
                 </div>
                 <div class="row d-none d-md-block">
@@ -50,7 +50,7 @@
                         class="cancelBtnDesign col-md-7 mb-2"
                         @click="send"
                     >
-                        send review
+                        Send review
                     </button>
                 </div>
             </div>
@@ -78,7 +78,7 @@ export default {
   },
   data() {
     return {
-      rating: "",
+      rating: 0,
       review: "",
       userSelectedreviewArr: "",
       productSelectedreviewArr: "",
@@ -116,7 +116,7 @@ export default {
         })
         .then((res) => {
           console.log(res.data.id);
-          this.rating = "";
+          this.rating = 0;
           this.review = "";
           this.userSelectedreviewArr.push(res.data.id); //push new review id into user review array to prepare for patch (replace)
           this.productSelectedreviewArr.push(res.data.id); //push new review id into product review array to prepare for patch (replace)

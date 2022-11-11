@@ -49,7 +49,7 @@
             </div>
             <div class="col-xl-4 col-md-4 col-sm-6 col-6 my-2 px-1">
                 <button
-                    v-if="orderStatus != 'Item Received!'"
+                    v-if="deliveryStatus != 'Item Received!'"
                     class="mainBtnDesign px-4"
                     type="button"
                     @click="updateDeliveryStatus()"
@@ -105,7 +105,6 @@ export default {
           }
         )
         .then((res) => {
-          location.reload();
           this.deliveryStatus = deliveryStatus;
           console.log("Delivery Status Updated");
         })
