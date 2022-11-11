@@ -167,7 +167,10 @@
                     <div class="col-xl-3 d-none d-xl-block rightbar">
                         <!-- Right Column -->
                         <!-- Displays Ads on XL and Abovee-->
-                        <div class="sticky-top">
+                        <div
+                            class="sticky-top"
+                            style="z-index: -1"
+                        >
                             <img
                                 class="mb-2"
                                 src="../assets/img/placeholders/sidedrink.avif"
