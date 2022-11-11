@@ -269,7 +269,7 @@ export default {
         : this.defaultPlaceholder;
     },
     getCreditCardImage() {
-      const path = require(`../assets/img/creditCards/${this.cardType}.avif`);
+      const path = require(`@/assets/img/creditCards/${this.cardType}.avif`);
       return path.default || path;
     },
     cardType() {
@@ -347,7 +347,7 @@ export default {
       const numberImage = parseInt(this.backgroundImage);
 
       if (this.isBackgroundImageFromAssets) {
-        const path = require(`../assets/img/creditCards/${numberImage}.jpg`);
+        const path = require(`@/assets/img/creditCards/${numberImage}.avif`);
         return path.default || path;
       }
 
@@ -358,7 +358,7 @@ export default {
       if (this.hasRandomBackgrounds) {
         const random = Math.floor(Math.random() * 25 + 1);
 
-        const path = require(`../assets/img/creditCards/${random}.jpg`);
+        const path = require(`@/assets/img/creditCards/${random}.avif`);
         return path.default || path;
       }
 
