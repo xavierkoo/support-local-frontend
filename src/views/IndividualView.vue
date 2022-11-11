@@ -382,6 +382,7 @@
                                 :product-pic-url="obj.imgUrl"
                                 :profile-pic-url="obj.merchant.imgUrl"
                                 :product-id="obj.id"
+                                :last-online-hour="obj.merchant.lastOnline"
                                 class="px-sm-2 mb-2 card-grow"
                             />
                         </div>
