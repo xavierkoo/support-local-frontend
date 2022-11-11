@@ -187,8 +187,10 @@ export default {
     setInterval(() => {
       if (window.localStorage.getItem("userId") === null) {
         this.loginFlag = false;
+        this.merchantFlag = false;
       } else {
         this.loginFlag = true;
+        this.merchantFlag = false;
         if (window.localStorage.getItem("accType") === "Merchant") {
           this.userId = window.localStorage.getItem("userId");
           this.merchantDashHref = `/dashboard/${this.userId}`;
