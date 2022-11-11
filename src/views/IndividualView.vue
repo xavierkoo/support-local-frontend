@@ -130,9 +130,104 @@
                                     <div
                                         class="col-12 col-lg-3 col-xl-2 my-auto d-flex justify-content-center align-content-center"
                                     >
-                                        <button class="anyQuestionBtnDesign btnAnimation my-2">
+                                        <button
+                                            class="anyQuestionBtnDesign btnAnimation my-2"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop"
+                                        >
                                             Got any question?
                                         </button>
+                                    </div>
+                                    <div
+                                        id="staticBackdrop"
+                                        class="modal fade shadowbox sticky-top"
+                                        data-bs-keyboard="false"
+                                        tabindex="-1"
+                                        aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true"
+                                    >
+                                        <div class="modal-dialog modalCenter">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5
+                                                        id="staticBackdropLabel"
+                                                        class="modal-title fw-bold"
+                                                    >
+                                                        Send your queries to the merchant!
+                                                    </h5>
+                                                    <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                    />
+                                                </div>
+                                                <form
+                                                    ref="form"
+                                                    @submit.prevent="sendEmail"
+                                                >
+                                                    <div class="modal-body">
+                                                        <input
+                                                            id="email"
+                                                            v-model="merchantEmail"
+                                                            type="email"
+                                                            name="merchant_email"
+                                                            class="form-control"
+                                                            hidden
+                                                        >
+                                                        <label
+                                                            for="email"
+                                                            class="form-label"
+                                                        >Email:</label>
+                                                        <input
+                                                            id="email"
+                                                            v-model="userEmail"
+                                                            type="email"
+                                                            name="user_email"
+                                                            class="form-control"
+                                                        >
+                                                        <label
+                                                            for="subject"
+                                                            class="form-label"
+                                                        >Subject:</label>
+                                                        <input
+                                                            id="subject"
+                                                            v-model="subject"
+                                                            type="text"
+                                                            name="subject"
+                                                            class="form-control"
+                                                        >
+                                                        <label
+                                                            for="queries"
+                                                            class="form-label"
+                                                        >Queries:</label>
+                                                        <textarea
+                                                            id="queries"
+                                                            v-model="queries"
+                                                            type="text"
+                                                            name="queries"
+                                                            class="form-control"
+                                                            rows="6"
+                                                        />
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button
+                                                            type="button"
+                                                            class="btn cancelbtnDesign"
+                                                            data-bs-dismiss="modal"
+                                                        >
+                                                            Close
+                                                        </button>
+                                                        <button
+                                                            type="submit"
+                                                            class="btn mainBtnDesign"
+                                                        >
+                                                            Send
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -298,6 +393,7 @@ import axios from "axios";
 import ProductCard from "../components/ProductCard.vue"; //import product card
 import { useRoute } from "vue-router";
 import Loading from "../components/LoadingAnimation.vue";
+import emailjs from "@emailjs/browser";
 
 export default {
   components: {
@@ -348,6 +444,10 @@ export default {
   },
   data() {
     return {
+      merchantEmail: "",
+      queries: "",
+      subject: "",
+      userEmail: "",
       mode: localStorage.modes,
       isShow: true,
       productId: "",
@@ -402,7 +502,7 @@ export default {
     const url = `https://support-local.herokuapp.com/api/merchants/${this.merchantId}`;
     const merchant = await axios.get(url);
     this.merchant = merchant.data;
-
+    this.merchantEmail = merchant.data.email;
     // retrieve merchant name from this.merchant
     var merchantName = this.merchant.name;
     // add merchant name to this.selectedProd
@@ -450,6 +550,28 @@ export default {
     },
     deleteItem() {
       this.$store.commit("deleteItem", this.product);
+    },
+    sendEmail() {
+      emailjs
+        .sendForm(
+          "SupportLocal2022",
+          "queriesWAD2",
+          this.$refs.form,
+          "8Ofr7mrBSFNOFqcER"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+            alert("Your queries have been successfully sent to the merchant!");
+            this.merchantEmail = "";
+            this.queries = "";
+            this.subject = "";
+            this.userEmail = "";
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
     },
   },
 };
