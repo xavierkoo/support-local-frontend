@@ -96,7 +96,7 @@ export default {
   },
   data() {
     return {
-      rate: true, //v-if for rating.   Change to true if rate is clicked
+      rate: false, //v-if for rating.   Change to true if rate is clicked
       userID: "", // I need the current logged in userID
       productID: "", // I need the the current product is being reviewed. Should be pass from orderlogs page
       productObj: {},
@@ -130,23 +130,6 @@ export default {
       } else {
         this.rate = !true;
       }
-    },
-    updateDeliveryStatus() {
-      //orderObj.id
-      this.deliveryStatus = "Item Received!"
-        .patch(
-          `https://support-local.herokuapp.com/api/orders/${orderObj.id}`,
-          {
-            orderStatus: this.deliveryStatus,
-          }
-        )
-        .then((res) => {
-          location.reload();
-          console.log("Delivery Status Updated");
-        })
-        .catch((err) => {
-          console.log("Error Patching~");
-        });
     },
   },
 };

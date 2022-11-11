@@ -16,7 +16,7 @@
                     </div>
                     <div class="row my-2">
                         <form>
-                            <div class="form-group">
+                            <div class="form-group my-3">
                                 <label for="Email">Email <span>*</span></label>
                                 <input
                                     id="emailAdd"
@@ -27,13 +27,11 @@
                                 <span v-if="(isEmailIn == false) & (isInvalid == true)">{{
                                     errMsgEmail
                                 }}</span>
-                                <br>
                                 <span v-if="v$.email.$error">
                                     {{ v$.email.$errors[0].$message }}
                                 </span>
                             </div>
-                            <br>
-                            <div class="form-group">
+                            <div class="form-group my-3">
                                 <label for="password">Password <span>*</span></label>
                                 <input
                                     id="password"
@@ -41,7 +39,7 @@
                                     type="password"
                                     class="form-control"
                                 >
-                                <span v-if="isInvalid == true">{{ errMsgPassword }}</span><br>
+                                <span v-if="isInvalid == true">{{ errMsgPassword }}</span>
                                 <span v-if="v$.password.$error">
                                     {{ v$.password.$errors[0].$message }}
                                 </span>
@@ -67,7 +65,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <br>
                         </form>
                     </div>
                     <div class="row mt-4">

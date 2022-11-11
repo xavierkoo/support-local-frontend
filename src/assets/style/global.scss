@@ -333,7 +333,7 @@ LIGHT MODE STYLES
   .cancelBtnDesign {
     background: white;
     font-family: $headingFontFamily;
-    border: none;
+    border: 0.3px solid lightgray;
     color: black;
     @include button;
     overflow: hidden;
@@ -536,12 +536,12 @@ LIGHT MODE STYLES
   .login {
     .back {
       border-radius: $boxRadius;
-      height: 456px;
+      height: 600px;
       background: white;
     }
     img {
       border-radius: $boxRadius;
-      height: 456px;
+      height: 600px;
     }
   }
 
@@ -1242,11 +1242,11 @@ DARK MODE STYLES
       background: $backgroundDark;
       border: $borderDark;
       border-radius: $boxRadius;
-      height: 456px;
+      height: 600px;
     }
     img {
       border-radius: $boxRadius;
-      height: 456px;
+      height: 600px;
     }
   }
 
