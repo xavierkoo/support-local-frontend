@@ -16,7 +16,6 @@
                     <p class="card-text">
                         {{ desc }}
                     </p>
-                    <!-- TODO: Need to link this to the email API -->
                     <button
                         class="mainBtnDesign mb-2"
                         @click="fireModal"

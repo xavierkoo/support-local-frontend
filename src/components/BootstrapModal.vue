@@ -100,6 +100,7 @@ export default {
       default: "",
     },
   },
+  emits: ["close-modal-event"],
   data() {
     return {
       queries: "",
