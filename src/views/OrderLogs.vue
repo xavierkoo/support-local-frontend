@@ -2,7 +2,24 @@
     <div>
         <div class="container">
             <div class="d-none d-sm-block">
+                <div v-if="selectedUserOrders.length == 0">
+                    <div class="container cartEmpty p-3">
+                        <div>
+                            <div class="mb-3">
+                                You have not made any orders
+                            </div>
+                            <router-link to="/landing">
+                                <button
+                                    class="btn mainBtnDesign text-decoration-none text-center p-2 my-auto"
+                                >
+                                    Start shopping now!
+                                </button>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
                 <div
+                    v-else
                     class="row justify-content-center align-items-center text-center orderBar py-sm-2"
                 >
                     <div class="col-sm-3">
