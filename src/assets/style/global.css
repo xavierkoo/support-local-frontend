@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather Sans");
 @import url("https://fonts.googleapis.com/css?family=Nunito Sans");
+/*
+GLOBAL (BOTH DARK & LIGHT)
+*/
 html,
 body {
   contain: content;
@@ -33,6 +36,9 @@ body {
   transform: scale(1.05);
 }
 
+/*
+LIGHT MODE STYLES
+*/
 #light {
   /* Track */
   /* Handle */
@@ -644,6 +650,9 @@ body {
   border-radius: 8px;
 }
 
+/*
+DARK MODE STYLES
+*/
 #dark {
   /* Track */
   /* Handle */
@@ -666,11 +675,11 @@ body {
   color: white;
 }
 #dark .blur {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 #dark .box {
-  background: black;
+  background: #252525;
 }
 #dark .toggle {
   position: relative;
@@ -724,19 +733,18 @@ body {
 }
 #dark .sideBar .box {
   height: 48px;
-  background: white;
+  background: #414141;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 16px;
   overflow: hidden;
-  transition: 1.8s;
+  transition: 0.5s;
   position: relative;
   cursor: pointer;
-  box-shadow: inset 0 #5dca82;
 }
 #dark .sideBar .box:hover {
-  box-shadow: inset 400px 0 0 0 #5dca82;
+  box-shadow: inset 400px 0 0 0 #af0404;
   cursor: pointer;
   color: white;
 }
@@ -751,7 +759,7 @@ body {
   border-radius: 8px;
 }
 #dark .sideBar span {
-  color: black;
+  color: white;
   margin: 0px 5px;
 }
 #dark .sideBar a {
@@ -764,11 +772,13 @@ body {
 }
 #dark .searchBox input {
   border-radius: 16px;
-  border: 1px solid white;
+  border: 1px solid #3d3d3d;
+  background-color: #f1f1f1;
   height: 48px;
 }
 #dark .burger {
-  background: #d36959;
+  background: white;
+  border: 0px;
 }
 #dark .navCart {
   color: white;
@@ -777,16 +787,16 @@ body {
   color: white;
 }
 #dark .dpMenu {
-  background: #d36959;
+  background: white;
 }
 #dark .dpMenu .dpSign {
-  color: white;
+  color: #af0404;
 }
 #dark .dpMenu .dpLogin {
-  color: white;
+  color: #af0404;
 }
 #dark .productCard {
-  background: #3d3d3d;
+  background: #414141;
   border: none;
 }
 #dark .productCard img {
@@ -794,7 +804,7 @@ body {
   width: 100%;
 }
 #dark .footer {
-  background: #942c1f;
+  background: #af0404;
 }
 #dark .footer input {
   border-radius: 16px;
@@ -884,34 +894,34 @@ body {
   border-radius: 16px;
 }
 #dark .mainBtnDesign {
-  background: #d36959;
+  background: #af0404;
   font-family: "Merriweather Sans", sans-serif;
   color: white;
-  border: 1px solid white;
+  border: 1px solid #3d3d3d;
   border-radius: 16px;
   font-size: 16px;
   height: 40px;
   overflow: hidden;
-  transition: 1.8s;
+  transition: 0.5s;
   position: relative;
   cursor: pointer;
   box-shadow: inset 0 white;
 }
 #dark .mainBtnDesign:hover {
-  box-shadow: inset 500px 0 0 0 black;
+  box-shadow: inset 500px 0 0 0 #ce0000;
   cursor: pointer;
   color: white;
 }
 #dark .addBtnDesign {
-  background: #d36959;
+  background: #af0404;
   font-family: "Merriweather Sans", sans-serif;
   color: white;
-  border: 1px solid white;
+  border: 1px solid #3d3d3d;
   border-radius: 16px;
   font-size: 16px;
   height: 40px;
   overflow: hidden;
-  transition: 1.8s;
+  transition: 0.5s;
   position: relative;
   cursor: pointer;
   box-shadow: inset 0 #5dca82;
@@ -930,13 +940,13 @@ body {
   font-size: 16px;
   height: 40px;
   overflow: hidden;
-  transition: 1.8s;
+  transition: 0.5s;
   position: relative;
   cursor: pointer;
   box-shadow: inset 0 white;
 }
 #dark .cancelBtnDesign:hover {
-  box-shadow: inset 400px 0 0 0 #942c1f;
+  box-shadow: inset 400px 0 0 0 #414141;
   cursor: pointer;
   color: white;
 }
@@ -950,13 +960,13 @@ body {
   font-size: 16px;
   height: 60px;
   overflow: hidden;
-  transition: 1.8s;
+  transition: 0.5s;
   position: relative;
   cursor: pointer;
   box-shadow: inset 0 white;
 }
 #dark .anyQuestionBtnDesign:hover {
-  box-shadow: inset 400px 0 0 0 #942c1f;
+  box-shadow: inset 400px 0 0 0 #af0404;
   cursor: pointer;
   color: white;
 }
@@ -1023,9 +1033,9 @@ body {
 #dark .individualViewProductCard {
   color: white;
   height: 486px;
-  border: 1px solid white;
+  border: 1px solid #3d3d3d;
   border-radius: 8px;
-  background: #3d3d3d;
+  background: #252525;
 }
 #dark .individualViewProductCard input {
   background: #d9d9d9;
@@ -1039,23 +1049,23 @@ body {
 }
 #dark .individualViewProdDesc {
   color: white;
-  background: #3d3d3d;
-  border: 1px solid white;
+  background: #414141;
+  border: 1px solid #3d3d3d;
   font-size: 16px;
   border-radius: 8px;
   text-align: left;
 }
 #dark .individualViewQuesion {
   color: white;
-  background: #3d3d3d;
+  background: #414141;
   border-radius: 8px;
   font-size: 16px;
-  border: 1px solid white;
+  border: 1px solid #3d3d3d;
 }
 #dark .individualViewProductRating {
   color: white;
-  background: #3d3d3d;
-  border: 1px solid white;
+  background: #414141;
+  border: 1px solid #3d3d3d;
   font-size: 16px;
   border-radius: 8px;
 }
@@ -1063,13 +1073,13 @@ body {
   border-radius: 16px;
   font-size: 16px;
   height: 40px;
-  background: #d36959;
+  background: #af0404;
   color: white;
-  border: 1px solid white;
+  border: 1px solid #3d3d3d;
 }
 #dark .individualViewProductRating .scrollBox {
   position: relative;
-  height: 10em;
+  height: 20em;
 }
 #dark .vertical-scrollable {
   overflow-y: scroll;
@@ -1107,8 +1117,8 @@ body {
   }
 }
 #dark .login .back {
-  background: #3d3d3d;
-  border: 1px solid white;
+  background: #252525;
+  border: 1px solid #3d3d3d;
   border-radius: 8px;
   height: 456px;
 }
@@ -1117,8 +1127,8 @@ body {
   height: 456px;
 }
 #dark .signUp .back {
-  background: #3d3d3d;
-  border: 1px solid white;
+  background: #414141;
+  border: 1px solid #3d3d3d;
   border-radius: 8px;
   height: 456px;
 }
@@ -1127,13 +1137,13 @@ body {
   border-radius: 8px;
 }
 #dark .orderRow {
-  background: #3d3d3d;
+  background: #252525;
 }
 #dark .orderRowIndItem {
   background: rgb(51, 48, 48);
 }
 #dark .orderLog {
-  background: #3d3d3d;
+  background: #252525;
   border-radius: 8px;
 }
 #dark .orderBar {
@@ -1145,14 +1155,14 @@ body {
   color: white;
 }
 #dark .shoppingBack {
-  background: #3d3d3d;
+  background: #252525;
 }
 #dark .pageBack h4,
 #dark .pageBack h5 {
   color: #fff;
 }
 #dark .cartEmpty {
-  background: #3d3d3d;
+  background: #414141;
   border-radius: 8px;
 }
 #dark .cartEmpty h3 {
@@ -1163,27 +1173,27 @@ body {
 }
 #dark .merchantRating {
   height: 267px;
-  background: #3d3d3d;
-  border: 1px solid white;
+  background: #414141;
+  border: 1px solid #3d3d3d;
 }
 #dark .brandProfile {
   height: 444px;
-  background: #3d3d3d;
-  border: 1px solid white;
+  background: #414141;
+  border: 1px solid #3d3d3d;
 }
 #dark .brandProfile img {
   width: 30%;
   height: auto;
 }
 #dark .cartBack .productBack {
-  background: rgb(51, 48, 48);
+  background: #414141;
 }
 #dark .cartBack input {
   width: 50px;
 }
 #dark .checkOut .checkOutBack {
-  background: #3d3d3d;
-  border: 1px solid black;
+  background: #414141;
+  border: 1px solid #3d3d3d;
   border-radius: 8px;
   color: white;
 }
@@ -1194,7 +1204,7 @@ body {
   border-radius: 8px;
 }
 #dark .dashAll {
-  background: #3d3d3d;
+  background: #414141;
   padding: 0px 12px;
   border-radius: 8px;
 }
@@ -1202,33 +1212,32 @@ body {
   color: #d36959;
 }
 #dark .dashAll .pAndL {
-  color: rgb(8, 219, 8);
+  color: rgb(7, 152, 7);
 }
 #dark .dashAll .addProductBtnDesign {
-  background: #d36959;
+  background: white;
   font-family: "Merriweather Sans", sans-serif;
-  color: white;
+  color: black;
   border: 1px solid black;
   border-radius: 16px;
   font-size: 16px;
   overflow: hidden;
-  transition: 1.8s;
+  transition: 0.5s;
   position: relative;
   cursor: pointer;
-  box-shadow: inset 0 black;
 }
 #dark .dashAll .addProductBtnDesign:hover {
-  box-shadow: inset 400px 0 0 0 black;
+  box-shadow: inset 400px 0 0 0 white;
   cursor: pointer;
   color: #d36959;
 }
 #dark .review {
-  background: #d36959;
+  background: #af0404;
 }
 #dark .paymentForm {
-  border: 1px solid white;
+  border: 1px solid #3d3d3d;
   border-radius: 8px;
-  background: #3d3d3d;
+  background: #414141;
 }
 #dark .mthDrop,
 #dark .yearDrop,
@@ -1246,8 +1255,8 @@ body {
   border-radius: 0.25rem;
 }
 #dark .orderDetails {
-  background: #3d3d3d;
-  border: 1px solid white;
+  background: #252525;
+  border: 1px solid #3d3d3d;
   border-radius: 8px;
 }
 #dark .orderDetails b,
@@ -1255,6 +1264,9 @@ body {
   color: white;
 }
 
+/*
+CARD ANIMATION
+*/
 .creditCard .card-item * {
   box-sizing: border-box;
 }

@@ -180,7 +180,7 @@
                     >
                         <div class="card-item__cvvTitle">{{ labels.cardCvv }}</div>
                         <div class="card-item__cvvBand">
-                            <span>{{ valueFields.cardCvv }}</span>
+                            <span class="text-dark">{{ valueFields.cardCvv }}</span>
                         </div>
                     </label>
                     <div class="card-item__type">

@@ -1,6 +1,10 @@
 @import "./variable";
 @import "./functions";
 @import "../../../node_modules/rfs/scss.scss";
+
+/*
+GLOBAL (BOTH DARK & LIGHT)
+*/
 html,
 body {
   contain: content;
@@ -37,6 +41,11 @@ body {
   }
 }
 
+// END OF GLOBAL
+
+/*
+LIGHT MODE STYLES
+*/
 #light {
   //general
   h1,
@@ -543,7 +552,7 @@ body {
     }
   }
 
-  //DarkMerchantRating
+  //MerchantRating
   .merchantRating {
     height: 267px;
   }
@@ -716,6 +725,9 @@ body {
   }
 }
 
+/*
+DARK MODE STYLES
+*/
 #dark {
   //general
   h1,
@@ -736,11 +748,11 @@ body {
   }
 
   .blur {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
   .box {
-    background: black;
+    background: $backgroundDark;
   }
 
   //DarkToggleMode CSS
@@ -807,18 +819,18 @@ body {
   //DarkSideNavPill
   .sideBar {
     border-radius: $btnBorderRadius;
+
     .box {
       height: 48px;
-      background: white;
+      background: $secondaryDark;
       @include center;
       border-radius: $btnBorderRadius;
       overflow: hidden;
-      transition: 1.8s;
+      transition: 0.5s;
       position: relative;
       cursor: pointer;
-      box-shadow: inset 0000 #5dca82;
       &:hover {
-        box-shadow: inset 400px 0 0 0 #5dca82;
+        box-shadow: inset 400px 0 0 0 $darkShade;
         cursor: pointer;
         color: white;
         span {
@@ -834,7 +846,7 @@ body {
       border-radius: $boxRadius;
     }
     span {
-      color: black;
+      color: white;
       margin: 0px 5px;
     }
     a {
@@ -852,11 +864,13 @@ body {
     input {
       border-radius: $btnBorderRadius;
       border: $borderDark;
+      background-color: $inputShade;
       height: 48px;
     }
   }
   .burger {
-    background: $mainBtn;
+    background: white;
+    border: 0px;
   }
   .navCart {
     color: white;
@@ -865,18 +879,18 @@ body {
     color: white;
   }
   .dpMenu {
-    background: $mainBtn;
+    background: white;
     .dpSign {
-      color: white;
+      color: $darkShade;
     }
     .dpLogin {
-      color: white;
+      color: $darkShade;
     }
   }
 
   //DarkProductCard CSS
   .productCard {
-    background: $backgroundDark;
+    background: $secondaryDark;
     border: none;
     img {
       height: auto;
@@ -886,7 +900,7 @@ body {
 
   //DarkFooter CSS
   .footer {
-    background: $brandMain;
+    background: $darkShade;
     input {
       border-radius: $btnBorderRadius;
       height: 48px;
@@ -982,31 +996,31 @@ body {
 
   //DarkIndividualView CSS
   .mainBtnDesign {
-    background: $mainBtn;
+    background: $darkShade;
     font-family: $headingFontFamily;
     color: white;
     border: $borderDark;
     @include button;
     overflow: hidden;
-    transition: 1.8s;
+    transition: 0.5s;
     position: relative;
     cursor: pointer;
     box-shadow: inset 0000 white;
     &:hover {
-      box-shadow: inset 500px 0 0 0 black;
+      box-shadow: inset 500px 0 0 0 $mainBtnDark;
       cursor: pointer;
       color: white;
     }
   }
 
   .addBtnDesign {
-    background: $mainBtn;
+    background: $darkShade;
     font-family: $headingFontFamily;
     color: white;
     border: $borderDark;
     @include button;
     overflow: hidden;
-    transition: 1.8s;
+    transition: 0.5s;
     position: relative;
     cursor: pointer;
     box-shadow: inset 0000 #5dca82;
@@ -1024,12 +1038,12 @@ body {
     color: black;
     @include button;
     overflow: hidden;
-    transition: 1.8s;
+    transition: 0.5s;
     position: relative;
     cursor: pointer;
     box-shadow: inset 0000 white;
     &:hover {
-      box-shadow: inset 400px 0 0 0 $brandMain;
+      box-shadow: inset 400px 0 0 0 $secondaryDark;
       cursor: pointer;
       color: white;
     }
@@ -1045,12 +1059,12 @@ body {
     font-size: 16px;
     height: 60px;
     overflow: hidden;
-    transition: 1.8s;
+    transition: 0.5s;
     position: relative;
     cursor: pointer;
     box-shadow: inset 0000 white;
     &:hover {
-      box-shadow: inset 400px 0 0 0 $brandMain;
+      box-shadow: inset 400px 0 0 0 $darkShade;
       cursor: pointer;
       color: white;
     }
@@ -1145,7 +1159,7 @@ body {
 
   .individualViewProdDesc {
     color: white;
-    background: $backgroundDark;
+    background: $secondaryDark;
     border: $borderDark;
     font-size: $bodyLarge;
     border-radius: $boxRadius;
@@ -1154,7 +1168,7 @@ body {
 
   .individualViewQuesion {
     color: white;
-    background: $backgroundDark;
+    background: $secondaryDark;
     border-radius: $boxRadius;
     font-size: $bodyLarge;
     border: $borderDark;
@@ -1162,19 +1176,19 @@ body {
 
   .individualViewProductRating {
     color: white;
-    background: $backgroundDark;
+    background: $secondaryDark;
     border: $borderDark;
     font-size: $bodyLarge;
     border-radius: $boxRadius;
     button {
       @include button;
-      background: $mainBtn;
+      background: $darkShade;
       color: white;
       border: $borderDark;
     }
     .scrollBox {
       position: relative;
-      height: 10em;
+      height: 20em;
     }
   }
 
@@ -1239,7 +1253,7 @@ body {
   //DarkSignUP
   .signUp {
     .back {
-      background: $backgroundDark;
+      background: $secondaryDark;
       border: $borderDark;
       border-radius: $boxRadius;
       height: 456px;
@@ -1283,7 +1297,7 @@ body {
     }
   }
   .cartEmpty {
-    background: $backgroundDark;
+    background: $secondaryDark;
     border-radius: $boxRadius;
     h3 {
       color: $mainBtn;
@@ -1300,14 +1314,14 @@ body {
   //DarkMerchantRating
   .merchantRating {
     height: 267px;
-    background: $backgroundDark;
+    background: $secondaryDark;
     border: $borderDark;
   }
 
   //DarkBrandProfile
   .brandProfile {
     height: 444px;
-    background: $backgroundDark;
+    background: $secondaryDark;
     border: $borderDark;
     img {
       width: 30%;
@@ -1318,7 +1332,7 @@ body {
   //DarkCartComponent
   .cartBack {
     .productBack {
-      background: rgb(51, 48, 48);
+      background: $secondaryDark;
     }
     input {
       width: 50px;
@@ -1328,8 +1342,8 @@ body {
   //DarkCheckOut
   .checkOut {
     .checkOutBack {
-      background: $backgroundDark;
-      border: $borderLight;
+      background: $secondaryDark;
+      border: $borderDark;
       border-radius: $boxRadius;
       color: white;
     }
@@ -1343,30 +1357,29 @@ body {
   }
   //DarkAddProduct
   .dashAll {
-    background: $backgroundDark;
+    background: $secondaryDark;
     padding: 0px 12px;
     border-radius: $boxRadius;
     .dashName {
       color: $mainBtn;
     }
     .pAndL {
-      color: rgb(8, 219, 8);
+      color: rgb(7, 152, 7);
     }
     .addProductBtnDesign {
       //btn
-      background: $mainBtn;
+      background: white;
       font-family: $headingFontFamily;
-      color: white;
+      color: black;
       border: $borderLight;
       border-radius: $btnBorderRadius;
       font-size: 16px;
       overflow: hidden;
-      transition: 1.8s;
+      transition: 0.5s;
       position: relative;
       cursor: pointer;
-      box-shadow: inset 0000 black;
       &:hover {
-        box-shadow: inset 400px 0 0 0 black;
+        box-shadow: inset 400px 0 0 0 white;
         cursor: pointer;
         color: $mainBtn;
       }
@@ -1374,14 +1387,14 @@ body {
   }
   //DarkReview
   .review {
-    background: $mainBtn;
+    background: $darkShade;
   }
 
   //DarkViewPayment
   .paymentForm {
     border: $borderDark;
     border-radius: $boxRadius;
-    background: $backgroundDark;
+    background: $secondaryDark;
   }
   .mthDrop,
   .yearDrop,
@@ -1398,6 +1411,7 @@ body {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
   }
+
   //DarkOrderDetails
   .orderDetails {
     background: $backgroundDark;
@@ -1410,8 +1424,9 @@ body {
   }
 }
 
-//cardAniamtion
-
+/*
+CARD ANIMATION
+*/
 .creditCard {
   .card-item * {
     box-sizing: border-box;
@@ -1859,3 +1874,4 @@ body {
     pointer-events: none;
   }
 }
+// END OF CARD ANIMATION
