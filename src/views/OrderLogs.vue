@@ -36,6 +36,7 @@
 <script>
 import axios from "axios";
 import OrderRow from "@/components/OrderRow.vue";
+
 export default {
   components: { OrderRow },
   data() {
@@ -69,8 +70,6 @@ export default {
     }
     // 3. Load into Instance
     this.selectedUserOrders = selectedUserOrders;
-
-    // Insert Loader
   },
 };
 </script>

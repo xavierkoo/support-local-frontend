@@ -128,7 +128,10 @@
                 </div>
                 <div class="row mx-2 my-3">
                     <div class="col-1" />
-                    <button class="cancelBtnDesign col-4">
+                    <button
+                        class="cancelBtnDesign col-4"
+                        @click="$router.push(`/landing`)"
+                    >
                         Cancel
                     </button>
                     <div class="col-2" />
