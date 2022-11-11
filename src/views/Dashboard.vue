@@ -437,7 +437,6 @@ export default {
       `https://support-local.herokuapp.com/api/merchants/${route.params.merchantId}`
     );
     this.merchant = selectedMerchant.data;
-    console.log(this.merchant);
 
     let merchantProducts = selectedMerchant.data.products;
     let productArr = [];
@@ -463,7 +462,6 @@ export default {
 
     // Assign productArr to state
     this.productList = productArr;
-    console.log(this.productList);
   },
   methods: {
     addProduct() {

@@ -80,7 +80,7 @@
             :delivery-date="orderObj.deliveryDate"
             :order-status="orderObj.orderStatus"
             :order-id="orderObj.id"
-            @fire-Modal="showModal"
+            @fire-modal="showModal"
         />
         <BootstrapModal
             v-if="show"

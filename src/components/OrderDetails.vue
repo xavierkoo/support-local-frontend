@@ -89,6 +89,7 @@ export default {
       default: "",
     },
   },
+  emits: ["fireModal"],
   data() {
     return {
       deliveryStatus: this.orderStatus,
@@ -96,7 +97,6 @@ export default {
   },
   methods: {
     updateDeliveryStatus() {
-      //orderObj.id
       let deliveryStatus = "Item Received!";
       axios
         .patch(
@@ -114,8 +114,6 @@ export default {
           console.log("Error Patching~");
         });
     },
-  },
-  methods: {
     fireModal() {
       this.$emit("fireModal");
     },
