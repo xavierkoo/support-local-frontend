@@ -1267,6 +1267,13 @@ DARK MODE STYLES
 #dark .orderDetails div {
   color: white;
 }
+#dark .BootModal h5,
+#dark .BootModal label {
+  color: black;
+}
+#dark .BootModal .close {
+  color: black;
+}
 
 /*
 CARD ANIMATION

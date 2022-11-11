@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="BootModal">
         <div
             class="modal shadowbox"
             tabindex="-1"
