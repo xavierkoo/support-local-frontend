@@ -1,5 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div class="signUp">
         <div class="container-fluid">
@@ -87,6 +85,7 @@ import axios from "axios";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
 export default {
+  name: "App",
   setup() {
     const state = reactive({
       email: "",

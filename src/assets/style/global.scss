@@ -939,8 +939,8 @@ DARK MODE STYLES
     }
     .email {
       display: flex;
-      justify-content: end;
-      align-items: end;
+      justify-content: flex-end;
+      align-items: flex-end;
       color: white;
     }
     span {

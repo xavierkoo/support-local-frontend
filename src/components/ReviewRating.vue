@@ -33,7 +33,6 @@
                         active-color="#ebd142"
                         :star-size="15"
                         class="col-3 col-md-3 col-lg-6 ps-0"
-                        @click="display"
                     />
                     <div class="col-2 col-sm-4 d-block d-md-none" />
                     <button
@@ -99,12 +98,6 @@ export default {
     this.productSelectedreviewArr = PSelectedReview.data.reviews;
   },
   methods: {
-    display() {
-      console.log(this.rating);
-      console.log(this.review);
-      console.log(this.userSelectedreviewArr);
-      console.log(this.productSelectedreviewArr);
-    },
     send() {
       //post new review to review database
       if (this.review.trim().length < 20) {
@@ -118,7 +111,6 @@ export default {
             orderDetails: this.review,
           })
           .then((res) => {
-            console.log(res.data.id);
             this.rating = 1;
             this.review = "";
             this.userSelectedreviewArr.push(res.data.id); //push new review id into user review array to prepare for patch (replace)

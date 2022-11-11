@@ -846,8 +846,8 @@ DARK MODE STYLES
 }
 #dark .footer .email {
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   color: white;
 }
 #dark .footer span {
