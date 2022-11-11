@@ -43,6 +43,7 @@
                 <button
                     class="cancelBtnDesign"
                     type="button"
+                    @click="fireModal"
                 >
                     Contact Seller
                 </button>
@@ -112,6 +113,11 @@ export default {
           console.log(err);
           console.log("Error Patching~");
         });
+    },
+  },
+  methods: {
+    fireModal() {
+      this.$emit("fireModal");
     },
   },
 };

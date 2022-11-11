@@ -80,6 +80,12 @@
             :delivery-date="orderObj.deliveryDate"
             :order-status="orderObj.orderStatus"
             :order-id="orderObj.id"
+            @fire-Modal="showModal"
+        />
+        <BootstrapModal
+            v-if="show"
+            :merchant-email="merchantObj.email"
+            @close-modal-event="hideModal"
         />
     </div>
 </template>
@@ -89,13 +95,16 @@ import axios from "axios"; //npm install axios
 import { useRoute } from "vue-router";
 import OrderDetails from "../components/OrderDetails.vue";
 import ReviewRating from "../components/ReviewRating.vue";
+import BootstrapModal from "../components/BootstrapModal.vue";
 export default {
   components: {
     OrderDetails,
     ReviewRating,
+    BootstrapModal,
   },
   data() {
     return {
+      show: false,
       rate: false, //v-if for rating.   Change to true if rate is clicked
       userID: "", // I need the current logged in userID
       productID: "", // I need the the current product is being reviewed. Should be pass from orderlogs page
@@ -130,6 +139,14 @@ export default {
       } else {
         this.rate = !true;
       }
+    },
+    showModal() {
+      this.show = true;
+      window.scrollTo(0, 0);
+    },
+    hideModal() {
+      this.show = false;
+      window.scrollTo(0, 30);
     },
   },
 };
