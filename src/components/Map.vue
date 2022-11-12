@@ -2,7 +2,7 @@
     <div class="MapComp">
         <!-- Insert API key later -->
         <GoogleMap
-            api-key=""
+            api-key="AIzaSyDfdn9fMoKv9yEVRoFwvhWcgSr2UCkDCBE"
             style="width: 100%; height: 444px"
             :center="center"
             :zoom="15"

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="productList == null">
+        <div v-if="isLoaded == false">
             <Loading />
         </div>
         <div v-else>
@@ -139,6 +139,7 @@ export default {
   },
   data() {
     return {
+      isLoaded: false,
       show: false,
       merchant: "",
       merchantId: "",
@@ -149,7 +150,11 @@ export default {
       merchantLng: 0.0,
     };
   },
-  watch: {},
+  watch: {
+    isLoaded() {
+      window.scrollTo(0, 0);
+    },
+  },
 
   mounted() {
     // Toggle Darkmode Functionality
@@ -196,6 +201,7 @@ export default {
     let LatLongArr = selectedMerchant.data.coord.split(",");
     this.merchantLat = Number(LatLongArr[0].trim());
     this.merchantLng = Number(LatLongArr[1].trim());
+    this.isLoaded = true;
   },
   methods: {
     showModal() {

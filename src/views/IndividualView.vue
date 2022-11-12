@@ -2,7 +2,7 @@
     <div class="p-0">
         <div class="Individual" />
         <div :id="mode">
-            <div v-if="product == null || merchant == null || review == null">
+            <div v-if="isLoaded == false">
                 <Loading />
             </div>
             <div v-else>
@@ -406,6 +406,7 @@ export default {
     Loading,
   },
   async beforeRouteUpdate(to, from) {
+    this.isLoaded = false;
     // If component is all loaded, but user click to see different product
     // component data will change but page will not reload
     this.productId = to.params.productId;
@@ -446,10 +447,12 @@ export default {
     }
     this.review = reviewArr;
     // Scroll to the top once the user clicks another product
+    this.isLoaded = true;
     window.scrollTo(0, 0);
   },
   data() {
     return {
+      isLoaded: false,
       merchantEmail: "",
       queries: "",
       subject: "",
@@ -470,10 +473,10 @@ export default {
       selectedProd: "", // product obj retrieved from api
     };
   },
-  computed: {
-    // productQuantity() {
-    //   return this.$store.getters.productQuantity(this.product);
-    // },
+  watch: {
+    isLoaded() {
+      window.scrollTo(0, 0);
+    },
   },
 
   mounted() {
@@ -541,6 +544,7 @@ export default {
       reviewArr.push(aReview.data);
     }
     this.review = reviewArr;
+    this.isLoaded = true;
   },
   methods: {
     addToCart() {
