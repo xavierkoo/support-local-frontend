@@ -131,7 +131,7 @@ LIGHT MODE STYLES
     border-radius: 50%;
   }
 
-  //LightNavBar CSS
+  //LightNavBar
   .brand-logo {
     max-width: 160px;
     height: auto;
@@ -148,7 +148,7 @@ LIGHT MODE STYLES
     background: $mainBtn;
   }
 
-  //LightFooter CSS
+  //LightFooter
   .footer {
     background: $brandMain;
     .emailInput {
@@ -232,7 +232,7 @@ LIGHT MODE STYLES
     line-height: 60px;
     margin-left: 10px;
   }
-  //sideNavPill CSS
+  //sideNavPill
   .sideBar {
     border-radius: $secondaryBorderRadius;
     .box {
@@ -265,7 +265,7 @@ LIGHT MODE STYLES
     }
   }
 
-  //LightProductCard CSS
+  //LightProductCard
   .productCard {
     button {
       @include button;
@@ -278,7 +278,7 @@ LIGHT MODE STYLES
     }
   }
 
-  //LightLandingView CSS
+  //LightLandingView
   .brand-logo {
     width: 160px;
     height: auto;
@@ -294,7 +294,7 @@ LIGHT MODE STYLES
     }
   }
 
-  //LightIndividualView CSS
+  //LightIndividualView
   .signUpBtnDesign {
     background: white;
     font-size: 16px;
@@ -777,7 +777,7 @@ DARK MODE STYLES
     background: $backgroundDark;
   }
 
-  //DarkToggleMode CSS
+  //DarkToggleMode
   .toggle {
     position: relative;
     display: flex;
@@ -876,7 +876,7 @@ DARK MODE STYLES
     }
   }
 
-  //DarkNavBar CSS
+  //DarkNavBar
   .brand-logo {
     max-width: 160px;
     height: auto;
@@ -910,7 +910,7 @@ DARK MODE STYLES
     }
   }
 
-  //DarkProductCard CSS
+  //DarkProductCard
   .productCard {
     background: $secondaryDark;
     border: none;
@@ -923,7 +923,7 @@ DARK MODE STYLES
     }
   }
 
-  //DarkFooter CSS
+  //DarkFooter
   .footer {
     background: $darkShade;
     .emailInput {
@@ -1003,7 +1003,7 @@ DARK MODE STYLES
     margin-left: 10px;
   }
 
-  //DarkLandingView CSS
+  //DarkLandingView
   .centerbox {
     border-radius: $btnBorderRadius;
     img {
@@ -1016,7 +1016,7 @@ DARK MODE STYLES
     }
   }
 
-  //DarkIndividualView CSS
+  //DarkIndividualView
   .mainBtnDesign {
     background: $darkShade;
     font-family: $headingFontFamily;
