@@ -57,6 +57,7 @@ npm run lint
 * Light/Dark Mode
 * Vuelidate
 * Vuex
+* Eslint
 
 ## API Documentation
 ### Google Maps API
@@ -75,7 +76,6 @@ Google Maps component: https://www.npmjs.com/package/vue3-google-map
 | The request includes an invalid parameter, or a required parameter is missing. For example, the size parameter is not within the expected range of numeric values, or is missing from the request. | 400 BAD REQUEST |
 | The API key included in the request is invalid. | 403 FORBIDDEN |
 
-
 ### EmailJS API
 EmailJS base link: https://api.emailjs.com/api/v1.0/email/send 
 
@@ -87,10 +87,8 @@ EmailJS base link: https://api.emailjs.com/api/v1.0/email/send
 | `form` | `Object` | **Required**. Retrieves form elements such as merchant_email, user_email, subject, queries |
 | `publicKey` | `string` | **Required**. Public Key of the EmailJS account |
 
-
 #### Received:
 SUCCESS! || FAILED…
-
 
 ## Authors
 * Aaron Kwah https://github.com/A2ron-k
