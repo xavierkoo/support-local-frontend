@@ -30,8 +30,8 @@ export default {
     };
   },
   mounted() {
-    const initUserTheme = this.getTheme() || this.getMediaPreference();
-    this.setTheme(initUserTheme);
+    const userTheme = this.getTheme() || this.getUserPreference();
+    this.setTheme(userTheme);
   },
   methods: {
     toggle() {
@@ -57,22 +57,15 @@ export default {
     getTheme() {
       return localStorage.getItem("modes");
     },
-    getMediaPreference() {
-      const hasDarkPreference = window.matchMedia(
+    getUserPreference() {
+      const darkPreference = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
-      if (hasDarkPreference) {
-        this.reload();
-        window.stop();
+      if (darkPreference) {
         return "dark";
       } else {
-        this.reload();
-        window.stop();
         return "light";
       }
-    },
-    reload() {
-      window.location.reload();
     },
   },
 };
