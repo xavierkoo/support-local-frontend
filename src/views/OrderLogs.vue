@@ -78,15 +78,19 @@ export default {
     let userOrderIdArr = user.data.orderDetails;
     let selectedUserOrders = [];
 
-    // 2. LOOP & AXIOS Get specific orderIDs found in the user obj
-    for (const orderId of userOrderIdArr) {
-      const anOrder = await axios.get(
-        `https://support-local.herokuapp.com/api/orders/${orderId}`
-      );
-      selectedUserOrders.push(anOrder.data);
+    if (userOrderIdArr.length == 0) {
+      this.selectedUserOrders = selectedUserOrders;
+    } else {
+      // 2. LOOP & AXIOS Get specific orderIDs found in the user obj
+      for (const orderId of userOrderIdArr) {
+        const anOrder = await axios.get(
+          `https://support-local.herokuapp.com/api/orders/${orderId}`
+        );
+        selectedUserOrders.push(anOrder.data);
+      }
+      // 3. Load into Instance
+      this.selectedUserOrders = selectedUserOrders;
     }
-    // 3. Load into Instance
-    this.selectedUserOrders = selectedUserOrders;
   },
 };
 </script>
