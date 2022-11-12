@@ -973,6 +973,25 @@ DARK MODE STYLES
   cursor: pointer;
   color: white;
 }
+#dark .signUpBtnDesign {
+  background: white;
+  font-size: 16px;
+  height: 40px;
+  font-family: "Merriweather Sans", sans-serif;
+  border: 0.3px solid lightgray;
+  color: black;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.5s;
+  cursor: pointer;
+  box-shadow: inset 0 black;
+}
+#dark .signUpBtnDesign:hover {
+  box-shadow: inset 500px 0 0 0 black;
+  cursor: pointer;
+  color: white;
+}
 #dark .anyQuestionBtnDesign {
   border: none;
   font-family: "Merriweather Sans", sans-serif;

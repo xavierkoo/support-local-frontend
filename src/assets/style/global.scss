@@ -1071,6 +1071,26 @@ DARK MODE STYLES
     }
   }
 
+  .signUpBtnDesign {
+    background: white;
+    font-size: 16px;
+    height: $btnHeight;
+    font-family: $headingFontFamily;
+    border: 0.3px solid lightgray;
+    color: black;
+    border-radius: $boxRadius;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: inset 0000 black;
+    &:hover {
+      box-shadow: inset 500px 0 0 0 black;
+      cursor: pointer;
+      color: white;
+    }
+  }
+
   .anyQuestionBtnDesign {
     border: none;
     font-family: $headingFontFamily;
