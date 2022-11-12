@@ -4,18 +4,22 @@
 
 Support Local is THE one-stop shop for all things local. It compiles all local businesses, and services in an easy-to-use portal and allows them to offer their products and services to customers through the platform.
 
+# General Info
+Support Local is built using Vue CLI and hosted on Netlify.
+
 Main App Link: https://supportlocal.netlify.app/
 
 Backend Repository: https://github.com/WAD2-T05/support-local-backend
 
 ## Frontend Tech Stack 
+* Vue 3
+* Bootstrap v5.2
+* Javascript
 * HTML
 * CSS
-* SCSS
+* SASS
 * GSAP
 * tsParticles
-* Javascript
-* Vue.js
 
 ## Screenshots
 
@@ -45,6 +49,24 @@ npm run build
 ```
 npm run lint
 ```
+
+## Features
+* Google Maps API
+* EmailJS API
+* RESTful HTTP API
+* Light/Dark Mode
+* Vuelidate
+* Vuex
+
+## Acknowledgments
+Many thanks to:
+* Vue Paycard component inspired by @gustallaigor
+
+## Authors
+* Aaron Kwah https://github.com/A2ron-k
+* Cydnie Na https://github.com/cydniena
+* Ray Quek https://github.com/rayquekCW
+* Xavier Koo https://github.com/xavierkoo
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
