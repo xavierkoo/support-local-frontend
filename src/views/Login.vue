@@ -145,7 +145,6 @@ export default {
       // // make api call to db to get
       this.v$.$validate();
       if (this.state.accType == "Merchant") {
-        console.log("test");
         let url = `https://support-local.herokuapp.com/api/merchants`;
         axios
           .get(url)
