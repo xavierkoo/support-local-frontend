@@ -170,7 +170,7 @@
                                                 >
                                                     <div class="modal-body">
                                                         <input
-                                                            id="email"
+                                                            id="emailMerchant"
                                                             v-model="merchantEmail"
                                                             type="email"
                                                             name="merchant_email"
@@ -182,7 +182,7 @@
                                                             class="form-label"
                                                         >Email:</label>
                                                         <input
-                                                            id="email"
+                                                            id="emailUser"
                                                             v-model="userEmail"
                                                             type="email"
                                                             name="user_email"
@@ -562,26 +562,35 @@ export default {
       this.$store.commit("deleteItem", this.product);
     },
     sendEmail() {
-      emailjs
-        .sendForm(
-          "SupportLocal2022",
-          "queriesWAD2",
-          this.$refs.form,
-          "8Ofr7mrBSFNOFqcER"
-        )
-        .then(
-          (result) => {
-            console.log("SUCCESS!", result.text);
-            alert("Your queries have been successfully sent to the merchant!");
-            this.merchantEmail = "";
-            this.queries = "";
-            this.subject = "";
-            this.userEmail = "";
-          },
-          (error) => {
-            console.log("FAILED...", error.text);
-          }
-        );
+      if (
+        this.subject.trim() == "" ||
+        this.queries.trim() == "" ||
+        this.userEmail.trim() == ""
+      ) {
+        alert("Please make sure you fill up the form correctly");
+      } else {
+        emailjs
+          .sendForm(
+            "SupportLocal2022",
+            "queriesWAD2",
+            this.$refs.form,
+            "8Ofr7mrBSFNOFqcER"
+          )
+          .then(
+            (result) => {
+              console.log("SUCCESS!", result.text);
+              alert(
+                "Your queries have been successfully sent to the merchant!"
+              );
+              this.queries = "";
+              this.subject = "";
+              this.userEmail = "";
+            },
+            (error) => {
+              console.log("FAILED...", error.text);
+            }
+          );
+      }
     },
   },
 };

@@ -118,25 +118,29 @@ export default {
   },
   methods: {
     sendEmail() {
-      emailjs
-        .sendForm(
-          "SupportLocal2022",
-          "SupportLocal2022",
-          this.$refs.form,
-          "8Ofr7mrBSFNOFqcER"
-        )
-        .then(
-          (result) => {
-            console.log("SUCCESS!", result.text);
-            alert(
-              "You have successfully signed up for the Support Local Newsletter!"
-            );
-            this.msg = "";
-          },
-          (error) => {
-            console.log("FAILED...", error.text);
-          }
-        );
+      if (this.msg.trim() == "") {
+        alert("Invalid Email!");
+      } else {
+        emailjs
+          .sendForm(
+            "SupportLocal2022",
+            "SupportLocal2022",
+            this.$refs.form,
+            "8Ofr7mrBSFNOFqcER"
+          )
+          .then(
+            (result) => {
+              console.log("SUCCESS!", result.text);
+              alert(
+                "You have successfully signed up for the Support Local Newsletter!"
+              );
+              this.msg = "";
+            },
+            (error) => {
+              console.log("FAILED...", error.text);
+            }
+          );
+      }
     },
   },
 };
