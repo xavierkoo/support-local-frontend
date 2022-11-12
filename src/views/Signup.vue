@@ -137,33 +137,51 @@ export default {
     submitForm() {
       // method gets user's input values and add it into the db
       // trying to add data into userBase db
-
+      let url = "https://support-local.herokuapp.com/api/users";
       var inputPassword = this.state.password.password;
       var inputEmail = this.state.email;
       var accType = this.state.accType;
       this.v$.$validate();
 
-      let url = "https://support-local.herokuapp.com/api/users";
-      axios
-        .post(url, {
-          email: inputEmail,
-          password: inputPassword,
-          profImageUrl: "assets/img/placeholders/dp1.jpeg",
-          reviews: [],
-          orderDetails: [],
-        })
-        .then((res) => {
-          if (!this.v$.$error) {
-            // route to landing page
-            this.$router.push("/landing");
-          } else {
-            // did not meet input requirement
-            console.log("Form input did not meet the input requirement!");
-          }
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+      axios.get(url).then((res) => {
+        let existingEmailArr = [];
+        let usersArr = res.data;
+        for (const key in usersArr) {
+          existingEmailArr.push(usersArr[key].email);
+        }
+
+        if (existingEmailArr.includes(inputEmail)) {
+          alert("This email is already taken!");
+          this.state.email = "";
+          this.state.password.password = "";
+          this.state.password.confirm = "";
+        } else {
+          axios
+            .post(url, {
+              email: inputEmail,
+              password: inputPassword,
+              profImageUrl: "assets/img/placeholders/dp1.jpeg",
+              reviews: [],
+              orderDetails: [],
+            })
+            .then((res) => {
+              if (!this.v$.$error) {
+                // route to landing page
+                alert("Sign up successful!");
+                this.$router.push("/landing");
+              } else {
+                // did not meet input requirement
+                console.log("Form input did not meet the input requirement!");
+                this.state.email = "";
+                this.state.password.password = "";
+                this.state.password.confirm = "";
+              }
+            })
+            .catch((err) => {
+              console.log(err.message);
+            });
+        }
+      });
     },
   },
 };
