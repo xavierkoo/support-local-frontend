@@ -6,6 +6,6 @@
 
 @mixin button() {
   border-radius: $btnBorderRadius;
-  font-size: 16px;
+  font-size: $bodyLarge;
   height: $btnHeight;
 }
