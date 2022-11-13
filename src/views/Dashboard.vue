@@ -55,14 +55,37 @@
                                                     for="prodCat"
                                                     class="form-label"
                                                 >Category</label>
-                                                <input
+                                                <select
                                                     id="prodCat"
                                                     v-model="newProdCategory"
-                                                    type="text"
                                                     class="form-control"
-                                                    placeholder="Women's Apparel"
                                                     required
                                                 >
+                                                    <option value="">
+                                                        Select a category
+                                                    </option>
+                                                    <option value="Food & Beverages">
+                                                        Food & Beverages
+                                                    </option>
+                                                    <option value="Men's Apparel">
+                                                        Men's Apparel
+                                                    </option>
+                                                    <option value="Women's Apparel">
+                                                        Women's Apparel
+                                                    </option>
+                                                    <option value="Electronics">
+                                                        Electronics
+                                                    </option>
+                                                    <option value="Hobbies & Books">
+                                                        Hobbies & Books"
+                                                    </option>
+                                                    <option value="Beauty & Personal">
+                                                        Beauty & Personal
+                                                    </option>
+                                                    <option value="Services">
+                                                        Services
+                                                    </option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label
