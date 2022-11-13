@@ -460,6 +460,9 @@ export default {
   },
   methods: {
     addProduct() {
+      // This function is called to add product into the Database.
+      // It takes in the data from the data instance and does a POST
+
       // Define
       this.submitting = true;
       this.error = false;
@@ -510,6 +513,9 @@ export default {
         });
     },
     deleteProduct(prodId) {
+      // This function is called to delete product from the Database.
+      // It takes in the data from the data instance and does a delete
+
       // DELETE
       axios
         .delete(`https://support-local.herokuapp.com/api/products/${prodId}`)
@@ -584,6 +590,9 @@ export default {
         });
     },
     setEditProd(prodId) {
+      // This function is called to updates product to the Database.
+      // It takes in the data from the data instance and does a patch (override)
+
       this.editProd = true;
       // Loop through existing instance and select product obj based on product id
       for (let i = 0; i < this.productList.length; i++) {

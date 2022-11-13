@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import { ResolveLoader } from "webpack-chain";
-
 export default {
   name: "MyToggle",
   props: {

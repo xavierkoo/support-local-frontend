@@ -395,7 +395,7 @@
 
 <script>
 import axios from "axios";
-import ProductCard from "../components/ProductCard.vue"; //import product card
+import ProductCard from "../components/ProductCard.vue";
 import { useRoute } from "vue-router";
 import Loading from "../components/LoadingAnimation.vue";
 import emailjs from "@emailjs/browser";
@@ -464,8 +464,8 @@ export default {
       merchantProducts: "", //merchant Related Products obj
       productList: "", //product obj
       review: null, //review Arr
-      merchant: null, //dummy selected merchant In Good Company
-      product: null, //dummy selected product Martine Necklace
+      merchant: null,
+      product: null,
       quantity: 1, // v-model qty
       cart: [],
       shoppingCart: [],

@@ -142,7 +142,7 @@ export default {
   },
   methods: {
     submitForm(v$) {
-      // // make api call to db to get
+      // Make api call to db to get
       this.v$.$validate();
       if (this.state.accType == "Merchant") {
         let url = `https://support-local.herokuapp.com/api/merchants`;

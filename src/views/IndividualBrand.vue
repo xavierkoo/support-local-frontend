@@ -157,7 +157,7 @@ export default {
   },
 
   mounted() {
-    // Toggle Darkmode Functionality
+    // Toggle Darkmode functionality
     // The below code is listening for the event "modes-localstorage-changed" and when it is triggered, it
     // it will update the mode variable with the new value.
     window.addEventListener("modes-localstorage-changed", (event) => {
@@ -205,10 +205,12 @@ export default {
   },
   methods: {
     showModal() {
+    // Opens the modal component
       this.show = true;
       window.scrollTo(0, 0);
     },
     hideModal() {
+    // Closes the modal component
       this.show = false;
       window.scrollTo(0, 30);
     },
