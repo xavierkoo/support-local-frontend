@@ -109,13 +109,6 @@ EmailJS base link: https://api.emailjs.com/api/v1.0/email/send
 
 SUCCESS! || FAILED…
 
-## Authors
-
-**Front-end Tech Lead** - [Aaron Kwah](https://github.com/A2ron-k)\
-**Front-end Dev/Designer** - [Ray Quek](https://github.com/rayquekCW)\
-**Back-end Lead Dev** - [Xavier Koo](https://github.com/xavierkoo)\
-**Front-end Dev** - [Cydnie Na](https://github.com/cydniena)
-
 ## Acknowledgments
 
 Many thanks to:
