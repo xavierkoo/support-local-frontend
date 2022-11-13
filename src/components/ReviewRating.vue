@@ -75,6 +75,7 @@ export default {
       default: "", //need to get dynamically
     },
   },
+  emits: ["reviewDone"],
   data() {
     return {
       rating: 1,
@@ -127,6 +128,8 @@ export default {
                 reviews: this.productSelectedreviewArr,
               }
             );
+            alert("Review has been added! Thank you :)");
+            this.$emit("reviewDone");
           })
           .catch((err) => {
             console.error(err);

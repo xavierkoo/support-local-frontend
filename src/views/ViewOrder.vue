@@ -71,6 +71,7 @@
                     :user-id="userID"
                     :product-id="productID"
                     class="rounded-bottom"
+                    @review-done="rateToggle"
                 />
             </div>
         </div>
@@ -105,7 +106,7 @@ export default {
   data() {
     return {
       show: false,
-      rate: false, //v-if for rating.   Change to true if rate is clicked
+      rate: false, //v-if for rating. Change to true if rate is clicked
       userID: "", // I need the current logged in userID
       productID: "", // I need the the current product is being reviewed. Should be pass from orderlogs page
       productObj: {},
@@ -134,6 +135,7 @@ export default {
   },
   methods: {
     rateToggle() {
+      // Toggles the rating model to appear
       if (this.rate != true) {
         this.rate = true;
       } else {
@@ -141,10 +143,12 @@ export default {
       }
     },
     showModal() {
+      // Toggles the Contact me model to appear
       this.show = true;
       window.scrollTo(0, 0);
     },
     hideModal() {
+      // Toggles the Contact me model to close
       this.show = false;
       window.scrollTo(0, 30);
     },
