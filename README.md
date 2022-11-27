@@ -10,7 +10,7 @@ Support Local is built using Vue CLI and hosted on Netlify.
 
 Main App Link: https://supportlocal.netlify.app/
 
-Backend Repository: https://github.com/support-local-backend
+Backend Repository: https://github.com/xavierkoo/support-local-backend
 
 ## Frontend Tech Stack
 
