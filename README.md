@@ -34,7 +34,7 @@ Backend Repository: https://github.com/xavierkoo/support-local-backend
 ### Download project repository to your local directory:
 
 ```
-git clone git@github.com:WAD2-T05/support-local.git
+git@github.com:xavierkoo/support-local-frontend.git
 ```
 
 ### Open your terminal in local project, and execute:
