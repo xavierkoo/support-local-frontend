@@ -14,8 +14,8 @@ Backend Repository: https://github.com/xavierkoo/support-local-backend
 
 ## Frontend Tech Stack
 
-- Vue 3
-- Bootstrap v5.2
+- Vue
+- Bootstrap
 - Javascript
 - HTML
 - CSS
