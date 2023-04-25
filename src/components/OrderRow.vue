@@ -96,7 +96,7 @@ export default {
     for (const product of this.products) {
       let prodId = product.prodId;
       const aProduct = await axios.get(
-        `https://support-local.herokuapp.com/api/products/${prodId}`
+        `https://support-local-backend.onrender.com/api/products/${prodId}`
       );
       aProduct.data.qty = product.qty;
 
