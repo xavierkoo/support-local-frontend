@@ -8,7 +8,7 @@ Support Local is THE one-stop shop for all things local. It compiles all local b
 
 Support Local is built using Vue CLI and hosted on Netlify.
 
-Main App Link: https://supportlocal.netlify.app/
+Main App Link: https://support-local-frontend.onrender.com
 
 Backend Repository: https://github.com/xavierkoo/support-local-backend
 
