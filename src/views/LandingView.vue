@@ -258,7 +258,7 @@ export default {
   async beforeMount() {
     // A function that will be called before the component is mounted.
     const res = await axios.get(
-      "https://support-local.herokuapp.com/api/products"
+      "https://support-local-backend.onrender.com/api/products"
     );
     let startUpArr = [];
     for (const key in res.data) {
@@ -282,7 +282,7 @@ export default {
     getSelectedProduct(selectedCat, viewMore) {
       // This function is get products from API Endpoint and display
 
-      let url = "https://support-local.herokuapp.com/api/products";
+      let url = "https://support-local-backend.onrender.com/api/products";
 
       axios.get(url).then((res) => {
         if (viewMore === false) {
