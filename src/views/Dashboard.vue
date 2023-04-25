@@ -452,7 +452,7 @@ export default {
     // Pull all products from the specific merchantID
     // Retrieve merchant from API Endpoint
     const selectedMerchant = await axios.get(
-      `https://support-local.herokuapp.com/api/merchants/${route.params.merchantId}`
+      `https://support-local-backend.onrender.com/api/merchants/${route.params.merchantId}`
     );
     this.merchant = selectedMerchant.data;
 
@@ -464,7 +464,7 @@ export default {
     for (const prodId of merchantProducts) {
       // Retrieve product based on productId
       let selectedProduct = await axios.get(
-        `https://support-local.herokuapp.com/api/products/${prodId}`
+        `https://support-local-backend.onrender.com/api/products/${prodId}`
       );
       avgRating += selectedProduct.data.rating;
       totalProfit +=
@@ -492,7 +492,7 @@ export default {
       let productSpecArr = this.newProdSpec.split(",");
       // POST
       axios
-        .post("https://support-local.herokuapp.com/api/products", {
+        .post("https://support-local-backend.onrender.com/api/products", {
           name: this.newProdName,
           price: this.newProdPrice,
           category: this.newProdCategory,
@@ -523,7 +523,7 @@ export default {
           this.merchant.products = merchantProdArr;
           // PATCH Merchant Product Arr (override)
           axios.patch(
-            `https://support-local.herokuapp.com/api/merchants/${this.merchant.id}`,
+            `https://support-local-backend.onrender.com/api/merchants/${this.merchant.id}`,
             {
               products: merchantProdArr,
             }
@@ -541,7 +541,7 @@ export default {
 
       // DELETE
       axios
-        .delete(`https://support-local.herokuapp.com/api/products/${prodId}`)
+        .delete(`https://support-local-backend.onrender.com/api/products/${prodId}`)
         .then((res) => {
           // GET Merchant Product Arr
           var merchantProdArr = this.merchant.products;
@@ -556,7 +556,7 @@ export default {
           this.merchant.products = merchantProdArr;
           // PATCH Merchant Product Arr (override)
           axios.patch(
-            `https://support-local.herokuapp.com/api/merchants/${this.merchant.id}`,
+            `https://support-local-backend.onrender.com/api/merchants/${this.merchant.id}`,
             {
               products: this.merchant.products,
             }
@@ -581,7 +581,7 @@ export default {
       // PATCH
       axios
         .patch(
-          `https://support-local.herokuapp.com/api/products/${this.newProdId}`,
+          `https://support-local-backend.onrender.com/api/products/${this.newProdId}`,
           {
             name: this.newProdName,
             price: this.newProdPrice,
