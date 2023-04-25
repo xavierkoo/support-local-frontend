@@ -100,7 +100,7 @@ export default {
       let deliveryStatus = "Item Received!";
       axios
         .patch(
-          `https://support-local.herokuapp.com/api/orders/${this.orderId}`,
+          `https://support-local-backend.onrender.com/api/orders/${this.orderId}`,
           {
             orderStatus: deliveryStatus,
           }
