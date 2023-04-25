@@ -137,7 +137,7 @@ export default {
     submitForm() {
       // method gets user's input values and add it into the db
       // trying to add data into userBase db
-      let url = "https://support-local.herokuapp.com/api/users";
+      let url = "https://support-local-backend.onrender.com/api/users";
       var inputPassword = this.state.password.password;
       var inputEmail = this.state.email;
       var accType = this.state.accType;
