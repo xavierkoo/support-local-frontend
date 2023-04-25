@@ -89,12 +89,12 @@ export default {
   async beforeMount() {
     //get review from user database using user ID for patch
     this.urlUser =
-      "https://support-local.herokuapp.com/api/users/" + this.userId;
+      "https://support-local-backend.onrender.com/api/users/" + this.userId;
     const USelectedReview = await axios.get(this.urlUser);
     this.userSelectedreviewArr = USelectedReview.data.reviews;
     //get review from products database using product ID for patch
     this.urlProduct =
-      "https://support-local.herokuapp.com/api/products/" + this.productId;
+      "https://support-local-backend.onrender.com/api/products/" + this.productId;
     const PSelectedReview = await axios.get(this.urlProduct);
     this.productSelectedreviewArr = PSelectedReview.data.reviews;
   },
@@ -105,7 +105,7 @@ export default {
         alert("Invalid review. Review must be atleast 20 characters long.");
       } else {
         axios
-          .post("https://support-local.herokuapp.com/api/reviews", {
+          .post("https://support-local-backend.onrender.com/api/reviews", {
             user: this.userId,
             product: this.productId,
             rating: this.rating,
@@ -117,13 +117,13 @@ export default {
             this.userSelectedreviewArr.push(res.data.id); //push new review id into user review array to prepare for patch (replace)
             this.productSelectedreviewArr.push(res.data.id); //push new review id into product review array to prepare for patch (replace)
             axios.patch(
-              `https://support-local.herokuapp.com/api/users/${this.userId}`,
+              `https://support-local-backend.onrender.com/api/users/${this.userId}`,
               {
                 reviews: this.userSelectedreviewArr,
               }
             );
             axios.patch(
-              `https://support-local.herokuapp.com/api/products/${this.productId}`,
+              `https://support-local-backend.onrender.com/api/products/${this.productId}`,
               {
                 reviews: this.productSelectedreviewArr,
               }
