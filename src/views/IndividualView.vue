@@ -411,12 +411,12 @@ export default {
     // component data will change but page will not reload
     this.productId = to.params.productId;
     const selectedProduct = await axios.get(
-      `https://support-local.herokuapp.com/api/products/${this.productId}`
+      `https://support-local-backend.onrender.com/api/products/${this.productId}`
     );
     this.product = selectedProduct.data;
     this.selectedProd = selectedProduct.data; // get the prod data property
     this.merchantId = this.product.merchant;
-    const url = `https://support-local.herokuapp.com/api/merchants/${this.merchantId}`;
+    const url = `https://support-local-backend.onrender.com/api/merchants/${this.merchantId}`;
     const merchant = await axios.get(url);
     this.merchant = merchant.data;
 
@@ -426,12 +426,12 @@ export default {
     let reviewArr = [];
     for (const [idx, reviewId] of Object.entries(reviewIdArr)) {
       let aReview = await axios.get(
-        `https://support-local.herokuapp.com/api/reviews/${reviewId}`
+        `https://support-local-backend.onrender.com/api/reviews/${reviewId}`
       );
       // Extract UserID from aReview & User UserID to find user Obj
       let userID = aReview.data.user;
       let aUser = await axios.get(
-        `https://support-local.herokuapp.com/api/users/${userID}`
+        `https://support-local-backend.onrender.com/api/users/${userID}`
       );
 
       // Find the Username & Find the ProfilePic URL
@@ -494,11 +494,11 @@ export default {
 
     // Retrieve products and review from API Endpoint
     const products = await axios.get(
-      "https://support-local.herokuapp.com/api/products"
+      "https://support-local-backend.onrender.com/api/products"
     );
 
     const selectedProduct = await axios.get(
-      `https://support-local.herokuapp.com/api/products/${route.params.productId}`
+      `https://support-local-backend.onrender.com/api/products/${route.params.productId}`
     );
 
     // selectedProduct will act as a db to get the data
@@ -508,7 +508,7 @@ export default {
     this.product = selectedProduct.data;
     this.productList = products.data.slice(0, 12);
     this.merchantId = this.product.merchant;
-    const url = `https://support-local.herokuapp.com/api/merchants/${this.merchantId}`;
+    const url = `https://support-local-backend.onrender.com/api/merchants/${this.merchantId}`;
     const merchant = await axios.get(url);
     this.merchant = merchant.data;
     this.merchantEmail = merchant.data.email;
@@ -523,12 +523,12 @@ export default {
     let reviewArr = [];
     for (const [idx, reviewId] of Object.entries(reviewIdArr)) {
       let aReview = await axios.get(
-        `https://support-local.herokuapp.com/api/reviews/${reviewId}`
+        `https://support-local-backend.onrender.com/api/reviews/${reviewId}`
       );
       // Extract UserID from aReview & User UserID to find user Obj
       let userID = aReview.data.user;
       let aUser = await axios.get(
-        `https://support-local.herokuapp.com/api/users/${userID}`
+        `https://support-local-backend.onrender.com/api/users/${userID}`
       );
 
       // Find the Username & Find the ProfilePic URL
