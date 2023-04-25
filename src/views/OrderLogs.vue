@@ -72,7 +72,7 @@ export default {
     let userId = window.localStorage.getItem("userId");
     // 1. AXIOS Get specific userID
     let user = await axios.get(
-      `https://support-local.herokuapp.com/api/users/${userId}`
+      `https://support-local-backend.onrender.com/api/users/${userId}`
     );
 
     let userOrderIdArr = user.data.orderDetails;
@@ -84,7 +84,7 @@ export default {
       // 2. LOOP & AXIOS Get specific orderIDs found in the user obj
       for (const orderId of userOrderIdArr) {
         const anOrder = await axios.get(
-          `https://support-local.herokuapp.com/api/orders/${orderId}`
+          `https://support-local-backend.onrender.com/api/orders/${orderId}`
         );
         selectedUserOrders.push(anOrder.data);
       }
