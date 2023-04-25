@@ -145,7 +145,7 @@ export default {
       // Make api call to db to get
       this.v$.$validate();
       if (this.state.accType == "Merchant") {
-        let url = `https://support-local.herokuapp.com/api/merchants`;
+        let url = `https://support-local-backend.onrender.com/api/merchants`;
         axios
           .get(url)
           .then((resp) => {
@@ -211,7 +211,7 @@ export default {
       }
 
       if (this.state.accType == "Patron") {
-        let url = `https://support-local.herokuapp.com/api/users`;
+        let url = `https://support-local-backend.onrender.com/api/users`;
         axios
           .get(url)
           .then((resp) => {
