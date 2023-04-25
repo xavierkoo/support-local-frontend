@@ -171,7 +171,7 @@ export default {
 
     // Retrieve merchant from API Endpoint
     const selectedMerchant = await axios.get(
-      `https://support-local.herokuapp.com/api/merchants/${route.params.merchantId}`
+      `https://support-local-backend.onrender.com/api/merchants/${route.params.merchantId}`
     );
     this.merchant = selectedMerchant.data;
 
@@ -183,7 +183,7 @@ export default {
     for (const prodId of merchantProducts) {
       // Retrieve product based on productId
       let selectedProduct = await axios.get(
-        `https://support-local.herokuapp.com/api/products/${prodId}`
+        `https://support-local-backend.onrender.com/api/products/${prodId}`
       );
       avgRating += selectedProduct.data.rating;
 
