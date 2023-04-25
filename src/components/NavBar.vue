@@ -172,7 +172,7 @@ export default {
   async beforeMount() {
     // A function that will be called before the component is mounted.
     const res = await axios.get(
-      "https://support-local.herokuapp.com/api/products"
+      "https://support-local-backend.onrender.com/api/products"
     );
     let startUpArr = [];
     for (const key in res.data) {
