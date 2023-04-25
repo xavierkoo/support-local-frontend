@@ -345,7 +345,7 @@ export default {
         }
         // Post details to the orders based on the requirements
         axios
-          .post("https://support-local.herokuapp.com/api/orders", {
+          .post("https://support-local-backend.onrender.com/api/orders", {
             // Add Key: Values
             user: currentUserID,
             orderDate: todayDate,
@@ -356,7 +356,7 @@ export default {
           .then(async (res) => {
             // RESPONSE returns the newly injected order object
             const user = await axios.get(
-              `https://support-local.herokuapp.com/api/users/${currentUserID}`
+              `https://support-local-backend.onrender.com/api/users/${currentUserID}`
             );
             // GET User's orderDetails Arr
             let orderDetailArr = user.data.orderDetails;
@@ -364,7 +364,7 @@ export default {
             orderDetailArr.push(res.data.id);
             // PATCH User's orderDetails Arr (override)
             axios.patch(
-              `https://support-local.herokuapp.com/api/users/${currentUserID}`,
+              `https://support-local-backend.onrender.com/api/users/${currentUserID}`,
               {
                 orderDetails: orderDetailArr,
               }
