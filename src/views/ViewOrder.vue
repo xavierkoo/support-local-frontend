@@ -125,7 +125,7 @@ export default {
     this.orderObj = JSON.parse(route.params.order);
     let merchantId = this.productObj.merchant;
     let merchant = await axios.get(
-      `https://support-local.herokuapp.com/api/merchants/${merchantId}`
+      `https://support-local-backend.onrender.com/api/merchants/${merchantId}`
     );
 
     this.merchantObj = merchant.data;
